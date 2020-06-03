@@ -1,6 +1,6 @@
 import sut from '../../src/lib/localstorage';
 
-describe('localstorage', () => {
+describe('localstorage convenience methods', () => {
 
     beforeEach(() => {
         jest.spyOn(window.localStorage.__proto__, 'setItem');

@@ -1,6 +1,6 @@
 import { createBrowserHistory } from 'history';
 import { clearAlerts } from '../redux/actions/alerts';
-import store from 'store/store';
+import store from '../redux/store/configureStore';
 
 const { dispatch } = store;
 
