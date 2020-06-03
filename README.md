@@ -1,3 +1,5 @@
+# Lern. - Web client
+
 ![Tests](https://github.com/Lern-PFR/lern-web/workflows/Tests/badge.svg)
 
 This repository contains source code for the Lern client application.
