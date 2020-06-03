@@ -1,6 +1,4 @@
-export const updateUsersAction = ({ users }) => {
-    return {
-        type: 'USERS_UPDATE_ALL',
-        payload: { users },    
-    };
-};
+export const updateUsersAction = ({ users }) => ({
+    type: 'USERS_UPDATE_ALL',
+    payload: { users },    
+});
