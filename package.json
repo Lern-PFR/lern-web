@@ -35,7 +35,6 @@
     ]
   },
   "devDependencies": {
-    "babel-jest": "^26.0.1",
     "jest": "^26.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.4"
