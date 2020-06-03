@@ -21,5 +21,7 @@ export default (state = initialState, { type, payload }) => {
                 ...initialState,
             };
         }
+        default:
+            return state;
     }
 }

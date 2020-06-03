@@ -1,6 +1,6 @@
 export const loginAction = ({ user }) => ({
     type: 'AUTH_LOGIN',
-    payload: { user}
+    payload: { user }
 });
 
 export const logoutAction = () => ({

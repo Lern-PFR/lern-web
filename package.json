@@ -40,9 +40,12 @@
     "redux-mock-store": "^1.5.4"
   },
   "jest": {
-    "testRegex": "tests/.*.(js|jsx)$",
     "modulePaths": [
       "<rootDir>"
-    ]
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "testRegex": "tests/.*.(js|jsx)$"
   }
 }

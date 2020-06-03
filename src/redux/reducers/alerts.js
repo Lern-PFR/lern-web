@@ -10,7 +10,7 @@ export default (state = {}, { type, payload}) => {
                 type: 'alert-danger',
                 message: payload.message
             };
-        case 'ALERT_SUCCESS':
+        case 'ALERT_CLEAR':
             return {};
         default: 
             return state;

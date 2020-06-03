@@ -2,7 +2,7 @@ import * as alertsActions from '../../../src/redux/actions/alerts';
 
 describe('alerts actions', () => {
     it('should create a success action', () => {
-
+        // Arrange
         const message = "Task fulfilled successfuly";
 
         const expectedAction = {
@@ -12,11 +12,15 @@ describe('alerts actions', () => {
             }
         };
 
-        expect(alertsActions.successAlert({ message })).toEqual(expectedAction);
+        // Act
+        let result = alertsActions.successAlert({ message });
+
+        // Assert
+        expect(result).toEqual(expectedAction);
     });
 
     it('should create an error action', () => {
-
+        // Arrange
         const message = "Something went wrong";
 
         const expectedAction = {
@@ -26,15 +30,23 @@ describe('alerts actions', () => {
             }
         };
 
-        expect(alertsActions.errorAlert({ message })).toEqual(expectedAction);
+        // Act
+        let result = alertsActions.errorAlert({ message });
+
+        // Assert
+        expect(result).toEqual(expectedAction);
     });
 
     it('should create a clearing action', () => {
-
+        // Arrange
         const expectedAction = {
             type: 'ALERT_CLEAR'
         };
 
-        expect(alertsActions.clearAlert()).toEqual(expectedAction);
+        // Act
+        let result = alertsActions.clearAlert();
+
+        // Assert
+        expect(result).toEqual(expectedAction);
     });
 });
