@@ -21,7 +21,7 @@ import DynamicTextComponent from './DynamicTextComponent';
  *
  * @param {*} children : The text to be displayed.
  */
- const Canon = ({ children, ...props }) => (
+const Canon = ({ children, ...props }) => (
 	<DynamicTextComponent {...canon} {...props}>
 		{children}
 	</DynamicTextComponent>

@@ -37,6 +37,8 @@ module.exports = {
         "react/no-did-update-set-state": "off",
         "react/require-default-props": 0,
 		"react/jsx-uses-react": "off", // can be toggled off since react 17 when using eslint-plugin-react
-	    "react/react-in-jsx-scope": "off" // can be toggled off since react 17 when using eslint-plugin-react
+	    "react/react-in-jsx-scope": "off", // can be toggled off since react 17 when using eslint-plugin-react
+		"react/jsx-props-no-spreading": "off",
+		"import/no-unresolved": "off", // this rule doesn't take into account the jsconfig.json configuration file.
     },
 }
