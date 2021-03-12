@@ -12,12 +12,12 @@ import {
 	Minion,
 } from 'components/shared/typography';
 
-describe ('Exported typography elements', () => {
+describe('Exported typography elements', () => {
 	describe('Canon', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<Canon>Hello, world!</Canon>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -26,7 +26,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<Trafalgar>Hello, world!</Trafalgar>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -35,7 +35,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<Paragon>Hello, world!</Paragon>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -44,7 +44,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<GreatPrimer>Hello, world!</GreatPrimer>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -53,7 +53,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<DoublePica>Hello, world!</DoublePica>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -62,7 +62,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<BodyCopy>Hello, world!</BodyCopy>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -71,7 +71,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<Pica>Hello, world!</Pica>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -80,7 +80,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<LongPrimer>Hello, world!</LongPrimer>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -89,7 +89,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<Brevier>Hello, world!</Brevier>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -98,7 +98,7 @@ describe ('Exported typography elements', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<Minion>Hello, world!</Minion>);
 			const wrapper = shallow(sut);
-			
+
 			expect(wrapper).toMatchSnapshot();
 		});
 	});

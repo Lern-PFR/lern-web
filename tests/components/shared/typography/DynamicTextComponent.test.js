@@ -1,11 +1,11 @@
 import { mount, shallow } from 'enzyme';
 import DynamicTextComponent from 'components/shared/typography/DynamicTextComponent';
 
-describe ('DynamicTextComponent', () => {
+describe('DynamicTextComponent', () => {
 	it('should match previous snapshot', () => {
 		const sut = (<DynamicTextComponent>Hello, world!</DynamicTextComponent>);
 		const wrapper = shallow(sut);
-		
+
 		expect(wrapper).toMatchSnapshot();
 	});
 
