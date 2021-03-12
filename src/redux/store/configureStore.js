@@ -1,24 +1,23 @@
-import { applyMiddleware, createStore } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { applyMiddleware, createStore, compose } from 'redux';
+import thunk from 'redux-thunk';
 
-import monitorReducersEnhancer from '../enhancers/monitorReducers';
-import loggerMiddleware from '../middlewares/logger';
 import rootReducer from '../reducers';
 
-export default function configureStore(preloadedState) {
-	const middlewares = [loggerMiddleware, thunkMiddleware];
-	const middlewareEnhancer = applyMiddleware(...middlewares);
+/**
+ * @function
+ * @description Configures Redux store depending on the environment and applies middlewares and enhancers.
+ *
+ * @param {object} initialState : The initial state value to populate the store with.
+ */
+export default (initialState) => {
+	const composeEnhancers = process.env.NODE_ENV !== 'production'
+    && typeof window === 'object'
+    && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+		? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+		: compose;
 
-	const enhancers = [middlewareEnhancer, monitorReducersEnhancer];
-	const composedEnhancers = composeWithDevTools(...enhancers);
-
-	const store = createStore(rootReducer, preloadedState, composedEnhancers);
-
-	if (process.env.NODE_ENV !== 'production' && module.hot) {
-		module.hot.accept('../reducers', () => store.replaceReducer(rootReducer));
-	}
+	const enhancer = composeEnhancers(applyMiddleware(thunk));
+	const store = createStore(rootReducer, initialState, enhancer);
 
 	return store;
-}
+};
