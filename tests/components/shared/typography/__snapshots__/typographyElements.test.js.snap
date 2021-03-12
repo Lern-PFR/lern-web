@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exported typography elements BodyCopy should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="1rem"
+  fontWeight={400}
+  letterSpacing={0}
+  lineHeight="1.5em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements Brevier should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements Canon should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="3rem"
+  fontWeight={300}
+  letterSpacing={0}
+  lineHeight="4em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements DoublePica should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="1.444rem"
+  fontWeight={400}
+  letterSpacing={0}
+  lineHeight="2em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements GreatPrimer should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="1.222rem"
+  fontWeight={400}
+  letterSpacing={0}
+  lineHeight="1.635em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements LongPrimer should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".889rem"
+  fontWeight={400}
+  letterSpacing={0}
+  lineHeight="1.375em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements Minion should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  tag="p"
+  textTransform="uppercase"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements Paragon should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="1.778rem"
+  fontWeight={400}
+  letterSpacing={0}
+  lineHeight="2.25em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements Pica should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="1rem"
+  fontWeight={400}
+  letterSpacing={0.16}
+  lineHeight="1.5em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
+
+exports[`Exported typography elements Trafalgar should match previous snapshot 1`] = `
+<DynamicTextComponent
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="2rem"
+  fontWeight={300}
+  letterSpacing={0}
+  lineHeight="2.5em"
+  tag="p"
+>
+  Hello, world!
+</DynamicTextComponent>
+`;
