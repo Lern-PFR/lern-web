@@ -55,6 +55,7 @@
     "testRegex": "tests/.*.(js|jsx)$",
     "modulePaths": [
       "<rootDir>"
-    ]
+    ],
+	"setupFilesAfterEnv": ["./setupTests.js"]
   }
 }
