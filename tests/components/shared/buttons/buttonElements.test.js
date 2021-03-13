@@ -1,4 +1,6 @@
 import { shallow } from 'enzyme';
+import { Home } from 'react-feather';
+
 import {
 	PrimaryButton,
 	StandardButton,
@@ -57,7 +59,7 @@ describe('Exported buttons elements', () => {
 
 	describe('IconButton', () => {
 		it('should match previous snapshot', () => {
-			const sut = (<IconButton>icon</IconButton>);
+			const sut = (<IconButton><Home /></IconButton>);
 			const wrapper = shallow(sut);
 
 			expect(wrapper).toMatchSnapshot();
@@ -66,7 +68,7 @@ describe('Exported buttons elements', () => {
 
 	describe('FloatingActionButton', () => {
 		it('should match previous snapshot', () => {
-			const sut = (<FloatingActionButton>Fab</FloatingActionButton>);
+			const sut = (<FloatingActionButton><Home /></FloatingActionButton>);
 			const wrapper = shallow(sut);
 
 			expect(wrapper).toMatchSnapshot();

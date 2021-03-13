@@ -9,6 +9,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
     "react-redux": "^7.2.1",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
@@ -56,6 +57,8 @@
     "modulePaths": [
       "<rootDir>"
     ],
-	"setupFilesAfterEnv": ["./setupTests.js"]
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ]
   }
 }

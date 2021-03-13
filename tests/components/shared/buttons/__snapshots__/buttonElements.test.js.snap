@@ -66,6 +66,7 @@ exports[`Exported buttons elements DropdownButton should match previous snapshot
 
 exports[`Exported buttons elements FloatingActionButton should match previous snapshot 1`] = `
 <DynamicButtonComponent
+  alignItems="center"
   bg={
     Object {
       "darker1": "#1D1611",
@@ -87,12 +88,16 @@ exports[`Exported buttons elements FloatingActionButton should match previous sn
     }
   }
   disabled={false}
+  display="flex"
+  height="40px"
   isIconOnly={false}
+  justifyContent="center"
   onClick={[Function]}
   position="absolute"
   textDecoration="none"
+  width="40px"
 >
-  Fab
+  <Home />
 </DynamicButtonComponent>
 `;
 
@@ -113,7 +118,7 @@ exports[`Exported buttons elements IconButton should match previous snapshot 1`]
   isIconOnly={true}
   onClick={[Function]}
 >
-  icon
+  <Home />
 </DynamicButtonComponent>
 `;
 

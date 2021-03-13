@@ -4,6 +4,7 @@ import {
 	border,
 	color,
 	display,
+	flexbox,
 	layout,
 	margin,
 	padding,
@@ -11,7 +12,7 @@ import {
 } from 'styled-system';
 import PropTypes from 'prop-types';
 import { disabled as disabledStyle } from 'theme/buttonStyles';
-import { Brevier } from 'components/shared/Typography';
+import { Brevier } from 'components/shared/typography';
 
 const StyledDynamicButtonComponent = styled('button')(
 	{
@@ -25,6 +26,7 @@ const StyledDynamicButtonComponent = styled('button')(
 	border,
 	color,
 	display,
+	flexbox,
 	layout,
 	margin,
 	padding,

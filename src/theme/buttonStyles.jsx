@@ -61,7 +61,12 @@ const iconButton = {
 };
 
 const floatingActionButton = {
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
 	borderRadius: '50%',
+	width: '40px',
+	height: '40px',
 	position: 'absolute',
 	bg: primaryColor,
 	color: coconut,
