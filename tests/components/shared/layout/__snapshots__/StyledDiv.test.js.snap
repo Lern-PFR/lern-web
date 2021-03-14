@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledDiv should match previous snapshot 1`] = `
+<div
+  className="sc-bdfBwQ Bsmun"
+>
+  <p>
+    Hello, world!
+  </p>
+</div>
+`;
