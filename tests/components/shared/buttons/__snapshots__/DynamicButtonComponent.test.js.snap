@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DynamicButtonComponent should match previous snapshot 1`] = `
+<styled.button
+  onClick={[Function]}
+>
+  <Brevier
+    fontWeight={600}
+    lineHeight="initial"
+    tag="span"
+  >
+    Test button
+  </Brevier>
+</styled.button>
+`;
+
+exports[`DynamicButtonComponent should match previous snapshot for disabled state 1`] = `
+<styled.button
+  onClick={[Function]}
+>
+  <Brevier
+    fontWeight={600}
+    lineHeight="initial"
+    tag="span"
+  >
+    Test button
+  </Brevier>
+</styled.button>
+`;
