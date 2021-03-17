@@ -1,15 +1,40 @@
+import { ActionTypes } from 'redux/actions/users';
+
 const initialState = {
-	init: false,
+	currentUser: null,
+	isLoading: false,
 	items: [],
+	totalCount: 0,
 };
 
 export default (state = initialState, { type, payload }) => {
 	switch (type) {
-		case 'USERS_UPDATE_ALL':
+		case ActionTypes.LOGIN_REQUEST:
+		case ActionTypes.LOGOUT_REQUEST:
 			return {
 				...state,
-				init: true,
-				items: [...new Set([...state.items, ...payload.users])],
+				isLoading: true,
+			};
+		case ActionTypes.LOGIN_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+			};
+		case ActionTypes.LOGIN_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				currentUser: payload.user,
+				items: [payload.user],
+				totalCount: 1,
+			};
+		case ActionTypes.LOGOUT_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				currentUser: null,
+				items: [],
+				totalCount: 0,
 			};
 		default:
 			return state;
