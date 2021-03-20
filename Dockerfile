@@ -6,4 +6,4 @@ WORKDIR /app
 RUN npm install -g --force yarn
 
 EXPOSE 3000
-CMD ["/bin/sh", "-c", "yarn install && yarn run watch"]
+CMD ["/bin/sh", "-c", "yarn install && yarn start"]

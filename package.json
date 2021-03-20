@@ -19,7 +19,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-	"watch": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
     "eslint": "eslint --cache --color --ext js,jsx src/ tests/",
