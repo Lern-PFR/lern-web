@@ -10,12 +10,14 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
 	switch (type) {
 		case ActionTypes.LOGIN_REQUEST:
+		case ActionTypes.FETCH_USER_REQUEST:
 		case ActionTypes.LOGOUT_REQUEST:
 			return {
 				...state,
 				isLoading: true,
 			};
 		case ActionTypes.LOGIN_FAILURE:
+		case ActionTypes.FETCH_USER_FAILURE:
 			return {
 				...state,
 				isLoading: false,
@@ -25,6 +27,13 @@ export default (state = initialState, { type, payload }) => {
 				...state,
 				isLoading: false,
 				currentUser: payload.user,
+				items: [payload.user],
+				totalCount: 1,
+			};
+		case ActionTypes.FETCH_USER_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
 				items: [payload.user],
 				totalCount: 1,
 			};

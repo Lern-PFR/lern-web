@@ -12,12 +12,13 @@ describe('Users reducer', () => {
 	describe('initial state', () => {
 		it('should return initial user state', () => {
 			const action = { type: 'dummy_action' };
-			expect(usersReducer(undefined, action)).toEqual(initialState);
+
+			return expect(usersReducer(undefined, action)).toEqual(initialState);
 		});
 	});
 
 	describe('user login actions', () => {
-		it('should update state\'s isLoading field to true when receiving LOGIN_REQUEST', () => {
+		it('should update the state\'s isLoading field to true when receiving LOGIN_REQUEST', () => {
 			// Arrange
 			const action = { type: ActionTypes.LOGIN_REQUEST };
 
@@ -33,7 +34,7 @@ describe('Users reducer', () => {
 			return expect(result).toEqual(expectedState);
 		});
 
-		it('should update state\'s isLoading field to false when receiving LOGIN_FAILURE', () => {
+		it('should update the state\'s isLoading field to false when receiving LOGIN_FAILURE', () => {
 			// Arrange
 			const action = { type: ActionTypes.LOGIN_FAILURE };
 
@@ -54,7 +55,7 @@ describe('Users reducer', () => {
 			return expect(result).toEqual(expectedState);
 		});
 
-		it('should update state with new user data when receiving LOGIN_SUCCESS', () => {
+		it('should update the state with new user data when receiving LOGIN_SUCCESS', () => {
 			// Arrange
 			const user = { id: 'abcd', username: 'abcd' };
 
@@ -86,8 +87,80 @@ describe('Users reducer', () => {
 		});
 	});
 
+	describe('single user fetching actions', () => {
+		it('should update the state\'s isLoading field to true when receiving FETCH_USER_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.FETCH_USER_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = usersReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s items field to a single entry array when receiving FETCH_USER_SUCCESS', () => {
+			// Arrange
+			const fetchedUser = { id: 'ijkl', username: 'SimpleJack' };
+
+			const action = {
+				type: ActionTypes.FETCH_USER_SUCCESS,
+				payload: { user: fetchedUser },
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+				items: [
+					{ id: 'abcd', username: 'johnDoe' },
+					{ id: 'efgh', username: 'janeDoe' },
+				],
+				totalCount: 2,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+				items: [fetchedUser],
+				totalCount: 1,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving FETCH_USER_FAILURE', () => {
+			// Arrange
+			const action = { type: ActionTypes.FETCH_USER_FAILURE };
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+	});
+
 	describe('user logout actions', () => {
-		it('should update state\'s isLoading field to true when receiving LOGOUT_REQUEST', () => {
+		it('should update the state\'s isLoading field to true when receiving LOGOUT_REQUEST', () => {
 			// Arrange
 			const action = { type: ActionTypes.LOGOUT_REQUEST };
 

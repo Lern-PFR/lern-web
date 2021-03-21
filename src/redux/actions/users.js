@@ -1,4 +1,5 @@
 import * as AuthenticationAPI from 'api/authenticationApi';
+import * as UsersApi from 'api/usersApi';
 import session from 'lib/shared/session';
 
 /**
@@ -13,6 +14,10 @@ export const ActionTypes = {
 	LOGIN_REQUEST: '@USERS/LOGIN_REQUEST',
 	LOGIN_SUCCESS: '@USERS/LOGIN_SUCCESS',
 	LOGIN_FAILURE: '@USERS/LOGIN_FAILURE',
+
+	FETCH_USER_REQUEST: '@USERS/FETCH_REQUEST',
+	FETCH_USER_SUCCESS: '@USERS/FETCH_SUCCESS',
+	FETCH_USER_FAILURE: '@USERS/FETCH_FAILURE',
 
 	LOGOUT_REQUEST: '@USERS/LOGOUT_REQUEST',
 	LOGOUT_SUCCESS: '@USERS/LOGOUT_SUCCESS',
@@ -67,6 +72,53 @@ const loginFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// ///////////// Specific user fetching actions /////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name fetchUserRequest
+ * @description Action triggered anytime a user fetching call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const fetchUserRequest = () => ({ type: ActionTypes.FETCH_USER_REQUEST });
+
+/**
+  * @function
+  * @name fetchUserSuccess
+  * @description Action triggered as a result to a successful user fetching API call.
+  *
+  * @author Timothée Simon-Franza
+  *
+  * @param {object} user : The retrieved user object.
+  *
+  * @returns {object}
+  */
+const fetchUserSuccess = ({ user }) => ({
+	type: ActionTypes.FETCH_USER_SUCCESS,
+	payload: { user },
+});
+
+/**
+  * @function
+  * @name fetchUserFailure
+  * @description Action triggered as a result to a failed user fetching API call.
+  *
+  * @author Timothée Simon-Franza
+  *
+  * @param {object} error : The exception sent back from the API.
+  *
+  * @returns {object}
+  */
+const fetchUserFailure = (error) => ({
+	type: ActionTypes.FETCH_USER_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // /////////////////// User logout actions ///////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -116,6 +168,23 @@ export const login = ({ username, password }) => (dispatch) => {
 			dispatch(loginSuccess({ token, user }));
 		})
 		.catch((error) => dispatch(loginFailure(error)));
+};
+
+/**
+ * @function
+ * @name fetchUser
+ * @description Method used to fetch the latest version of a specific user.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} userId : The id of the user we want to retrieve.
+ */
+export const fetchUser = (userId) => (dispatch) => {
+	dispatch(fetchUserRequest());
+
+	return UsersApi.fetchUserById(userId)
+		.then(({ user }) => dispatch(fetchUserSuccess({ user })))
+		.catch((error) => dispatch(fetchUserFailure(error)));
 };
 
 /**

@@ -105,6 +105,68 @@ describe('User-related redux actions', () => {
 		});
 	});
 
+	describe('Specific user fetching', () => {
+		it('should create a FETCH_USER_REQUEST action when user fetching logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.FETCH_USER_REQUEST },
+			];
+
+			// Act
+			store.dispatch(usersActions.fetchUser('abcd'));
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a FETCH_USER_SUCCESS action when user fetching logic is succesful', () => {
+			// Arrange
+			const user = {
+				id: 'abcd',
+				username: 'JohnDoe',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { user },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/users/${user.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.FETCH_USER_REQUEST },
+				{ type: usersActions.ActionTypes.FETCH_USER_SUCCESS, payload: { user } },
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.fetchUser(user.id))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a FETCH_USER_REQUEST action when user fetching logic has failed', () => {
+			const httpResponse = { status: 500 };
+
+			fetchMock.get(`${baseUrl}/api/users/abcd`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.FETCH_USER_REQUEST },
+				{
+					type: usersActions.ActionTypes.FETCH_USER_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.fetchUser('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+	});
+
 	describe('User logout', () => {
 		it('should create a LOGOUT_REQUEST and LOGOUT_SUCCESS action upon logout process initialization', () => {
 			// Arrange
