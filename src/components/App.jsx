@@ -1,5 +1,5 @@
 import { Home } from 'react-feather';
-import { MainLayout } from 'components/shared/layout';
+import { MainLayout, StyledDiv } from 'components/shared/layout';
 import {
 	Canon,
 	Trafalgar,
@@ -21,10 +21,11 @@ import {
 	IconButton,
 	FloatingActionButton,
 } from 'components/shared/buttons';
+import { elevation } from 'theme/elevations';
 
 const App = () => (
 	<MainLayout>
-		<section>
+		<StyledDiv position="relative">
 			<Canon>Canon text element.</Canon>
 			<Trafalgar>Trafalgar text element.</Trafalgar>
 			<Paragon>Paragon text element.</Paragon>
@@ -35,8 +36,8 @@ const App = () => (
 			<LongPrimer>LongPrimer text element.</LongPrimer>
 			<Brevier>Brevier text element.</Brevier>
 			<Minion>Minion text element.</Minion>
-		</section>
-		<section>
+		</StyledDiv>
+		<StyledDiv position="relative">
 			<PrimaryButton>Primary button</PrimaryButton>
 			<StandardButton>Standard button</StandardButton>
 			<SubtleButton>Subtle button</SubtleButton>
@@ -44,7 +45,11 @@ const App = () => (
 			<DangerButton>Danger button</DangerButton>
 			<IconButton><Home /></IconButton>
 			<FloatingActionButton isIconOnly><Home /></FloatingActionButton>
-		</section>
+		</StyledDiv>
+		<StyledDiv {...elevation.flat} width="100px" height="100px">Flat div</StyledDiv>
+		<StyledDiv {...elevation.short} width="100px" height="100px">Short elevation div</StyledDiv>
+		<StyledDiv {...elevation.medium} width="100px" height="100px">Medium elevation div</StyledDiv>
+		<StyledDiv {...elevation.tall} width="100px" height="100px">Tall elevation div</StyledDiv>
 	</MainLayout>
 );
 
