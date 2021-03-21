@@ -23,6 +23,10 @@ export const ActionTypes = {
 	FETCH_USER_LIST_SUCCESS: '@USERS/FETCH_LIST_SUCCESS',
 	FETCH_USER_LIST_FAILURE: '@USERS/FETCH_LIST_FAILURE',
 
+	UPDATE_USER_REQUEST: '@USERS/UPDATE_REQUEST',
+	UPDATE_USER_SUCCESS: '@USERS/UPDATE_SUCCESS',
+	UPDATE_USER_FAILURE: '@USERS/UPDATE_FAILURE',
+
 	LOGOUT_REQUEST: '@USERS/LOGOUT_REQUEST',
 	LOGOUT_SUCCESS: '@USERS/LOGOUT_SUCCESS',
 };
@@ -171,6 +175,53 @@ const fetchUserListFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// /////////////////// User update actions //////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name updateUserRequest
+ * @description Action triggered anytime a user update call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const updateUserRequest = () => ({ type: ActionTypes.UPDATE_USER_REQUEST });
+
+/**
+ * @function
+ * @name updateUserSuccess
+ * @description Action triggered as a result to a successful user update API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} user : The updated user object.
+ *
+ * @returns {object}
+ */
+const updateUserSuccess = ({ user }) => ({
+	type: ActionTypes.UPDATE_USER_SUCCESS,
+	payload: { user },
+});
+
+/**
+ * @function
+ * @name updateUserFailure
+ * @description Action triggered as a result to a failed user update API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const updateUserFailure = (error) => ({
+	type: ActionTypes.UPDATE_USER_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // /////////////////// User logout actions ///////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -252,6 +303,24 @@ export const fetchUserList = () => (dispatch) => {
 	return UsersApi.fetchUsers()
 		.then(({ users, totalCount }) => dispatch(fetchUserListSuccess({ users, totalCount })))
 		.catch((error) => dispatch(fetchUserListFailure(error)));
+};
+
+/**
+ * @function
+ * @name updateUser
+ * @description Method used to update an existing user instance from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} userData	: The data to update the user with.
+ * @param {string} userId	: The id of the user we want to update.
+ */
+export const updateUser = (userData, userId) => (dispatch) => {
+	dispatch(updateUserRequest());
+
+	return UsersApi.updateUser(userData, userId)
+		.then(({ user }) => dispatch(updateUserSuccess({ user })))
+		.catch((error) => dispatch(updateUserFailure(error)));
 };
 
 /**

@@ -1,4 +1,4 @@
-import { get } from 'lib/shared/http';
+import { get, put } from 'lib/shared/http';
 
 /**
  * @function
@@ -23,3 +23,17 @@ export const fetchUserById = (userId) => get(`/api/users/${userId}`);
  * @returns {Promise}
  */
 export const fetchUsers = () => get('/api/users');
+
+/**
+ * @function
+ * @name updateUser
+ * @description Updates an existing user from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} userData	: The data to update the user with.
+ * @param {string} userId	: The id to identify the user with.
+ *
+ * @returns {Promise}
+ */
+export const updateUser = (userData, userId) => put(`/api/users/${userId}`, userData);

@@ -12,6 +12,7 @@ export default (state = initialState, { type, payload }) => {
 		case ActionTypes.LOGIN_REQUEST:
 		case ActionTypes.FETCH_USER_REQUEST:
 		case ActionTypes.FETCH_USER_LIST_REQUEST:
+		case ActionTypes.UPDATE_USER_REQUEST:
 		case ActionTypes.LOGOUT_REQUEST:
 			return {
 				...state,
@@ -20,6 +21,12 @@ export default (state = initialState, { type, payload }) => {
 		case ActionTypes.LOGIN_FAILURE:
 		case ActionTypes.FETCH_USER_FAILURE:
 		case ActionTypes.FETCH_USER_LIST_FAILURE:
+		case ActionTypes.UPDATE_USER_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+			};
+		case ActionTypes.UPDATE_USER_SUCCESS:
 			return {
 				...state,
 				isLoading: false,

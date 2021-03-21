@@ -235,6 +235,73 @@ describe('User-related redux actions', () => {
 		});
 	});
 
+	describe('user update', () => {
+		it('should create a UPDATE_USER_REQUEST action when user update logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.UPDATE_USER_REQUEST },
+			];
+
+			// Act
+			store.dispatch(usersActions.updateUser({}, 'abcd'));
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a UPDATE_USER_SUCCESS action when user update logic is succesful', () => {
+			// Arrange
+			const userData = {
+				id: 'abcd',
+				username: 'JohnDoe',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { user: userData },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.put(`${baseUrl}/api/users/${userData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.UPDATE_USER_REQUEST },
+				{ type: usersActions.ActionTypes.UPDATE_USER_SUCCESS, payload: { user: userData } },
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.updateUser(userData, userData.id))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a UPDATE_USER_FAILURE action when user update logic has failed', () => {
+			const userData = {
+				id: 'abcd',
+				username: 'JohnDoe',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.put(`${baseUrl}/api/users/${userData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.UPDATE_USER_REQUEST },
+				{
+					type: usersActions.ActionTypes.UPDATE_USER_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.updateUser(userData, userData.id))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+	});
+
 	describe('User logout', () => {
 		it('should create a LOGOUT_REQUEST and LOGOUT_SUCCESS action upon logout process initialization', () => {
 			// Arrange

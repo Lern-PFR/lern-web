@@ -36,7 +36,10 @@ describe('Users reducer', () => {
 
 		it('should update the state\'s isLoading field to false when receiving LOGIN_FAILURE', () => {
 			// Arrange
-			const action = { type: ActionTypes.LOGIN_FAILURE };
+			const action = {
+				type: ActionTypes.LOGIN_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
 
 			const temporaryState = {
 				...initialState,
@@ -139,7 +142,10 @@ describe('Users reducer', () => {
 
 		it('should update the state\'s isLoading field to false when receiving FETCH_USER_FAILURE', () => {
 			// Arrange
-			const action = { type: ActionTypes.FETCH_USER_FAILURE };
+			const action = {
+				type: ActionTypes.FETCH_USER_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
 
 			const temporaryState = {
 				...initialState,
@@ -215,7 +221,78 @@ describe('Users reducer', () => {
 
 		it('should update the state\'s isLoading field to false when receiving FETCH_USER_LIST_FAILURE', () => {
 			// Arrange
-			const action = { type: ActionTypes.FETCH_USER_LIST_FAILURE };
+			const action = {
+				type: ActionTypes.FETCH_USER_LIST_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+	});
+
+	describe('user update actions', () => {
+		it('should update the state\'s isLoading field to true when receiving UPDATE_USER_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.UPDATE_USER_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = usersReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving UPDATE_USER_SUCCESS', () => {
+			// Arrange
+			const fetchedUser = { id: 'ijkl', username: 'SimpleJack' };
+
+			const action = {
+				type: ActionTypes.UPDATE_USER_SUCCESS,
+				payload: { user: fetchedUser },
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving UPDATE_USER_FAILURE', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.UPDATE_USER_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
 
 			const temporaryState = {
 				...initialState,
