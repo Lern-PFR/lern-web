@@ -21,7 +21,12 @@ import {
 	IconButton,
 	FloatingActionButton,
 } from 'components/shared/buttons';
-import { elevation } from 'theme/elevations';
+import {
+	elevationFlat,
+	elevationFirst,
+	elevationSecond,
+	elevationThird,
+} from 'theme/elevations';
 
 const App = () => (
 	<MainLayout>
@@ -46,10 +51,12 @@ const App = () => (
 			<IconButton><Home /></IconButton>
 			<FloatingActionButton isIconOnly><Home /></FloatingActionButton>
 		</StyledDiv>
-		<StyledDiv {...elevation.flat} width="100px" height="100px">Flat div</StyledDiv>
-		<StyledDiv {...elevation.short} width="100px" height="100px">Short elevation div</StyledDiv>
-		<StyledDiv {...elevation.medium} width="100px" height="100px">Medium elevation div</StyledDiv>
-		<StyledDiv {...elevation.tall} width="100px" height="100px">Tall elevation div</StyledDiv>
+		<StyledDiv position="relative">
+			<StyledDiv {...elevationFlat} width="100px" height="100px">Flat component</StyledDiv>
+			<StyledDiv {...elevationFirst} width="100px" height="100px">Short elevation component</StyledDiv>
+			<StyledDiv {...elevationSecond} width="100px" height="100px">Medium elevation component</StyledDiv>
+			<StyledDiv {...elevationThird} width="100px" height="100px">Tall elevation component</StyledDiv>
+		</StyledDiv>
 	</MainLayout>
 );
 
