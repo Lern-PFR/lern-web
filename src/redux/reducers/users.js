@@ -11,6 +11,7 @@ export default (state = initialState, { type, payload }) => {
 	switch (type) {
 		case ActionTypes.LOGIN_REQUEST:
 		case ActionTypes.FETCH_USER_REQUEST:
+		case ActionTypes.FETCH_USER_LIST_REQUEST:
 		case ActionTypes.LOGOUT_REQUEST:
 			return {
 				...state,
@@ -18,6 +19,7 @@ export default (state = initialState, { type, payload }) => {
 			};
 		case ActionTypes.LOGIN_FAILURE:
 		case ActionTypes.FETCH_USER_FAILURE:
+		case ActionTypes.FETCH_USER_LIST_FAILURE:
 			return {
 				...state,
 				isLoading: false,
@@ -36,6 +38,13 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 				items: [payload.user],
 				totalCount: 1,
+			};
+		case ActionTypes.FETCH_USER_LIST_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				items: [...payload.users],
+				totalCount: payload.totalCount,
 			};
 		case ActionTypes.LOGOUT_SUCCESS:
 			return {

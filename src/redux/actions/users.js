@@ -19,6 +19,10 @@ export const ActionTypes = {
 	FETCH_USER_SUCCESS: '@USERS/FETCH_SUCCESS',
 	FETCH_USER_FAILURE: '@USERS/FETCH_FAILURE',
 
+	FETCH_USER_LIST_REQUEST: '@USERS/FETCH_LIST_REQUEST',
+	FETCH_USER_LIST_SUCCESS: '@USERS/FETCH_LIST_SUCCESS',
+	FETCH_USER_LIST_FAILURE: '@USERS/FETCH_LIST_FAILURE',
+
 	LOGOUT_REQUEST: '@USERS/LOGOUT_REQUEST',
 	LOGOUT_SUCCESS: '@USERS/LOGOUT_SUCCESS',
 };
@@ -119,6 +123,54 @@ const fetchUserFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// /////////////// User list fetching actions ///////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name fetchUserListRequest
+ * @description Action triggered anytime a user list fetching call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const fetchUserListRequest = () => ({ type: ActionTypes.FETCH_USER_LIST_REQUEST });
+
+/**
+ * @function
+ * @name fetchUserListSuccess
+ * @description Action triggered as a result to a successful user list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {array}	users		: The list of retrieved users.
+ * @param {number}	totalCount	: The total amount of users available in the database for the current user.
+ *
+ * @returns {object}
+ */
+const fetchUserListSuccess = ({ users, totalCount }) => ({
+	type: ActionTypes.FETCH_USER_LIST_SUCCESS,
+	payload: { users, totalCount },
+});
+
+/**
+ * @function
+ * @name fetchUserListFailure
+ * @description Action triggered as a result to a failed user list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const fetchUserListFailure = (error) => ({
+	type: ActionTypes.FETCH_USER_LIST_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // /////////////////// User logout actions ///////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -185,6 +237,21 @@ export const fetchUser = (userId) => (dispatch) => {
 	return UsersApi.fetchUserById(userId)
 		.then(({ user }) => dispatch(fetchUserSuccess({ user })))
 		.catch((error) => dispatch(fetchUserFailure(error)));
+};
+
+/**
+ * @function
+ * @name fetchUserList
+ * @description Method used to fetch all users available to the current user.
+ *
+ * @author Timothée Simon-Franza
+ */
+export const fetchUserList = () => (dispatch) => {
+	dispatch(fetchUserListRequest());
+
+	return UsersApi.fetchUsers()
+		.then(({ users, totalCount }) => dispatch(fetchUserListSuccess({ users, totalCount })))
+		.catch((error) => dispatch(fetchUserListFailure(error)));
 };
 
 /**

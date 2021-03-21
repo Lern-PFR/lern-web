@@ -146,7 +146,7 @@ describe('User-related redux actions', () => {
 				});
 		});
 
-		it('should create a FETCH_USER_REQUEST action when user fetching logic has failed', () => {
+		it('should create a FETCH_USER_FAILURE action when user fetching logic has failed', () => {
 			const httpResponse = { status: 500 };
 
 			fetchMock.get(`${baseUrl}/api/users/abcd`, httpResponse);
@@ -161,6 +161,74 @@ describe('User-related redux actions', () => {
 
 			// Act & assert
 			return store.dispatch(usersActions.fetchUser('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+	});
+
+	describe('User list fetching', () => {
+		it('should create a FETCH_USER_LIST_REQUEST action when user list fetching logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.FETCH_USER_LIST_REQUEST },
+			];
+
+			// Act
+			store.dispatch(usersActions.fetchUserList());
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a FETCH_USER_LIST_SUCCESS action when user list fetching logic is succesful', () => {
+			// Arrange
+			const fetchedUsers = [
+				{ id: 'abcd', username: 'JohnDoe' },
+				{ id: 'efgh', username: 'JaneDoe' },
+			];
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					users: fetchedUsers,
+					totalCount: 2,
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/users`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.FETCH_USER_LIST_REQUEST },
+				{
+					type: usersActions.ActionTypes.FETCH_USER_LIST_SUCCESS,
+					payload: { users: fetchedUsers, totalCount: 2 },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.fetchUserList())
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a FETCH_USER_LIST_FAILURE action when user list fetching logic has failed', () => {
+			const httpResponse = { status: 500 };
+
+			fetchMock.get(`${baseUrl}/api/users`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.FETCH_USER_LIST_REQUEST },
+				{
+					type: usersActions.ActionTypes.FETCH_USER_LIST_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.fetchUserList())
 				.then(() => {
 					expect(store.getActions()).toEqual(expectedActions);
 				});

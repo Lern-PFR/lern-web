@@ -125,7 +125,7 @@ describe('Users reducer', () => {
 
 			const expectedState = {
 				...initialState,
-				isLoading: true,
+				isLoading: false,
 				items: [fetchedUser],
 				totalCount: 1,
 			};
@@ -140,6 +140,82 @@ describe('Users reducer', () => {
 		it('should update the state\'s isLoading field to false when receiving FETCH_USER_FAILURE', () => {
 			// Arrange
 			const action = { type: ActionTypes.FETCH_USER_FAILURE };
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+	});
+
+	describe('user list fetching actions', () => {
+		it('should update the state\'s isLoading field to true when receiving FETCH_USER_LIST_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.FETCH_USER_LIST_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = usersReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s items and totalCount fields with payload data when receiving FETCH_USER_LIST_SUCCESS', () => {
+			// Arrange
+			const fetchedUsers = [
+				{ id: 'ijkl', username: 'SimpleJack' },
+				{ id: 'mnop', username: 'NewSheriffInTown' },
+				{ id: 'qrst', username: 'aBoyUpToNoGood' },
+			];
+
+			const action = {
+				type: ActionTypes.FETCH_USER_LIST_SUCCESS,
+				payload: { users: fetchedUsers, totalCount: 3 },
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+				items: [
+					{ id: 'abcd', username: 'johnDoe' },
+					{ id: 'efgh', username: 'janeDoe' },
+				],
+				totalCount: 2,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+				items: [...fetchedUsers],
+				totalCount: 3,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving FETCH_USER_LIST_FAILURE', () => {
+			// Arrange
+			const action = { type: ActionTypes.FETCH_USER_LIST_FAILURE };
 
 			const temporaryState = {
 				...initialState,
