@@ -1,5 +1,7 @@
 const commonElevation = {
-	margin: '10px',
+	margin: 'auto',
+	marginTop: '10px',
+	marginBottom: ' 10px',
 };
 
 const elevationFlat = {
@@ -9,17 +11,17 @@ const elevationFlat = {
 
 const elevationFirst = {
 	...commonElevation,
-	boxShadow: '5px 5px 5px',
+	boxShadow: '0px 3px 7px 1px ',
 };
 
 const elevationSecond = {
 	...commonElevation,
-	boxShadow: '5px 10px 10px',
+	boxShadow: '0px 5px 10px 1px',
 };
 
 const elevationThird = {
 	...commonElevation,
-	boxShadow: '5px 15px 15px',
+	boxShadow: '0px 7px 12px 1px',
 };
 
 export {

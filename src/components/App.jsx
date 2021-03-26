@@ -51,11 +51,11 @@ const App = () => (
 			<IconButton><Home /></IconButton>
 			<FloatingActionButton isIconOnly><Home /></FloatingActionButton>
 		</StyledDiv>
-		<StyledDiv position="relative">
-			<StyledDiv {...elevationFlat} width="100px" height="100px">Flat component</StyledDiv>
-			<StyledDiv {...elevationFirst} width="100px" height="100px">Short elevation component</StyledDiv>
-			<StyledDiv {...elevationSecond} width="100px" height="100px">Medium elevation component</StyledDiv>
-			<StyledDiv {...elevationThird} width="100px" height="100px">Tall elevation component</StyledDiv>
+		<StyledDiv position="relative" marginTop="50px" display="flex" width="100%">
+			<StyledDiv {...elevationFlat} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Flat component</StyledDiv>
+			<StyledDiv {...elevationFirst} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Short elevation component</StyledDiv>
+			<StyledDiv {...elevationSecond} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Medium elevation component</StyledDiv>
+			<StyledDiv {...elevationThird} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
 		</StyledDiv>
 	</MainLayout>
 );
