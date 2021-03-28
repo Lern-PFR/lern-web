@@ -26,6 +26,8 @@ import {
 	elevationFirst,
 	elevationSecond,
 	elevationThird,
+	elevationFourth,
+	elevationFifth,
 } from 'theme/elevations';
 
 const App = () => (
@@ -52,10 +54,12 @@ const App = () => (
 			<FloatingActionButton isIconOnly><Home /></FloatingActionButton>
 		</StyledDiv>
 		<StyledDiv position="relative" marginTop="50px" display="flex" width="100%">
-			<StyledDiv {...elevationFlat} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Flat component</StyledDiv>
-			<StyledDiv {...elevationFirst} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Short elevation component</StyledDiv>
-			<StyledDiv {...elevationSecond} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Medium elevation component</StyledDiv>
-			<StyledDiv {...elevationThird} width="200px" height="100px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
+			<StyledDiv {...elevationFlat} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Flat component</StyledDiv>
+			<StyledDiv {...elevationFirst} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Short elevation component</StyledDiv>
+			<StyledDiv {...elevationSecond} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Medium elevation component</StyledDiv>
+			<StyledDiv {...elevationThird} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
+			<StyledDiv {...elevationFourth} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
+			<StyledDiv {...elevationFifth} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
 		</StyledDiv>
 	</MainLayout>
 );
