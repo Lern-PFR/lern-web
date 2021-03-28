@@ -1,37 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Elevation ElevationFifth should match previous snapshot 1`] = `
+<div
+  className="sc-bdfBwQ ddICgU"
+/>
+`;
+
+exports[`Elevation ElevationFirst should match previous snapshot 1`] = `
+<div
+  className="sc-bdfBwQ iGMIMo"
+/>
+`;
+
 exports[`Elevation ElevationFlat should match previous snapshot 1`] = `
 <div
   className="sc-bdfBwQ iPUPAe"
 />
 `;
 
-exports[`Elevation ElevationFlat should match previous snapshot 2`] = `
-<div
-  className="sc-bdfBwQ iGMIMo"
-/>
-`;
-
-exports[`Elevation ElevationFlat should match previous snapshot 3`] = `
-<div
-  className="sc-bdfBwQ caSwhA"
-/>
-`;
-
-exports[`Elevation ElevationFlat should match previous snapshot 4`] = `
-<div
-  className="sc-bdfBwQ dfJzDY"
-/>
-`;
-
-exports[`Elevation ElevationFlat should match previous snapshot 5`] = `
+exports[`Elevation ElevationFourth should match previous snapshot 1`] = `
 <div
   className="sc-bdfBwQ bXgAlQ"
 />
 `;
 
-exports[`Elevation ElevationFlat should match previous snapshot 6`] = `
+exports[`Elevation ElevationSecond should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ ddICgU"
+  className="sc-bdfBwQ caSwhA"
+/>
+`;
+
+exports[`Elevation ElevationThird should match previous snapshot 1`] = `
+<div
+  className="sc-bdfBwQ dfJzDY"
 />
 `;

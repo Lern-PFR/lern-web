@@ -18,7 +18,7 @@ describe('Elevation', () => {
 		});
 	});
 
-	describe('ElevationFlat', () => {
+	describe('ElevationFirst', () => {
 		it('should match previous snapshot', () => {
 			const wrapper = shallow(<StyledDiv {...elevationFirst} />);
 
@@ -26,7 +26,7 @@ describe('Elevation', () => {
 		});
 	});
 
-	describe('ElevationFlat', () => {
+	describe('ElevationSecond', () => {
 		it('should match previous snapshot', () => {
 			const wrapper = shallow(<StyledDiv {...elevationSecond} />);
 
@@ -34,7 +34,7 @@ describe('Elevation', () => {
 		});
 	});
 
-	describe('ElevationFlat', () => {
+	describe('ElevationThird', () => {
 		it('should match previous snapshot', () => {
 			const wrapper = shallow(<StyledDiv {...elevationThird} />);
 
@@ -42,7 +42,7 @@ describe('Elevation', () => {
 		});
 	});
 
-	describe('ElevationFlat', () => {
+	describe('ElevationFourth', () => {
 		it('should match previous snapshot', () => {
 			const wrapper = shallow(<StyledDiv {...elevationFourth} />);
 
@@ -50,7 +50,7 @@ describe('Elevation', () => {
 		});
 	});
 
-	describe('ElevationFlat', () => {
+	describe('ElevationFifth', () => {
 		it('should match previous snapshot', () => {
 			const wrapper = shallow(<StyledDiv {...elevationFifth} />);
 
