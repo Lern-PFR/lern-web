@@ -6,7 +6,7 @@ import localStorage from 'lib/shared/localStorage';
  * @description The localstorage key used to store the authentication token.
  * @type {string}
  */
-const TOKEN_KEY = 'json_token';
+export const TOKEN_KEY = 'json_token';
 
 export default {
 	set: (token) => localStorage.put(TOKEN_KEY, token),
