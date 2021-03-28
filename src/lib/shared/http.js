@@ -46,7 +46,8 @@ export const getHeaders = () => {
  *
  * @returns {string}
  */
-const objectToQS = (params) => Object.entries(params)
+export const objectToQS = (params) => Object
+	.entries(params)
 	.map(([key, value]) => {
 		if (value !== undefined && value !== null) {
 			return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
@@ -67,7 +68,7 @@ const objectToQS = (params) => Object.entries(params)
  *
  * @returns {Promise | object}
  */
-const handleResponse = (response) => {
+export const handleResponse = (response) => {
 	if (response.status === 204) {
 		return Promise.resolve();
 	}
@@ -90,7 +91,7 @@ const handleResponse = (response) => {
  *
  * @returns {Promise.reject}
  */
-const handleError = (error) => {
+export const handleError = (error) => {
 	const {
 		status,
 		statusText: message,
@@ -130,11 +131,12 @@ export const post = (url, body) => fetch(`${baseUrl}${url}`, {
  * @returns {Promise | object}
  */
 export const get = (url, qsObject) => {
-	const queryString = qsObject ? `?${objectToQS(qsObject)}` : '';
+	const queryString = (qsObject && Object.keys(qsObject).length !== 0) ? `?${objectToQS(qsObject)}` : '';
 
-	return fetch(`${baseUrl}${url}${queryString}`, { headers: getHeaders() })
-		.then(handleResponse)
-		.catch(handleError);
+	return fetch(`${baseUrl}${url}${queryString}`, {
+		method: 'GET',
+		headers: getHeaders(),
+	}).then(handleResponse).catch(handleError);
 };
 
 /**
