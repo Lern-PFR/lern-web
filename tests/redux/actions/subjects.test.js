@@ -85,4 +85,69 @@ describe('Subject-related actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Subject list fetching', () => {
+		it('should create a FETCH_SUBJECT_LIST_REQUEST action when subject list fetching logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.FETCH_SUBJECT_LIST_REQUEST },
+			];
+
+			// Act
+			store.dispatch(subjectsActions.fetchSubjectList());
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a FETCH_SUBJECT_LIST_SUCCESS action when subject list fetching logic is successful', () => {
+			// Arrange
+			const fetchedSubjects = [
+				{ id: 'abcd', name: 'Dummy subject 1' },
+				{ id: 'efgh', name: 'Dummy subject 2' },
+			];
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					subjects: fetchedSubjects,
+					totalCount: 2,
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/subjects`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.FETCH_SUBJECT_LIST_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.FETCH_SUBJECT_LIST_SUCCESS,
+					payload: { subjects: fetchedSubjects, totalCount: 2 },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(subjectsActions.fetchSubjectList())
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create a FETCH_SUBJECT_LIST_FAILURE action when subject list fetching logic has failed', () => {
+			// Arrange
+			const httpResponse = { status: 500 };
+
+			fetchMock.get(`${baseUrl}/api/subjects`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.FETCH_SUBJECT_LIST_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.FETCH_SUBJECT_LIST_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(subjectsActions.fetchSubjectList())
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
 });

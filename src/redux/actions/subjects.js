@@ -12,6 +12,10 @@ export const ActionTypes = {
 	FETCH_SUBJECT_REQUEST: '@SUBJECTS/FETCH_REQUEST',
 	FETCH_SUBJECT_SUCCESS: '@SUBJECTS/FETCH_SUCCESS',
 	FETCH_SUBJECT_FAILURE: '@SUBJECTS/FETCH_FAILURE',
+
+	FETCH_SUBJECT_LIST_REQUEST: '@SUBJECTS/FETCH_LIST_REQUEST',
+	FETCH_SUBJECT_LIST_SUCCESS: '@SUBJECTS/FETCH_LIST_SUCCESS',
+	FETCH_SUBJECT_LIST_FAILURE: '@SUBJECTS/FETCH_LIST_FAILURE',
 };
 
 // //////////////////////////////////////////////////////// //
@@ -62,6 +66,54 @@ const fetchSubjectFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// ///////////// Subject list fetching actions //////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name fetchSubjectListRequest
+ * @description Action triggered anytime a subject list fetching call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const fetchSubjectListRequest = () => ({ type: ActionTypes.FETCH_SUBJECT_LIST_REQUEST });
+
+/**
+ * @function
+ * @name fetchSubjectListSuccess
+ * @description Action triggered as a result to a successful subject list fetching API call.
+ *
+ * @author Timothée SimonFranza
+ *
+ * @param {array}	subjects	: The list of subjects retrieved from the API.
+ * @param {number}	totalCount	: The total amount of subjects available in the database to the current user.
+ *
+ * @returns {object}
+ */
+const fetchSubjectListSuccess = ({ subjects, totalCount }) => ({
+	type: ActionTypes.FETCH_SUBJECT_LIST_SUCCESS,
+	payload: { subjects, totalCount },
+});
+
+/**
+ * @function
+ * @name fetchSubjectListFailure
+ * @description Action triggered as a result to a failed subject list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {objcet} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const fetchSubjectListFailure = (error) => ({
+	type: ActionTypes.FETCH_SUBJECT_LIST_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -80,4 +132,19 @@ export const fetchSubject = (subjectId) => (dispatch) => {
 	return SubjectsApi.fetchSubjectById(subjectId)
 		.then(({ subject }) => dispatch(fetchSubjectSuccess({ subject })))
 		.catch((error) => dispatch(fetchSubjectFailure(error)));
+};
+
+/**
+ * @function
+ * @name fetchSubjectList
+ * @description Method used to fetch all subjects available to the current user.
+ *
+ * @author Timothée Simon-Franza
+ */
+export const fetchSubjectList = () => (dispatch) => {
+	dispatch(fetchSubjectListRequest());
+
+	return SubjectsApi.fetchSubjects()
+		.then(({ subjects, totalCount }) => dispatch(fetchSubjectListSuccess({ subjects, totalCount })))
+		.catch((error) => dispatch(fetchSubjectListFailure(error)));
 };
