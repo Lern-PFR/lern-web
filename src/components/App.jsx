@@ -1,5 +1,5 @@
 import { Home } from 'react-feather';
-import { MainLayout } from 'components/shared/layout';
+import { MainLayout, StyledDiv } from 'components/shared/layout';
 import {
 	Canon,
 	Trafalgar,
@@ -21,10 +21,18 @@ import {
 	IconButton,
 	FloatingActionButton,
 } from 'components/shared/buttons';
+import {
+	elevationFlat,
+	elevationFirst,
+	elevationSecond,
+	elevationThird,
+	elevationFourth,
+	elevationFifth,
+} from 'theme/elevations';
 
 const App = () => (
 	<MainLayout>
-		<section>
+		<StyledDiv position="relative">
 			<Canon>Canon text element.</Canon>
 			<Trafalgar>Trafalgar text element.</Trafalgar>
 			<Paragon>Paragon text element.</Paragon>
@@ -35,8 +43,8 @@ const App = () => (
 			<LongPrimer>LongPrimer text element.</LongPrimer>
 			<Brevier>Brevier text element.</Brevier>
 			<Minion>Minion text element.</Minion>
-		</section>
-		<section>
+		</StyledDiv>
+		<StyledDiv position="relative">
 			<PrimaryButton>Primary button</PrimaryButton>
 			<StandardButton>Standard button</StandardButton>
 			<SubtleButton>Subtle button</SubtleButton>
@@ -44,7 +52,15 @@ const App = () => (
 			<DangerButton>Danger button</DangerButton>
 			<IconButton><Home /></IconButton>
 			<FloatingActionButton isIconOnly><Home /></FloatingActionButton>
-		</section>
+		</StyledDiv>
+		<StyledDiv position="relative" marginTop="50px" display="flex" width="100%">
+			<StyledDiv {...elevationFlat} width="260px" height="260px" padding="10px">Flat component</StyledDiv>
+			<StyledDiv {...elevationFirst} width="260px" height="260px" padding="10px">5% elevation component</StyledDiv>
+			<StyledDiv {...elevationSecond} width="260px" height="260px" padding="10px">10% elevation component</StyledDiv>
+			<StyledDiv {...elevationThird} width="260px" height="260px" padding="10px">20% elevation component</StyledDiv>
+			<StyledDiv {...elevationFourth} width="260px" height="260px" padding="10px">30% elevation component</StyledDiv>
+			<StyledDiv {...elevationFifth} width="260px" height="260px" padding="10px">50% elevation component</StyledDiv>
+		</StyledDiv>
 	</MainLayout>
 );
 
