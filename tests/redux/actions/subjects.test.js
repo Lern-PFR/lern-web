@@ -348,4 +348,19 @@ describe('Subject-related actions', () => {
 				});
 		});
 	});
+
+	describe('Subject list clearing', () => {
+		it('should create a CLEAR_SUBJECT_LIST action when subject list clearing logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.CLEAR_SUBJECT_LIST },
+			];
+
+			// Act
+			store.dispatch(subjectsActions.clearSubjectList());
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+	});
 });

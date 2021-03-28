@@ -327,4 +327,32 @@ describe('Subjects reducer', () => {
 			});
 		});
 	});
+
+	describe('Subject list clearing', () => {
+		it('should clear the stored subjects list when receiving CLEAR_SUBJECT_LIST', () => {
+			// Arrange
+			const action = { type: ActionTypes.CLEAR_SUBJECT_LIST };
+
+			const temporaryState = {
+				...initialState,
+				items: [
+					{ id: 'abcd', name: 'Dummy subject 1' },
+					{ id: 'efgh', name: 'Dummy subject 2' },
+				],
+				totalCount: 2,
+			};
+
+			const expectedState = {
+				...initialState,
+				items: [],
+				totalCount: 0,
+			};
+
+			// Act
+			const result = subjectsReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+	});
 });

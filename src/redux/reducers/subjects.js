@@ -47,6 +47,12 @@ export default (state = initialState, { type, payload }) => {
 				items: [...payload.subjects],
 				totalCount: payload.totalCount,
 			};
+		case ActionTypes.CLEAR_SUBJECT_LIST:
+			return {
+				...state,
+				items: [],
+				totalCount: 0,
+			};
 		default:
 			return state;
 	}

@@ -28,6 +28,8 @@ export const ActionTypes = {
 	DELETE_SUBJECT_REQUEST: '@SUBJECTS/DELETE_REQUEST',
 	DELETE_SUBJECT_SUCCESS: '@SUBJECTS/DELETE_SUCCESS',
 	DELETE_SUBJECT_FAILURE: '@SUBJECTS/DELETE_FAILURE',
+
+	CLEAR_SUBJECT_LIST: '@SUBJECTS/CLEAR_LIST',
 };
 
 // //////////////////////////////////////////////////////// //
@@ -267,6 +269,21 @@ const deleteSubjectFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////// Subject list clearing actions ///////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name clearSubjectListAction
+ * @description Action triggered anytime the subject list is not needed anymore.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const clearSubjectListAction = () => ({ type: ActionTypes.CLEAR_SUBJECT_LIST });
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -352,4 +369,19 @@ export const deleteSubject = (subjectId) => (dispatch) => {
 	return SubjectsApi.deleteSubject(subjectId)
 		.then(({ subject }) => dispatch(deleteSubjectSuccess({ subject })))
 		.catch((error) => dispatch(deleteSubjectFailure(error)));
+};
+
+/**
+ * @function
+ * @name clearSubjectList
+ * @description Method used to clear the subject list stored in memory when the application does not need it anymore.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {Promise.resolve}
+ */
+export const clearSubjectList = () => (dispatch) => {
+	dispatch(clearSubjectListAction());
+
+	return Promise.resolve();
 };
