@@ -24,6 +24,10 @@ export const ActionTypes = {
 	UPDATE_SUBJECT_REQUEST: '@SUBJECTS/UPDATE_REQUEST',
 	UPDATE_SUBJECT_SUCCESS: '@SUBJECTS/UPDATE_SUCCESS',
 	UPDATE_SUBJECT_FAILURE: '@SUBJECTS/UPDATE_FAILURE',
+
+	DELETE_SUBJECT_REQUEST: '@SUBJECTS/DELETE_REQUEST',
+	DELETE_SUBJECT_SUCCESS: '@SUBJECTS/DELETE_SUCCESS',
+	DELETE_SUBJECT_FAILURE: '@SUBJECTS/DELETE_FAILURE',
 };
 
 // //////////////////////////////////////////////////////// //
@@ -216,6 +220,53 @@ const updateSubjectFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// /////////////// Subject deletion actions /////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name deleteSubjectRequest
+ * @description Action triggered anytime a subject deletion call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const deleteSubjectRequest = () => ({ type: ActionTypes.DELETE_SUBJECT_REQUEST });
+
+/**
+ * @function
+ * @name deleteSubjectSuccess
+ * @description Action triggered as a result to a successful subject deletion API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subject : The deleted subject object.
+ *
+ * @returns {object}
+ */
+const deleteSubjectSuccess = ({ subject }) => ({
+	type: ActionTypes.DELETE_SUBJECT_SUCCESS,
+	payload: { subject },
+});
+
+/**
+ * @function
+ * @name deleteSubjectFailure
+ * @description Action triggered as a result to a failed subject deletion API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const deleteSubjectFailure = (error) => ({
+	type: ActionTypes.DELETE_SUBJECT_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -284,4 +335,21 @@ export const updateSubject = (subjectData, subjectId) => (dispatch) => {
 	return SubjectsApi.updateSubject(subjectData, subjectId)
 		.then(({ subject }) => dispatch(updateSubjectSuccess({ subject })))
 		.catch((error) => dispatch(updateSubjectFailure(error)));
+};
+
+/**
+ * @function
+ * @name deleteSubject
+ * @description Method used to remove an existing subject from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} subjectId : The id identifying the subject to remove.
+ */
+export const deleteSubject = (subjectId) => (dispatch) => {
+	dispatch(deleteSubjectRequest());
+
+	return SubjectsApi.deleteSubject(subjectId)
+		.then(({ subject }) => dispatch(deleteSubjectSuccess({ subject })))
+		.catch((error) => dispatch(deleteSubjectFailure(error)));
 };

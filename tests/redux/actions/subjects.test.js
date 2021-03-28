@@ -282,4 +282,70 @@ describe('Subject-related actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Subject deletion', () => {
+		it('should create a DELETE_SUBJECT_REQUEST action when subject deletion logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.DELETE_SUBJECT_REQUEST },
+			];
+
+			// Act
+			store.dispatch(subjectsActions.deleteSubject('abcd'));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a DELETE_SUBJECT_SUCCESS action when subject deletion logic is successful', () => {
+			// Arrange
+			const subjectData = {
+				id: 'abcd',
+				name: 'Dummy subject',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { subject: subjectData },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.delete(`${baseUrl}/api/subjects/${subjectData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.DELETE_SUBJECT_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.DELETE_SUBJECT_SUCCESS,
+					payload: { subject: subjectData },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(subjectsActions.deleteSubject(subjectData.id))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a DELETE_SUBJECT_FAILURE action when subject deletion logic has failed', () => {
+			// Arrange
+			const httpResponse = { status: 500 };
+
+			fetchMock.delete(`${baseUrl}/api/subjects/abcd`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.DELETE_SUBJECT_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.DELETE_SUBJECT_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(subjectsActions.deleteSubject('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+	});
 });

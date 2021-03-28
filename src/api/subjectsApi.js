@@ -1,4 +1,4 @@
-import { get, post, put } from 'lib/shared/http';
+import { del, get, post, put } from 'lib/shared/http';
 
 /**
  * @function
@@ -45,8 +45,21 @@ export const createSubject = (subjectData) => post('/api/subjects', subjectData)
  * @author Timothée Simon-Franza
  *
  * @param {object} subjectData	: The data to update the subject with.
- * @param {string} subjectId	: The id to identify the subject to update.
+ * @param {string} subjectId	: The id identifying the subject to update.
  *
  * @returns {Promise}
  */
 export const updateSubject = (subjectData, subjectId) => put(`/api/subjects/${subjectId}`, subjectData);
+
+/**
+ * @function
+ * @name deleteSubject
+ * @description Removes an existing subject from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} subjectId : The id identifying the subject to remove.
+ *
+ * @returns {Promise}
+ */
+export const deleteSubject = (subjectId) => del(`/api/subjects/${subjectId}`);
