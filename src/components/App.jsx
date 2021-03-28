@@ -54,12 +54,12 @@ const App = () => (
 			<FloatingActionButton isIconOnly><Home /></FloatingActionButton>
 		</StyledDiv>
 		<StyledDiv position="relative" marginTop="50px" display="flex" width="100%">
-			<StyledDiv {...elevationFlat} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Flat component</StyledDiv>
-			<StyledDiv {...elevationFirst} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Short elevation component</StyledDiv>
-			<StyledDiv {...elevationSecond} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Medium elevation component</StyledDiv>
-			<StyledDiv {...elevationThird} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
-			<StyledDiv {...elevationFourth} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
-			<StyledDiv {...elevationFifth} width="260px" height="260px" backgroundColor="#DBD9D2" padding="10px">Tall elevation component</StyledDiv>
+			<StyledDiv {...elevationFlat} width="260px" height="260px" padding="10px">Flat component</StyledDiv>
+			<StyledDiv {...elevationFirst} width="260px" height="260px" padding="10px">5% elevation component</StyledDiv>
+			<StyledDiv {...elevationSecond} width="260px" height="260px" padding="10px">10% elevation component</StyledDiv>
+			<StyledDiv {...elevationThird} width="260px" height="260px" padding="10px">20% elevation component</StyledDiv>
+			<StyledDiv {...elevationFourth} width="260px" height="260px" padding="10px">30% elevation component</StyledDiv>
+			<StyledDiv {...elevationFifth} width="260px" height="260px" padding="10px">50% elevation component</StyledDiv>
 		</StyledDiv>
 	</MainLayout>
 );
