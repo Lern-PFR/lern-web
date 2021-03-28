@@ -150,4 +150,136 @@ describe('Subject-related actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Subject creation', () => {
+		it('should create a CREATE_SUBJECT_REQUEST action when subject creation logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.CREATE_SUBJECT_REQUEST },
+			];
+
+			// Act
+			store.dispatch(subjectsActions.createSubject({}));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a CREATE_SUBJECT_SUCCESS action when subject creation logic is successfult', () => {
+			// Arrange
+			const subjectData = {
+				name: 'Dummy subject',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { subject: { ...subjectData, id: 'abcd' } },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/subjects`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.CREATE_SUBJECT_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.CREATE_SUBJECT_SUCCESS,
+					payload: { subject: { ...subjectData, id: 'abcd' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(subjectsActions.createSubject(subjectData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create a CREATE_SUBJECT_FAILURE action when subject creation logic has failed', () => {
+			// Arrange
+			const subjectData = {
+				name: 'Dummy subject',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.post(`${baseUrl}/api/subjects`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.CREATE_SUBJECT_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.CREATE_SUBJECT_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(subjectsActions.createSubject(subjectData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
+
+	describe('Subject edition', () => {
+		it('should create an UPDATE_SUBJECT_REQUEST action when subject edition logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.UPDATE_SUBJECT_REQUEST },
+			];
+
+			// Act
+			store.dispatch(subjectsActions.updateSubject({}, 'abcd'));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create an UPDATE_SUBJECT_SUCCESS action when subject edition logic is successful', () => {
+			// Arrange
+			const subjectData = {
+				id: 'abcd',
+				name: 'Dummy subject',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { subject: subjectData },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.put(`${baseUrl}/api/subjects/${subjectData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.UPDATE_SUBJECT_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.UPDATE_SUBJECT_SUCCESS,
+					payload: { subject: subjectData },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(subjectsActions.updateSubject(subjectData, subjectData.id))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create an UPDATE_SUBJECT_FAILURE action when subject edition logic has failed', () => {
+			// Arrange
+			const subjectData = {
+				id: 'abcd',
+				name: 'Dummy subject',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.put(`${baseUrl}/api/subjects/${subjectData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: subjectsActions.ActionTypes.UPDATE_SUBJECT_REQUEST },
+				{
+					type: subjectsActions.ActionTypes.UPDATE_SUBJECT_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(subjectsActions.updateSubject(subjectData, subjectData.id))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
 });

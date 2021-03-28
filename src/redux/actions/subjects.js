@@ -16,6 +16,14 @@ export const ActionTypes = {
 	FETCH_SUBJECT_LIST_REQUEST: '@SUBJECTS/FETCH_LIST_REQUEST',
 	FETCH_SUBJECT_LIST_SUCCESS: '@SUBJECTS/FETCH_LIST_SUCCESS',
 	FETCH_SUBJECT_LIST_FAILURE: '@SUBJECTS/FETCH_LIST_FAILURE',
+
+	CREATE_SUBJECT_REQUEST: '@SUBJECTS/CREATE_REQUEST',
+	CREATE_SUBJECT_SUCCESS: '@SUBJECTS/CREATE_SUCCESS',
+	CREATE_SUBJECT_FAILURE: '@SUBJECTS/CREATE_FAILURE',
+
+	UPDATE_SUBJECT_REQUEST: '@SUBJECTS/UPDATE_REQUEST',
+	UPDATE_SUBJECT_SUCCESS: '@SUBJECTS/UPDATE_SUCCESS',
+	UPDATE_SUBJECT_FAILURE: '@SUBJECTS/UPDATE_FAILURE',
 };
 
 // //////////////////////////////////////////////////////// //
@@ -114,6 +122,100 @@ const fetchSubjectListFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// /////////////// Subject creation actions /////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name createSubjectRequest
+ * @description Action triggered anytime a subject creation call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const createSubjectRequest = () => ({ type: ActionTypes.CREATE_SUBJECT_REQUEST });
+
+/**
+ * @function
+ * @name createSubjectSuccess
+ * @description Action triggered as a result to a successfult subject creation API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subject : The newly created subject.
+ *
+ * @returns {object}
+ */
+const createSubjectSuccess = ({ subject }) => ({
+	type: ActionTypes.CREATE_SUBJECT_SUCCESS,
+	payload: { subject },
+});
+
+/**
+ * @function
+ * @name createSubjectFailure
+ * @description Action triggered as a result to a failed subject creation API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const createSubjectFailure = (error) => ({
+	type: ActionTypes.CREATE_SUBJECT_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
+// //////////////// Subject edition actions /////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name updateSubjectRequest
+ * @description Action triggered anytime a subject edition call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const updateSubjectRequest = () => ({ type: ActionTypes.UPDATE_SUBJECT_REQUEST });
+
+/**
+ * @function
+ * @name updateSubjectSuccess
+ * @description Action triggered as a result to a successful subject edition API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subject : The updated subject object.
+ *
+ * @returns {object}
+ */
+const updateSubjectSuccess = ({ subject }) => ({
+	type: ActionTypes.UPDATE_SUBJECT_SUCCESS,
+	payload: { subject },
+});
+
+/**
+ * @function
+ * @name updateSubjectFailure
+ * @description Action triggered as a result to a failed subject edition API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const updateSubjectFailure = (error) => ({
+	type: ActionTypes.UPDATE_SUBJECT_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -147,4 +249,39 @@ export const fetchSubjectList = () => (dispatch) => {
 	return SubjectsApi.fetchSubjects()
 		.then(({ subjects, totalCount }) => dispatch(fetchSubjectListSuccess({ subjects, totalCount })))
 		.catch((error) => dispatch(fetchSubjectListFailure(error)));
+};
+
+/**
+ * @function
+ * @name createSubject
+ * @description Method used to create a new subject in the database
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subjectData : The data to create the new subject from.
+ */
+export const createSubject = (subjectData) => (dispatch) => {
+	dispatch(createSubjectRequest());
+
+	return SubjectsApi.createSubject(subjectData)
+		.then(({ subject }) => dispatch(createSubjectSuccess({ subject })))
+		.catch((error) => dispatch(createSubjectFailure(error)));
+};
+
+/**
+ * @function
+ * @name updateSubject
+ * @description Method used to update an existing subject instance from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subjectData	: The data to update the subject with.
+ * @param {string} subjectId	: The id to identify the subject to update.
+ */
+export const updateSubject = (subjectData, subjectId) => (dispatch) => {
+	dispatch(updateSubjectRequest());
+
+	return SubjectsApi.updateSubject(subjectData, subjectId)
+		.then(({ subject }) => dispatch(updateSubjectSuccess({ subject })))
+		.catch((error) => dispatch(updateSubjectFailure(error)));
 };

@@ -1,4 +1,4 @@
-import { get } from 'lib/shared/http';
+import { get, post, put } from 'lib/shared/http';
 
 /**
  * @function
@@ -23,3 +23,30 @@ export const fetchSubjectById = (subjectId) => get(`/api/subjects/${subjectId}`)
  * @returns {Promise}
  */
 export const fetchSubjects = () => get('/api/subjects');
+
+/**
+ * @function
+ * @name createSubject
+ * @description Creates a new subject in the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subjectData : The data to create the new subject from.
+ *
+ * @returns {Promise}
+ */
+export const createSubject = (subjectData) => post('/api/subjects', subjectData);
+
+/**
+ * @function
+ * @name updateSubject
+ * @description Updates an existing subject from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} subjectData	: The data to update the subject with.
+ * @param {string} subjectId	: The id to identify the subject to update.
+ *
+ * @returns {Promise}
+ */
+export const updateSubject = (subjectData, subjectId) => put(`/api/subjects/${subjectId}`, subjectData);
