@@ -88,4 +88,74 @@ describe('Module-related redux actions', () => {
 				});
 		});
 	});
+
+	describe('Module list fetching', () => {
+		it('should create a FETCH_MODULE_LIST_REQUEST action when module list fetching logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.FETCH_MODULE_LIST_REQUEST },
+			];
+
+			// Act
+			store.dispatch(modulesActions.fetchModuleListBySubjectId('abcd'));
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a FETCH_MODULE_LIST_SUCCESS action when module list fetching logic is succesful', () => {
+			// Arrange
+			const modules = [
+				{
+					id: '1',
+					name: 'Dummy module 1',
+					subjectId: 'abcd',
+				},
+				{
+					id: '2',
+					name: 'Dummy module 2',
+					subjectId: 'abcd',
+				},
+			];
+
+			const httpResponse = {
+				status: 200,
+				body: { modules, totalCount: 2 },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/modules/by-subject/abcd`, httpResponse);
+
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.FETCH_MODULE_LIST_REQUEST },
+				{ type: modulesActions.ActionTypes.FETCH_MODULE_LIST_SUCCESS, payload: { modules, totalCount: 2 } },
+			];
+
+			// Act & assert
+			return store.dispatch(modulesActions.fetchModuleListBySubjectId('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a FETCH_MODULE_LIST_FAILURE action when module list fetching logic has failed', () => {
+			const httpResponse = { status: 500 };
+
+			fetchMock.get(`${baseUrl}/api/modules/by-subject/abcd`, httpResponse);
+
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.FETCH_MODULE_LIST_REQUEST },
+				{
+					type: modulesActions.ActionTypes.FETCH_MODULE_LIST_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(modulesActions.fetchModuleListBySubjectId('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+	});
 });

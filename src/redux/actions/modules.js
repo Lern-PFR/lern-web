@@ -80,6 +80,54 @@ const fetchModuleFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// ////////////// Module list fetching actions //////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name fetchModuleListRequest
+ * @description Action triggered anytime a module list fetching call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const fetchModuleListRequest = () => ({ type: ActionTypes.FETCH_MODULE_LIST_REQUEST });
+
+/**
+ * @function
+ * @name fetchModuleListSuccess
+ * @description Action triggered as a result to a successful module list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {array}	modules		: The list of modules retrieved from the API.
+ * @param {number}	totalCount	: The total amount of modules available for the subject.
+ *
+ * @returns {object}
+ */
+const fetchModuleListSuccess = ({ modules, totalCount }) => ({
+	type: ActionTypes.FETCH_MODULE_LIST_SUCCESS,
+	payload: { modules, totalCount },
+});
+
+/**
+ * @function
+ * @name fetchModuleListFailure
+ * @description Action triggered as a result to a failed module list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const fetchModuleListFailure = (error) => ({
+	type: ActionTypes.FETCH_MODULE_LIST_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -98,4 +146,21 @@ export const fetchModule = (moduleId) => (dispatch) => {
 	return ModulesApi.fetchModuleById(moduleId)
 		.then(({ module }) => dispatch(fetchModuleSuccess({ module })))
 		.catch((error) => dispatch(fetchModuleFailure(error)));
+};
+
+/**
+ * @function
+ * @name fetchModuleListBySubjectId
+ * @description Method used to fetch all modules from a specific subject, identified by the subjectId param.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} subjectId : The id of the subject we want to retrieve modules from.
+ */
+export const fetchModuleListBySubjectId = (subjectId) => (dispatch) => {
+	dispatch(fetchModuleListRequest());
+
+	return ModulesApi.fetchModulesBySubjectId(subjectId)
+		.then(({ modules, totalCount }) => dispatch(fetchModuleListSuccess({ modules, totalCount })))
+		.catch((error) => dispatch(fetchModuleListFailure(error)));
 };
