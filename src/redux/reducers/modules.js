@@ -11,6 +11,7 @@ export default (state = initialState, { type, payload }) => {
 		case ActionTypes.FETCH_MODULE_REQUEST:
 		case ActionTypes.FETCH_MODULE_LIST_REQUEST:
 		case ActionTypes.CREATE_MODULE_REQUEST:
+		case ActionTypes.UPDATE_MODULE_REQUEST:
 			return {
 				...state,
 				isLoading: true,
@@ -18,11 +19,13 @@ export default (state = initialState, { type, payload }) => {
 		case ActionTypes.FETCH_MODULE_FAILURE:
 		case ActionTypes.FETCH_MODULE_LIST_FAILURE:
 		case ActionTypes.CREATE_MODULE_FAILURE:
+		case ActionTypes.UPDATE_MODULE_FAILURE:
 			return {
 				...state,
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_MODULE_SUCCESS:
+		case ActionTypes.UPDATE_MODULE_SUCCESS:
 			return {
 				...state,
 				isLoading: false,

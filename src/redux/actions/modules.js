@@ -175,6 +175,53 @@ const createModuleFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////////// Module edition actions //////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name updateModuleRequest
+ * @description Action triggered anytime a module edition call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const updateModuleRequest = () => ({ type: ActionTypes.UPDATE_MODULE_REQUEST });
+
+/**
+ * @function
+ * @name updateModuleSuccess
+ * @description Action triggered as a result to a successful module edition API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} module : The updated module object.
+ *
+ * @returns {object}
+ */
+const updateModuleSuccess = ({ module }) => ({
+	type: ActionTypes.UPDATE_MODULE_SUCCESS,
+	payload: { module },
+});
+
+/**
+ * @function
+ * @name updateModuleFailure
+ * @description Action triggered as a result to a failed module edition API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const updateModuleFailure = (error) => ({
+	type: ActionTypes.UPDATE_MODULE_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -227,4 +274,22 @@ export const createModule = (moduleData) => (dispatch) => {
 	return ModulesApi.createModule(moduleData)
 		.then(({ module }) => dispatch(createModuleSuccess({ module })))
 		.catch((error) => dispatch(createModuleFailure(error)));
+};
+
+/**
+ * @function
+ * @name updateModule
+ * @description Method used to update an existing module instance from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} moduleData	: The data to update the module with.
+ * @param {string} moduleId		: The id to identify the module to update.
+ */
+export const updateModule = (moduleData, moduleId) => (dispatch) => {
+	dispatch(updateModuleRequest());
+
+	return ModulesApi.updateModule(moduleData, moduleId)
+		.then(({ module }) => dispatch(updateModuleSuccess({ module })))
+		.catch((error) => dispatch(updateModuleFailure(error)));
 };

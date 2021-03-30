@@ -225,4 +225,73 @@ describe('Module-related redux actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Module edition', () => {
+		it('should create an UPDATE_MODULE_REQUEST action when module edition logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.UPDATE_MODULE_REQUEST },
+			];
+
+			// Act
+			store.dispatch(modulesActions.updateModule({}, '7'));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create an UPDATE_MODULE_SUCCESS action when module edition logic is successfult', () => {
+			// Arrange
+			const moduleData = {
+				id: '7',
+				name: 'Dummy module 7',
+				subjectId: 'abcd',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { module: moduleData },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.put(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.UPDATE_MODULE_REQUEST },
+				{
+					type: modulesActions.ActionTypes.UPDATE_MODULE_SUCCESS,
+					payload: { module: moduleData },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(modulesActions.updateModule(moduleData, moduleData.id))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create an UPDATE_MODULE_FAILURE action when module edition logic has failed', () => {
+			// Arrange
+			const moduleData = {
+				id: '7',
+				name: 'Dummy module 7',
+				subjectId: 'abcd',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.put(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.UPDATE_MODULE_REQUEST },
+				{
+					type: modulesActions.ActionTypes.UPDATE_MODULE_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(modulesActions.updateModule(moduleData, moduleData.id))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
 });
