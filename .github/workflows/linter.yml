@@ -1,34 +1,30 @@
-name: Linter
+name: Lint
 
 on: pull_request
 
 jobs:
-  eslint:
-    runs-on: ubuntu-latest
+    eslint:
+        runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [15]
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v2
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+          - name: Set up Node.js
+            uses: actions/setup-node@v2
+            with:
+                node-version: '15'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-            .eslintcache
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-      
-      - name: Install modules
-        run: yarn install --frozen-lockfile
-      
-      - name: Run ESLint
-        run: yarn run eslint
+          - name: Cache dependencies
+            uses: actions/cache@v2
+            with:
+                path: |
+                    **/node_modules
+                    .eslintcache
+                key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+          - name: Install modules
+            run: yarn install --frozen-lockfile
+
+          - name: Run ESLint
+            run: yarn run eslint
