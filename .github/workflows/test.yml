@@ -1,33 +1,32 @@
-name: Tests
+name: Run tests
 
 on: pull_request
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    tests:
+        runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [15]
+        env:
+          REACT_APP_API_URL: http://localhost:81
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
+          - name: Set up Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v2
+            with:
+                node-version: '15'
 
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          - name: Cache dependencies
+            uses: actions/cache@v2
+            with:
+                path: |
+                    **/node_modules
+                key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-    - name: Install modules
-      run: yarn install --frozen-lockfile
+          - name: Install modules
+            run: yarn install --frozen-lockfile
 
-    - name: Run test
-      run: yarn test
+          - name: Run tests
+            run: yarn test
