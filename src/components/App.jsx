@@ -30,6 +30,12 @@ import {
 	elevationFifth,
 } from 'theme/elevations';
 
+/**
+ * @name App
+ * @description The main component of the application.
+ *
+ * @author Timothée Simon-Franza
+ */
 const App = () => (
 	<MainLayout>
 		<StyledDiv position="relative">

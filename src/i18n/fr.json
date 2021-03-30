@@ -1,0 +1,17 @@
+{
+    "translations": {
+        "page_not_found": {
+            "hero": "Page introuvable!",
+            "redirection_link": {
+                "home_page": "Retourner à la page d'accueil"
+            }
+        },
+        "components": {
+            "prompt": {
+                "title": "Attention !",
+                "confirm": "OK",
+                "cancel": "Annuler"
+            }
+        }
+    }
+}
