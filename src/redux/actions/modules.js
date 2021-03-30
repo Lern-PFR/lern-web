@@ -222,6 +222,53 @@ const updateModuleFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////////// Module deletion actions //////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name deleteModuleRequest
+ * @description Action triggered anytime a module deletion call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const deleteModuleRequest = () => ({ type: ActionTypes.DELETE_MODULE_REQUEST });
+
+/**
+ * @function
+ * @name deleteModuleSuccess
+ * @description Action triggered as a result to a successful module deletion API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} module : The deleted module object.
+ *
+ * @returns {object}
+ */
+const deleteModuleSuccess = ({ module }) => ({
+	type: ActionTypes.DELETE_MODULE_SUCCESS,
+	payload: { module },
+});
+
+/**
+ * @function
+ * @name deleteModuleFailure
+ * @description Action triggered as a result to a failed module deletion API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const deleteModuleFailure = (error) => ({
+	type: ActionTypes.DELETE_MODULE_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -292,4 +339,21 @@ export const updateModule = (moduleData, moduleId) => (dispatch) => {
 	return ModulesApi.updateModule(moduleData, moduleId)
 		.then(({ module }) => dispatch(updateModuleSuccess({ module })))
 		.catch((error) => dispatch(updateModuleFailure(error)));
+};
+
+/**
+ * @function
+ * @name deleteModule
+ * @description Method used to remove an existing module from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} moduleId : The id identifying the module to remove.
+ */
+export const deleteModule = (moduleId) => (dispatch) => {
+	dispatch(deleteModuleRequest());
+
+	return ModulesApi.deleteModule(moduleId)
+		.then(({ module }) => dispatch(deleteModuleSuccess({ module })))
+		.catch((error) => dispatch(deleteModuleFailure(error)));
 };

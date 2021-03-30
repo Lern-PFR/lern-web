@@ -1,4 +1,4 @@
-import { get, post, put } from 'lib/shared/http';
+import { del, get, post, put } from 'lib/shared/http';
 
 /**
  * @function
@@ -52,3 +52,16 @@ export const createModule = (moduleData) => post('/api/modules', moduleData);
  * @returns {Promise}
  */
 export const updateModule = (moduleData, moduleId) => put(`/api/modules/${moduleId}`, moduleData);
+
+/**
+ * @function
+ * @name deleteModule
+ * @description Removes an existing module from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} moduleId : The id identifying the module to remove.
+ *
+ * @returns {Promise}
+ */
+export const deleteModule = (moduleId) => del(`/api/modules/${moduleId}`);
