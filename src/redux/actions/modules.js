@@ -269,6 +269,21 @@ const deleteModuleFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// ///////////// Module list clearing actions ///////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name clearModuleListAction
+ * @description Action triggered anytime the module list is not needed anymore.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const clearModuleListAction = () => ({ type: ActionTypes.CLEAR_MODULE_LIST });
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -356,4 +371,19 @@ export const deleteModule = (moduleId) => (dispatch) => {
 	return ModulesApi.deleteModule(moduleId)
 		.then(({ module }) => dispatch(deleteModuleSuccess({ module })))
 		.catch((error) => dispatch(deleteModuleFailure(error)));
+};
+
+/**
+ * @function
+ * @name clearModuleList
+ * @description Method used to clear the module list stored in memory when the application does not need it anymore.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {Promise.resolve}
+ */
+export const clearModuleList = () => (dispatch) => {
+	dispatch(clearModuleListAction());
+
+	return Promise.resolve();
 };

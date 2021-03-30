@@ -337,4 +337,32 @@ describe('Modules reducer', () => {
 			expect(result).toEqual(expectedState);
 		});
 	});
+
+	describe('Module list clearing', () => {
+		it('should clear the stored module list when receiving CLEAR_MODULE_LIST', () => {
+			// Arrange
+			const action = { type: ActionTypes.CLEAR_MODULE_LIST };
+
+			const temporaryState = {
+				...initialState,
+				items: [
+					{ id: '1', name: 'Dummy module 1', subjectId: 'efgh' },
+					{ id: '2', name: 'Dummy module 2', subjectId: 'efgh' },
+				],
+				totalCount: 2,
+			};
+
+			const expectedState = {
+				...initialState,
+				items: [],
+				totalCount: 0,
+			};
+
+			// Act
+			const result = modulesReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+	});
 });

@@ -363,4 +363,19 @@ describe('Module-related redux actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Module list clearing', () => {
+		it('should create a CLEAR_MODULE_LIST action when module list clearing logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.CLEAR_MODULE_LIST },
+			];
+
+			// Act
+			store.dispatch(modulesActions.clearModuleList());
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+	});
 });
