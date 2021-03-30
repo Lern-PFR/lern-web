@@ -1,4 +1,4 @@
-import { get } from 'lib/shared/http';
+import { get, post } from 'lib/shared/http';
 
 /**
  * @function
@@ -25,3 +25,16 @@ export const fetchModuleById = (moduleId) => get(`/api/modules/${moduleId}`);
  * @returns {Promise}
  */
 export const fetchModulesBySubjectId = (subjectId) => get(`/api/modules/by-subject/${subjectId}`);
+
+/**
+ * @function
+ * @name createModule
+ * @description Creates a new module in the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} moduleData : The data to create the new module from.
+ *
+ * @returns {Promise}
+ */
+export const createModule = (moduleData) => post('/api/modules', moduleData);

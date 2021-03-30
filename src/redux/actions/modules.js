@@ -128,6 +128,53 @@ const fetchModuleListFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////////// Module creation actions /////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name createModuleRequest
+ * @description Action triggered anytime a module creation call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const createModuleRequest = () => ({ type: ActionTypes.CREATE_MODULE_REQUEST });
+
+/**
+ * @function
+ * @name createModuleSuccess
+ * @description Action triggered as a result to a successfult module creation API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} module : The newly created module.
+ *
+ * @returns {object}
+ */
+const createModuleSuccess = ({ module }) => ({
+	type: ActionTypes.CREATE_MODULE_SUCCESS,
+	payload: { module },
+});
+
+/**
+ * @function
+ * @name createModuleFailure
+ * @description Action triggered as a result to a failed module creation API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const createModuleFailure = (error) => ({
+	type: ActionTypes.CREATE_MODULE_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -163,4 +210,21 @@ export const fetchModuleListBySubjectId = (subjectId) => (dispatch) => {
 	return ModulesApi.fetchModulesBySubjectId(subjectId)
 		.then(({ modules, totalCount }) => dispatch(fetchModuleListSuccess({ modules, totalCount })))
 		.catch((error) => dispatch(fetchModuleListFailure(error)));
+};
+
+/**
+ * @function
+ * @name createModule
+ * @description Method used to create a new module in the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} moduleData : The data to create the new module from.
+ */
+export const createModule = (moduleData) => (dispatch) => {
+	dispatch(createModuleRequest());
+
+	return ModulesApi.createModule(moduleData)
+		.then(({ module }) => dispatch(createModuleSuccess({ module })))
+		.catch((error) => dispatch(createModuleFailure(error)));
 };

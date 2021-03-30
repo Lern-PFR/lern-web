@@ -181,4 +181,56 @@ describe('Modules reducer', () => {
 			return expect(result).toEqual(expectedState);
 		});
 	});
+
+	describe('module creation actions', () => {
+		it('should update the state\'s isLoading field to true when receiving CREATE_MODULE_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.CREATE_MODULE_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = modulesReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving of CREATE_MODULE_SUCCESS', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.CREATE_MODULE_SUCCESS,
+				payload: { module: { id: '7', name: 'Dummy module 7', subjectId: 'abcd' } },
+			};
+
+			const temporaryState = { ...initialState, isLoading: true };
+			const expectedState = { ...initialState, isLoading: false };
+
+			// Act
+			const result = modulesReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving of CREATE_MODULE_FAILURE', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.CREATE_MODULE_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
+
+			const temporaryState = { ...initialState, isLoading: true };
+			const expectedState = { ...initialState, isLoading: false };
+
+			// Act
+			const result = modulesReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+	});
 });

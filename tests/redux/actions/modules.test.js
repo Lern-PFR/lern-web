@@ -158,4 +158,71 @@ describe('Module-related redux actions', () => {
 				});
 		});
 	});
+
+	describe('Module creation', () => {
+		it('should create a CREATE_MODULE_REQUEST action when module creation logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.CREATE_MODULE_REQUEST },
+			];
+
+			// Act
+			store.dispatch(modulesActions.createModule({}));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a CREATE_MODULE_SUCCESS action when module creation logic is successfult', () => {
+			// Arrange
+			const moduleData = {
+				name: 'Dummy module 7',
+				subjectId: 'abcd',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { module: { ...moduleData, id: '7' } },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/modules`, httpResponse);
+
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.CREATE_MODULE_REQUEST },
+				{
+					type: modulesActions.ActionTypes.CREATE_MODULE_SUCCESS,
+					payload: { module: { ...moduleData, id: '7' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(modulesActions.createModule(moduleData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create a CREATE_MODULE_FAILURE action when module creation logic has failed', () => {
+			// Arrange
+			const moduleData = {
+				name: 'Dummy module 7',
+				subjectId: 'abcd',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.post(`${baseUrl}/api/modules`, httpResponse);
+
+			const expectedActions = [
+				{ type: modulesActions.ActionTypes.CREATE_MODULE_REQUEST },
+				{
+					type: modulesActions.ActionTypes.CREATE_MODULE_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(modulesActions.createModule(moduleData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
 });
