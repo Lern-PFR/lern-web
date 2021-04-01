@@ -6,6 +6,9 @@ import RouteProvider from 'routes/components/RouteProvider';
 import 'lib/shared/i18n';
 import configureStore from './redux/store/configureStore';
 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 const store = configureStore();
 
 /**

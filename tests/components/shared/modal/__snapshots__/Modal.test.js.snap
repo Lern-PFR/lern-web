@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render correctly when isShowing is true 1`] = `
+<Portal
+  containerInfo={<body />}
+>
+  <styled.div>
+    <div
+      className="modal-wrapper"
+    >
+      <div
+        className="modal"
+      >
+        <div
+          className="modal-header"
+        >
+          <DoublePica
+            tag="h2"
+          >
+            Title
+          </DoublePica>
+        </div>
+        <div>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </styled.div>
+</Portal>
+`;
