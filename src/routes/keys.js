@@ -1,4 +1,4 @@
-export default {
+export default Object.freeze({
 	root: '/',
 	app: {
 		default: '/',
@@ -10,4 +10,4 @@ export default {
 		signup: '/auth/signup',
 		forgottenPassword: '/auth/forgotten-password',
 	},
-};
+});

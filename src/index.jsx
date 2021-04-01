@@ -9,18 +9,15 @@ import configureStore from './redux/store/configureStore';
 const store = configureStore();
 
 /**
- * @name renderApp
- * @description Renders the root of the application inside the browser's DOM.
+ * @name Root
+ * @description The root of the application inside the browser's DOM.
  */
-const renderApp = () => (
-	render(
-		<Provider store={store}>
-			<RouterProvider>
-				<RouteProvider />
-			</RouterProvider>
-		</Provider>,
-		document.getElementById('root')
-	)
+const Root = () => (
+	<Provider store={store}>
+		<RouterProvider>
+			<RouteProvider />
+		</RouterProvider>
+	</Provider>
 );
 
-renderApp();
+render(<Root />, document.getElementById('root'));

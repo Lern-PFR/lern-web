@@ -31,15 +31,14 @@ const RouteWithSubRoutes = ({ currentUser, redirectAnonymous, redirectAuthentica
 	}
 
 	const redirectTarget = isLoggedIn ? redirectAuthenticated : redirectAnonymous;
-	let canAccessRoute;
+	let canAccessRoute = true;
 
 	// If there are sub-routes, skip the redirection logic
 	if (route.routes === undefined) {
 		const allowAnonymous = route.allowAnonymous === true; // Default value is false
 		const allowAuthenticated = route.allowAuthenticated !== false; // Default value is true
-		const requireSuperAdmin = route.superAdmin === true; // Default value is false
 
-		canAccessRoute = (isLoggedIn ? allowAuthenticated : allowAnonymous) && (requireSuperAdmin ? (currentUser && currentUser.superadmin) : true);
+		canAccessRoute = isLoggedIn ? allowAuthenticated : allowAnonymous;
 	}
 
 	return (
