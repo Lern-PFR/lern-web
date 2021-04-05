@@ -19,6 +19,7 @@ const StyledDiv = styled('div')(
 	{
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		boxSizing: (({ boxSizing }) => (boxSizing || 'border-box')),
+		zIndex: (({ zIndex }) => (zIndex || 'initial')),
 	},
 	color,
 	flexbox,

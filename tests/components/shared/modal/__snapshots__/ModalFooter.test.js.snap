@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ModalFooter should render correctly 1`] = `
-<div
-  className="sc-dlfnbm bjBYjx"
+<styled.div
+  display="flex"
+  justifyContent="flex-end"
+  marginTop="1em"
 >
   <p>
     Content
   </p>
-</div>
+</styled.div>
 `;

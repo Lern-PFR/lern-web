@@ -1,45 +1,8 @@
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { DoublePica } from 'components/shared/typography';
-
-const StyledModal = styled.div`
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: 1040;
-	background-color: rgba(0, 0, 0, 0.5);
-	.modal-wrapper {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 1050;
-		width: 100%;
-		height: 100%;
-		overflow-x: hidden;
-		overflow-y: auto;
-		outline: 0;
-		display: flex;
-		align-items: center;
-	}
-	.modal {
-		z-index: 100;
-		background: #fff;
-		position: relative;
-		margin: auto;
-		border-radius: 5px;
-		max-width: 500px;
-		width: 80%;
-		padding: 0 1rem 1rem 1rem;
-	}
-	.modal-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-`;
+import { modal, modalBackdrop, modalHeader, modalWrapper } from 'theme/modalStyles';
+import { StyledDiv } from '../layout';
 
 /**
  * @name Modal
@@ -57,18 +20,18 @@ const Modal = ({ children, isShowing, title }) => {
 	}
 
 	return ReactDOM.createPortal(
-		<StyledModal>
-			<div className="modal-wrapper">
-				<div className="modal">
-					<div className="modal-header">
+		<StyledDiv {...modalBackdrop}>
+			<StyledDiv className="modal-wrapper" {...modalWrapper}>
+				<StyledDiv className="modal" {...modal}>
+					<StyledDiv className="modal-header" {...modalHeader}>
 						<DoublePica tag="h2">{title}</DoublePica>
-					</div>
+					</StyledDiv>
 					<div>
 						{children}
 					</div>
-				</div>
-			</div>
-		</StyledModal>,
+				</StyledDiv>
+			</StyledDiv>
+		</StyledDiv>,
 		document.body
 	);
 };

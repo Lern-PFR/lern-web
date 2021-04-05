@@ -4,29 +4,59 @@ exports[`Modal should render correctly when isShowing is true 1`] = `
 <Portal
   containerInfo={<body />}
 >
-  <styled.div>
-    <div
+  <styled.div
+    bg="rgba(0, 0, 0, 0.5)"
+    height="100vh"
+    left={0}
+    position="fixed"
+    top={0}
+    width="100vw"
+    zIndex={900}
+  >
+    <styled.div
+      alignItems="center"
       className="modal-wrapper"
+      display="flex"
+      height="100%"
+      left={0}
+      outline={0}
+      overflowX="hidden"
+      overflowY="auto"
+      position="fixed"
+      top={0}
+      width="100%"
+      zIndex={1001}
     >
-      <div
+      <styled.div
+        bg="#FFFFFF"
+        borderRadius="5px"
         className="modal"
+        margin="auto"
+        maxWidth="500px"
+        padding="0 1rem 1rem 1rem"
+        position="relative"
+        width="80%"
+        zIndex={100}
       >
-        <div
+        <styled.div
+          alignItems="center"
           className="modal-header"
+          display="flex"
+          justifyContent="space-between"
         >
           <DoublePica
             tag="h2"
           >
             Title
           </DoublePica>
-        </div>
+        </styled.div>
         <div>
           <p>
             Content
           </p>
         </div>
-      </div>
-    </div>
+      </styled.div>
+    </styled.div>
   </styled.div>
 </Portal>
 `;
