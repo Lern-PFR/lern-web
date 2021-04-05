@@ -81,6 +81,35 @@ describe('User-related redux actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 
+		it('sould set the current session token with retrieved value when user login logic is successful', () => {
+			// Arrange
+			const sessionSetSpy = jest.spyOn(session, 'set').mockImplementation((token) => token);
+
+			const userData = {
+				id: 'userId',
+				username: 'abcd',
+				password: 'efgh',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					user: {
+						id: userData.id,
+						username: userData.username,
+					},
+					token: 'dummy_token',
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/login`, httpResponse);
+
+			// Act & assert
+			return store.dispatch(usersActions.login(userData.username, userData.password))
+				.then(() => expect(sessionSetSpy).toHaveBeenNthCalledWith(1, 'dummy_token'));
+		});
+
 		it('sould create a LOGIN_FAILURE action when user login logic has failed', () => {
 			// Arrange
 			const userData = {
@@ -168,7 +197,7 @@ describe('User-related redux actions', () => {
 		it('should delete the current session if it exists', () => {
 			// Arrange
 			jest.spyOn(session, 'exists').mockImplementation(() => true);
-			const sessionRemove = jest.spyOn(session, 'remove').mockImplementation(() => {});
+			const sessionRemove = jest.spyOn(session, 'remove').mockImplementation(() => true);
 
 			const httpResponse = { status: 401 };
 			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
