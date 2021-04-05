@@ -3,6 +3,7 @@ import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import * as usersActions from 'redux/actions/users';
 import { baseUrl } from 'lib/shared/http';
+import session from 'lib/shared/session';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -23,6 +24,7 @@ describe('User-related redux actions', () => {
 	});
 
 	afterEach(() => {
+		jest.restoreAllMocks();
 		fetchMock.reset();
 		fetchMock.restore();
 	});
@@ -102,6 +104,78 @@ describe('User-related redux actions', () => {
 			// Act & assert
 			return store.dispatch(usersActions.login(userData.username, userData.password))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
+
+	describe('User token verification', () => {
+		it('should create a LOGIN_TOKEN_REQUEST action when token verification logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.LOGIN_TOKEN_REQUEST },
+			];
+
+			// Act
+			store.dispatch(usersActions.loginWithToken());
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a LOGIN_TOKEN_SUCCESS action when token verification logic is successful', () => {
+			// Arrange
+			const user = {
+				id: 'userId',
+				username: 'abcd',
+			};
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.LOGIN_TOKEN_REQUEST },
+				{ type: usersActions.ActionTypes.LOGIN_TOKEN_SUCCESS, payload: { user } },
+			];
+
+			const httpResponse = {
+				status: 200,
+				body: { ...user },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
+
+			// Act & assert
+			return store.dispatch(usersActions.loginWithToken())
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a LOGIN_TOKEN_FAILURE action when token verification logic has failed', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.LOGIN_TOKEN_REQUEST },
+				{
+					type: usersActions.ActionTypes.LOGIN_TOKEN_FAILURE,
+					payload: { error: { status: 401, message: 'Unauthorized' } },
+				},
+			];
+
+			const httpResponse = { status: 401 };
+			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
+
+			return store.dispatch(usersActions.loginWithToken())
+				.catch(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should delete the current session if it exists', () => {
+			// Arrange
+			jest.spyOn(session, 'exists').mockReturnValue(true);
+			const sessionRemove = jest.spyOn(session, 'remove');
+
+			const httpResponse = { status: 401 };
+			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
+
+			// Act & assert
+			return store.dispatch(usersActions.loginWithToken())
+				.then(() => expect(sessionRemove).toHaveBeenCalledTimes(1));
 		});
 	});
 
