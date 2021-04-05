@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link should match previoys snapshot 1`] = `
+<Styled(Link)
+  to="invalid_key"
+>
+  Hello, world!
+</Styled(Link)>
+`;

@@ -29,6 +29,10 @@ export const ActionTypes = {
 
 	LOGOUT_REQUEST: '@USERS/LOGOUT_REQUEST',
 	LOGOUT_SUCCESS: '@USERS/LOGOUT_SUCCESS',
+
+	LOGIN_TOKEN_REQUEST: '@USERS/LOGIN_TOKEN_REQUEST',
+	LOGIN_TOKEN_SUCCESS: '@USERS/LOGIN_TOKEN_SUCCESS',
+	LOGIN_TOKEN_FAILURE: '@USERS/LOGIN_TOKEN_FAILURE',
 };
 
 // //////////////////////////////////////////////////////// //
@@ -76,6 +80,53 @@ const loginSuccess = ({ token, user }) => ({
  */
 const loginFailure = (error) => ({
 	type: ActionTypes.LOGIN_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
+// ///////////// User login with token actions //////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name loginWithTokenRequest
+ * @description Action triggered anytime a login call is made to the API.
+ *
+ * @author Yann Hodiesne
+ *
+ * @returns {object}
+ */
+const loginWithTokenRequest = () => ({ type: ActionTypes.LOGIN_TOKEN_REQUEST });
+
+/**
+ * @function
+ * @name loginWithTokenSuccess
+ * @description Action triggered as a result to a successful login API call.
+ *
+ * @author Yann Hodiesne
+ *
+ * @param {object} user	: The retrieved user object.
+ *
+ * @returns {object}
+ */
+const loginWithTokenSuccess = ({ user }) => ({
+	type: ActionTypes.LOGIN_TOKEN_SUCCESS,
+	payload: { user },
+});
+
+/**
+ * @function
+ * @name loginWithTokenFailure
+ * @description Action triggered as a result to a failed login API call.
+ *
+ * @author Yann Hodiesne
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const loginWithTokenFailure = (error) => ({
+	type: ActionTypes.LOGIN_TOKEN_FAILURE,
 	payload: { error },
 });
 
@@ -271,6 +322,31 @@ export const login = ({ username, password }) => (dispatch) => {
 			dispatch(loginSuccess({ token, user }));
 		})
 		.catch((error) => dispatch(loginFailure(error)));
+};
+
+/**
+ * @function
+ * @name loginWithToken
+ * @description Method used to login the user using an already known token and retrieve its data.
+ *
+ * @author Yann Hodiesne
+ *
+ * @see {@link getAccessRights} for further information.
+ */
+export const loginWithToken = () => (dispatch) => {
+	dispatch(loginWithTokenRequest());
+
+	return AuthenticationAPI.checkToken()
+		.then((user) => {
+			dispatch(loginWithTokenSuccess({ user }));
+		})
+		.catch((error) => {
+			dispatch(loginWithTokenFailure(error));
+
+			if (session.exists()) {
+				session.remove();
+			}
+		});
 };
 
 /**

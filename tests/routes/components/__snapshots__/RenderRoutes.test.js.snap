@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RenderRoutes should match previoys snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <StaticRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      staticContext={Object {}}
+    >
+      <RenderRoutes
+        fallback={[Function]}
+        redirectAnonymous=""
+        redirectAuthenticated=""
+        routes={
+          Array [
+            Object {
+              "component": [Function],
+              "exact": true,
+              "key": "root",
+              "path": "/",
+            },
+            Object {
+              "key": "app",
+              "path": "/app",
+              "routes": Array [
+                Object {
+                  "component": [Function],
+                  "exact": true,
+                  "key": "app_root",
+                  "path": "/app",
+                },
+                Object {
+                  "component": [Function],
+                  "exact": true,
+                  "key": "app_page",
+                  "path": "/app/page",
+                },
+              ],
+            },
+          ]
+        }
+      >
+        <Switch>
+          <RouteWithSubRoutes
+            component={[Function]}
+            computedMatch={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            exact={true}
+            fallback={[Function]}
+            key="root"
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            path="/"
+            redirectAnonymous=""
+            redirectAuthenticated=""
+          >
+            <Redirect
+              from="/"
+              to={
+                Object {
+                  "pathname": "",
+                  "state": Object {
+                    "requestedLocation": Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    },
+                  },
+                }
+              }
+            />
+          </RouteWithSubRoutes>
+        </Switch>
+      </RenderRoutes>
+    </Router>
+  </StaticRouter>
+</Provider>
+`;

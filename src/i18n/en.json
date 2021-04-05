@@ -1,0 +1,17 @@
+{
+    "translations": {
+        "page_not_found": {
+            "hero": "Not found!",
+            "redirection_link": {
+                "home_page": "Back to the home page"
+            }
+        },
+        "components": {
+            "prompt": {
+                "title": "Warning!",
+                "confirm": "OK",
+                "cancel": "Cancel"
+            }
+        }
+    }
+}

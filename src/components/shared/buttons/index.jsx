@@ -96,6 +96,14 @@ const IconButton = ({ children, ...otherProps }) => (
 	</DynamicButtonComponent>
 );
 
+/**
+ * @name FloatingActionButton
+ * @description Button component intended to display a floating action button.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children : The children to display inside this button.
+ */
 const FloatingActionButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...floatingActionButton} {...otherProps}>
 		{children}

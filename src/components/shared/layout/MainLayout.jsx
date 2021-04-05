@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { mainContainerLayout, mainLayout } from 'theme/layout';
-import { StyledDiv } from 'components/shared/layout';
+import StyledDiv from './StyledDiv';
 
 /**
  * @name MainLayout

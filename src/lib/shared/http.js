@@ -1,4 +1,6 @@
+import { history } from 'routes/components/RouterProvider';
 import session from 'lib/shared/session';
+import routes from 'routes';
 
 /**
  * @constant
@@ -71,6 +73,10 @@ export const objectToQS = (params) => Object
 export const handleResponse = (response) => {
 	if (response.status === 204) {
 		return Promise.resolve();
+	}
+
+	if (response.status === 401 && session.exists()) {
+		history.push(routes.auth.logout);
 	}
 
 	if (response.status === 401 || response.status === 403 || response.status === 413 || response.status >= 500) {
