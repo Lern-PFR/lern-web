@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import { ModalFooter } from 'components/shared/modal';
 
 describe('ModalFooter', () => {
-	it('should render correctly', () => {
+	it('should match previoys snapshot', () => {
 		const sut = (
 			<ModalFooter>
 				<p>Content</p>

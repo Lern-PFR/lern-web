@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { Link } from 'components/shared/navigation';
 
 describe('Link', () => {
-	it('should render correctly', () => {
+	it('should match previoys snapshot', () => {
 		const sut = <Link to="invalid_key">Hello, world!</Link>;
 		const wrapper = shallow(sut);
 

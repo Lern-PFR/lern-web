@@ -24,7 +24,7 @@ describe('RenderRoutes', () => {
 		store = mockStore({ ...initialStore });
 	});
 
-	it('should render correctly', () => {
+	it('should match previoys snapshot', () => {
 		// Arrange
 
 		/**
