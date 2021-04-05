@@ -167,8 +167,8 @@ describe('User-related redux actions', () => {
 
 		it('should delete the current session if it exists', () => {
 			// Arrange
-			jest.spyOn(session, 'exists').mockReturnValue(true);
-			const sessionRemove = jest.spyOn(session, 'remove');
+			jest.spyOn(session, 'exists').mockImplementation(() => true);
+			const sessionRemove = jest.spyOn(session, 'remove').mockImplementation(() => {});
 
 			const httpResponse = { status: 401 };
 			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
