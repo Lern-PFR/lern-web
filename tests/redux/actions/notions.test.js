@@ -363,4 +363,19 @@ describe('Notion-related redux actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Notion list clearing', () => {
+		it('should create a CLEAR_NOTION_LIST action when notion list clearing logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.CLEAR_NOTION_LIST },
+			];
+
+			// Act
+			store.dispatch(notionsActions.clearNotionList());
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+	});
 });

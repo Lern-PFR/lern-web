@@ -269,6 +269,21 @@ const deleteNotionFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// ///////////// Notion list clearing actions ///////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name clearNotionListAction
+ * @description Action triggered anytime the notion list is not needed anymore.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const clearNotionListAction = () => ({ type: ActionTypes.CLEAR_NOTION_LIST });
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -356,4 +371,19 @@ export const deleteNotion = (notionId) => (dispatch) => {
 	return NotionsApi.deleteNotion(notionId)
 		.then(({ notion }) => dispatch(deleteNotionSuccess({ notion })))
 		.catch((error) => dispatch(deleteNotionFailure(error)));
+};
+
+/**
+ * @function
+ * @name clearNotionList
+ * @description Method used to clear the notion list stored in memory when the application does not need it anymore.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {Promise.resolve}
+ */
+export const clearNotionList = () => (dispatch) => {
+	dispatch(clearNotionListAction());
+
+	return Promise.resolve();
 };

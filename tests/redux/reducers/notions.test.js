@@ -337,4 +337,32 @@ describe('Notions reducer', () => {
 			expect(result).toEqual(expectedState);
 		});
 	});
+
+	describe('Notion list clearing', () => {
+		it('should clear the stored notion list when receiving CLEAR_NOTION_LIST', () => {
+			// Arrange
+			const action = { type: ActionTypes.CLEAR_NOTION_LIST };
+
+			const temporaryState = {
+				...initialState,
+				items: [
+					{ id: '1', name: 'Dummy notion 1', moduleId: 'efgh' },
+					{ id: '2', name: 'Dummy notion 2', moduleId: 'efgh' },
+				],
+				totalCount: 2,
+			};
+
+			const expectedState = {
+				...initialState,
+				items: [],
+				totalCount: 0,
+			};
+
+			// Act
+			const result = notionsReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+	});
 });

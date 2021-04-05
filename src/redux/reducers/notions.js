@@ -47,6 +47,12 @@ export default (state = initialState, { type, payload }) => {
 				items: [...payload.notions],
 				totalCount: payload.totalCount,
 			};
+		case ActionTypes.CLEAR_NOTION_LIST:
+			return {
+				...state,
+				items: [],
+				totalCount: 0,
+			};
 		default:
 			return state;
 	}
