@@ -8,7 +8,7 @@ describe('Notions reducer', () => {
 		totalCount: 0,
 	};
 
-	describe('initial state', () => {
+	describe('Initial state', () => {
 		it('should return initial notions state', () => {
 			const action = { type: 'dummy_action' };
 
@@ -16,7 +16,7 @@ describe('Notions reducer', () => {
 		});
 	});
 
-	describe('single notion fetching actions', () => {
+	describe('Single notion fetching actions', () => {
 		it('should update the state\'s isLoading field to true when receiving FETCH_NOTION_REQUEST', () => {
 			// Arrange
 			const action = { type: ActionTypes.FETCH_NOTION_REQUEST };
@@ -91,7 +91,7 @@ describe('Notions reducer', () => {
 		});
 	});
 
-	describe('notion list fetching actions', () => {
+	describe('Notion list fetching actions', () => {
 		it('should update the state\'s isLoading field to true when receiving FETCH_NOTION_LIST_REQUEST', () => {
 			// Arrange
 			const action = { type: ActionTypes.FETCH_NOTION_LIST_REQUEST };
@@ -182,7 +182,7 @@ describe('Notions reducer', () => {
 		});
 	});
 
-	describe('notion creation actions', () => {
+	describe('Notion creation actions', () => {
 		it('should update the state\'s isLoading field to true when receiving CREATE_NOTION_REQUEST', () => {
 			// Arrange
 			const action = { type: ActionTypes.CREATE_NOTION_REQUEST };
@@ -220,6 +220,58 @@ describe('Notions reducer', () => {
 			// Arrange
 			const action = {
 				type: ActionTypes.CREATE_NOTION_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
+
+			const temporaryState = { ...initialState, isLoading: true };
+			const expectedState = { ...initialState, isLoading: false };
+
+			// Act
+			const result = notionsReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+	});
+
+	describe('Notion edition actions', () => {
+		it('should update the state\'s isLoading field to true when receiving UPDATE_NOTION_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.UPDATE_NOTION_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = notionsReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving of UPDATE_NOTION_SUCCESS', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.UPDATE_NOTION_SUCCESS,
+				payload: { notion: { id: '7', name: 'Dummy notion 7', moduleId: 'abcd' } },
+			};
+
+			const temporaryState = { ...initialState, isLoading: true };
+			const expectedState = { ...initialState, isLoading: false };
+
+			// Act
+			const result = notionsReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving of UPDATE_NOTION_FAILURE', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.UPDATE_NOTION_FAILURE,
 				payload: { error: { status: 500, message: 'Internal Server Error' } },
 			};
 

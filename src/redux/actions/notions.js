@@ -175,6 +175,53 @@ const createNotionFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////////// Notion edition actions //////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name updateNotionRequest
+ * @description Action triggered anytime a notion edition call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const updateNotionRequest = () => ({ type: ActionTypes.UPDATE_NOTION_REQUEST });
+
+/**
+ * @function
+ * @name updateNotionSuccess
+ * @description Action triggered as a result to a successful notion edition API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notion : The updated notion object.
+ *
+ * @returns {object}
+ */
+const updateNotionSuccess = ({ notion }) => ({
+	type: ActionTypes.UPDATE_NOTION_SUCCESS,
+	payload: { notion },
+});
+
+/**
+ * @function
+ * @name updateNotionFailure
+ * @description Action triggered as a result to a failed notion edition API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const updateNotionFailure = (error) => ({
+	type: ActionTypes.UPDATE_NOTION_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -227,4 +274,22 @@ export const createNotion = (notionData) => (dispatch) => {
 	return NotionsApi.createNotion(notionData)
 		.then(({ notion }) => dispatch(createNotionSuccess({ notion })))
 		.catch((error) => dispatch(createNotionFailure(error)));
+};
+
+/**
+ * @function
+ * @name updateNotion
+ * @description Method used to update an existing notion instance from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notionData	: The data to update the notion with.
+ * @param {string} notionId		: The id to identify the notion to update.
+ */
+export const updateNotion = (notionData, notionId) => (dispatch) => {
+	dispatch(updateNotionRequest());
+
+	return NotionsApi.updateNotion(notionData, notionId)
+		.then(({ notion }) => dispatch(updateNotionSuccess({ notion })))
+		.catch((error) => dispatch(updateNotionFailure(error)));
 };

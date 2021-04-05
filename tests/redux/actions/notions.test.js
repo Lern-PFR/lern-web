@@ -225,4 +225,73 @@ describe('Notion-related redux actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
+
+	describe('Notion edition', () => {
+		it('should create an UPDATE_NOTION_REQUEST action when notion edition logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.UPDATE_NOTION_REQUEST },
+			];
+
+			// Act
+			store.dispatch(notionsActions.updateNotion({}, '7'));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create an UPDATE_NOTION_SUCCESS action when notion edition logic is successful', () => {
+			// Arrange
+			const notionData = {
+				id: '7',
+				name: 'Dummy notion 7',
+				moduleId: 'abcd',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { notion: notionData },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.put(`${baseUrl}/api/notions/${notionData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.UPDATE_NOTION_REQUEST },
+				{
+					type: notionsActions.ActionTypes.UPDATE_NOTION_SUCCESS,
+					payload: { notion: notionData },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(notionsActions.updateNotion(notionData, notionData.id))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create an UPDATE_NOTION_FAILURE action when notion edition logic has failed', () => {
+			// Arrange
+			const notionData = {
+				id: '7',
+				name: 'Dummy notion 7',
+				moduleId: 'abcd',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.put(`${baseUrl}/api/notions/${notionData.id}`, httpResponse);
+
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.UPDATE_NOTION_REQUEST },
+				{
+					type: notionsActions.ActionTypes.UPDATE_NOTION_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(notionsActions.updateNotion(notionData, notionData.id))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
 });

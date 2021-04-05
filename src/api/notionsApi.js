@@ -1,4 +1,4 @@
-import { get, post } from 'lib/shared/http';
+import { get, post, put } from 'lib/shared/http';
 
 /**
  * @function
@@ -38,3 +38,17 @@ export const fetchNotionsByModuleId = (moduleId) => get(`/api/notions/by-module/
  * @returns {Promise}
  */
 export const createNotion = (notionData) => post('/api/notions', notionData);
+
+/**
+ * @function
+ * @name updateNotion
+ * @description Updates an existing notion from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notionData	: The data to update the notion with.
+ * @param {string} notionId		: The id identifying the notion to update.
+ *
+ * @returns {Promise}
+ */
+export const updateNotion = (notionData, notionId) => put(`/api/notions/${notionId}`, notionData);
