@@ -12,6 +12,7 @@ export default (state = initialState, { type, payload }) => {
 		case ActionTypes.FETCH_NOTION_LIST_REQUEST:
 		case ActionTypes.CREATE_NOTION_REQUEST:
 		case ActionTypes.UPDATE_NOTION_REQUEST:
+		case ActionTypes.DELETE_NOTION_REQUEST:
 			return {
 				...state,
 				isLoading: true,
@@ -20,12 +21,14 @@ export default (state = initialState, { type, payload }) => {
 		case ActionTypes.FETCH_NOTION_LIST_FAILURE:
 		case ActionTypes.CREATE_NOTION_FAILURE:
 		case ActionTypes.UPDATE_NOTION_FAILURE:
+		case ActionTypes.DELETE_NOTION_FAILURE:
 			return {
 				...state,
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_NOTION_SUCCESS:
 		case ActionTypes.UPDATE_NOTION_SUCCESS:
+		case ActionTypes.DELETE_NOTION_SUCCESS:
 			return {
 				...state,
 				isLoading: false,

@@ -1,4 +1,4 @@
-import { get, post, put } from 'lib/shared/http';
+import { del, get, post, put } from 'lib/shared/http';
 
 /**
  * @function
@@ -52,3 +52,16 @@ export const createNotion = (notionData) => post('/api/notions', notionData);
  * @returns {Promise}
  */
 export const updateNotion = (notionData, notionId) => put(`/api/notions/${notionId}`, notionData);
+
+/**
+ * @function
+ * @name deleteNotion
+ * @description Removes an existing notion from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} notionId : The id identifying the notion to remove.
+ *
+ * @returns {Promise}
+ */
+export const deleteNotion = (notionId) => del(`/api/notions/${notionId}`);

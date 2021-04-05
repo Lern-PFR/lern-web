@@ -222,6 +222,53 @@ const updateNotionFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////////// Notion deletion actions //////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name deleteNotionRequest
+ * @description Action triggered anytime a notion deletion call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const deleteNotionRequest = () => ({ type: ActionTypes.DELETE_NOTION_REQUEST });
+
+/**
+ * @function
+ * @name deleteNotionSuccess
+ * @description Action triggered as a result to a successful notion deletion API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notion : The deleted notion object.
+ *
+ * @returns {object}
+ */
+const deleteNotionSuccess = ({ notion }) => ({
+	type: ActionTypes.DELETE_NOTION_SUCCESS,
+	payload: { notion },
+});
+
+/**
+ * @function
+ * @name deleteNotionFailure
+ * @description Action triggered as a result to a failed notion deletion API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const deleteNotionFailure = (error) => ({
+	type: ActionTypes.DELETE_NOTION_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -292,4 +339,21 @@ export const updateNotion = (notionData, notionId) => (dispatch) => {
 	return NotionsApi.updateNotion(notionData, notionId)
 		.then(({ notion }) => dispatch(updateNotionSuccess({ notion })))
 		.catch((error) => dispatch(updateNotionFailure(error)));
+};
+
+/**
+ * @function
+ * @name deleteNotion
+ * @description Method used to remove an existing notion from the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} notionId : The id identifying the notion to remove.
+ */
+export const deleteNotion = (notionId) => (dispatch) => {
+	dispatch(deleteNotionRequest());
+
+	return NotionsApi.deleteNotion(notionId)
+		.then(({ notion }) => dispatch(deleteNotionSuccess({ notion })))
+		.catch((error) => dispatch(deleteNotionFailure(error)));
 };

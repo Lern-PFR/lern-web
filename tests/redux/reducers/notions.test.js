@@ -285,4 +285,56 @@ describe('Notions reducer', () => {
 			expect(result).toEqual(expectedState);
 		});
 	});
+
+	describe('Notion deletion actions', () => {
+		it('should update the state\'s isLoading field to true when receiving DELETE_NOTION_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.DELETE_NOTION_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = notionsReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving of DELETE_NOTION_SUCCESS', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.DELETE_NOTION_SUCCESS,
+				payload: { notion: { id: '7', name: 'Dummy notion 7', moduleId: 'abcd' } },
+			};
+
+			const temporaryState = { ...initialState, isLoading: true };
+			const expectedState = { ...initialState, isLoading: false };
+
+			// Act
+			const result = notionsReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving of DELETE_NOTION_FAILURE', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.DELETE_NOTION_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
+
+			const temporaryState = { ...initialState, isLoading: true };
+			const expectedState = { ...initialState, isLoading: false };
+
+			// Act
+			const result = notionsReducer(temporaryState, action);
+
+			// Assert
+			expect(result).toEqual(expectedState);
+		});
+	});
 });
