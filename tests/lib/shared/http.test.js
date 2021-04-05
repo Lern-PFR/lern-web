@@ -2,6 +2,8 @@ import fetchMock from 'fetch-mock';
 import session from 'lib/shared/session';
 import { baseUrl } from 'lib/shared/http';
 import * as httpModule from 'lib/shared/http';
+import { history } from 'routes/components/RouterProvider';
+import routes from 'routes';
 
 describe('http helper methods', () => {
 	describe('getHeaders', () => {
@@ -55,11 +57,24 @@ describe('http helper methods', () => {
 	});
 
 	describe('handleResponse', () => {
+		let historySpy;
+		beforeEach(() => {
+			historySpy = jest.spyOn(history, 'push');
+		});
+
 		afterEach(() => {
 			jest.restoreAllMocks();
 		});
 
 		it('should return Promise.resolve() when parameter object\'s status is 204.', () => expect(httpModule.handleResponse({ status: 204 })).toEqual(Promise.resolve()));
+
+		it('should call history.push(routes.auth.logout) upon reception of a status 401 object whilst a session exists.', () => {
+			jest.spyOn(session, 'exists').mockImplementation(() => true);
+			httpModule.handleResponse({ status: 401 }).catch(() => {});
+
+			expect(historySpy).toHaveBeenCalledTimes(1);
+			expect(historySpy).toHaveBeenNthCalledWith(1, routes.auth.logout);
+		});
 
 		it('should return Promise.reject(...) upon reception of a status 401 object whilst a session exists.', () => {
 			const param = { status: 401 };
