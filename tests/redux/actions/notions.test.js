@@ -88,4 +88,74 @@ describe('Notion-related redux actions', () => {
 				});
 		});
 	});
+
+	describe('Notion list fetching', () => {
+		it('should create a FETCH_NOTION_LIST_REQUEST action when notion list fetching logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.FETCH_NOTION_LIST_REQUEST },
+			];
+
+			// Act
+			store.dispatch(notionsActions.fetchNotionListByModuleId('abcd'));
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a FETCH_NOTION_LIST_SUCCESS action when notion list fetching logic is succesful', () => {
+			// Arrange
+			const notions = [
+				{
+					id: '1',
+					name: 'Dummy notion 1',
+					moduleId: 'abcd',
+				},
+				{
+					id: '2',
+					name: 'Dummy notion 2',
+					moduleId: 'abcd',
+				},
+			];
+
+			const httpResponse = {
+				status: 200,
+				body: { notions, totalCount: 2 },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/notions/by-module/abcd`, httpResponse);
+
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.FETCH_NOTION_LIST_REQUEST },
+				{ type: notionsActions.ActionTypes.FETCH_NOTION_LIST_SUCCESS, payload: { notions, totalCount: 2 } },
+			];
+
+			// Act & assert
+			return store.dispatch(notionsActions.fetchNotionListByModuleId('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+
+		it('should create a FETCH_NOTION_LIST_FAILURE action when notion list fetching logic has failed', () => {
+			const httpResponse = { status: 500 };
+
+			fetchMock.get(`${baseUrl}/api/notions/by-module/abcd`, httpResponse);
+
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.FETCH_NOTION_LIST_REQUEST },
+				{
+					type: notionsActions.ActionTypes.FETCH_NOTION_LIST_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(notionsActions.fetchNotionListByModuleId('abcd'))
+				.then(() => {
+					expect(store.getActions()).toEqual(expectedActions);
+				});
+		});
+	});
 });

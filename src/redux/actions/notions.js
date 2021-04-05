@@ -80,6 +80,54 @@ const fetchNotionFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// ////////////// Module list fetching actions //////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name fetchNotionListRequest
+ * @description Action triggered anytime a notion list fetching call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const fetchNotionListRequest = () => ({ type: ActionTypes.FETCH_NOTION_LIST_REQUEST });
+
+/**
+ * @function
+ * @name fetchNotionListSuccess
+ * @description Action triggered as a result to a successful notion list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {array}	notions		: The list of notions retrieved from the API.
+ * @param {number}	totalCount	: The total amount of notions available for the module.
+ *
+ * @returns {object}
+ */
+const fetchNotionListSuccess = ({ notions, totalCount }) => ({
+	type: ActionTypes.FETCH_NOTION_LIST_SUCCESS,
+	payload: { notions, totalCount },
+});
+
+/**
+ * @function
+ * @name fetchNotionListFailure
+ * @description Action triggered as a result to a failed notion list fetching API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const fetchNotionListFailure = (error) => ({
+	type: ActionTypes.FETCH_NOTION_LIST_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -98,4 +146,21 @@ export const fetchNotion = (notionId) => (dispatch) => {
 	return NotionsApi.fetchNotionById(notionId)
 		.then(({ notion }) => dispatch(fetchNotionSuccess({ notion })))
 		.catch((error) => dispatch(fetchNotionFailure(error)));
+};
+
+/**
+ * @function
+ * @name fetchNotionListByModuleId
+ * @description Method used to fetch all notions from a specific module, identified by the moduleId param.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} moduleId : The id of the module we want to retrieve notions from.
+ */
+export const fetchNotionListByModuleId = (moduleId) => (dispatch) => {
+	dispatch(fetchNotionListRequest());
+
+	return NotionsApi.fetchNotionsByModuleId(moduleId)
+		.then(({ notions, totalCount }) => dispatch(fetchNotionListSuccess({ notions, totalCount })))
+		.catch((error) => dispatch(fetchNotionListFailure(error)));
 };

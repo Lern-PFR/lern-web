@@ -12,3 +12,16 @@ import { get } from 'lib/shared/http';
  * @returns {Promise}
  */
 export const fetchNotionById = (notionId) => get(`/api/notions/${notionId}`);
+
+/**
+ * @function
+ * @name fetchNotionsByModuleId
+ * @description Retrieves all notions from a specific module using their linked module's id.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} moduleId : The id of the module we want to retrieve notions from.
+ *
+ * @returns {Promise}
+ */
+export const fetchNotionsByModuleId = (moduleId) => get(`/api/notions/by-module/${moduleId}`);

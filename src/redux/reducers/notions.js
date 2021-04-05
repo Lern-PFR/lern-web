@@ -9,11 +9,13 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
 	switch (type) {
 		case ActionTypes.FETCH_NOTION_REQUEST:
+		case ActionTypes.FETCH_NOTION_LIST_REQUEST:
 			return {
 				...state,
 				isLoading: true,
 			};
 		case ActionTypes.FETCH_NOTION_FAILURE:
+		case ActionTypes.FETCH_NOTION_LIST_FAILURE:
 			return {
 				...state,
 				isLoading: false,
@@ -24,6 +26,13 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 				items: [payload.notion],
 				totalCount: 1,
+			};
+		case ActionTypes.FETCH_NOTION_LIST_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				items: [...payload.notions],
+				totalCount: payload.totalCount,
 			};
 		default:
 			return state;
