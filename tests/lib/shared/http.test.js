@@ -125,6 +125,59 @@ describe('http helper methods', () => {
 		});
 	});
 
+	describe('get', () => {
+		const headers = new Headers({
+			'Content-Type': 'application/json',
+			Authorization: 'Bearer dummy_auth_token',
+		});
+
+		beforeEach(() => {
+			jest.spyOn(httpModule, 'getHeaders').mockReturnValue(headers);
+			jest.spyOn(httpModule, 'objectToQS');
+		});
+
+		afterEach(() => {
+			jest.restoreAllMocks();
+			fetchMock.reset();
+			fetchMock.restore();
+		});
+
+		it('should create a HTTP GET method request', () => {
+			fetchMock.get(`${baseUrl}/test/abcd`, {});
+			httpModule.get('/test/abcd', {});
+			const result = fetchMock.lastCall();
+
+			console.log(result);
+
+			expect(result[1].method).toEqual('GET');
+		});
+
+		it('should convert qsObject param into a query string if not empty', () => {
+			const qsObject = { name: 'john', sorting: 'ASC id' };
+			const expectedResultUrl = `/${baseUrl}/test/abcd?${httpModule.objectToQS(qsObject)}`;
+			fetchMock.get(expectedResultUrl, {});
+
+			httpModule.get('/test/abcd', qsObject);
+			const result = fetchMock.lastCall();
+
+			expect(result[0]).toEqual(expectedResultUrl);
+		});
+
+		it('should not call objectToQS method if qsObject parameter is not provided', () => {
+			fetchMock.get(`${baseUrl}/test/abcd`, {});
+			httpModule.get('/test/abcd');
+
+			expect(httpModule.objectToQS).toHaveBeenCalledTimes(0);
+		});
+
+		it('should not call objectToQS method if qsObject parameter is empty', () => {
+			fetchMock.get(`${baseUrl}/test/abcd`, {});
+			httpModule.get('/test/abcd', {});
+
+			expect(httpModule.objectToQS).toHaveBeenCalledTimes(0);
+		});
+	});
+
 	describe('post', () => {
 		const headers = new Headers({
 			'Content-Type': 'application/json',
