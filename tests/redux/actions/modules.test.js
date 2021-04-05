@@ -338,7 +338,7 @@ describe('Module-related redux actions', () => {
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 
-		it('should create an UPDATE_MODULE_FAILURE action when module edition logic has failed', () => {
+		it('should create an DELETE_MODULE_FAILURE action when module deletion logic has failed', () => {
 			// Arrange
 			const moduleData = {
 				id: '7',
@@ -348,18 +348,18 @@ describe('Module-related redux actions', () => {
 
 			const httpResponse = { status: 500 };
 
-			fetchMock.put(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
+			fetchMock.delete(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
 
 			const expectedActions = [
-				{ type: modulesActions.ActionTypes.UPDATE_MODULE_REQUEST },
+				{ type: modulesActions.ActionTypes.DELETE_MODULE_REQUEST },
 				{
-					type: modulesActions.ActionTypes.UPDATE_MODULE_FAILURE,
+					type: modulesActions.ActionTypes.DELETE_MODULE_FAILURE,
 					payload: { error: { status: 500, message: 'Internal Server Error' } },
 				},
 			];
 
 			// Act & assert
-			store.dispatch(modulesActions.updateModule(moduleData, moduleData.id))
+			store.dispatch(modulesActions.deleteModule(moduleData.id))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
