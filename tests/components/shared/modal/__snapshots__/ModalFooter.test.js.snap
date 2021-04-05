@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalFooter should render correctly 1`] = `
+exports[`ModalFooter should match previoys snapshot 1`] = `
 <styled.div
   display="flex"
   justifyContent="flex-end"

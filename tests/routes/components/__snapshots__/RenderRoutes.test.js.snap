@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RenderRoutes should render correctly 1`] = `
+exports[`RenderRoutes should match previoys snapshot 1`] = `
 <Provider
   store={
     Object {
