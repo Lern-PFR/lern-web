@@ -147,20 +147,20 @@ describe('http helper methods', () => {
 			httpModule.get('/test/abcd', {});
 			const result = fetchMock.lastCall();
 
-			console.log(result);
-
 			expect(result[1].method).toEqual('GET');
 		});
 
 		it('should convert qsObject param into a query string if not empty', () => {
 			const qsObject = { name: 'john', sorting: 'ASC id' };
-			const expectedResultUrl = `/${baseUrl}/test/abcd?${httpModule.objectToQS(qsObject)}`;
+			const expectedQueryString = httpModule.objectToQS(qsObject);
+			const expectedResultUrl = `${baseUrl}/test/abcd?${expectedQueryString}`;
 			fetchMock.get(expectedResultUrl, {});
 
 			httpModule.get('/test/abcd', qsObject);
 			const result = fetchMock.lastCall();
 
-			expect(result[0]).toEqual(expectedResultUrl);
+			expect(result[0].split('?').length).toEqual(2);
+			expect(result[0].split('?').pop()).toEqual(expectedQueryString);
 		});
 
 		it('should not call objectToQS method if qsObject parameter is not provided', () => {
