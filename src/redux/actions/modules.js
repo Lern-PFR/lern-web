@@ -290,7 +290,7 @@ const clearModuleListAction = () => ({ type: ActionTypes.CLEAR_MODULE_LIST });
 /**
  * @function
  * @name fetchModule
- * @description Method used to fetch the latest version of a specified module
+ * @description Method used to fetch the latest version of a specified module.
  *
  * @author Timothée Simon-Franza
  *

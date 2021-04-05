@@ -8,7 +8,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 const initialStore = {
-	users: {
+	modules: {
 		isLoading: false,
 		items: [],
 		totalCount: 0,
