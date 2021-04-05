@@ -1,4 +1,4 @@
-import { get } from 'lib/shared/http';
+import { get, post } from 'lib/shared/http';
 
 /**
  * @function
@@ -25,3 +25,16 @@ export const fetchNotionById = (notionId) => get(`/api/notions/${notionId}`);
  * @returns {Promise}
  */
 export const fetchNotionsByModuleId = (moduleId) => get(`/api/notions/by-module/${moduleId}`);
+
+/**
+ * @function
+ * @name createNotion
+ * @description Creates a new notion in the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notionData : The data to create the new notion from.
+ *
+ * @returns {Promise}
+ */
+export const createNotion = (notionData) => post('/api/notions', notionData);

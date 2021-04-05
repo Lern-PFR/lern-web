@@ -158,4 +158,71 @@ describe('Notion-related redux actions', () => {
 				});
 		});
 	});
+
+	describe('Notion creation', () => {
+		it('should create a CREATE_NOTION_REQUEST action when notion creation logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.CREATE_NOTION_REQUEST },
+			];
+
+			// Act
+			store.dispatch(notionsActions.createNotion({}));
+
+			// Assert
+			expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('should create a CREATE_NOTION_SUCCESS action when notion creation logic is successful', () => {
+			// Arrange
+			const notionData = {
+				name: 'Dummy notion 7',
+				moduleId: 'abcd',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: { notion: { ...notionData, id: '7' } },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/notions`, httpResponse);
+
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.CREATE_NOTION_REQUEST },
+				{
+					type: notionsActions.ActionTypes.CREATE_NOTION_SUCCESS,
+					payload: { notion: { ...notionData, id: '7' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(notionsActions.createNotion(notionData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('should create a CREATE_NOTION_FAILURE action when notion creation logic has failed', () => {
+			// Arrange
+			const notionData = {
+				name: 'Dummy notion 7',
+				subjectId: 'abcd',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.post(`${baseUrl}/api/notions`, httpResponse);
+
+			const expectedActions = [
+				{ type: notionsActions.ActionTypes.CREATE_NOTION_REQUEST },
+				{
+					type: notionsActions.ActionTypes.CREATE_NOTION_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			store.dispatch(notionsActions.createNotion(notionData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
 });

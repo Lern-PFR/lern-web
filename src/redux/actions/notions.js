@@ -80,7 +80,7 @@ const fetchNotionFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
-// ////////////// Module list fetching actions //////////// //
+// ////////////// Notion list fetching actions //////////// //
 // //////////////////////////////////////////////////////// //
 
 /**
@@ -128,6 +128,53 @@ const fetchNotionListFailure = (error) => ({
 });
 
 // //////////////////////////////////////////////////////// //
+// //////////////// Notion creation actions /////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name createNotionRequest
+ * @description Action triggered anytime a notion creation call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const createNotionRequest = () => ({ type: ActionTypes.CREATE_NOTION_REQUEST });
+
+/**
+ * @function
+ * @name createNotionSuccess
+ * @description Action triggered as a result to a successfult notion creation API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notion : The newly created notion.
+ *
+ * @returns {object}
+ */
+const createNotionSuccess = ({ notion }) => ({
+	type: ActionTypes.CREATE_NOTION_SUCCESS,
+	payload: { notion },
+});
+
+/**
+ * @function
+ * @name createNotionFailure
+ * @description Action triggered as a result to a failed notion creation API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const createNotionFailure = (error) => ({
+	type: ActionTypes.CREATE_NOTION_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
 // //////////////// Exported action creators ////////////// //
 // //////////////////////////////////////////////////////// //
 
@@ -163,4 +210,21 @@ export const fetchNotionListByModuleId = (moduleId) => (dispatch) => {
 	return NotionsApi.fetchNotionsByModuleId(moduleId)
 		.then(({ notions, totalCount }) => dispatch(fetchNotionListSuccess({ notions, totalCount })))
 		.catch((error) => dispatch(fetchNotionListFailure(error)));
+};
+
+/**
+ * @function
+ * @name createNotion
+ * @description Method used to create a new notion in the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} notionData : The data to create the new notion from.
+ */
+export const createNotion = (notionData) => (dispatch) => {
+	dispatch(createNotionRequest());
+
+	return NotionsApi.createNotion(notionData)
+		.then(({ notion }) => dispatch(createNotionSuccess({ notion })))
+		.catch((error) => dispatch(createNotionFailure(error)));
 };
