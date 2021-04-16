@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+	border,
 	color,
 	flexbox,
 	grid,
@@ -11,17 +12,18 @@ import {
 } from 'styled-system';
 
 /**
- * @name StyledDiv
- * @description A reusable div component that can be styled using styled-components and styled-system.
+ * @name StyledListItem
+ * @description A reusable li component that can be styled using styled-components and styled-system.
  *
  * @author Timothée Simon-Franza
  */
-const StyledDiv = styled('div')(
+const StyledListItem = styled('li')(
 	{
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		boxSizing: (({ boxSizing }) => (boxSizing || 'border-box')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
 	},
+	border,
 	color,
 	flexbox,
 	grid,
@@ -32,4 +34,4 @@ const StyledDiv = styled('div')(
 	shadow,
 );
 
-export default StyledDiv;
+export default StyledListItem;

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/display-name */
 import App from 'components/App';
+import { SubjectDetailsPage } from 'pages/subjects';
 import keys from './keys';
 
 /**
@@ -46,6 +47,19 @@ export default [
 				allowAuthenticated: false,
 				exact: true,
 				component: () => <p>Sign up</p>,
+			},
+		],
+	},
+	// Subjects
+	{
+		path: keys.subjects.default,
+		routes: [
+			{
+				path: keys.subjects.subjectDetails,
+				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAuthenticated: true,
+				exact: true,
+				component: SubjectDetailsPage,
 			},
 		],
 	},

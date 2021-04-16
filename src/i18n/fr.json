@@ -1,11 +1,20 @@
 {
-    "translations": {
+    "translation": {
         "page_not_found": {
             "hero": "Page introuvable!",
             "redirection_link": {
                 "home_page": "Retourner à la page d'accueil"
             }
         },
+		"subjects": {
+			"links": {
+				"back_to_list": "Retourner à la liste des sujets",
+				"module": "Accéder au module"
+			},
+			"details": {
+				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
+			}
+		},
         "components": {
             "prompt": {
                 "title": "Attention !",
