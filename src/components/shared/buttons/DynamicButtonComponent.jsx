@@ -43,7 +43,7 @@ const StyledDynamicButtonComponent = styled('button')(
  * @param {func}	[onClick]		: Function to trigger on user click.
  */
 const DynamicButtonComponent = ({ children, disabled, isIconOnly, onClick, ...otherProps }) => (
-	<StyledDynamicButtonComponent onClick={onClick} {...otherProps}>
+	<StyledDynamicButtonComponent onClick={onClick} {...otherProps} {...(disabled ? disabledStyle : {})}>
 		{isIconOnly && cloneElement(children, { ...(disabled ? disabledStyle : {}) })}
 		{!isIconOnly && (
 			<Brevier tag="span" lineHeight="initial" fontWeight={600}>

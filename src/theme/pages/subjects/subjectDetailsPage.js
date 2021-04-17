@@ -1,4 +1,4 @@
-import { oyster } from 'theme/colors';
+import { peppercorn, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -14,23 +14,26 @@ const subjectName = {
 
 const subjectAuthor = {
 	fontWeight: 600,
-	color: oyster.default,
+	color: tuna.default,
 };
 
 const subjectDescription = {
 	fontWeight: 600,
-	color: oyster.default,
+	color: peppercorn.default,
 };
 
 const moduleList = {
 	listStyle: 'none',
+	display: 'grid',
+	gridAutoRows: 'minmax(250px, 1fr)',
+	gridRowGap: '2em',
 };
 
 const moduleListItem = {
 	border: 'solid 1px black',
 	borderRadius: '8px',
 	padding: '24px',
-	marginBottom: '2em',
+	position: 'relative',
 };
 
 const moduleName = {
@@ -48,11 +51,7 @@ const moduleDescription = {
 const backToListButton = {
 	display: 'flex',
 	alignItems: 'center',
-
-	'* > span': {
-		display: 'flex',
-		alignItems: 'center',
-	},
+	paddingLeft: 'initial',
 };
 
 export {

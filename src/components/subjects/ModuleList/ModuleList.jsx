@@ -13,12 +13,11 @@ import ModuleListItem from './ModuleListItem';
  */
 const ModuleList = ({ modules }) => (
 	<StyledList {...moduleList} listStyle="none">
-		{modules && modules.map(({ id, name, description }) => (
+		{modules && modules.map(({ id, ...moduleData }) => (
 			<ModuleListItem
 				key={id}
 				id={id}
-				name={name}
-				description={description}
+				{...moduleData}
 			/>
 		))}
 	</StyledList>

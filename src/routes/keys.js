@@ -14,4 +14,7 @@ export default Object.freeze({
 		default: '/subjects',
 		subjectDetails: '/subjects/:id',
 	},
+	modules: {
+		moduleDetails: '/modules/:id',
+	},
 });

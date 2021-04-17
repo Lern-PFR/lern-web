@@ -1,14 +1,22 @@
+import { useEffect } from 'react';
+import Proptypes from 'prop-types';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
+import { ChevronLeft } from 'react-feather';
+
+import { fetchModuleListBySubjectId } from 'redux/actions/modules';
+import routes from 'routes/keys';
+
 import { StyledDiv } from 'components/shared/layout';
 import { Brevier, Canon, BodyCopy } from 'components/shared/typography';
-import Proptypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
-import { backToListButton, pageLayout, subjectAuthor, subjectName } from 'theme/pages/subjects/subjectDetailsPage';
 import ModuleList from 'components/subjects/ModuleList';
 import { SubtleButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
-import routes from 'routes/keys';
+
+import { backToListButton, pageLayout, subjectAuthor, subjectName } from 'theme/pages/subjects/subjectDetailsPage';
+
+import { subjectDetailsPageMock } from 'mockedData';
 
 /**
  * @name SubjectDetailsPage
@@ -16,13 +24,16 @@ import routes from 'routes/keys';
  *
  * @author Timothée Simon-Franza
  *
- * @param {string}	subjectId	The id of the current subject.
- * @param {object}	subject		The current subject's information.
- * @param {array}	modules		The list of modules composing the current subject.
- * @param {func}	t			The translation method provided by the withTranslation HoC.
+ * @param {string}	subjectId				The id of the current subject.
+ * @param {object}	subject					The current subject's information.
+ * @param {array}	modules					The list of modules composing the current subject.
+ * @param {func}	t						The translation method provided by the withTranslation HoC.
+ * @param {func}	dispatchFetchModuleList Dispatched action creator used to retrieve the current subject's module list.
  */
-const SubjectDetailsPage = ({ subjectId, subject, modules, t }) => {
-	console.log(subjectId);
+const SubjectDetailsPage = ({ dispatchFetchModuleList, subjectId, subject, modules, t }) => {
+	useEffect(() => {
+		dispatchFetchModuleList(subjectId);
+	}, [dispatchFetchModuleList, subjectId]);
 
 	return (
 		<StyledDiv {...pageLayout}>
@@ -34,7 +45,10 @@ const SubjectDetailsPage = ({ subjectId, subject, modules, t }) => {
 				<BodyCopy>{subject?.description}</BodyCopy>
 				<SubtleButton {...backToListButton}>
 					<Link to={routes.subjects.default}>
-						{t('subjects.links.back_to_list')}
+						<StyledDiv display="flex" alignItems="center">
+							<ChevronLeft />
+							{t('subjects.links.back_to_list')}
+						</StyledDiv>
 					</Link>
 				</SubtleButton>
 			</StyledDiv>
@@ -59,8 +73,10 @@ SubjectDetailsPage.propTypes = {
 	modules: Proptypes.arrayOf(Proptypes.shape({
 		id: Proptypes.string.isRequired,
 		name: Proptypes.string.isRequired,
+		disabled: Proptypes.bool,
 	})).isRequired,
 	t: Proptypes.func.isRequired,
+	dispatchFetchModuleList: Proptypes.func.isRequired,
 };
 
 /**
@@ -70,33 +86,24 @@ SubjectDetailsPage.propTypes = {
 const mapStateToProps = (state, ownProps) => {
 	const { match: { params: { id: subjectId } } } = ownProps;
 
-	const {
-		// modules: { items: moduleList },
-		subjects: { items: subjectList },
-	} = state;
-
-	subjectList[0] = {
-		name: 'Gestion de projet informatique',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
-		author: {
-			firstName: 'John',
-			lastName: 'Doe',
-		},
-		lastUpdate: '12/04/2021',
-	};
-
-	const moduleListMock = [
-		{ id: '0', name: 'name 0', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.' },
-		{ id: '1', name: 'name 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.' },
-		{ id: '2', name: 'name 2', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.' },
-
-	];
+	// @TODO: uncomment these lines once data can be retrieved from the API.
+	// const {
+	// 	modules: { items: moduleList },
+	// 	subjects: { items: subjectList },
+	// } = state;
 
 	return {
 		subjectId,
-		subject: subjectList[0],
-		modules: moduleListMock,
+		subject: subjectDetailsPageMock.subjectList[0],
+		modules: subjectDetailsPageMock.moduleList,
 	};
 };
 
-export default compose(withTranslation(), connect(mapStateToProps))(SubjectDetailsPage);
+const mapDispatchToProps = {
+	dispatchFetchModuleList: fetchModuleListBySubjectId,
+};
+
+export default compose(
+	withTranslation(),
+	connect(mapStateToProps, mapDispatchToProps)
+)(SubjectDetailsPage);
