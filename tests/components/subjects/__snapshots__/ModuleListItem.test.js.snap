@@ -3,17 +3,19 @@
 exports[`ModuleListItem should match previous disabled-state snapshot 1`] = `
 <styled.ul
   display="grid"
-  gridAutoRows="minmax(250px, 1fr)"
+  gridAutoRows="minmax(40%, 1fr)"
   gridRowGap="2em"
   listStyle="none"
+  maxHeight="100%"
 />
 `;
 
 exports[`ModuleListItem should match previous snapshot 1`] = `
 <styled.ul
   display="grid"
-  gridAutoRows="minmax(250px, 1fr)"
+  gridAutoRows="minmax(40%, 1fr)"
   gridRowGap="2em"
   listStyle="none"
+  maxHeight="100%"
 />
 `;

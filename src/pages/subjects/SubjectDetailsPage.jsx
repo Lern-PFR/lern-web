@@ -14,7 +14,7 @@ import ModuleList from 'components/subjects/ModuleList';
 import { SubtleButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
 
-import { backToListButton, pageLayout, subjectAuthor, subjectName } from 'theme/pages/subjects/subjectDetailsPage';
+import { backToListButton, pageLayout, subjectAuthor, subjectName, subjectDetails } from 'theme/pages/subjects/subjectDetailsPage';
 
 import { subjectDetailsPageMock } from 'mockedData';
 
@@ -41,19 +41,21 @@ const SubjectDetailsPage = ({ dispatchFetchModuleList, dispatchClearModuleList, 
 	return (
 		<StyledDiv {...pageLayout}>
 			<StyledDiv>
-				<Canon {...subjectName} tag="h1">{subject?.name}</Canon>
-				<Brevier {...subjectAuthor}>
-					{t('subjects.details.author_section', { author: subject?.author, lastUpdate: subject?.lastUpdate })}
-				</Brevier>
-				<BodyCopy>{subject?.description}</BodyCopy>
-				<SubtleButton {...backToListButton}>
-					<Link to={routes.subjects.default}>
-						<StyledDiv display="flex" alignItems="center">
-							<ChevronLeft />
-							{t('subjects.links.back_to_list')}
-						</StyledDiv>
-					</Link>
-				</SubtleButton>
+				<StyledDiv {...subjectDetails}>
+					<Canon {...subjectName} tag="h1">{subject?.name}</Canon>
+					<Brevier {...subjectAuthor}>
+						{t('subjects.details.author_section', { author: subject?.author, lastUpdate: subject?.lastUpdate })}
+					</Brevier>
+					<BodyCopy>{subject?.description}</BodyCopy>
+					<SubtleButton {...backToListButton}>
+						<Link to={routes.subjects.default}>
+							<StyledDiv display="flex" alignItems="center">
+								<ChevronLeft />
+								{t('subjects.links.back_to_list')}
+							</StyledDiv>
+						</Link>
+					</SubtleButton>
+				</StyledDiv>
 			</StyledDiv>
 			<StyledDiv>
 				<ModuleList modules={modules} />

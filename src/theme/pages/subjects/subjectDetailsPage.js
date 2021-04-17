@@ -2,9 +2,15 @@ import { peppercorn, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
-	gridTemplateColumns: 'minmax(572px, 1fr) 2fr',
+	gridTemplateColumns: 'minmax(30%, 1fr) 2fr',
 	gridGap: '124px',
-	padding: '120px 64px 0 64px',
+	paddingTop: '120px',
+	paddingX: '64px',
+};
+
+const subjectDetails = {
+	position: 'sticky',
+	top: pageLayout.paddingTop,
 };
 
 const subjectName = {
@@ -25,15 +31,19 @@ const subjectDescription = {
 const moduleList = {
 	listStyle: 'none',
 	display: 'grid',
-	gridAutoRows: 'minmax(250px, 1fr)',
+	gridAutoRows: 'minmax(40%, 1fr)',
 	gridRowGap: '2em',
+	maxHeight: '100%',
 };
 
 const moduleListItem = {
 	border: 'solid 1px black',
 	borderRadius: '8px',
-	padding: '24px',
+	padding: '2em',
 	position: 'relative',
+	display: 'grid',
+	gridTemplateRows: '1fr 5fr auto',
+	gridGap: '1em',
 };
 
 const moduleName = {
@@ -44,8 +54,13 @@ const moduleName = {
 const moduleDescription = {
 	margin: 0,
 	lineHeight: 'initial',
-	marginTop: '16px',
-	marginBottom: '32px',
+	textOverflow: 'ellipsis',
+	whiteSpace: 'nowrap',
+	overflow: 'hidden',
+};
+
+const moduleAccessLinkButton = {
+	width: 'max-content',
 };
 
 const backToListButton = {
@@ -60,6 +75,8 @@ export {
 	moduleListItem,
 	moduleName,
 	moduleDescription,
+	moduleAccessLinkButton,
+	subjectDetails,
 	subjectName,
 	subjectAuthor,
 	subjectDescription,
