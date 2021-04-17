@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { ChevronLeft } from 'react-feather';
 
-import { fetchModuleListBySubjectId } from 'redux/actions/modules';
+import { clearModuleList, fetchModuleListBySubjectId } from 'redux/actions/modules';
 import routes from 'routes/keys';
 
 import { StyledDiv } from 'components/shared/layout';
@@ -29,11 +29,14 @@ import { subjectDetailsPageMock } from 'mockedData';
  * @param {array}	modules					The list of modules composing the current subject.
  * @param {func}	t						The translation method provided by the withTranslation HoC.
  * @param {func}	dispatchFetchModuleList Dispatched action creator used to retrieve the current subject's module list.
+ * @param {func}	dispatchClearModuleList	Dispatched action creator used to empty the modules state list on unmount.
  */
-const SubjectDetailsPage = ({ dispatchFetchModuleList, subjectId, subject, modules, t }) => {
+const SubjectDetailsPage = ({ dispatchFetchModuleList, dispatchClearModuleList, subjectId, subject, modules, t }) => {
 	useEffect(() => {
 		dispatchFetchModuleList(subjectId);
-	}, [dispatchFetchModuleList, subjectId]);
+
+		return () => dispatchClearModuleList();
+	}, [dispatchFetchModuleList, dispatchClearModuleList, subjectId]);
 
 	return (
 		<StyledDiv {...pageLayout}>
@@ -77,6 +80,7 @@ SubjectDetailsPage.propTypes = {
 	})).isRequired,
 	t: Proptypes.func.isRequired,
 	dispatchFetchModuleList: Proptypes.func.isRequired,
+	dispatchClearModuleList: Proptypes.func.isRequired,
 };
 
 /**
@@ -101,6 +105,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
 	dispatchFetchModuleList: fetchModuleListBySubjectId,
+	dispatchClearModuleList: clearModuleList,
 };
 
 export default compose(

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 // @TODO: delete this file once the application's backend is linked to the project.
 
