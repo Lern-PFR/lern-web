@@ -29,6 +29,7 @@ import {
 	elevationFourth,
 	elevationFifth,
 } from 'theme/elevations';
+import { CheckboxComponent } from 'components/shared/form';
 
 /**
  * @name App
@@ -66,6 +67,10 @@ const App = () => (
 			<StyledDiv {...elevationThird} width="260px" height="260px" padding="10px">20% elevation component</StyledDiv>
 			<StyledDiv {...elevationFourth} width="260px" height="260px" padding="10px">30% elevation component</StyledDiv>
 			<StyledDiv {...elevationFifth} width="260px" height="260px" padding="10px">50% elevation component</StyledDiv>
+		</StyledDiv>
+		<StyledDiv position="relative">
+			<CheckboxComponent />
+			<CheckboxComponent disabled />
 		</StyledDiv>
 	</MainLayout>
 );
