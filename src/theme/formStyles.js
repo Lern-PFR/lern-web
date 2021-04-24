@@ -9,12 +9,12 @@ const commonLabelStyle = {
 }
 
 const buttonLabelStyle = {
-    ...commonLabel,
+    ...commonLabelStyle,
     color: peppercorn,
 }
 
 const groupedFieldLabelStyle = {
-    ...commonLabel,
+    ...commonLabelStyle,
     color: tuna,
 }
 
