@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelComponent should match previous snapshot 1`] = `
+<styled.label
+  htmlFor=""
+>
+  <Brevier
+    tag="span"
+  >
+    Test label
+  </Brevier>
+</styled.label>
+`;

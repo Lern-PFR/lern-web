@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exported form elements LabeledCheckbox should match previous snapshot 1`] = `
+<styled.div>
+  <CheckboxComponent
+    checked={false}
+    disabled={false}
+    id="lcb"
+  />
+  <LabelComponent
+    element="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`Exported form elements LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
+<styled.div>
+  <CheckboxComponent
+    checked={true}
+    disabled={true}
+    id="lcb"
+  />
+  <LabelComponent
+    element="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`Exported form elements LabeledCheckbox should match previous snapshot for checked state 1`] = `
+<styled.div>
+  <CheckboxComponent
+    checked={true}
+    disabled={false}
+    id="lcb"
+  />
+  <LabelComponent
+    element="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`Exported form elements LabeledCheckbox should match previous snapshot for disabled state 1`] = `
+<styled.div>
+  <CheckboxComponent
+    checked={false}
+    disabled={true}
+    id="lcb"
+  />
+  <LabelComponent
+    element="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;

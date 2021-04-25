@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxComponent should match previous snapshot 1`] = `
+<styled.input
+  defaultChecked={false}
+  disabled={false}
+  id="cb"
+  type="checkbox"
+/>
+`;
+
+exports[`CheckboxComponent should match previous snapshot for checked state 1`] = `
+<styled.input
+  defaultChecked={true}
+  disabled={false}
+  id="cb"
+  type="checkbox"
+/>
+`;
+
+exports[`CheckboxComponent should match previous snapshot for disabled and checked states 1`] = `
+<styled.input
+  bg="F6F6F4"
+  color="#8C8C8C"
+  defaultChecked={true}
+  disabled={true}
+  id="cb"
+  type="checkbox"
+/>
+`;
+
+exports[`CheckboxComponent should match previous snapshot for disabled state 1`] = `
+<styled.input
+  bg="F6F6F4"
+  color="#8C8C8C"
+  defaultChecked={false}
+  disabled={true}
+  id="cb"
+  type="checkbox"
+/>
+`;

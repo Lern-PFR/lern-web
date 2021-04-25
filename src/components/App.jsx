@@ -29,7 +29,7 @@ import {
 	elevationFourth,
 	elevationFifth,
 } from 'theme/elevations';
-import { CheckboxComponent } from 'components/shared/form';
+import { LabeledCheckbox } from 'components/shared/form';
 
 /**
  * @name App
@@ -68,9 +68,11 @@ const App = () => (
 			<StyledDiv {...elevationFourth} width="260px" height="260px" padding="10px">30% elevation component</StyledDiv>
 			<StyledDiv {...elevationFifth} width="260px" height="260px" padding="10px">50% elevation component</StyledDiv>
 		</StyledDiv>
-		<StyledDiv position="relative">
-			<CheckboxComponent />
-			<CheckboxComponent disabled />
+		<StyledDiv position="relative" display="flex" flexDirection="column">
+			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>
+			<LabeledCheckbox checked id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
+			<LabeledCheckbox disabled id="lcb3">Disabled labeled checkbox</LabeledCheckbox>
+			<LabeledCheckbox disabled checked id="lcb4">Disabled default checked labeled checkbox</LabeledCheckbox>
 		</StyledDiv>
 	</MainLayout>
 );

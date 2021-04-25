@@ -14,6 +14,7 @@ export default [
 	{
 		path: keys.app.default,
 		exact: true,
+		allowAnonymous: true,
 		component: App,
 	},
 	// Auth

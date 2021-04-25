@@ -1,4 +1,3 @@
-import { cloneElement } from 'react';
 import styled from 'styled-components';
 import {
 	border,
@@ -13,7 +12,7 @@ import {
 import PropTypes from 'prop-types';
 import { disabled as disabledStyle } from 'theme/buttonStyles';
 
-const StyledCheckboxComponent = styled('checkbox')(
+const StyledCheckboxComponent = styled('input')(
 	{
 		cursor: 'pointer',
 	},
@@ -32,19 +31,22 @@ const StyledCheckboxComponent = styled('checkbox')(
  * @description A component used to display styled checkbox element.
  *
  * @param {bool}	[disabled]		: Whether the checkbox is disabled.
+ * @param {bool}	[checked]		: Whether the checkbox is checked.
+ * @param {string}	id				: The id of the checkbox.
  */
-const CheckboxComponent = ({ disabled, ...otherProps }) => (
-	<StyledCheckboxComponent {...otherProps}>
-		{cloneElement({ ...(disabled ? disabledStyle : {}) })}
-	</StyledCheckboxComponent>
+const CheckboxComponent = ({ id, checked, disabled, ...otherProps }) => (
+	<StyledCheckboxComponent {...otherProps} {...(disabled ? disabledStyle : {})} type="checkbox" disabled={disabled} defaultChecked={checked} id={id} />
 );
 
 CheckboxComponent.propTypes = {
+	id: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
+	checked: PropTypes.bool,
 };
 
 CheckboxComponent.defaultProps = {
 	disabled: false,
+	checked: false,
 };
 
 export default CheckboxComponent;

@@ -1,32 +1,28 @@
-const { peppercorn, tuna } = require("./colors");
+import {
+	peppercorn,
+	tuna,
+} from './colors';
+import { brevier } from './textStyles';
 
-const commonLabelStyle = {
-    fontFamily: 'IBM Plex Sans, Helvetica Neue, Arial, sans-serif',
-	fontSize: '0.75rem',
-	fontWeight: 300,
-	letterSpacing: 0,
-	lineHeight: '1em',
-}
+const labelStyle = {
+	...brevier,
+	color: peppercorn,
+};
 
-const buttonLabelStyle = {
-    ...commonLabelStyle,
-    color: peppercorn,
-}
-
-const groupedFieldLabelStyle = {
-    ...commonLabelStyle,
-    color: tuna,
-}
+const groupedLabelStyle = {
+	...brevier,
+	color: tuna.default,
+};
 
 const checkboxStyle = {
-    border: 'solid 1px peppercorn',
-    borderRadius: 2,
-    height: '1em',
-    width: '1em',
-}
+	border: `solid 1px ${peppercorn}`,
+	borderRadius: 2,
+	height: '1em',
+	width: '1em',
+};
 
 export {
-    buttonLabelStyle,
-    groupedFieldLabelStyle,
-    checkboxStyle,
-}
+	labelStyle,
+	groupedLabelStyle,
+	checkboxStyle,
+};
