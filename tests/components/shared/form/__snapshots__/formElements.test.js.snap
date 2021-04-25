@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Exported form elements LabeledCheckbox should match previous snapshot 1`] = `
-<styled.div>
+<styled.div
+  alignItems="center"
+  display="flex"
+>
   <CheckboxComponent
     checked={false}
     disabled={false}
     id="lcb"
   />
   <LabelComponent
+    color="initial"
     element="lcb"
   >
     Primary button
@@ -16,13 +20,17 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot 1
 `;
 
 exports[`Exported form elements LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
-<styled.div>
+<styled.div
+  alignItems="center"
+  display="flex"
+>
   <CheckboxComponent
     checked={true}
     disabled={true}
     id="lcb"
   />
   <LabelComponent
+    color="#707070"
     element="lcb"
   >
     Primary button
@@ -31,13 +39,17 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot f
 `;
 
 exports[`Exported form elements LabeledCheckbox should match previous snapshot for checked state 1`] = `
-<styled.div>
+<styled.div
+  alignItems="center"
+  display="flex"
+>
   <CheckboxComponent
     checked={true}
     disabled={false}
     id="lcb"
   />
   <LabelComponent
+    color="initial"
     element="lcb"
   >
     Primary button
@@ -46,13 +58,17 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot f
 `;
 
 exports[`Exported form elements LabeledCheckbox should match previous snapshot for disabled state 1`] = `
-<styled.div>
+<styled.div
+  alignItems="center"
+  display="flex"
+>
   <CheckboxComponent
     checked={false}
     disabled={true}
     id="lcb"
   />
   <LabelComponent
+    color="#707070"
     element="lcb"
   >
     Primary button
