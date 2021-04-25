@@ -1,8 +1,10 @@
 import { StyledDiv } from 'components/shared/layout';
 import PropTypes from 'prop-types';
+import { tuna } from 'theme/colors';
 import CheckboxComponent from './CheckboxComponent';
 import LabelComponent from './LabelComponent';
-
+import LegendComponent from './LegendComponent';
+import FieldsetComponent from './FieldsetComponent';
 /**
  * @name LabeledCheckbox
  * @description A component used to display styled checkbox element.
@@ -13,9 +15,9 @@ import LabelComponent from './LabelComponent';
  * @param {string}	children		: text to display in the label.
  */
 const LabeledCheckbox = ({ children, id, checked, disabled, ...otherProps }) => (
-	<StyledDiv {...otherProps}>
+	<StyledDiv {...otherProps} display="flex" alignItems="center">
 		<CheckboxComponent disabled={disabled} checked={checked} id={id} />
-		<LabelComponent element={id}>
+		<LabelComponent element={id} color={disabled ? tuna.darker1 : 'initial'}>
 			{children}
 		</LabelComponent>
 	</StyledDiv>
@@ -37,4 +39,6 @@ export {
 	LabeledCheckbox,
 	CheckboxComponent,
 	LabelComponent,
+	LegendComponent,
+	FieldsetComponent,
 };

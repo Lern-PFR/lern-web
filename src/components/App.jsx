@@ -29,7 +29,10 @@ import {
 	elevationFourth,
 	elevationFifth,
 } from 'theme/elevations';
-import { LabeledCheckbox } from 'components/shared/form';
+import {
+	LabeledCheckbox,
+	FieldsetComponent,
+} from 'components/shared/form';
 
 /**
  * @name App
@@ -73,6 +76,14 @@ const App = () => (
 			<LabeledCheckbox checked id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
 			<LabeledCheckbox disabled id="lcb3">Disabled labeled checkbox</LabeledCheckbox>
 			<LabeledCheckbox disabled checked id="lcb4">Disabled default checked labeled checkbox</LabeledCheckbox>
+		</StyledDiv>
+		<StyledDiv position="relative">
+			<FieldsetComponent title="Basic fieldset component">
+				<LabeledCheckbox id="lcb5">Labeled checkbox</LabeledCheckbox>
+				<LabeledCheckbox checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
+				<LabeledCheckbox disabled id="lcb7">Disabled labeled checkbox</LabeledCheckbox>
+				<LabeledCheckbox disabled checked id="lcb8">Disabled default checked labeled checkbox</LabeledCheckbox>
+			</FieldsetComponent>
 		</StyledDiv>
 	</MainLayout>
 );

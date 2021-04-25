@@ -6,7 +6,8 @@ import { brevier } from './textStyles';
 
 const labelStyle = {
 	...brevier,
-	color: peppercorn,
+	color: peppercorn.default,
+	cursor: 'pointer',
 };
 
 const groupedLabelStyle = {
@@ -14,15 +15,23 @@ const groupedLabelStyle = {
 	color: tuna.default,
 };
 
-const checkboxStyle = {
-	border: `solid 1px ${peppercorn}`,
+const groupStyle = {
 	borderRadius: 2,
-	height: '1em',
-	width: '1em',
+	border: `solid 1px ${tuna.default}`,
+};
+
+const checkboxStyle = {
+	border: `solid 1px ${peppercorn.default}`,
+	borderRadius: 2,
+	height: '16px',
+	width: '16px',
+	bg: peppercorn.default,
+	cursor: 'pointer',
 };
 
 export {
 	labelStyle,
 	groupedLabelStyle,
 	checkboxStyle,
+	groupStyle,
 };
