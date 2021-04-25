@@ -9,9 +9,11 @@ describe('FieldsetComponent', () => {
 	});
 
 	it('should match previous snapshot', () => {
-		const sut = (<FieldsetComponent title="Test fieldset">
-			<LabeledCheckbox id="cb">Test checkbox</LabeledCheckbox>
-		</FieldsetComponent>);
+		const sut = (
+			<FieldsetComponent title="Test fieldset">
+				<LabeledCheckbox id="cb">Test checkbox</LabeledCheckbox>
+			</FieldsetComponent>
+		);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
