@@ -15,9 +15,9 @@ import LabelComponent from './LabelComponent';
  * @param {string}	id				: The id of the checkbox.
  * @param {string}	children		: text to display in the label.
  */
-const LabeledCheckbox = ({ children, id, checked, disabled, indeterminate, ...otherProps }) => (
+const LabeledCheckbox = ({ children, id, checked, disabled, ...otherProps }) => (
 	<StyledDiv display="flex" alignItems="center">
-		<CheckboxComponent {...otherProps} indeterminate={indeterminate} disabled={disabled} checked={checked} id={id} />
+		<CheckboxComponent {...otherProps} disabled={disabled} checked={checked} id={id} />
 		<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 			{children}
 		</LabelComponent>
@@ -29,13 +29,11 @@ LabeledCheckbox.propTypes = {
 	children: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,
-	indeterminate: PropTypes.bool,
 };
 
 LabeledCheckbox.defaultProps = {
 	disabled: false,
 	checked: false,
-	indeterminate: false,
 };
 
 export default LabeledCheckbox;

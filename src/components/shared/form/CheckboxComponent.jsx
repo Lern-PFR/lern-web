@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { disabled as disabledStyle } from 'theme/buttonStyles';
 import { checkboxStyle } from 'theme/formStyles';
 import { jasmine, tuna } from 'theme/colors';
+import { forwardRef, useRef } from 'react';
 
 const StyledCheckboxComponent = styled('input')(
 	border,
@@ -45,12 +46,12 @@ const StyledCheckboxComponent = styled('input')(
 			borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
 		},
 
-		'&:indeterminate:before': {
-			content: '"\\2013"',
-			color: 'white',
-			backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : 'black')),
-			borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
-		},
+		// '&:indeterminate:before': {
+		// 	content: '"\\2013"',
+		// 	color: 'white',
+		// 	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : 'black')),
+		// 	borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
+		// },
 
 		'&:checked:before': {
 			content: '"\\2713"',
@@ -71,29 +72,34 @@ const StyledCheckboxComponent = styled('input')(
  * @param {bool}	[checked]		: Whether the checkbox is checked.
  * @param {string}	id				: The id of the checkbox.
  */
-const CheckboxComponent = ({ id, checked, disabled, indeterminate, ...otherProps }) => (
-	<StyledCheckboxComponent
-		{...otherProps}
-		{...(disabled ? disabledStyle : {})}
-		type="checkbox"
-		indeterminate={indeterminate}
-		disabled={disabled}
-		defaultChecked={checked}
-		id={id}
-	/>
+const CheckboxComponent = forwardRef(
+	({ id, checked, disabled, ...otherProps }, ref) => {
+		const defaultRef = useRef();
+		const resolvedRef = ref || defaultRef;
+
+		return (
+			<StyledCheckboxComponent
+				{...otherProps}
+				{...(disabled ? disabledStyle : {})}
+				type="checkbox"
+				disabled={disabled}
+				defaultChecked={checked}
+				id={id}
+				ref={resolvedRef}
+			/>
+		);
+	}
 );
 
 CheckboxComponent.propTypes = {
 	id: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,
-	indeterminate: PropTypes.bool,
 };
 
 CheckboxComponent.defaultProps = {
 	disabled: false,
 	checked: false,
-	indeterminate: false,
 };
 
 export default CheckboxComponent;

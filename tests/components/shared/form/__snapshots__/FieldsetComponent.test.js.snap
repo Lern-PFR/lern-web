@@ -12,7 +12,6 @@ exports[`FieldsetComponent should match previous snapshot 1`] = `
     checked={false}
     disabled={false}
     id="cb"
-    indeterminate={false}
   >
     Test checkbox
   </LabeledCheckbox>

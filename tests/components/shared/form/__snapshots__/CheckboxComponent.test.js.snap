@@ -5,7 +5,6 @@ exports[`CheckboxComponent should match previous snapshot 1`] = `
   defaultChecked={false}
   disabled={false}
   id="cb"
-  indeterminate={false}
   type="checkbox"
 />
 `;
@@ -15,7 +14,6 @@ exports[`CheckboxComponent should match previous snapshot for checked state 1`] 
   defaultChecked={true}
   disabled={false}
   id="cb"
-  indeterminate={false}
   type="checkbox"
 />
 `;
@@ -27,7 +25,6 @@ exports[`CheckboxComponent should match previous snapshot for disabled and check
   defaultChecked={true}
   disabled={true}
   id="cb"
-  indeterminate={false}
   type="checkbox"
 />
 `;
@@ -39,7 +36,6 @@ exports[`CheckboxComponent should match previous snapshot for disabled state 1`]
   defaultChecked={false}
   disabled={true}
   id="cb"
-  indeterminate={false}
   type="checkbox"
 />
 `;

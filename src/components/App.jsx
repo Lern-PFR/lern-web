@@ -74,7 +74,6 @@ const App = () => (
 		<StyledDiv position="relative" display="flex" flexDirection="column">
 			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>
 			<LabeledCheckbox checked id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox checked indeterminate id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
 			<LabeledCheckbox disabled id="lcb3">Disabled labeled checkbox</LabeledCheckbox>
 			<LabeledCheckbox disabled checked id="lcb4">Disabled default checked labeled checkbox</LabeledCheckbox>
 		</StyledDiv>
