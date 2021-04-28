@@ -62,26 +62,38 @@ const StyledCheckboxComponent = styled('input')(
 );
 
 /**
-* @name CheckboxComponent
-* @description A component used to display styled checkbox element.
-*
-* @param {bool}	[disabled]		: Whether the checkbox is disabled.
-* @param {bool}	[checked]		: Whether the checkbox is checked.
-* @param {string}	id				: The id of the checkbox.
-*/
-const CheckboxComponent = ({ id, checked, disabled, ...otherProps }) => (
-	<StyledCheckboxComponent {...otherProps} {...(disabled ? disabledStyle : {})} type="checkbox" disabled={disabled} defaultChecked={checked} id={id} />
+ * @name CheckboxComponent
+ * @description A component used to display styled checkbox element.
+ *
+ * @author Christopher Walker
+ *
+ * @param {bool}	[disabled]		: Whether the checkbox is disabled.
+ * @param {bool}	[checked]		: Whether the checkbox is checked.
+ * @param {string}	id				: The id of the checkbox.
+ */
+const CheckboxComponent = ({ id, checked, disabled, indeterminate, ...otherProps }) => (
+	<StyledCheckboxComponent
+		{...otherProps}
+		{...(disabled ? disabledStyle : {})}
+		type="checkbox"
+		indeterminate={indeterminate}
+		disabled={disabled}
+		defaultChecked={checked}
+		id={id}
+	/>
 );
 
 CheckboxComponent.propTypes = {
 	id: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,
+	indeterminate: PropTypes.bool,
 };
 
 CheckboxComponent.defaultProps = {
 	disabled: false,
 	checked: false,
+	indeterminate: false,
 };
 
 export default CheckboxComponent;

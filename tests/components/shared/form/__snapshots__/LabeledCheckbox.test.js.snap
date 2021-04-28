@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Exported form elements LabeledCheckbox should match previous snapshot 1`] = `
+exports[`LabeledCheckbox should match previous snapshot 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
@@ -9,17 +9,18 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot 1
     checked={false}
     disabled={false}
     id="lcb"
+    indeterminate={false}
   />
   <LabelComponent
     color="initial"
-    element="lcb"
+    forId="lcb"
   >
     Primary button
   </LabelComponent>
 </styled.div>
 `;
 
-exports[`Exported form elements LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
+exports[`LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
@@ -28,17 +29,18 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot f
     checked={true}
     disabled={true}
     id="lcb"
+    indeterminate={false}
   />
   <LabelComponent
     color="#707070"
-    element="lcb"
+    forId="lcb"
   >
     Primary button
   </LabelComponent>
 </styled.div>
 `;
 
-exports[`Exported form elements LabeledCheckbox should match previous snapshot for checked state 1`] = `
+exports[`LabeledCheckbox should match previous snapshot for checked state 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
@@ -47,17 +49,18 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot f
     checked={true}
     disabled={false}
     id="lcb"
+    indeterminate={false}
   />
   <LabelComponent
     color="initial"
-    element="lcb"
+    forId="lcb"
   >
     Primary button
   </LabelComponent>
 </styled.div>
 `;
 
-exports[`Exported form elements LabeledCheckbox should match previous snapshot for disabled state 1`] = `
+exports[`LabeledCheckbox should match previous snapshot for disabled state 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
@@ -66,10 +69,11 @@ exports[`Exported form elements LabeledCheckbox should match previous snapshot f
     checked={false}
     disabled={true}
     id="lcb"
+    indeterminate={false}
   />
   <LabelComponent
     color="#707070"
-    element="lcb"
+    forId="lcb"
   >
     Primary button
   </LabelComponent>

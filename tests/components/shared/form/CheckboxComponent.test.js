@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import CheckboxComponent from 'components/shared/form/CheckboxComponent';
-import { cleanup } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('CheckboxComponent', () => {
 	afterEach(() => {
@@ -33,5 +34,29 @@ describe('CheckboxComponent', () => {
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should call the onChange method', async () => {
+		const mockedOnChange = jest.fn(() => {});
+		const sut = (<CheckboxComponent onChange={mockedOnChange} id="cb" />);
+		render(sut);
+
+		await act(async () => {
+			userEvent.click(screen.getByRole('checkbox'));
+		});
+
+		expect(mockedOnChange).toHaveBeenCalled();
+	});
+
+	it('should not call the onChange method when checkbox is disabled', async () => {
+		const mockedOnChange = jest.fn(() => {});
+		const sut = (<CheckboxComponent onChange={mockedOnChange} disabled id="cb" />);
+		render(sut);
+
+		await act(async () => {
+			userEvent.click(screen.getByRole('checkbox'));
+		});
+
+		expect(mockedOnChange).not.toHaveBeenCalled();
 	});
 });

@@ -30,6 +30,8 @@ const StyledLegendComponent = styled('legend')(
  * @name LegendComponent
  * @description A component used to display styled label element.
  *
+ * @author Christopher Walker
+ *
  * @param {string}	children		: Test to display as the legend.
  */
 const LegendComponent = ({ children, ...otherProps }) => (

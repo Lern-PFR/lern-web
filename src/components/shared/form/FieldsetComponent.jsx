@@ -28,6 +28,8 @@ const StyledFieldsetComponent = styled('fieldset')(
  * @name FieldsetComponent
  * @description A component used to display styled fieldset element.
  *
+ * @author Christopher Walker
+ *
  * @param {string}	title		    : The title of the fieldset.
  * @param {*}	    children		: The child elements of the fieldset.
  */
