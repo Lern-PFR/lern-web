@@ -5,7 +5,7 @@ exports[`LabeledCheckbox should match previous snapshot 1`] = `
   alignItems="center"
   display="flex"
 >
-  <ForwardRef
+  <CheckboxComponent
     checked={false}
     disabled={false}
     id="lcb"
@@ -24,7 +24,7 @@ exports[`LabeledCheckbox should match previous snapshot for checked and disabled
   alignItems="center"
   display="flex"
 >
-  <ForwardRef
+  <CheckboxComponent
     checked={true}
     disabled={true}
     id="lcb"
@@ -43,7 +43,7 @@ exports[`LabeledCheckbox should match previous snapshot for checked state 1`] = 
   alignItems="center"
   display="flex"
 >
-  <ForwardRef
+  <CheckboxComponent
     checked={true}
     disabled={false}
     id="lcb"
@@ -62,7 +62,7 @@ exports[`LabeledCheckbox should match previous snapshot for disabled state 1`] =
   alignItems="center"
   display="flex"
 >
-  <ForwardRef
+  <CheckboxComponent
     checked={false}
     disabled={true}
     id="lcb"

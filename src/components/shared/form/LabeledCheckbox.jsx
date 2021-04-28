@@ -1,6 +1,7 @@
 import { StyledDiv } from 'components/shared/layout';
 import PropTypes from 'prop-types';
 import { tuna } from 'theme/colors';
+import { forwardRef, useRef } from 'react';
 import CheckboxComponent from './CheckboxComponent';
 import LabelComponent from './LabelComponent';
 
@@ -15,14 +16,23 @@ import LabelComponent from './LabelComponent';
  * @param {string}	id				: The id of the checkbox.
  * @param {string}	children		: text to display in the label.
  */
-const LabeledCheckbox = ({ children, id, checked, disabled, ...otherProps }) => (
-	<StyledDiv display="flex" alignItems="center">
-		<CheckboxComponent {...otherProps} disabled={disabled} checked={checked} id={id} />
-		<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
-			{children}
-		</LabelComponent>
-	</StyledDiv>
+const LabeledCheckbox = forwardRef(
+	({ children, id, checked, disabled, ...otherProps }, ref) => {
+		const defaultRef = useRef();
+		const resolvedRef = ref || defaultRef;
+
+		return (
+			<StyledDiv display="flex" alignItems="center">
+				<CheckboxComponent {...otherProps} disabled={disabled} checked={checked} id={id} ref={resolvedRef} />
+				<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
+					{children}
+				</LabelComponent>
+			</StyledDiv>
+		);
+	}
 );
+
+LabeledCheckbox.displayName = 'LabeledCheckbox';
 
 LabeledCheckbox.propTypes = {
 	id: PropTypes.string.isRequired,

@@ -91,6 +91,8 @@ const CheckboxComponent = forwardRef(
 	}
 );
 
+CheckboxComponent.displayName = 'CheckboxComponent';
+
 CheckboxComponent.propTypes = {
 	id: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
