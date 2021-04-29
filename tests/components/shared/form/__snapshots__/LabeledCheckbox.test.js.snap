@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabeledCheckbox should match previous snapshot 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <CheckboxComponent
+    checked={false}
+    disabled={false}
+    id="lcb"
+  />
+  <LabelComponent
+    color="initial"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <CheckboxComponent
+    checked={true}
+    disabled={true}
+    id="lcb"
+  />
+  <LabelComponent
+    color="#707070"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`LabeledCheckbox should match previous snapshot for checked state 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <CheckboxComponent
+    checked={true}
+    disabled={false}
+    id="lcb"
+  />
+  <LabelComponent
+    color="initial"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`LabeledCheckbox should match previous snapshot for disabled state 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <CheckboxComponent
+    checked={false}
+    disabled={true}
+    id="lcb"
+  />
+  <LabelComponent
+    color="#707070"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;

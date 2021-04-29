@@ -1,5 +1,5 @@
 # Tells to make these commands do not need any file
-.PHONY: help init build start start-verbose test clean destroy stop logs ps run lint
+.PHONY: help init build start start-verbose test clean destroy stop restart logs ps run lint
 
 # Add support for make targets arguments
 SUPPORTED_COMMANDS := run logs
@@ -34,7 +34,7 @@ start-verbose:
 	@docker-compose up
 
 test: ## Run the tests
-	@docker-compose run --rm app yarn test
+	@docker-compose run --rm app yarn test -u
 
 clean: ## Remove docker containers
 	@docker-compose down --remove-orphans
@@ -44,6 +44,8 @@ destroy: ## Remove docker containers, volumes AND images
 
 stop: ## Stop docker containers
 	@docker-compose stop
+
+restart: stop start ## Restart docker containers
 
 logs: ## Display the last 100 lines from given service output and attach to its output
 	@if [ "$(COMMAND_ARGS)" = "" ]; then\

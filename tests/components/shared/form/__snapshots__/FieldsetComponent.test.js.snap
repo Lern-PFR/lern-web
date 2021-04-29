@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldsetComponent should match previous snapshot 1`] = `
+<styled.fieldset
+  border="solid 1px #8C8C8C"
+  borderRadius={2}
+>
+  <LegendComponent>
+    Test fieldset
+  </LegendComponent>
+  <LabeledCheckbox
+    checked={false}
+    disabled={false}
+    id="cb"
+  >
+    Test checkbox
+  </LabeledCheckbox>
+</styled.fieldset>
+`;
