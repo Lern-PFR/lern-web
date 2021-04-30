@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LessonListItem should match previous disabled-state snapshot 1`] = `
+<styled.li
+  border="solid 1px black"
+  borderRadius="8px"
+  display="grid"
+  gridGap="1em"
+  gridTemplateRows="fit-content 1fr"
+  key="abcd"
+  padding="2em"
+  position="relative"
+>
+  <GreatPrimer
+    margin={0}
+    textTransform="capitalize"
+  >
+    abcd
+  </GreatPrimer>
+  <BodyCopy
+    display="inline-block"
+    lineHeight="initial"
+    margin={0}
+    maxHeight="90px"
+    overflow="hidden"
+    textOverflow="ellipsis"
+    whiteSpace="nowrap"
+  >
+    dummy description
+  </BodyCopy>
+  <SubtleButton
+    alignItems="center"
+    display="flex"
+    paddingLeft="initial"
+  >
+    <Link
+      disabled={true}
+      to="/lessons/abcd"
+    >
+      lessons.links.access
+    </Link>
+  </SubtleButton>
+</styled.li>
+`;
+
+exports[`LessonListItem should match previous snapshot 1`] = `
+<styled.li
+  border="solid 1px black"
+  borderRadius="8px"
+  display="grid"
+  gridGap="1em"
+  gridTemplateRows="fit-content 1fr"
+  key="abcd"
+  padding="2em"
+  position="relative"
+>
+  <GreatPrimer
+    margin={0}
+    textTransform="capitalize"
+  >
+    abcd
+  </GreatPrimer>
+  <BodyCopy
+    display="inline-block"
+    lineHeight="initial"
+    margin={0}
+    maxHeight="90px"
+    overflow="hidden"
+    textOverflow="ellipsis"
+    whiteSpace="nowrap"
+  >
+    dummy description
+  </BodyCopy>
+  <SubtleButton
+    alignItems="center"
+    display="flex"
+    paddingLeft="initial"
+  >
+    <Link
+      disabled={false}
+      to="/lessons/abcd"
+    >
+      lessons.links.access
+    </Link>
+  </SubtleButton>
+</styled.li>
+`;

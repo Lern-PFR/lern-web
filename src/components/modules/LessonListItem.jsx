@@ -19,7 +19,6 @@ import { backToListButton } from 'theme/pages/subjects/subjectDetailsPage';
  * @param {string}			lessonName	The current lesson's name.
  * @param {string}			lessonDesc	The current lesson's description.
  * @param {func}			t			The translation method provided by the withTranslation HoC.
- * @returns
  */
 const LessonListItem = ({ disabled, id, name, description, t }) => (
 	<StyledListItem key={id} {...lessonListItem}>

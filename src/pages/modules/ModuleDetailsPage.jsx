@@ -58,7 +58,10 @@ const ModuleDetailsPage = ({ dispatchFetchNotionList, dispatchClearNotionList, m
 };
 
 ModuleDetailsPage.propTypes = {
-	moduleId: PropTypes.string.isRequired,
+	moduleId: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	module: PropTypes.shape({
 		id: PropTypes.string.isRequired,
 		name: PropTypes.string.isRequired,
@@ -69,7 +72,10 @@ ModuleDetailsPage.propTypes = {
 		]).isRequired,
 	}).isRequired,
 	notions: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.string.isRequired,
+		id: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number,
+		]).isRequired,
 		name: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 		lessons: PropTypes.arrayOf(PropTypes.shape({

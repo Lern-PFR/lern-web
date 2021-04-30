@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubjectDetailsPage should match previous snapshot 1`] = `
+exports[`ModuleDetailsPage should match previous snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -33,11 +33,17 @@ exports[`SubjectDetailsPage should match previous snapshot 1`] = `
   }
 >
   <RouterProvider>
-    <Connect(SubjectDetailsPage)
+    <Connect(ModuleDetailsPage)
       dispatchFetchModuleList={[MockFunction]}
-      modules={Array []}
-      subject={Object {}}
-      subjectId="1"
+      module={
+        Object {
+          "description": "a test module description",
+          "name": "Test module 1",
+          "subjectId": "1",
+        }
+      }
+      moduleId="1"
+      notions={Array []}
       t={[Function]}
     />
   </RouterProvider>
