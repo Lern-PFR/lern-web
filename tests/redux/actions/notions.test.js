@@ -205,7 +205,7 @@ describe('Notion-related redux actions', () => {
 			// Arrange
 			const notionData = {
 				name: 'Dummy notion 7',
-				subjectId: 'abcd',
+				moduleId: 'abcd',
 			};
 
 			const httpResponse = { status: 500 };
