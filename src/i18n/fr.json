@@ -15,6 +15,16 @@
 				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
 			}
 		},
+		"modules": {
+			"links": {
+				"back_to_subject": "Retourner à la page du sujet"
+			}
+		},
+		"lessons": {
+			"links": {
+				"access": "Accéder à la leçon"
+			}
+		},
         "components": {
             "prompt": {
                 "title": "Attention !",

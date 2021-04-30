@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import { StyledDiv, StyledList, StyledListItem } from 'components/shared/layout';
-import { Paragon, BodyCopy, GreatPrimer } from 'components/shared/typography';
-import { lessonDescription, lessonList, lessonListItem, lessonTitle, notionDataContainer, notionDescription, notionList, notionName } from 'theme/pages/modules/moduleDetailsPage';
+import { StyledDiv, StyledList } from 'components/shared/layout';
+import { Paragon, BodyCopy } from 'components/shared/typography';
+import { lessonList, notionDataContainer, notionDescription, notionList, notionName } from 'theme/pages/modules/moduleDetailsPage';
+import LessonListItem from './LessonListItem';
 
 /**
  * @name NotionList
@@ -19,10 +20,7 @@ const NotionList = ({ notions }) => (
 				<BodyCopy {...notionDescription}>{description}</BodyCopy>
 				<StyledList listStyle="none" {...lessonList}>
 					{lessons && lessons.map(({ id: lessonId, name: lessonName, description: lessonDesc }) => (
-						<StyledListItem key={lessonId} {...lessonListItem}>
-							<GreatPrimer {...lessonTitle}>{lessonName}</GreatPrimer>
-							<BodyCopy {...lessonDescription}>{lessonDesc}</BodyCopy>
-						</StyledListItem>
+						<LessonListItem key={lessonId} id={lessonId} name={lessonName} description={lessonDesc} />
 					))}
 				</StyledList>
 			</StyledDiv>

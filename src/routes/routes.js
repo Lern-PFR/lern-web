@@ -77,4 +77,17 @@ export default [
 			},
 		],
 	},
+	// Lessons
+	{
+		path: keys.lessons.default,
+		routes: [
+			{
+				path: keys.lessons.lessonsDetails,
+				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAuthenticated: true,
+				exact: true,
+				component: () => <p>Lesson</p>,
+			},
+		],
+	},
 ];

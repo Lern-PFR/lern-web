@@ -18,4 +18,8 @@ export default Object.freeze({
 		default: '/modules',
 		moduleDetails: '/modules/:id',
 	},
+	lessons: {
+		default: '/lessons',
+		lessonDetails: '/lessons/:id',
+	},
 });
