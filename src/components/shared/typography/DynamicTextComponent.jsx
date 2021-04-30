@@ -15,6 +15,7 @@ const StyledDynamicTextComponent = styled('p')(
 		textTransform: (({ textTransform }) => textTransform || 'initial'),
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
+		cursor: (({ cursor }) => (cursor || 'initial')),
 	},
 	border,
 	color,

@@ -14,7 +14,7 @@ import LabelComponent from './LabelComponent';
  * @param {bool}	[disabled]		: Whether the checkbox is disabled.
  * @param {bool}	[checked]		: Whether the checkbox is checked.
  * @param {string}	id				: The id of the checkbox.
- * @param {string}	children		: text to display in the label.
+ * @param {string}	children		: Text to display in the label.
  */
 const LabeledCheckbox = forwardRef(
 	({ children, id, checked, disabled, ...otherProps }, ref) => {

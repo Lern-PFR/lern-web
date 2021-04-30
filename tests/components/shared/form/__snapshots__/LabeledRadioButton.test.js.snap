@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabeledRadioButton should match previous snapshot 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <RadioButtonComponent
+    checked={false}
+    disabled={false}
+    id="lcb"
+    name="rg"
+  />
+  <LabelComponent
+    color="initial"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`LabeledRadioButton should match previous snapshot for checked and disabled states 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <RadioButtonComponent
+    checked={true}
+    disabled={true}
+    id="lcb"
+    name="rg"
+  />
+  <LabelComponent
+    color="#707070"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`LabeledRadioButton should match previous snapshot for checked state 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <RadioButtonComponent
+    checked={true}
+    disabled={false}
+    id="lcb"
+    name="rg"
+  />
+  <LabelComponent
+    color="initial"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
+
+exports[`LabeledRadioButton should match previous snapshot for disabled state 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <RadioButtonComponent
+    checked={false}
+    disabled={true}
+    id="lcb"
+    name="rg"
+  />
+  <LabelComponent
+    color="#707070"
+    forId="lcb"
+  >
+    Primary button
+  </LabelComponent>
+</styled.div>
+`;
