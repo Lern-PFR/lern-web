@@ -1,21 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ModuleListItem should match previous disabled-state snapshot 1`] = `
-<styled.ul
+<Styled(styled.li)
+  border="solid 1px black"
+  borderRadius="8px"
   display="grid"
-  gridAutoRows="minmax(40%, 1fr)"
-  gridRowGap="2em"
-  listStyle="none"
-  maxHeight="100%"
-/>
+  gridGap="1em"
+  gridTemplateRows="1fr 5fr auto"
+  padding="2em"
+  position="relative"
+>
+  <DoublePica
+    lineHeight="initial"
+    margin={0}
+  >
+    abcd
+  </DoublePica>
+  <BodyCopy
+    lineHeight="initial"
+    margin={0}
+    overflow="hidden"
+    textOverflow="ellipsis"
+    whiteSpace="nowrap"
+  >
+    dummy description
+  </BodyCopy>
+  <PrimaryButton
+    disabled={true}
+    width="max-content"
+  >
+    <Link
+      disabled={true}
+      to="/modules/abcd"
+    >
+      subjects.links.module
+    </Link>
+  </PrimaryButton>
+</Styled(styled.li)>
 `;
 
 exports[`ModuleListItem should match previous snapshot 1`] = `
-<styled.ul
+<Styled(styled.li)
+  border="solid 1px black"
+  borderRadius="8px"
   display="grid"
-  gridAutoRows="minmax(40%, 1fr)"
-  gridRowGap="2em"
-  listStyle="none"
-  maxHeight="100%"
-/>
+  gridGap="1em"
+  gridTemplateRows="1fr 5fr auto"
+  padding="2em"
+  position="relative"
+>
+  <DoublePica
+    lineHeight="initial"
+    margin={0}
+  >
+    abcd
+  </DoublePica>
+  <BodyCopy
+    lineHeight="initial"
+    margin={0}
+    overflow="hidden"
+    textOverflow="ellipsis"
+    whiteSpace="nowrap"
+  >
+    dummy description
+  </BodyCopy>
+  <PrimaryButton
+    disabled={false}
+    width="max-content"
+  >
+    <Link
+      disabled={false}
+      to="/modules/abcd"
+    >
+      subjects.links.module
+    </Link>
+  </PrimaryButton>
+</Styled(styled.li)>
 `;

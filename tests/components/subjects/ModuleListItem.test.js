@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import ModuleListItem from 'components/subjects/ModuleList';
+import ModuleListItem from 'components/subjects/ModuleList/ModuleListItem';
 
 describe('ModuleListItem', () => {
 	it('should match previous snapshot', () => {

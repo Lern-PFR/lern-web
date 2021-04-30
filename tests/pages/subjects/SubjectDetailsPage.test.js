@@ -42,9 +42,11 @@ describe('SubjectDetailsPage', () => {
 				<RouterProvider>
 					<SubjectDetailsPage
 						subjectId="1"
-						subject={{}}
+						subject={{
+							author: 'author McWriter',
+							lastUpdate: 'today',
+						}}
 						modules={[]}
-						t={jest.fn()}
 						{...ownProps}
 					/>
 				</RouterProvider>
@@ -62,9 +64,11 @@ describe('SubjectDetailsPage', () => {
 				<RouterProvider>
 					<SubjectDetailsPage
 						subjectId="1"
-						subject={{}}
+						subject={{
+							author: 'author McWriter',
+							lastUpdate: 'today',
+						}}
 						modules={[]}
-						t={jest.fn()}
 						{...ownProps}
 					/>
 				</RouterProvider>
@@ -75,7 +79,6 @@ describe('SubjectDetailsPage', () => {
 			wrapper.unmount();
 		});
 
-		// expect(mockedActionCreator).toHaveBeenCalled();
 		expect(store.getActions()).toContainEqual({ type: ModulesActionTypes.CLEAR_MODULE_LIST });
 	});
 });

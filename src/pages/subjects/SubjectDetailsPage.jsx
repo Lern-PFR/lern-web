@@ -65,7 +65,7 @@ const SubjectDetailsPage = ({ dispatchFetchModuleList, dispatchClearModuleList, 
 };
 
 SubjectDetailsPage.propTypes = {
-	subjectId: Proptypes.string.isRequired,
+	subjectId: Proptypes.oneOfType([Proptypes.string, Proptypes.number]).isRequired,
 	subject: Proptypes.shape({
 		name: Proptypes.string.isRequired,
 		description: Proptypes.string.isRequired,
