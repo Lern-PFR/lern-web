@@ -1,3 +1,4 @@
+import reducers from 'redux/reducers';
 import {
 	peppercorn,
 	tuna,
@@ -116,10 +117,39 @@ const radioButtonStyle = {
 	},
 };
 
+const inputStyle = {
+	borderRadius: 6,
+	border: `solid 1px ${tuna.default}`,
+	backgroundColor: coconut.default,
+};
+
+const selectStyle = {
+	...inputStyle,
+};
+
+const textareaStyle = {
+	...inputStyle,
+};
+
+const hintStyle = {
+	...brevier,
+	color: peppercorn.default,
+};
+
+const validationStyle = {
+	...brevier,
+	color: reducers,
+};
+
 export {
 	labelStyle,
 	groupedLabelStyle,
 	checkboxStyle,
 	groupStyle,
 	radioButtonStyle,
+	inputStyle,
+	selectStyle,
+	textareaStyle,
+	hintStyle,
+	validationStyle,
 };
