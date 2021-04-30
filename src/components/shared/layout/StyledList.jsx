@@ -11,16 +11,17 @@ import {
 } from 'styled-system';
 
 /**
- * @name StyledDiv
- * @description A reusable div component that can be styled using styled-components and styled-system.
+ * @name StyledList
+ * @description A reusable ul component that can be styled using styled-components and styled-system.
  *
  * @author Timothée Simon-Franza
  */
-const StyledDiv = styled('div')(
+const StyledList = styled('ul')(
 	{
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		boxSizing: (({ boxSizing }) => (boxSizing || 'border-box')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
+		listStyle: (({ listStyle }) => (listStyle || 'initial')),
 	},
 	color,
 	flexbox,
@@ -32,4 +33,4 @@ const StyledDiv = styled('div')(
 	shadow,
 );
 
-export default StyledDiv;
+export default StyledList;

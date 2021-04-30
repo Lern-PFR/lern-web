@@ -10,4 +10,11 @@ export default Object.freeze({
 		signup: '/auth/signup',
 		forgottenPassword: '/auth/forgotten-password',
 	},
+	subjects: {
+		default: '/subjects',
+		subjectDetails: '/subjects/:id',
+	},
+	modules: {
+		moduleDetails: '/modules/:id',
+	},
 });

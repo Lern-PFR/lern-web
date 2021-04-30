@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModuleList should match previous snapshot 1`] = `
+<styled.ul
+  display="grid"
+  gridAutoRows="minmax(40%, 1fr)"
+  gridRowGap="2em"
+  listStyle="none"
+  maxHeight="100%"
+/>
+`;

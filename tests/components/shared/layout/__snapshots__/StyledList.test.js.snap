@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledList should match previous snapshot 1`] = `
+<ul
+  className="sc-gsTCUz ikOkQF"
+>
+  <li>
+    Hello, world!
+  </li>
+</ul>
+`;

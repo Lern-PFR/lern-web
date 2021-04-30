@@ -22,10 +22,11 @@ const StyledLink = styled(ReactRouterLink)(
  *
  * @author Yann Hodiesne
  *
- * @param {string} to : key of the route to target with this Link
+ * @param {string}	to			key of the route to target with this Link
+ * @param {bool}	[disabled]	Whether the link is disabled or not. If so, the onClick event is aborted.
  */
-const Link = ({ to, ...props }) => (
-	<StyledLink to={to} {...props} />
+const Link = ({ to, disabled, ...props }) => (
+	<StyledLink to={to} {...(disabled ? { onClick: (e) => e.preventDefault() } : {})} {...props} />
 );
 
 Link.propTypes = {
@@ -34,6 +35,11 @@ Link.propTypes = {
 		PropTypes.object,
 		PropTypes.func,
 	]),
+	disabled: PropTypes.bool,
+};
+
+Link.defaultProps = {
+	disabled: false,
 };
 
 Link.defaultProps = {

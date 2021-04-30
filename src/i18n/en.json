@@ -1,11 +1,20 @@
 {
-    "translations": {
+    "translation": {
         "page_not_found": {
             "hero": "Not found!",
             "redirection_link": {
                 "home_page": "Back to the home page"
             }
         },
+		"subjects": {
+			"links": {
+				"back_to_list": "Back to subject list",
+				"module": "Access module"
+			},
+			"details": {
+				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
+			}
+		},
         "components": {
             "prompt": {
                 "title": "Warning!",

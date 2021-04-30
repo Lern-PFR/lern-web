@@ -16,6 +16,8 @@ exports[`DynamicButtonComponent should match previous snapshot 1`] = `
 
 exports[`DynamicButtonComponent should match previous snapshot for disabled state 1`] = `
 <styled.button
+  bg="F6F6F4"
+  color="#8C8C8C"
   onClick={[Function]}
 >
   <Brevier
