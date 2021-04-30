@@ -1,3 +1,5 @@
+import { basmati } from 'theme/colors';
+
 const pageLayout = {
 	display: 'grid',
 	gridTemplateRows: '1fr auto',
@@ -20,16 +22,20 @@ const moduleDescription = {
 
 const notionList = {
 	listStyle: 'none',
-	// display: 'flex',
-	// flexDirection: 'column',
-	display: 'grid',
-	gridAutoRows: 'minmax(250px, 1fr)',
-	gridGap: '4em',
+	display: 'flex',
+	flexDirection: 'column',
 	padding: 0,
+};
+
+const notionDataContainer = {
+	borderTop: `solid 1px ${basmati.default}`,
+	paddingTop: '2em',
+	paddingBottom: '3em',
 };
 
 const notionName = {
 	lineHeight: 'initial',
+	textTransform: 'capitalize',
 	margin: 0,
 };
 
@@ -39,29 +45,37 @@ const notionDescription = {
 };
 
 const lessonList = {
-	display: 'flex',
-	flexDirection: 'row',
+	display: 'grid',
+	gridAutoFlow: 'row',
+	gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+	gridGap: '1em',
 	padding: 0,
 	marginTop: '2em',
 };
 
 const lessonListItem = {
-	marginRight: '1em',
 	border: 'solid 1px black',
 	borderRadius: '8px',
 	padding: '2em',
 	position: 'relative',
 	display: 'grid',
-	gridTemplateRows: '1fr 5fr',
+	gridTemplateRows: 'fit-content 1fr',
 	gridGap: '1em',
+};
+
+const lessonTitle = {
+	margin: 0,
+	textTransform: 'capitalize',
 };
 
 const lessonDescription = {
 	margin: 0,
-	lineHeight: 'initial',
+	display: 'inline-block',
 	textOverflow: 'ellipsis',
-	whiteSpace: 'nowrap',
 	overflow: 'hidden',
+	maxHeight: '90px',
+	lineHeight: 'initial',
+	whiteSpace: 'nowrap',
 };
 
 export {
@@ -69,9 +83,11 @@ export {
 	moduleName,
 	moduleDescription,
 	notionList,
+	notionDataContainer,
 	notionName,
 	notionDescription,
 	lessonList,
 	lessonListItem,
+	lessonTitle,
 	lessonDescription,
 };
