@@ -1,9 +1,11 @@
-import reducers from 'redux/reducers';
 import {
 	peppercorn,
 	tuna,
 	coconut,
 	jasmine,
+	kale,
+	info,
+	crimson,
 } from './colors';
 import { brevier } from './textStyles';
 
@@ -121,6 +123,10 @@ const inputStyle = {
 	borderRadius: 6,
 	border: `solid 1px ${tuna.default}`,
 	backgroundColor: coconut.default,
+
+	'&:focus': {
+		border: `solid 2px ${kale.default}`,
+	},
 };
 
 const selectStyle = {
@@ -138,7 +144,18 @@ const hintStyle = {
 
 const validationStyle = {
 	...brevier,
-	color: reducers,
+	color: crimson.default,
+};
+
+const infoStyle = {
+	...brevier,
+	content: '"i"',
+	borderRadius: '50%',
+	backgroundColor: '',
+	border: `solid 1px ${info.default}`,
+	height: '16px',
+	width: '16px',
+	cursor: 'pointer',
 };
 
 export {
@@ -152,4 +169,5 @@ export {
 	textareaStyle,
 	hintStyle,
 	validationStyle,
+	infoStyle,
 };
