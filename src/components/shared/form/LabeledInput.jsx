@@ -9,7 +9,10 @@ import LabelComponent from './LabelComponent';
 import SubTextComponent from './SubTextComponent';
 
 const InfoSpan = styled('span')(
-	{ ...infoStyle },
+	{
+		...infoStyle,
+		content: (({ content }) => (content || 'initial')),
+	},
 );
 
 // const InfoTextSpan = styled('span')(
