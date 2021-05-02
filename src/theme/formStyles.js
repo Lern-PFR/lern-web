@@ -43,11 +43,9 @@ const checkboxStyle = {
 	position: 'relative',
 	borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
-
 	'&:focus': {
 		outline: 'none',
 	},
-
 	'&::before': {
 		position: 'absolute',
 		top: 0,
@@ -144,6 +142,10 @@ const errorInputStyle = {
 
 const disabledInputStyle = {
 	border: `solid 1px ${tuna.darker1}`,
+};
+
+const errorInputStyle = {
+	border: `solid 1px ${crimson.default}`,
 };
 
 const selectStyle = {
