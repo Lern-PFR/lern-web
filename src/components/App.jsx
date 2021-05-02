@@ -93,13 +93,14 @@ const App = () => (
 				<LabeledRadioButton name="rg2" disabled id="lrb7">Disabled labeled radio button</LabeledRadioButton>
 			</FieldsetComponent>
 		</StyledDiv>
-		<StyledDiv position="relative">
+		<StyledDiv position="relative" width="500px">
 			<FieldsetComponent title="Text input components">
 				<LabeledInput id="basicTextInput">Labeled text input</LabeledInput>
-				<LabeledInput id="placeholderTextInput" placeholder="Enter details here.">Labeled text input with cutom placeholder</LabeledInput>
-				<LabeledInput id="hintTextInput" hintText="This is a hint for the user.">Labeled text input with hint</LabeledInput>
-				<LabeledInput id="disabledTextInput" hintText="This is a hint for the user." disabled>Disabled labeled text input with hint</LabeledInput>
-				<LabeledInput id="errorTextInput" errorText="There is something wrong with the value in this input" error>Labeled text input with a validation error</LabeledInput>
+				<LabeledInput id="placeholderTextInput" placeholder="Enter details here.">Labeled text input with custom placeholder</LabeledInput>
+				<LabeledInput id="hintTextInput" placeholder="Enter details here." hintText="This is a hint for the user.">Labeled text input with hint</LabeledInput>
+				<LabeledInput id="disabledTextInput" placeholder="Enter details here." infoText="This info should only appear on hover." hintText="This is a hint for the user.">Labeled text input with info tooltip</LabeledInput>
+				<LabeledInput id="disabledTextInput" placeholder="Enter details here." infoText="This info should only appear on hover." hintText="This is a hint for the user." disabled>Disabled labeled text input</LabeledInput>
+				<LabeledInput id="errorTextInput" placeholder="Enter details here." infoText="This info should only appear on hover." hintText="This is a hint for the user." errorText="There is something wrong with the value in this input" error>Labeled text input with a validation error</LabeledInput>
 			</FieldsetComponent>
 		</StyledDiv>
 	</MainLayout>
