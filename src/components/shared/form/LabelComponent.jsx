@@ -1,8 +1,17 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { flexbox, color } from 'styled-system';
 import { labelStyle } from 'theme/formStyles';
-import DynamicTextComponent from 'components/shared/typography/DynamicTextComponent';
+import { brevier } from 'theme/textStyles';
 import { getTypographyStyleByName } from '../typography';
+
+const StyledLabelComponent = styled('label')(
+	flexbox,
+	color,
+	{ ...(typography || brevier) },
+	{ ...labelStyle },
+);
 
 /**
  * @name LabelComponent
@@ -14,19 +23,13 @@ import { getTypographyStyleByName } from '../typography';
  * @param {string}	[textStyle]	: The text style of the label text.
  * @param {string}	children		: The test to be displayed in the label.
  */
-const LabelComponent = ({ children, textStyle, forId, ...otherProps }) => {
+const LabelComponent = ({ children, forId, textStyle, ...otherProps }) => {
 	const typography = useMemo(() => getTypographyStyleByName(textStyle), [textStyle]);
 
 	return (
-		<DynamicTextComponent
-			tag="label"
-			htmlFor={forId}
-			{...typography}
-			{...labelStyle}
-			{...otherProps}
-		>
+		<StyledLabelComponent htmlFor={forId} {...typography} {...otherProps}>
 			{children}
-		</DynamicTextComponent>
+		</StyledLabelComponent>
 	);
 };
 

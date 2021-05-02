@@ -4,14 +4,14 @@ import {
 	coconut,
 	jasmine,
 	kale,
-	info,
 	crimson,
 } from './colors';
 import { brevier } from './textStyles';
 
 const labelStyle = {
-	color: peppercorn.default,
+	color: (({ disabled }) => (disabled ? tuna.darker1 : peppercorn.default)),
 	cursor: 'pointer',
+	paddingBottom: '4px',
 };
 
 const groupedLabelStyle = {
@@ -22,6 +22,7 @@ const groupedLabelStyle = {
 const groupStyle = {
 	borderRadius: 2,
 	border: `solid 1px ${tuna.default}`,
+	marginTop: '20px',
 };
 
 const checkboxStyle = {
@@ -29,6 +30,7 @@ const checkboxStyle = {
 	borderRadius: 2,
 	height: '16px',
 	width: '16px',
+	bg: peppercorn.default,
 	cursor: 'pointer',
 	appearance: 'none',
 	MozAppearance: 'none',
@@ -36,11 +38,9 @@ const checkboxStyle = {
 	position: 'relative',
 	borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
-
 	'&:focus': {
 		outline: 'none',
 	},
-
 	'&::before': {
 		position: 'absolute',
 		top: 0,
@@ -55,7 +55,6 @@ const checkboxStyle = {
 		textAlign: 'center',
 		borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	},
-
 	'&:checked:before': {
 		content: '"\\2713"',
 		color: coconut.default,
@@ -63,7 +62,6 @@ const checkboxStyle = {
 		borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	},
 };
-
 const radioButtonStyle = {
 	border: `solid 1px ${peppercorn.default}`,
 	borderRadius: '50%',
@@ -76,7 +74,6 @@ const radioButtonStyle = {
 	position: 'relative',
 	borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
-
 	'&::before': {
 		position: 'absolute',
 		top: 0,
@@ -91,7 +88,6 @@ const radioButtonStyle = {
 		textAlign: 'center',
 		borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	},
-
 	'&:hover': {
 		backgroundColor: jasmine.darker1,
 		'&::before': {
@@ -103,7 +99,6 @@ const radioButtonStyle = {
 			backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
 		},
 	},
-
 	'&:checked': {
 		backgroundColor: coconut.default,
 		'&::before': {
@@ -117,44 +112,53 @@ const radioButtonStyle = {
 		},
 	},
 };
-
 const inputStyle = {
 	borderRadius: 6,
 	border: `solid 1px ${tuna.default}`,
 	backgroundColor: coconut.default,
+	padding: '5px 10px',
 
 	'&:focus': {
-		border: `solid 2px ${kale.default}`,
+		outline: 'none',
 	},
+
+	'&:focus-visible': {
+		border: `solid 2px ${kale.default}`,
+
+		'&::placeholder': {
+			color: `${kale.default}`,
+		},
+
+		'& + label': {
+			color: `${kale.default}`,
+		},
+
+		'& + label + div': {
+			color: `${kale.default}`,
+		},
+	},
+};
+
+const errorInputStyle = {
+	border: `solid 1px ${crimson.default}`,
 };
 
 const selectStyle = {
 	...inputStyle,
 };
-
 const textareaStyle = {
 	...inputStyle,
 };
 
 const hintStyle = {
 	...brevier,
-	color: peppercorn.default,
+	color: (({ disabled }) => (disabled ? tuna.darker1 : peppercorn.default)),
+	paddingTop: '4px',
 };
 
 const validationStyle = {
 	...brevier,
 	color: crimson.default,
-};
-
-const infoStyle = {
-	...brevier,
-	content: '"i"',
-	borderRadius: '50%',
-	backgroundColor: '',
-	border: `solid 1px ${info.default}`,
-	height: '16px',
-	width: '16px',
-	cursor: 'pointer',
 };
 
 export {
@@ -164,9 +168,9 @@ export {
 	groupStyle,
 	radioButtonStyle,
 	inputStyle,
+	errorInputStyle,
 	selectStyle,
 	textareaStyle,
 	hintStyle,
 	validationStyle,
-	infoStyle,
 };
