@@ -4,6 +4,7 @@ exports[`FieldsetComponent should match previous snapshot 1`] = `
 <styled.fieldset
   border="solid 1px #8C8C8C"
   borderRadius={2}
+  marginTop="20px"
 >
   <LegendComponent>
     Test fieldset

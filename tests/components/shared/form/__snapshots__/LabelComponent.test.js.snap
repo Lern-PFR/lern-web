@@ -8,9 +8,6 @@ exports[`LabelComponent should match previous snapshot 1`] = `
   fontSize=".778rem"
   fontWeight={400}
   htmlFor=""
-  letterSpacing={0.32}
-  lineHeight="1.125em"
-  tag="label"
 >
   Test label
 </DynamicTextComponent>
