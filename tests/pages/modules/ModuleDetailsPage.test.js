@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
-import { SubjectDetailsPage } from 'pages/subjects';
-import { ActionTypes as ModulesActionTypes } from 'redux/actions/modules';
+import { ModuleDetailsPage } from 'pages/modules';
+import { ActionTypes as NotionsActionTypes } from 'redux/actions/notions';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import RouterProvider from 'routes/components/RouterProvider';
@@ -10,7 +10,7 @@ import { act } from 'react-dom/test-utils';
 const mockStore = configureMockStore([thunk]);
 const store = mockStore({});
 
-describe('SubjectDetailsPage', () => {
+describe('ModuleDetailsPage', () => {
 	afterEach(() => {
 		jest.restoreAllMocks();
 	});
@@ -19,11 +19,15 @@ describe('SubjectDetailsPage', () => {
 		const sut = (
 			<Provider store={store}>
 				<RouterProvider>
-					<SubjectDetailsPage
+					<ModuleDetailsPage
 						dispatchFetchModuleList={jest.fn()}
-						subjectId="1"
-						subject={{}}
-						modules={[]}
+						moduleId="1"
+						module={{
+							name: 'Test module 1',
+							description: 'a test module description',
+							subjectId: '1',
+						}}
+						notions={[]}
 					/>
 				</RouterProvider>
 			</Provider>
@@ -33,41 +37,43 @@ describe('SubjectDetailsPage', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should call the fetchModuleListBySubjectId action creator on mount', () => {
+	it('should call the fetchNotionListByModuleId action creator on mount', () => {
 		const ownProps = { match: { params: { id: 1 } } };
 
 		mount(
 			<Provider store={store}>
 				<RouterProvider>
-					<SubjectDetailsPage
+					<ModuleDetailsPage
 						subjectId="1"
-						subject={{
-							author: 'author McWriter',
-							lastUpdate: 'today',
+						module={{
+							name: 'Test module 1',
+							description: 'a test module description',
+							subjectId: '1',
 						}}
-						modules={[]}
+						notions={[]}
 						{...ownProps}
 					/>
 				</RouterProvider>
 			</Provider>
 		);
 
-		expect(store.getActions()).toContainEqual({ type: ModulesActionTypes.FETCH_MODULE_LIST_REQUEST });
+		expect(store.getActions()).toContainEqual({ type: NotionsActionTypes.FETCH_NOTION_LIST_REQUEST });
 	});
 
-	it('should call the clearModuleList action creator on unmount', () => {
+	it('should call the clearNotionList action creator on unmount', () => {
 		const ownProps = { match: { params: { id: 1 } } };
 
 		const wrapper = mount(
 			<Provider store={store}>
 				<RouterProvider>
-					<SubjectDetailsPage
+					<ModuleDetailsPage
 						subjectId="1"
-						subject={{
-							author: 'author McWriter',
-							lastUpdate: 'today',
+						module={{
+							name: 'Test module 1',
+							description: 'a test module description',
+							subjectId: '1',
 						}}
-						modules={[]}
+						notions={[]}
 						{...ownProps}
 					/>
 				</RouterProvider>
@@ -78,6 +84,6 @@ describe('SubjectDetailsPage', () => {
 			wrapper.unmount();
 		});
 
-		expect(store.getActions()).toContainEqual({ type: ModulesActionTypes.CLEAR_MODULE_LIST });
+		expect(store.getActions()).toContainEqual({ type: NotionsActionTypes.CLEAR_NOTION_LIST });
 	});
 });

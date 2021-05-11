@@ -2,6 +2,7 @@
 /* eslint-disable react/display-name */
 import App from 'components/App';
 import { SubjectDetailsPage } from 'pages/subjects';
+import { ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
 
 /**
@@ -60,6 +61,32 @@ export default [
 				allowAuthenticated: true,
 				exact: true,
 				component: SubjectDetailsPage,
+			},
+		],
+	},
+	// Modules
+	{
+		path: keys.modules.default,
+		routes: [
+			{
+				path: keys.modules.moduleDetails,
+				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAuthenticated: true,
+				exact: true,
+				component: ModuleDetailsPage,
+			},
+		],
+	},
+	// Lessons
+	{
+		path: keys.lessons.default,
+		routes: [
+			{
+				path: keys.lessons.lessonsDetails,
+				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAuthenticated: true,
+				exact: true,
+				component: () => <p>Lesson</p>,
 			},
 		],
 	},

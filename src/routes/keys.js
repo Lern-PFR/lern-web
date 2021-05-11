@@ -15,6 +15,11 @@ export default Object.freeze({
 		subjectDetails: '/subjects/:id',
 	},
 	modules: {
+		default: '/modules',
 		moduleDetails: '/modules/:id',
+	},
+	lessons: {
+		default: '/lessons',
+		lessonDetails: '/lessons/:id',
 	},
 });

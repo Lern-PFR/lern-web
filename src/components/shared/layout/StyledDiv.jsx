@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+	border,
 	color,
 	flexbox,
 	grid,
@@ -22,6 +23,7 @@ const StyledDiv = styled('div')(
 		boxSizing: (({ boxSizing }) => (boxSizing || 'border-box')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
 	},
+	border,
 	color,
 	flexbox,
 	grid,
