@@ -11,7 +11,6 @@ import SubTextComponent from './SubTextComponent';
 const InfoSpan = styled('span')(
 	{
 		...infoStyle,
-		content: (({ content }) => (content || 'initial')),
 	},
 );
 
@@ -46,11 +45,11 @@ const LabeledInput = forwardRef(
 				{(infoText
 					? (
 						<StyledDiv display="flex" alignItems="center">
-							<InputComponent {...otherProps} id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} error={error} />
-							<InfoSpan />
+							<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} error={error} {...otherProps} />
+							<InfoSpan infoText={infoText} />
 						</StyledDiv>
 					)
-					: <InputComponent {...otherProps} id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} error={error} />
+					: <InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} error={error} {...otherProps} />
 				)}
 				<LabelComponent order="-1" forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}

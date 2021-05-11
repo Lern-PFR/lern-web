@@ -113,7 +113,7 @@ const App = () => (
 					hintText="This is a hint for the user."
 					disabled
 				>
-					isabled labeled text input
+					Disabled labeled text input
 				</LabeledInput>
 				<LabeledInput
 					id="errorTextInput"

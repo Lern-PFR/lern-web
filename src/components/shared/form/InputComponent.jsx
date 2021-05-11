@@ -40,7 +40,6 @@ const InputComponent = forwardRef(
 
 		return (
 			<StyledInputComponent
-				{...otherProps}
 				{...(disabled ? disabledStyle : {})}
 				type={type}
 				disabled={disabled}
@@ -48,6 +47,7 @@ const InputComponent = forwardRef(
 				id={id}
 				ref={resolvedRef}
 				{...(error ? errorInputStyle : {})}
+				{...otherProps}
 			/>
 		);
 	}
