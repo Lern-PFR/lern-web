@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/display-name */
 import App from 'components/App';
+import { NotionDetailsPage } from 'pages/notions';
 import { SubjectDetailsPage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
@@ -96,6 +97,19 @@ export default [
 				allowAuthenticated: true,
 				exact: true,
 				component: ModuleDetailsPage,
+			},
+		],
+	},
+	// Notions
+	{
+		path: keys.notions.default,
+		routes: [
+			{
+				path: keys.notions.notionDetails,
+				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAuthenticated: true,
+				exact: true,
+				component: NotionDetailsPage,
 			},
 		],
 	},
