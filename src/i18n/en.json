@@ -17,12 +17,12 @@
 		},
 		"modules": {
 			"links": {
-				"back_to_subject": "Get back to subject's page"
+				"back_to_subject": "Reurn to the parent subject's page"
 			}
 		},
 		"lessons": {
 			"links": {
-				"access": "Access lesson"
+				"access": "View lesson"
 			}
 		},
         "components": {
