@@ -9,28 +9,28 @@ describe('LabeledCheckbox', () => {
 	});
 
 	it('should match previous snapshot', () => {
-		const sut = (<LabeledCheckbox id="lcb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox id="lcb">Labeled Checkbox</LabeledCheckbox>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should match previous snapshot for checked state', () => {
-		const sut = (<LabeledCheckbox checked id="lcb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox checked id="lcb">Labeled Checkbox</LabeledCheckbox>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should match previous snapshot for disabled state', () => {
-		const sut = (<LabeledCheckbox disabled id="lcb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox disabled id="lcb">Labeled Checkbox</LabeledCheckbox>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should match previous snapshot for checked and disabled states', () => {
-		const sut = (<LabeledCheckbox disabled checked id="lcb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox disabled checked id="lcb">Labeled Checkbox</LabeledCheckbox>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe('LabeledCheckbox', () => {
 
 	it('should call the onChange method when clicking on checkbox', async () => {
 		const mockedOnChange = jest.fn(() => {});
-		const sut = (<LabeledCheckbox onChange={mockedOnChange} id="cb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox onChange={mockedOnChange} id="cb">Labeled Checkbox</LabeledCheckbox>);
 		render(sut);
 
 		await act(async () => {
@@ -50,11 +50,11 @@ describe('LabeledCheckbox', () => {
 
 	it('should call the onChange method when clicking on label', async () => {
 		const mockedOnChange = jest.fn(() => {});
-		const sut = (<LabeledCheckbox onChange={mockedOnChange} id="cb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox onChange={mockedOnChange} id="cb">Labeled Checkbox</LabeledCheckbox>);
 		render(sut);
 
 		await act(async () => {
-			userEvent.click(screen.getByText('Primary button'));
+			userEvent.click(screen.getByText('Labeled Checkbox'));
 		});
 
 		expect(mockedOnChange).toHaveBeenCalled();
@@ -62,7 +62,7 @@ describe('LabeledCheckbox', () => {
 
 	it('should not call the onChange method when clicking on disabled checkbox', async () => {
 		const mockedOnChange = jest.fn(() => {});
-		const sut = (<LabeledCheckbox onChange={mockedOnChange} disabled id="cb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox onChange={mockedOnChange} disabled id="cb">Labeled Checkbox</LabeledCheckbox>);
 		render(sut);
 
 		await act(async () => {
@@ -74,11 +74,11 @@ describe('LabeledCheckbox', () => {
 
 	it('should not call the onChange method when clicking on disabled label', async () => {
 		const mockedOnChange = jest.fn(() => {});
-		const sut = (<LabeledCheckbox onChange={mockedOnChange} disabled id="cb">Primary button</LabeledCheckbox>);
+		const sut = (<LabeledCheckbox onChange={mockedOnChange} disabled id="cb">Labeled Checkbox</LabeledCheckbox>);
 		render(sut);
 
 		await act(async () => {
-			userEvent.click(screen.getByText('Primary button'));
+			userEvent.click(screen.getByText('Labeled Checkbox'));
 		});
 
 		expect(mockedOnChange).not.toHaveBeenCalled();

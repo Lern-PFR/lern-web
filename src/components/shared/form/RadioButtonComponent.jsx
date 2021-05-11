@@ -38,7 +38,6 @@ const RadioButtonComponent = forwardRef(
 
 		return (
 			<StyledRadioButtonComponent
-				{...otherProps}
 				{...(disabled ? disabledStyle : {})}
 				type="radio"
 				disabled={disabled}
@@ -46,6 +45,7 @@ const RadioButtonComponent = forwardRef(
 				id={id}
 				name={name}
 				ref={resolvedRef}
+				{...otherProps}
 			/>
 		);
 	}

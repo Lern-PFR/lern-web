@@ -24,7 +24,7 @@ const LabeledRadioButton = forwardRef(
 
 		return (
 			<StyledDiv display="flex" alignItems="center">
-				<RadioButtonComponent {...otherProps} name={name} disabled={disabled} checked={checked} id={id} ref={resolvedRef} />
+				<RadioButtonComponent name={name} disabled={disabled} checked={checked} id={id} ref={resolvedRef} {...otherProps} />
 				<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>

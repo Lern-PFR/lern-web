@@ -23,7 +23,7 @@ const LabeledCheckbox = forwardRef(
 
 		return (
 			<StyledDiv display="flex" alignItems="center">
-				<CheckboxComponent {...otherProps} disabled={disabled} checked={checked} id={id} ref={resolvedRef} />
+				<CheckboxComponent disabled={disabled} checked={checked} id={id} ref={resolvedRef} {...otherProps} />
 				<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>

@@ -29,7 +29,7 @@ describe('RadioButtonComponent', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should call the onChange method', async () => {
+	it('should call the onChange method when clicking on the radio button', async () => {
 		const mockedOnChange = jest.fn(() => {});
 		const sut = (<RadioButtonComponent onChange={mockedOnChange} id="cb" name="rg" />);
 		render(sut);
@@ -41,7 +41,7 @@ describe('RadioButtonComponent', () => {
 		expect(mockedOnChange).toHaveBeenCalled();
 	});
 
-	it('should not call the onChange method when checkbox is disabled', async () => {
+	it('should not call the onChange method when clicking on the disabled radio button', async () => {
 		const mockedOnChange = jest.fn(() => {});
 		const sut = (<RadioButtonComponent onChange={mockedOnChange} disabled id="cb" name="rg" />);
 		render(sut);

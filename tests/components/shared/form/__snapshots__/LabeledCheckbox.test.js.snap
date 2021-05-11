@@ -14,7 +14,7 @@ exports[`LabeledCheckbox should match previous snapshot 1`] = `
     color="initial"
     forId="lcb"
   >
-    Primary button
+    Labeled Checkbox
   </LabelComponent>
 </styled.div>
 `;
@@ -33,7 +33,7 @@ exports[`LabeledCheckbox should match previous snapshot for checked and disabled
     color="#707070"
     forId="lcb"
   >
-    Primary button
+    Labeled Checkbox
   </LabelComponent>
 </styled.div>
 `;
@@ -52,7 +52,7 @@ exports[`LabeledCheckbox should match previous snapshot for checked state 1`] = 
     color="initial"
     forId="lcb"
   >
-    Primary button
+    Labeled Checkbox
   </LabelComponent>
 </styled.div>
 `;
@@ -71,7 +71,7 @@ exports[`LabeledCheckbox should match previous snapshot for disabled state 1`] =
     color="#707070"
     forId="lcb"
   >
-    Primary button
+    Labeled Checkbox
   </LabelComponent>
 </styled.div>
 `;

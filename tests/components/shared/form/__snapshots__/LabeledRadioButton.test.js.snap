@@ -15,7 +15,7 @@ exports[`LabeledRadioButton should match previous snapshot 1`] = `
     color="initial"
     forId="lcb"
   >
-    Primary button
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;
@@ -35,7 +35,7 @@ exports[`LabeledRadioButton should match previous snapshot for checked and disab
     color="#707070"
     forId="lcb"
   >
-    Primary button
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;
@@ -55,7 +55,7 @@ exports[`LabeledRadioButton should match previous snapshot for checked state 1`]
     color="initial"
     forId="lcb"
   >
-    Primary button
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;
@@ -75,7 +75,7 @@ exports[`LabeledRadioButton should match previous snapshot for disabled state 1`
     color="#707070"
     forId="lcb"
   >
-    Primary button
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;

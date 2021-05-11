@@ -37,13 +37,13 @@ const CheckboxComponent = forwardRef(
 
 		return (
 			<StyledCheckboxComponent
-				{...otherProps}
 				{...(disabled ? disabledStyle : {})}
 				type="checkbox"
 				disabled={disabled}
 				defaultChecked={checked}
 				id={id}
 				ref={resolvedRef}
+				{...otherProps}
 			/>
 		);
 	}
