@@ -19,7 +19,6 @@ const groupedLabelStyle = {
 	...brevier,
 	color: tuna.default,
 };
-
 const groupStyle = {
 	borderRadius: 2,
 	border: `solid 1px ${tuna.default}`,
@@ -39,9 +38,11 @@ const checkboxStyle = {
 	position: 'relative',
 	borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
+
 	'&:focus': {
 		outline: 'none',
 	},
+
 	'&::before': {
 		position: 'absolute',
 		top: 0,
