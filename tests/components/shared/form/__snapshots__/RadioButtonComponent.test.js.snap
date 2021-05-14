@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonComponent should match previous snapshot 1`] = `
+<styled.input
+  defaultChecked={false}
+  disabled={false}
+  id="cb"
+  name="rg"
+  type="radio"
+/>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for checked state 1`] = `
+<styled.input
+  defaultChecked={true}
+  disabled={false}
+  id="cb"
+  name="rg"
+  type="radio"
+/>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for disabled state 1`] = `
+<styled.input
+  bg="F6F6F4"
+  color="#8C8C8C"
+  defaultChecked={false}
+  disabled={true}
+  id="cb"
+  name="rg"
+  type="radio"
+/>
+`;

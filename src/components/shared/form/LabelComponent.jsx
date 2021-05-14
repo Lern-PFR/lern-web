@@ -12,7 +12,7 @@ import { Brevier } from 'components/shared/typography';
  * @param {string}	children		: The test to be displayed in the label.
  */
 const LabelComponent = ({ children, forId, ...otherProps }) => (
-	<Brevier tag="label" {...labelStyle} {...otherProps} htmlFor={forId}>
+	<Brevier tag="label" {...labelStyle} htmlFor={forId} {...otherProps}>
 		{children}
 	</Brevier>
 );

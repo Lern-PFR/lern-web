@@ -78,6 +78,14 @@ const crimson = {
 	default: 'red',
 };
 
+const info = {
+	darker1: '#61A3F7',
+	darker2: '#61A3F7',
+	lighter1: '#61A3F7',
+	lighter2: '#61A3F7',
+	default: '#61A3F7',
+};
+
 const primary = peppercorn;
 const primaryText = peppercorn;
 
@@ -92,6 +100,7 @@ export {
 	oyster,
 	peppercorn,
 	crimson,
+	info,
 	primary,
 	primaryText,
 };

@@ -14,7 +14,7 @@ import LabelComponent from './LabelComponent';
  * @param {bool}	[disabled]		: Whether the checkbox is disabled.
  * @param {bool}	[checked]		: Whether the checkbox is checked.
  * @param {string}	id				: The id of the checkbox.
- * @param {string}	children		: text to display in the label.
+ * @param {string}	children		: Text to display in the label.
  */
 const LabeledCheckbox = forwardRef(
 	({ children, id, checked, disabled, ...otherProps }, ref) => {
@@ -23,7 +23,7 @@ const LabeledCheckbox = forwardRef(
 
 		return (
 			<StyledDiv display="flex" alignItems="center">
-				<CheckboxComponent {...otherProps} disabled={disabled} checked={checked} id={id} ref={resolvedRef} />
+				<CheckboxComponent disabled={disabled} checked={checked} id={id} ref={resolvedRef} {...otherProps} />
 				<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>

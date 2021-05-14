@@ -9,7 +9,6 @@ import {
 import PropTypes from 'prop-types';
 import { disabled as disabledStyle } from 'theme/buttonStyles';
 import { checkboxStyle } from 'theme/formStyles';
-import { jasmine, tuna } from 'theme/colors';
 import { forwardRef, useRef } from 'react';
 
 const StyledCheckboxComponent = styled('input')(
@@ -18,48 +17,7 @@ const StyledCheckboxComponent = styled('input')(
 	layout,
 	shadow,
 	color,
-	{
-		...checkboxStyle,
-		appearance: 'none',
-		MozAppearance: 'none',
-		WebkitAppearance: 'none',
-		position: 'relative',
-		borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
-		backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : 'initial')),
-
-		'&:focus': {
-			outline: 'none',
-		},
-
-		'&::before': {
-			position: 'absolute',
-			top: 0,
-			left: 0,
-			content: '',
-			fontSize: '12px',
-			fontWeight: 700,
-			color: 'transparent',
-			display: 'inline-block',
-			width: '100%',
-			height: '100%',
-			textAlign: 'center',
-			borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
-		},
-
-		// '&:indeterminate:before': {
-		// 	content: '"\\2013"',
-		// 	color: 'white',
-		// 	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : 'black')),
-		// 	borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
-		// },
-
-		'&:checked:before': {
-			content: '"\\2713"',
-			color: 'white',
-			backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : 'black')),
-			borderColor: (({ disabled }) => (disabled ? tuna.default : 'initial')),
-		},
-	},
+	{ ...checkboxStyle },
 );
 
 /**
@@ -79,13 +37,13 @@ const CheckboxComponent = forwardRef(
 
 		return (
 			<StyledCheckboxComponent
-				{...otherProps}
 				{...(disabled ? disabledStyle : {})}
 				type="checkbox"
 				disabled={disabled}
 				defaultChecked={checked}
 				id={id}
 				ref={resolvedRef}
+				{...otherProps}
 			/>
 		);
 	}

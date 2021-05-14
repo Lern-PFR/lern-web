@@ -1,77 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LabeledCheckbox should match previous snapshot 1`] = `
+exports[`LabeledRadioButton should match previous snapshot 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
 >
-  <CheckboxComponent
+  <RadioButtonComponent
     checked={false}
     disabled={false}
     id="lcb"
+    name="rg"
   />
   <LabelComponent
     color="initial"
     forId="lcb"
   >
-    Labeled Checkbox
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;
 
-exports[`LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
+exports[`LabeledRadioButton should match previous snapshot for checked and disabled states 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
 >
-  <CheckboxComponent
+  <RadioButtonComponent
     checked={true}
     disabled={true}
     id="lcb"
+    name="rg"
   />
   <LabelComponent
     color="#707070"
     forId="lcb"
   >
-    Labeled Checkbox
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;
 
-exports[`LabeledCheckbox should match previous snapshot for checked state 1`] = `
+exports[`LabeledRadioButton should match previous snapshot for checked state 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
 >
-  <CheckboxComponent
+  <RadioButtonComponent
     checked={true}
     disabled={false}
     id="lcb"
+    name="rg"
   />
   <LabelComponent
     color="initial"
     forId="lcb"
   >
-    Labeled Checkbox
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;
 
-exports[`LabeledCheckbox should match previous snapshot for disabled state 1`] = `
+exports[`LabeledRadioButton should match previous snapshot for disabled state 1`] = `
 <styled.div
   alignItems="center"
   display="flex"
 >
-  <CheckboxComponent
+  <RadioButtonComponent
     checked={false}
     disabled={true}
     id="lcb"
+    name="rg"
   />
   <LabelComponent
     color="#707070"
     forId="lcb"
   >
-    Labeled Checkbox
+    Labeled Radio Button
   </LabelComponent>
 </styled.div>
 `;

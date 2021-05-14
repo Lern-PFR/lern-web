@@ -36,7 +36,7 @@ describe('CheckboxComponent', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should call the onChange method', async () => {
+	it('should call the onChange method when clicking on the checkbox', async () => {
 		const mockedOnChange = jest.fn(() => {});
 		const sut = (<CheckboxComponent onChange={mockedOnChange} id="cb" />);
 		render(sut);
@@ -48,7 +48,7 @@ describe('CheckboxComponent', () => {
 		expect(mockedOnChange).toHaveBeenCalled();
 	});
 
-	it('should not call the onChange method when checkbox is disabled', async () => {
+	it('should not call the onChange method when clicking on the disabled checkbox', async () => {
 		const mockedOnChange = jest.fn(() => {});
 		const sut = (<CheckboxComponent onChange={mockedOnChange} disabled id="cb" />);
 		render(sut);
