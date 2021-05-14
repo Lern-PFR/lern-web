@@ -12,19 +12,15 @@ import NotionContentNavigatorStepper from './NotionContentNavigatorStepper';
  *
  * @author Timothée Simon-Franza
  *
- * @param {array}	[exercises]	The current notion's exercises.
- * @param {array}	lessons		The current notion's lessons.
- * @param {func}	redirectTo	Redirection method to trigger when a stepper is clicked.
+ * @param {array}	notionContent	An array of the current notion's lessons and exercises.
+ * @param {func}	redirectTo		Redirection method to trigger when a stepper is clicked.
  */
-const NotionContentNavigator = ({ exercises, lessons, redirectTo }) => (
+const NotionContentNavigator = ({ notionContent, redirectTo }) => (
 	<StyledDiv {...navigator}>
 		<ChevronLeft />
 		<StyledList {...stepperList}>
-			{lessons.map(({ id, title }) => (
-				<NotionContentNavigatorStepper key={id} label={title} onClick={() => redirectTo('lesson', id)} />
-			))}
-			{exercises.map(({ id, name }) => (
-				<NotionContentNavigatorStepper key={id} label={name} onClick={() => redirectTo('exercise', id)} />
+			{notionContent.map(({ id, order, title = '', name = '' }) => (
+				<NotionContentNavigatorStepper key={id} label={title ?? name} onClick={() => redirectTo(order)} />
 			))}
 		</StyledList>
 		<ChevronRight />
@@ -32,23 +28,23 @@ const NotionContentNavigator = ({ exercises, lessons, redirectTo }) => (
 );
 
 NotionContentNavigator.propTypes = {
-	exercises: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-			title: PropTypes.string.isRequired,
-		})
-	),
-	lessons: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-			name: PropTypes.string.isRequired,
-		})
+	notionContent: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			// Exercise
+			PropTypes.shape({
+				id: PropTypes.string.isRequired,
+				title: PropTypes.string.isRequired,
+				order: PropTypes.number.isRequired,
+			}),
+			// Lesson
+			PropTypes.shape({
+				id: PropTypes.string.isRequired,
+				name: PropTypes.string.isRequired,
+				order: PropTypes.number.isRequired,
+			}),
+		])
 	).isRequired,
 	redirectTo: PropTypes.func.isRequired,
-};
-
-NotionContentNavigator.defaultProps = {
-	exercises: [],
 };
 
 export default NotionContentNavigator;

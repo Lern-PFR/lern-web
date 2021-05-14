@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -7,8 +7,7 @@ import _ from 'lodash';
 import { StyledDiv } from 'components/shared/layout';
 import { pageLayout } from 'theme/pages/notions/notionDetailsPage';
 import { fetchNotion } from 'redux/actions/notions';
-import { BodyCopy, Trafalgar } from 'components/shared/typography';
-import { Sidebar } from 'components/notions/NotionDetailsPage';
+import { LessonContent, Sidebar } from 'components/notions/NotionDetailsPage';
 import { notionDetailsMock } from 'mockedData';
 /**
  * @name NotionDetailsPage
@@ -16,49 +15,38 @@ import { notionDetailsMock } from 'mockedData';
  *
  * @author Timothée Simon-Franza
  *
+ * @param {array}			content				An array of the current notion's lessons and exercises.
  * @param {func}			dispatchFetchNotion	Dispatched action creator used to retrieve the current notion.
  * @param {number|string}	notionId			The current notion's id.
  * @param {object}			notion				The current notion.
- * @param {array}			lessons				The list of notions linked to the current notion.
- * @param {array}			exercises			The list of exercises linked to the current notion or its composing lessons.
- * @param {array}			questions			The list of questions linked to the current notion's exercises.
  */
-const NotionDetailsPage = ({ dispatchFetchNotion, notionId, notion, lessons, exercises }) => {
+const NotionDetailsPage = ({ content, dispatchFetchNotion, notionId, notion }) => {
 	useEffect(() => {
 		dispatchFetchNotion(notionId);
 	}, [dispatchFetchNotion, notionId]);
 
-	const [currentLesson, setCurrentLesson] = useState(lessons[0] ?? null);
+	/**
+	 * @field currentIndex
+	 * @description The index of the current document to display.
+	 *
+	 * This value should match the order attribute of the lessons and exercises of the current notion.
+	 */
+	const [currentIndex, setCurrentIndex] = useState(0);
 
 	/**
 	 *
 	 */
 	const onQuestionAnswerSubmit = () => {};
-	/**
-	 *
-	 */
-	const onCurrentDocumentRedirect = useCallback((elementType, id = undefined) => {
-		if (elementType === 'lesson' && id) {
-			const selectedLesson = lessons.filter(({ id: pId }) => _.isEqual(pId, id));
-			if (selectedLesson.length > 0) {
-				setCurrentLesson(selectedLesson[0]);
-			}
-		}
-	}, [lessons]);
 
 	return (
 		<StyledDiv {...pageLayout}>
-			<StyledDiv>
-				<Trafalgar>{currentLesson.name}</Trafalgar>
-				<BodyCopy>{currentLesson.content}</BodyCopy>
-			</StyledDiv>
+			<LessonContent {...content[currentIndex]} />
 			<Sidebar
+				currentLesson={content[currentIndex]}
+				notionContent={content}
 				notionName={notion.title}
-				currentLesson={currentLesson}
-				lessons={lessons}
-				exercises={exercises}
 				onQuestionAnswerSubmit={onQuestionAnswerSubmit}
-				onCurrentDocumentRedirect={onCurrentDocumentRedirect}
+				onCurrentDocumentRedirect={(index) => setCurrentIndex(index)}
 			/>
 		</StyledDiv>
 	);
@@ -72,46 +60,88 @@ NotionDetailsPage.propTypes = {
 		description: PropTypes.string.isRequired,
 		moduleId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 	}).isRequired,
-	lessons: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-		name: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
-		content: PropTypes.string.isRequired,
-		exercise: PropTypes.shape({
-			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-			question: PropTypes.shape({
+	// @TODO: define if worth keeping or not.
+	//
+	// lessons: PropTypes.arrayOf(PropTypes.shape({
+	// 	id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	// 	name: PropTypes.string.isRequired,
+	// 	description: PropTypes.string.isRequired,
+	// 	content: PropTypes.string.isRequired,
+	// 	order: PropTypes.number.isRequired,
+	// 	exercise: PropTypes.shape({
+	// 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	// 		question: PropTypes.shape({
+	// 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	// 			singleChoice: PropTypes.bool.isRequired,
+	// 			statement: PropTypes.string.isRequired,
+	// 			explanation: PropTypes.string,
+	// 			answers: PropTypes.arrayOf(PropTypes.shape({
+	// 				text: PropTypes.string.isRequired,
+	// 				valid: PropTypes.bool.isRequired,
+	// 			})).isRequired,
+	// 		}).isRequired,
+	// 	}),
+	// })).isRequired,
+	// exercises: PropTypes.arrayOf(
+	// 	PropTypes.shape({
+	// 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	// 		order: PropTypes.number.isRequired,
+	// 		question: PropTypes.shape({
+	// 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	// 			singleChoice: PropTypes.bool.isRequired,
+	// 			statement: PropTypes.string.isRequired,
+	// 			explanation: PropTypes.string,
+	// 			answers: PropTypes.arrayOf(PropTypes.shape({
+	// 				text: PropTypes.string.isRequired,
+	// 				valid: PropTypes.bool.isRequired,
+	// 			})).isRequired,
+	// 		}).isRequired,
+	// 	}),
+	// ),
+	content: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			// Lessons
+			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				singleChoice: PropTypes.bool.isRequired,
-				statement: PropTypes.string.isRequired,
-				explanation: PropTypes.string,
-				answers: PropTypes.arrayOf(PropTypes.shape({
-					text: PropTypes.string.isRequired,
-					valid: PropTypes.bool.isRequired,
-				})).isRequired,
-			}).isRequired,
-		}),
-	})).isRequired,
-	exercises: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-			question: PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				description: PropTypes.string.isRequired,
+				content: PropTypes.string.isRequired,
+				order: PropTypes.number.isRequired,
+				contentTypes: PropTypes.exact('lesson').isRequired,
+				exercise: PropTypes.shape({
+					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+					question: PropTypes.shape({
+						id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+						singleChoice: PropTypes.bool.isRequired,
+						statement: PropTypes.string.isRequired,
+						explanation: PropTypes.string,
+						answers: PropTypes.arrayOf(PropTypes.shape({
+							text: PropTypes.string.isRequired,
+							valid: PropTypes.bool.isRequired,
+						})).isRequired,
+					}).isRequired,
+				}),
+			}),
+			// Exercises
+			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				singleChoice: PropTypes.bool.isRequired,
-				statement: PropTypes.string.isRequired,
-				explanation: PropTypes.string,
-				answers: PropTypes.arrayOf(PropTypes.shape({
-					text: PropTypes.string.isRequired,
-					valid: PropTypes.bool.isRequired,
-				})).isRequired,
-			}).isRequired,
-		}),
-	),
+				order: PropTypes.number.isRequired,
+				contentTypes: PropTypes.exact('exercise').isRequired,
+				question: PropTypes.shape({
+					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+					singleChoice: PropTypes.bool.isRequired,
+					statement: PropTypes.string.isRequired,
+					explanation: PropTypes.string,
+					answers: PropTypes.arrayOf(PropTypes.shape({
+						text: PropTypes.string.isRequired,
+						valid: PropTypes.bool.isRequired,
+					})).isRequired,
+				}).isRequired,
+			}),
+		])
+	).isRequired,
 	// Dispatched redux action creators
 	dispatchFetchNotion: PropTypes.func.isRequired,
-};
-
-NotionDetailsPage.defaultProps = {
-	exercises: [],
 };
 
 /**
@@ -122,10 +152,19 @@ const mapStateToProps = (state, ownProps) => {
 	const { match: { params: { id: notionId } } } = ownProps;
 
 	// @TODO: replace with real information once data can be retrieved from the API.
+	const { exercises, lessons } = notionDetailsMock;
+
+	const content = [
+		...lessons.map((lesson) => ({ ...lesson, contentType: 'lesson' })),
+		...exercises.map((exercise) => ({ ...exercise, contentType: 'exercise' })),
+	];
+
+	_.sortBy(content, 'order');
 
 	return {
 		notionId,
 		notion: notionDetailsMock.notion,
+		content,
 		lessons: notionDetailsMock.lessons,
 		exercises: notionDetailsMock.exercises,
 	};

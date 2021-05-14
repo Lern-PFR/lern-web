@@ -1,8 +1,7 @@
-import { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { StyledDiv, StyledList } from 'components/shared/layout';
-import { Paragon, Pica } from 'components/shared/typography';
-import { lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
+import { StyledDiv, StyledList, StyledListItem } from 'components/shared/layout';
+import { BodyCopy, Paragon, Pica } from 'components/shared/typography';
+import { answerListItem, answersList, lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
 import NotionContentNavigator from './NotionContentNavigator';
 
 /**
@@ -10,7 +9,7 @@ import NotionContentNavigator from './NotionContentNavigator';
  * @param {*} param0
  * @returns
  */
-const Sidebar = ({ notionName, currentLesson, lessons, exercises, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => {
+const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => {
 	/**
 	 *
 	 * @param {*} e
@@ -22,17 +21,17 @@ const Sidebar = ({ notionName, currentLesson, lessons, exercises, onQuestionAnsw
 
 	return (
 		<StyledDiv {...sidebar}>
-			<Paragon {...notionTitle}>{notionName}</Paragon>
-			<Pica {...lessonTitle}>{currentLesson.name}</Pica>
-			<NotionContentNavigator lessons={lessons} exercises={exercises} redirectTo={onCurrentDocumentRedirect} />
+			<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
+			<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
+			<NotionContentNavigator notionContent={notionContent} redirectTo={onCurrentDocumentRedirect} />
 			{currentLesson.exercise && (
 				<form onSubmit={handleSubmit}>
-					<StyledList>
+					<StyledList {...answersList}>
 						{currentLesson.exercise.question.answers.map(({ id, isValid, text }) => (
-							<Fragment key={id}>
-								<label htmlFor={id}>{text}</label>
+							<StyledListItem key={id} {...answerListItem}>
 								<input id={id} type="radio" name="answer" value={id} isValid={isValid} />
-							</Fragment>
+								<BodyCopy tag="label" htmlFor={id}>{text}</BodyCopy>
+							</StyledListItem>
 						))}
 					</StyledList>
 				</form>
@@ -62,46 +61,54 @@ Sidebar.propTypes = {
 			}).isRequired,
 		}),
 	}).isRequired,
-	lessons: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-		name: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
-		content: PropTypes.string.isRequired,
-		exercise: PropTypes.shape({
-			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-			question: PropTypes.shape({
+	notionContent: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			// Lessons
+			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				singleChoice: PropTypes.bool.isRequired,
-				statement: PropTypes.string.isRequired,
-				explanation: PropTypes.string,
-				answers: PropTypes.arrayOf(PropTypes.shape({
-					text: PropTypes.string.isRequired,
-					valid: PropTypes.bool.isRequired,
-				})).isRequired,
-			}).isRequired,
-		}),
-	})).isRequired,
-	exercises: PropTypes.arrayOf(
-		PropTypes.shape({
-			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-			question: PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				description: PropTypes.string.isRequired,
+				content: PropTypes.string.isRequired,
+				order: PropTypes.number.isRequired,
+				contentTypes: PropTypes.exact('lesson').isRequired,
+				exercise: PropTypes.shape({
+					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+					question: PropTypes.shape({
+						id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+						singleChoice: PropTypes.bool.isRequired,
+						statement: PropTypes.string.isRequired,
+						explanation: PropTypes.string,
+						answers: PropTypes.arrayOf(PropTypes.shape({
+							text: PropTypes.string.isRequired,
+							valid: PropTypes.bool.isRequired,
+						})).isRequired,
+					}).isRequired,
+				}),
+			}),
+			// Exercises
+			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				singleChoice: PropTypes.bool.isRequired,
-				statement: PropTypes.string.isRequired,
-				explanation: PropTypes.string,
-				answers: PropTypes.arrayOf(PropTypes.shape({
-					text: PropTypes.string.isRequired,
-					valid: PropTypes.bool.isRequired,
-				})).isRequired,
-			}).isRequired,
-		}),
+				order: PropTypes.number.isRequired,
+				contentTypes: PropTypes.exact('exercise').isRequired,
+				question: PropTypes.shape({
+					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+					singleChoice: PropTypes.bool.isRequired,
+					statement: PropTypes.string.isRequired,
+					explanation: PropTypes.string,
+					answers: PropTypes.arrayOf(PropTypes.shape({
+						text: PropTypes.string.isRequired,
+						valid: PropTypes.bool.isRequired,
+					})).isRequired,
+				}).isRequired,
+			}),
+		])
 	),
 	onQuestionAnswerSubmit: PropTypes.func.isRequired,
 	onCurrentDocumentRedirect: PropTypes.func.isRequired,
 };
 
 Sidebar.defaultProps = {
-	exercises: [],
+	notionContent: [],
 };
 
 export default Sidebar;
