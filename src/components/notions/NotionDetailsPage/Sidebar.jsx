@@ -1,44 +1,37 @@
 import PropTypes from 'prop-types';
-import { StyledDiv, StyledList, StyledListItem } from 'components/shared/layout';
-import { BodyCopy, Paragon, Pica } from 'components/shared/typography';
-import { answerListItem, answersList, lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
+import { StyledDiv } from 'components/shared/layout';
+import { Paragon, Pica } from 'components/shared/typography';
+import { lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
 import NotionContentNavigator from './NotionContentNavigator';
+import QuestionForm from './QuestionForm';
 
 /**
+ * @name Sidebar
+ * @description The sidebar to display on the notion details page.
  *
- * @param {*} param0
- * @returns
+ * @author Timothée Simon-Franza
+ *
+ * @param {string}	notionName					The current notion's name.
+ * @param {object}	currentLesson				The current lesson.
+ * @param {array}	notionContent				An array of all lessons and exercises composing the current notion.
+ * @param {func}	onQuestionAnswerSubmit		Method to trigger upon submission of the question form.
+ * @param {func}	onCurrentDocumentRedirect	Method to trigger when the user clicks on a navigation stepper to redirect him to the desired document.
  */
-const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => {
-	/**
-	 *
-	 * @param {*} e
-	 */
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		onQuestionAnswerSubmit(e);
-	};
+const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => (
+	<StyledDiv {...sidebar}>
+		<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
+		<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
+		<NotionContentNavigator notionContent={notionContent} redirectTo={onCurrentDocumentRedirect} />
+		{currentLesson.exercise && (
+			<QuestionForm
+				answers={currentLesson.exercise.question.answers}
+				onSubmit={onQuestionAnswerSubmit}
+			/>
+		)}
+	</StyledDiv>
+);
 
-	return (
-		<StyledDiv {...sidebar}>
-			<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
-			<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
-			<NotionContentNavigator notionContent={notionContent} redirectTo={onCurrentDocumentRedirect} />
-			{currentLesson.exercise && (
-				<form onSubmit={handleSubmit}>
-					<StyledList {...answersList}>
-						{currentLesson.exercise.question.answers.map(({ id, isValid, text }) => (
-							<StyledListItem key={id} {...answerListItem}>
-								<input id={id} type="radio" name="answer" value={id} isValid={isValid} />
-								<BodyCopy tag="label" htmlFor={id}>{text}</BodyCopy>
-							</StyledListItem>
-						))}
-					</StyledList>
-				</form>
-			)}
-		</StyledDiv>
-	);
-};
+// @TODO: find a way to have PropTypes for an array of multiple shapes.
 
 Sidebar.propTypes = {
 	notionName: PropTypes.string.isRequired,
@@ -70,7 +63,7 @@ Sidebar.propTypes = {
 				description: PropTypes.string.isRequired,
 				content: PropTypes.string.isRequired,
 				order: PropTypes.number.isRequired,
-				contentTypes: PropTypes.exact('lesson').isRequired,
+				contentType: PropTypes.exact('lesson').isRequired,
 				exercise: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					question: PropTypes.shape({
@@ -89,7 +82,7 @@ Sidebar.propTypes = {
 			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 				order: PropTypes.number.isRequired,
-				contentTypes: PropTypes.exact('exercise').isRequired,
+				contentType: PropTypes.exact('exercise').isRequired,
 				question: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					singleChoice: PropTypes.bool.isRequired,

@@ -34,6 +34,10 @@
 				"access": "Accéder à la leçon"
 			}
 		},
+		"exercises": {
+			"validate-answer": "Valider ma réponse",
+			"get-explanation": "Voir l'explication"
+		},
         "components": {
             "prompt": {
                 "title": "Attention !",

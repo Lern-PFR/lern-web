@@ -99,6 +99,12 @@ const answerListItem = {
 	cursor: 'pointer',
 };
 
+const answerFormSubmitButton = {
+	display: 'block',
+	marginX: 'auto',
+	marginTop: '3em',
+};
+
 export {
 	pageLayout,
 	sidebar,
@@ -113,4 +119,5 @@ export {
 	stepper,
 	answersList,
 	answerListItem,
+	answerFormSubmitButton,
 };

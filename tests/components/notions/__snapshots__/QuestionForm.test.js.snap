@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionForm should match previous snapshot 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <styled.li
+      alignItems="center"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="1"
+      padding="1em"
+    >
+      <input
+        id={1}
+        name="answer"
+        type="checkbox"
+        value={1}
+      />
+      <BodyCopy
+        htmlFor={1}
+        tag="label"
+      >
+        answer 1
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="2"
+      padding="1em"
+    >
+      <input
+        id={2}
+        name="answer"
+        type="checkbox"
+        value={2}
+      />
+      <BodyCopy
+        htmlFor={2}
+        tag="label"
+      >
+        answer 2
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="3"
+      padding="1em"
+    >
+      <input
+        id={3}
+        name="answer"
+        type="checkbox"
+        value={3}
+      />
+      <BodyCopy
+        htmlFor={3}
+        tag="label"
+      >
+        answer 3
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="4"
+      padding="1em"
+    >
+      <input
+        id={4}
+        name="answer"
+        type="checkbox"
+        value={4}
+      />
+      <BodyCopy
+        htmlFor={4}
+        tag="label"
+      >
+        answer 4
+      </BodyCopy>
+    </styled.li>
+  </styled.ul>
+  <PrimaryButton
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;

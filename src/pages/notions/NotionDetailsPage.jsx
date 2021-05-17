@@ -34,13 +34,20 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, notionId, notion }) =
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	/**
+	 * @name onQuestionAnswerSubmit
+	 * @description The method to trigger upon submission of the question form.
 	 *
+	 * @author Timothée Simon-Franza
 	 */
-	const onQuestionAnswerSubmit = () => {};
+	const onQuestionAnswerSubmit = () => {
+	};
 
 	return (
 		<StyledDiv {...pageLayout}>
-			<LessonContent {...content[currentIndex]} />
+			<LessonContent
+				{...content[currentIndex]}
+				question={content[currentIndex].exercise?.question?.statement}
+			/>
 			<Sidebar
 				currentLesson={content[currentIndex]}
 				notionContent={content}
@@ -60,44 +67,6 @@ NotionDetailsPage.propTypes = {
 		description: PropTypes.string.isRequired,
 		moduleId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 	}).isRequired,
-	// @TODO: define if worth keeping or not.
-	//
-	// lessons: PropTypes.arrayOf(PropTypes.shape({
-	// 	id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	// 	name: PropTypes.string.isRequired,
-	// 	description: PropTypes.string.isRequired,
-	// 	content: PropTypes.string.isRequired,
-	// 	order: PropTypes.number.isRequired,
-	// 	exercise: PropTypes.shape({
-	// 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	// 		question: PropTypes.shape({
-	// 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	// 			singleChoice: PropTypes.bool.isRequired,
-	// 			statement: PropTypes.string.isRequired,
-	// 			explanation: PropTypes.string,
-	// 			answers: PropTypes.arrayOf(PropTypes.shape({
-	// 				text: PropTypes.string.isRequired,
-	// 				valid: PropTypes.bool.isRequired,
-	// 			})).isRequired,
-	// 		}).isRequired,
-	// 	}),
-	// })).isRequired,
-	// exercises: PropTypes.arrayOf(
-	// 	PropTypes.shape({
-	// 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	// 		order: PropTypes.number.isRequired,
-	// 		question: PropTypes.shape({
-	// 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	// 			singleChoice: PropTypes.bool.isRequired,
-	// 			statement: PropTypes.string.isRequired,
-	// 			explanation: PropTypes.string,
-	// 			answers: PropTypes.arrayOf(PropTypes.shape({
-	// 				text: PropTypes.string.isRequired,
-	// 				valid: PropTypes.bool.isRequired,
-	// 			})).isRequired,
-	// 		}).isRequired,
-	// 	}),
-	// ),
 	content: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			// Lessons
@@ -107,7 +76,7 @@ NotionDetailsPage.propTypes = {
 				description: PropTypes.string.isRequired,
 				content: PropTypes.string.isRequired,
 				order: PropTypes.number.isRequired,
-				contentTypes: PropTypes.exact('lesson').isRequired,
+				contentType: PropTypes.exact('lesson').isRequired,
 				exercise: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					question: PropTypes.shape({
@@ -126,7 +95,7 @@ NotionDetailsPage.propTypes = {
 			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 				order: PropTypes.number.isRequired,
-				contentTypes: PropTypes.exact('exercise').isRequired,
+				contentType: PropTypes.exact('exercise').isRequired,
 				question: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					singleChoice: PropTypes.bool.isRequired,

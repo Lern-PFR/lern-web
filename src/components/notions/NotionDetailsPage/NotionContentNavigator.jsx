@@ -6,6 +6,10 @@ import { navigator, stepperList } from 'theme/pages/notions/notionDetailsPage';
 
 import NotionContentNavigatorStepper from './NotionContentNavigatorStepper';
 
+// @TODO: Implement a way to use ChevronLeft and ChevronRight elements as 'previous' and 'next' navigation buttons.
+// @TODO: Disable said buttons when on first / last element.
+// @TODO: Display the name of the document in a tooltip upon hovering a stepper.
+
 /**
  * @name NotionContentNavigator
  * @description A component used to navigate inside a lesson's pages.
@@ -20,7 +24,7 @@ const NotionContentNavigator = ({ notionContent, redirectTo }) => (
 		<ChevronLeft />
 		<StyledList {...stepperList}>
 			{notionContent.map(({ id, order, title = '', name = '' }) => (
-				<NotionContentNavigatorStepper key={id} label={title ?? name} onClick={() => redirectTo(order)} />
+				<NotionContentNavigatorStepper key={id} label={title || name} onClick={() => redirectTo(order)} />
 			))}
 		</StyledList>
 		<ChevronRight />
@@ -30,15 +34,14 @@ const NotionContentNavigator = ({ notionContent, redirectTo }) => (
 NotionContentNavigator.propTypes = {
 	notionContent: PropTypes.arrayOf(
 		PropTypes.oneOfType([
-			// Exercise
 			PropTypes.shape({
-				id: PropTypes.string.isRequired,
-				title: PropTypes.string.isRequired,
+				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+				title: PropTypes.string,
+				name: PropTypes.string,
 				order: PropTypes.number.isRequired,
 			}),
-			// Lesson
 			PropTypes.shape({
-				id: PropTypes.string.isRequired,
+				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 				name: PropTypes.string.isRequired,
 				order: PropTypes.number.isRequired,
 			}),

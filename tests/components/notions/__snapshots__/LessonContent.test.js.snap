@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LessonContent should match previous snapshot (no question provided) 1`] = `
+<styled.div
+  display="grid"
+  gridGap="48px"
+  gridTemplateRows="3rem 1fr"
+  paddingLeft="64px"
+  paddingTop="24px"
+>
+  <styled.div>
+    <Trafalgar
+      lineHeight="initial"
+      margin={0}
+      tag="h2"
+      textTransform="capitalize"
+    >
+      test lesson
+    </Trafalgar>
+    <LongPrimer
+      margin={0}
+    >
+      test lesson description
+    </LongPrimer>
+  </styled.div>
+  <styled.div>
+    <BodyCopy
+      margin={0}
+    >
+      test lesson content
+    </BodyCopy>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`LessonContent should match previous snapshot (with question provided) 1`] = `
+<styled.div
+  display="grid"
+  gridGap="48px"
+  gridTemplateRows="3rem 1fr"
+  paddingLeft="64px"
+  paddingTop="24px"
+>
+  <styled.div>
+    <Trafalgar
+      lineHeight="initial"
+      margin={0}
+      tag="h2"
+      textTransform="capitalize"
+    >
+      test lesson
+    </Trafalgar>
+    <LongPrimer
+      margin={0}
+    >
+      test lesson description
+    </LongPrimer>
+  </styled.div>
+  <styled.div>
+    <BodyCopy
+      margin={0}
+    >
+      test lesson content
+    </BodyCopy>
+    <BodyCopy>
+      <strong>
+        Question : 
+      </strong>
+      test lesson question
+    </BodyCopy>
+  </styled.div>
+</styled.div>
+`;

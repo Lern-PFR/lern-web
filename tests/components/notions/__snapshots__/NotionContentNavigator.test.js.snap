@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotionContentNavigator should match previous snapshot 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+  flexDirection="row"
+  justifyContent="center"
+>
+  <ChevronLeft />
+  <styled.ul
+    display="flex"
+    flex={0.5}
+    flexDirection="row"
+    listStyle="none"
+    marginLeft="1em"
+    marginRight="1em"
+    padding={0}
+  >
+    <NotionContentNavigatorStepper
+      key="0"
+      label="test lesson 0"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      key="1"
+      label="test lesson 1"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      key="2"
+      label="test lesson 2"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      key="3"
+      label="test exercise 0"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      key="4"
+      label="test lesson 4"
+      onClick={[Function]}
+    />
+  </styled.ul>
+  <ChevronRight />
+</styled.div>
+`;

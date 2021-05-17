@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar should match previous snapshot (with question) 1`] = `
+<styled.div
+  borderLeft="solid 1px #DBD9D2"
+  display="grid"
+  gridTemplateRows="auto auto 48px 1fr"
+  padding="24px 64px"
+>
+  <Paragon
+    lineHeight="initial"
+    margin={0}
+    tag="h1"
+    textTransform="capitalize"
+  >
+    test notion
+  </Paragon>
+  <Pica
+    lineHeight="initial"
+    margin={0}
+    tag="h2"
+    textTransform="capitalize"
+  >
+    test lesson
+  </Pica>
+  <NotionContentNavigator
+    notionContent={
+      Array [
+        Object {
+          "content": "lesson 1's content",
+          "contentType": "lesson",
+          "description": "another lesson description",
+          "id": 1,
+          "name": "lesson 1",
+          "order": 1,
+        },
+        Object {
+          "content": "lesson 2's content",
+          "contentType": "lesson",
+          "description": "another lesson description",
+          "id": 2,
+          "name": "lesson 2",
+          "order": 1,
+        },
+        Object {
+          "contentType": "exercise",
+          "id": "exercise-2",
+          "question": Object {
+            "answers": Array [
+              Object {
+                "id": "answer-2-0",
+                "text": "Yes",
+                "valid": false,
+              },
+              Object {
+                "id": "answer-2-1",
+                "text": "I've never tried it",
+                "valid": false,
+              },
+              Object {
+                "id": "answer-2-2",
+                "text": "Hell no",
+                "valid": true,
+              },
+            ],
+            "explanation": "It's only a taste preference, really.",
+            "id": "question-2",
+            "singleChoice": true,
+            "statement": "Do you like angular ?",
+          },
+        },
+      ]
+    }
+    redirectTo={[MockFunction]}
+  />
+  <QuestionForm
+    answers={
+      Array [
+        Object {
+          "id": 1,
+          "text": "answer 1",
+          "valid": false,
+        },
+        Object {
+          "id": 2,
+          "text": "answer 2",
+          "valid": false,
+        },
+        Object {
+          "id": 3,
+          "text": "answer 3",
+          "valid": true,
+        },
+        Object {
+          "id": 4,
+          "text": "answer 4",
+          "valid": false,
+        },
+      ]
+    }
+    onSubmit={[MockFunction]}
+    singleChoice={false}
+    t={[Function]}
+  />
+</styled.div>
+`;
+
+exports[`Sidebar should match previous snapshot (without question) 1`] = `
+<styled.div
+  borderLeft="solid 1px #DBD9D2"
+  display="grid"
+  gridTemplateRows="auto auto 48px 1fr"
+  padding="24px 64px"
+>
+  <Paragon
+    lineHeight="initial"
+    margin={0}
+    tag="h1"
+    textTransform="capitalize"
+  >
+    test notion
+  </Paragon>
+  <Pica
+    lineHeight="initial"
+    margin={0}
+    tag="h2"
+    textTransform="capitalize"
+  >
+    test lesson
+  </Pica>
+  <NotionContentNavigator
+    notionContent={
+      Array [
+        Object {
+          "content": "lesson 1's content",
+          "contentType": "lesson",
+          "description": "another lesson description",
+          "id": 1,
+          "name": "lesson 1",
+          "order": 1,
+        },
+        Object {
+          "content": "lesson 2's content",
+          "contentType": "lesson",
+          "description": "another lesson description",
+          "id": 2,
+          "name": "lesson 2",
+          "order": 1,
+        },
+        Object {
+          "contentType": "exercise",
+          "id": "exercise-2",
+          "question": Object {
+            "answers": Array [
+              Object {
+                "id": "answer-2-0",
+                "text": "Yes",
+                "valid": false,
+              },
+              Object {
+                "id": "answer-2-1",
+                "text": "I've never tried it",
+                "valid": false,
+              },
+              Object {
+                "id": "answer-2-2",
+                "text": "Hell no",
+                "valid": true,
+              },
+            ],
+            "explanation": "It's only a taste preference, really.",
+            "id": "question-2",
+            "singleChoice": true,
+            "statement": "Do you like angular ?",
+          },
+        },
+      ]
+    }
+    redirectTo={[MockFunction]}
+  />
+</styled.div>
+`;
