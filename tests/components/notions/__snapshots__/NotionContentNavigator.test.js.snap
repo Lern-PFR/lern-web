@@ -7,7 +7,13 @@ exports[`NotionContentNavigator should match previous snapshot 1`] = `
   flexDirection="row"
   justifyContent="center"
 >
-  <ChevronLeft />
+  <Styled(ChevronLeft)
+    background="white"
+    data-testid="notion-navigatior-previous"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+  />
   <styled.ul
     display="flex"
     flex={0.5}
@@ -43,6 +49,11 @@ exports[`NotionContentNavigator should match previous snapshot 1`] = `
       onClick={[Function]}
     />
   </styled.ul>
-  <ChevronRight />
+  <Styled(ChevronRight)
+    data-testid="notion-navigatior-next"
+    disabled={false}
+    onClick={[Function]}
+    role="button"
+  />
 </styled.div>
 `;

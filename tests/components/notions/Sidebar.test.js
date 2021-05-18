@@ -5,31 +5,43 @@ describe('Sidebar', () => {
 	const props = {
 		notionName: 'test notion',
 		currentLesson: {
-			id: 1,
+			id: 0,
 			name: 'test lesson',
 			content: 'test lesson content',
+			contentType: 'lesson',
 			description: 'test lesson description',
+			order: 0,
 		},
 		notionContent: [
+			{
+				id: 1,
+				name: 'test lesson',
+				content: 'test lesson content',
+				contentType: 'lesson',
+				description: 'test lesson description',
+				order: 0,
+			},
 			{
 				id: 1,
 				name: 'lesson 1',
 				description: 'another lesson description',
 				content: 'lesson 1\'s content',
-				order: 1,
 				contentType: 'lesson',
+				order: 1,
 			},
 			{
 				id: 2,
 				name: 'lesson 2',
 				description: 'another lesson description',
 				content: 'lesson 2\'s content',
-				order: 1,
 				contentType: 'lesson',
+				order: 2,
 			},
 			{
-				id: 'exercise-2',
+				id: 3,
+				title: 'exercise-2',
 				contentType: 'exercise',
+				order: 3,
 				question: {
 					id: 'question-2',
 					singleChoice: true,

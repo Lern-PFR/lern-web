@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import { ChevronLeft, ChevronRight } from 'react-feather';
-
+import styled from 'styled-components';
 import { StyledDiv, StyledList } from 'components/shared/layout';
-import { navigator, stepperList } from 'theme/pages/notions/notionDetailsPage';
+import { navigationChevrons, navigator, stepperList } from 'theme/pages/notions/notionDetailsPage';
 
 import NotionContentNavigatorStepper from './NotionContentNavigatorStepper';
 
-// @TODO: Implement a way to use ChevronLeft and ChevronRight elements as 'previous' and 'next' navigation buttons.
-// @TODO: Disable said buttons when on first / last element.
 // @TODO: Display the name of the document in a tooltip upon hovering a stepper.
+
+const PreviousButton = styled(ChevronLeft)({ ...navigationChevrons });
+const NextButton = styled(ChevronRight)({ ...navigationChevrons });
 
 /**
  * @name NotionContentNavigator
@@ -16,22 +17,50 @@ import NotionContentNavigatorStepper from './NotionContentNavigatorStepper';
  *
  * @author Timothée Simon-Franza
  *
+ * @param {number}	currentDocOrder	The current document's order value.
  * @param {array}	notionContent	An array of the current notion's lessons and exercises.
  * @param {func}	redirectTo		Redirection method to trigger when a stepper is clicked.
  */
-const NotionContentNavigator = ({ notionContent, redirectTo }) => (
-	<StyledDiv {...navigator}>
-		<ChevronLeft />
-		<StyledList {...stepperList}>
-			{notionContent.map(({ id, order, title = '', name = '' }) => (
-				<NotionContentNavigatorStepper key={id} label={title || name} onClick={() => redirectTo(order)} />
-			))}
-		</StyledList>
-		<ChevronRight />
-	</StyledDiv>
-);
+const NotionContentNavigator = ({ currentDocOrder, notionContent, redirectTo }) => {
+	/**
+	 * @name onPreviousClick
+	 * @description onClick handler method for the 'previous' icon button.
+	 *
+	 * @author Timothée Simon-Franza
+	 */
+	const onPreviousClick = () => {
+		if (currentDocOrder > 0) {
+			redirectTo(currentDocOrder - 1);
+		}
+	};
+
+	/**
+	 * @name onNextClick
+	 * @description onClick handler method for the 'next' icon button.
+	 *
+	 * @author Timothée Simon-Franza
+	 */
+	const onNextClick = () => {
+		if (currentDocOrder < notionContent.length - 1) {
+			redirectTo(currentDocOrder + 1);
+		}
+	};
+
+	return (
+		<StyledDiv {...navigator}>
+			<PreviousButton role="button" data-testid="notion-navigatior-previous" onClick={onPreviousClick} disabled={currentDocOrder === 0} background="white" />
+			<StyledList {...stepperList}>
+				{notionContent.map(({ id, order, title = '', name = '' }) => (
+					<NotionContentNavigatorStepper key={id} label={title || name} onClick={() => redirectTo(order)} />
+				))}
+			</StyledList>
+			<NextButton role="button" data-testid="notion-navigatior-next" onClick={onNextClick} disabled={currentDocOrder === (notionContent.length - 1)} />
+		</StyledDiv>
+	);
+};
 
 NotionContentNavigator.propTypes = {
+	currentDocOrder: PropTypes.number.isRequired,
 	notionContent: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			PropTypes.shape({

@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 import NotionContentNavigator from 'components/notions/NotionDetailsPage/NotionContentNavigator';
 
 describe('NotionContentNavigator', () => {
@@ -11,7 +12,41 @@ describe('NotionContentNavigator', () => {
 	];
 
 	it('should match previous snapshot', () => {
-		const wrapper = shallow(<NotionContentNavigator notionContent={notionContent} redirectTo={jest.fn()} />);
+		const wrapper = shallow(<NotionContentNavigator currentDocOrder={0} notionContent={notionContent} redirectTo={jest.fn()} />);
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should have the "previous" button disabled when the first document is displayed', () => {
+		const redirectToSpy = jest.fn();
+		render(<NotionContentNavigator currentDocOrder={0} notionContent={notionContent} redirectTo={redirectToSpy} />);
+		fireEvent.click(screen.getByTestId('notion-navigatior-previous'));
+
+		expect(redirectToSpy).toHaveBeenCalledTimes(0);
+	});
+
+	it('should have the "next" button disabled when the last document is displayed', () => {
+		const redirectToSpy = jest.fn();
+		render(<NotionContentNavigator currentDocOrder={4} notionContent={notionContent} redirectTo={redirectToSpy} />);
+		fireEvent.click(screen.getByTestId('notion-navigatior-next'));
+
+		expect(redirectToSpy).toHaveBeenCalledTimes(0);
+	});
+
+	it('should call the "redirectTo" method with the currentDocOrder - 1 when clicking on the "previous" button', () => {
+		const redirectToSpy = jest.fn();
+		render(<NotionContentNavigator currentDocOrder={3} notionContent={notionContent} redirectTo={redirectToSpy} />);
+		fireEvent.click(screen.getByTestId('notion-navigatior-previous'));
+
+		expect(redirectToSpy).toBeCalledTimes(1);
+		expect(redirectToSpy).toHaveBeenCalledWith(2);
+	});
+
+	it('should call the "redirectTo" method with the currentDocOrder + 1 when clicking on the "next" button', () => {
+		const redirectToSpy = jest.fn();
+		render(<NotionContentNavigator currentDocOrder={3} notionContent={notionContent} redirectTo={redirectToSpy} />);
+		fireEvent.click(screen.getByTestId('notion-navigatior-next'));
+
+		expect(redirectToSpy).toBeCalledTimes(1);
+		expect(redirectToSpy).toHaveBeenCalledWith(4);
 	});
 });

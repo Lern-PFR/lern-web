@@ -1,4 +1,4 @@
-import { basmati, peppercorn } from 'theme/colors';
+import { basmati, peppercorn, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -53,6 +53,16 @@ const navigator = {
 	flexDirection: 'row',
 	alignItems: 'center',
 	justifyContent: 'center',
+};
+
+const navigationChevrons = {
+	color: (({ disabled }) => (disabled ? tuna.lighter2 : tuna.default)),
+	cursor: 'pointer',
+	background: 'none',
+
+	'&:hover': {
+		color: (({ disabled }) => (disabled ? tuna.lighter2 : tuna.darker2)),
+	},
 };
 
 const stepperList = {
@@ -115,6 +125,7 @@ export {
 	navigator,
 	notionTitle,
 	questionContainer,
+	navigationChevrons,
 	stepperList,
 	stepper,
 	answersList,

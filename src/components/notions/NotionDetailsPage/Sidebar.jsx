@@ -21,7 +21,11 @@ const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSub
 	<StyledDiv {...sidebar}>
 		<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
 		<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
-		<NotionContentNavigator notionContent={notionContent} redirectTo={onCurrentDocumentRedirect} />
+		<NotionContentNavigator
+			currentDocOrder={currentLesson.order}
+			notionContent={notionContent}
+			redirectTo={onCurrentDocumentRedirect}
+		/>
 		{currentLesson.exercise && (
 			<QuestionForm
 				answers={currentLesson.exercise.question.answers}
@@ -40,6 +44,7 @@ Sidebar.propTypes = {
 		name: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 		content: PropTypes.string.isRequired,
+		order: PropTypes.number.isRequired,
 		exercise: PropTypes.shape({
 			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 			question: PropTypes.shape({

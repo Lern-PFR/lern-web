@@ -24,8 +24,17 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
     test lesson
   </Pica>
   <NotionContentNavigator
+    currentDocOrder={0}
     notionContent={
       Array [
+        Object {
+          "content": "test lesson content",
+          "contentType": "lesson",
+          "description": "test lesson description",
+          "id": 1,
+          "name": "test lesson",
+          "order": 0,
+        },
         Object {
           "content": "lesson 1's content",
           "contentType": "lesson",
@@ -40,11 +49,12 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
           "description": "another lesson description",
           "id": 2,
           "name": "lesson 2",
-          "order": 1,
+          "order": 2,
         },
         Object {
           "contentType": "exercise",
-          "id": "exercise-2",
+          "id": 3,
+          "order": 3,
           "question": Object {
             "answers": Array [
               Object {
@@ -68,6 +78,7 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
             "singleChoice": true,
             "statement": "Do you like angular ?",
           },
+          "title": "exercise-2",
         },
       ]
     }
@@ -129,8 +140,17 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
     test lesson
   </Pica>
   <NotionContentNavigator
+    currentDocOrder={0}
     notionContent={
       Array [
+        Object {
+          "content": "test lesson content",
+          "contentType": "lesson",
+          "description": "test lesson description",
+          "id": 1,
+          "name": "test lesson",
+          "order": 0,
+        },
         Object {
           "content": "lesson 1's content",
           "contentType": "lesson",
@@ -145,11 +165,12 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
           "description": "another lesson description",
           "id": 2,
           "name": "lesson 2",
-          "order": 1,
+          "order": 2,
         },
         Object {
           "contentType": "exercise",
-          "id": "exercise-2",
+          "id": 3,
+          "order": 3,
           "question": Object {
             "answers": Array [
               Object {
@@ -173,6 +194,7 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
             "singleChoice": true,
             "statement": "Do you like angular ?",
           },
+          "title": "exercise-2",
         },
       ]
     }
