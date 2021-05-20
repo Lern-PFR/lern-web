@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { stepper } from 'theme/pages/notions/notionDetailsPage';
+import { stepper, stepperCurrent } from 'theme/pages/notions/notionDetailsPage';
 
 const StepperButton = styled('button')(
 	{
 		...stepper,
+		backgroundColor: (({ isCurrent }) => (isCurrent ? stepperCurrent.backgroundColor : stepper.backgroundColor)),
 	}
 );
 
@@ -14,16 +15,22 @@ const StepperButton = styled('button')(
  *
  * @author Timothée Simon-Franza
  *
- * @param {string}	label	The label to display on hover.
- * @param {func}	onClick	Method to trigger when the user clicks the button.
+ * @param {bool}	isCurrent	Whether the stepper represents the currently displayed document.
+ * @param {string}	label		The label to display on hover.
+ * @param {func}	onClick		Method to trigger when the user clicks the button.
  */
-const NotionContentNavigatorStepper = ({ label, onClick }) => (
-	<StepperButton onClick={onClick} label={label} {...stepper} />
+const NotionContentNavigatorStepper = ({ isCurrent, label, onClick }) => (
+	<StepperButton onClick={onClick} label={label} isCurrent={isCurrent} />
 );
 
 NotionContentNavigatorStepper.propTypes = {
+	isCurrent: PropTypes.bool,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
+};
+
+NotionContentNavigatorStepper.defaultProps = {
+	isCurrent: false,
 };
 
 export default NotionContentNavigatorStepper;

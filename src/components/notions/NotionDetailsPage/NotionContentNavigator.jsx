@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import styled from 'styled-components';
 import { StyledDiv, StyledList } from 'components/shared/layout';
@@ -51,7 +52,12 @@ const NotionContentNavigator = ({ currentDocOrder, notionContent, redirectTo }) 
 			<PreviousButton role="button" data-testid="notion-navigatior-previous" onClick={onPreviousClick} disabled={currentDocOrder === 0} background="white" />
 			<StyledList {...stepperList}>
 				{notionContent.map(({ id, order, title = '', name = '' }) => (
-					<NotionContentNavigatorStepper key={id} label={title || name} onClick={() => redirectTo(order)} />
+					<NotionContentNavigatorStepper
+						isCurrent={_.isEqual(notionContent[currentDocOrder]?.id, id)}
+						key={id}
+						label={title || name}
+						onClick={() => redirectTo(order)}
+					/>
 				))}
 			</StyledList>
 			<NextButton role="button" data-testid="notion-navigatior-next" onClick={onNextClick} disabled={currentDocOrder === (notionContent.length - 1)} />

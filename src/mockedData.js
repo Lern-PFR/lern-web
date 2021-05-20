@@ -111,7 +111,7 @@ export const notionDetailsMock = {
 				id: 'exercise-2',
 				question: {
 					id: 'question-2',
-					singleChoice: true,
+					singleChoice: false,
 					statement: 'Do you like angular ?',
 					explanation: 'It\'s only a taste preference, really.',
 					answers: [

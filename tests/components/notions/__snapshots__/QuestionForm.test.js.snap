@@ -1,5 +1,665 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
+<QuestionForm
+  answers={
+    Array [
+      Object {
+        "id": 1,
+        "text": "answer 1",
+        "valid": false,
+      },
+      Object {
+        "id": 2,
+        "text": "answer 2",
+        "valid": false,
+      },
+      Object {
+        "id": 3,
+        "text": "answer 3",
+        "valid": true,
+      },
+      Object {
+        "id": 4,
+        "text": "answer 4",
+        "valid": false,
+      },
+    ]
+  }
+  onSubmit={[MockFunction]}
+  singleChoice={false}
+  t={[Function]}
+>
+  <form
+    data-testid="question-form"
+    onSubmit={[Function]}
+  >
+    <styled.ul
+      display="grid"
+      gridAutoRows="1fr"
+      listStyle="none"
+      margin={0}
+      padding={0}
+    >
+      <ul
+        className="sc-dlfnbm cHULag"
+        display="grid"
+      >
+        <styled.li
+          alignItems="center"
+          borderRadius=".2em"
+          cursor="pointer"
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          key="1"
+          padding="1em"
+        >
+          <li
+            className="sc-hKgILt ikZFWE"
+            cursor="pointer"
+            display="grid"
+          >
+            <input
+              id={1}
+              name="answer"
+              onChange={[Function]}
+              type="checkbox"
+              value={1}
+            />
+            <BodyCopy
+              htmlFor={1}
+              tag="label"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                htmlFor={1}
+                letterSpacing={0}
+                lineHeight="1.5em"
+                tag="label"
+              >
+                <styled.p
+                  as="label"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  htmlFor={1}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-bdfBwQ kEEvGz"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={1}
+                    letterSpacing={0}
+                  >
+                    answer 1
+                  </label>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </li>
+        </styled.li>
+        <styled.li
+          alignItems="center"
+          borderRadius=".2em"
+          cursor="pointer"
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          key="2"
+          padding="1em"
+        >
+          <li
+            className="sc-hKgILt ikZFWE"
+            cursor="pointer"
+            display="grid"
+          >
+            <input
+              id={2}
+              name="answer"
+              onChange={[Function]}
+              type="checkbox"
+              value={2}
+            />
+            <BodyCopy
+              htmlFor={2}
+              tag="label"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                htmlFor={2}
+                letterSpacing={0}
+                lineHeight="1.5em"
+                tag="label"
+              >
+                <styled.p
+                  as="label"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  htmlFor={2}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-bdfBwQ kEEvGz"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={2}
+                    letterSpacing={0}
+                  >
+                    answer 2
+                  </label>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </li>
+        </styled.li>
+        <styled.li
+          alignItems="center"
+          borderRadius=".2em"
+          cursor="pointer"
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          key="3"
+          padding="1em"
+        >
+          <li
+            className="sc-hKgILt ikZFWE"
+            cursor="pointer"
+            display="grid"
+          >
+            <input
+              id={3}
+              name="answer"
+              onChange={[Function]}
+              type="checkbox"
+              value={3}
+            />
+            <BodyCopy
+              htmlFor={3}
+              tag="label"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                htmlFor={3}
+                letterSpacing={0}
+                lineHeight="1.5em"
+                tag="label"
+              >
+                <styled.p
+                  as="label"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  htmlFor={3}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-bdfBwQ kEEvGz"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={3}
+                    letterSpacing={0}
+                  >
+                    answer 3
+                  </label>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </li>
+        </styled.li>
+        <styled.li
+          alignItems="center"
+          borderRadius=".2em"
+          cursor="pointer"
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          key="4"
+          padding="1em"
+        >
+          <li
+            className="sc-hKgILt ikZFWE"
+            cursor="pointer"
+            display="grid"
+          >
+            <input
+              id={4}
+              name="answer"
+              onChange={[Function]}
+              type="checkbox"
+              value={4}
+            />
+            <BodyCopy
+              htmlFor={4}
+              tag="label"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                htmlFor={4}
+                letterSpacing={0}
+                lineHeight="1.5em"
+                tag="label"
+              >
+                <styled.p
+                  as="label"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  htmlFor={4}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-bdfBwQ kEEvGz"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={4}
+                    letterSpacing={0}
+                  >
+                    answer 4
+                  </label>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </li>
+        </styled.li>
+      </ul>
+    </styled.ul>
+    <PrimaryButton
+      data-testid="question-form-submit-btn"
+      disabled={false}
+      display="block"
+      marginTop="3em"
+      marginX="auto"
+      type="submit"
+    >
+      <DynamicButtonComponent
+        bg={
+          Object {
+            "darker1": "#1D1611",
+            "darker2": "#16110D",
+            "default": "#241C15",
+            "lighter1": "#504944",
+            "lighter2": "#7C7773",
+          }
+        }
+        border={0}
+        borderRadius={4}
+        color={
+          Object {
+            "darker1": "#FFFFFF",
+            "darker2": "#FFFFFF",
+            "default": "#FFFFFF",
+            "lighter1": "#FFFFFF",
+            "lighter2": "#FFFFFF",
+          }
+        }
+        data-testid="question-form-submit-btn"
+        disabled={false}
+        display="block"
+        isIconOnly={false}
+        marginTop="3em"
+        marginX="auto"
+        onClick={[Function]}
+        padding="8px 16px"
+        textDecoration="none"
+        type="submit"
+      >
+        <styled.button
+          bg={
+            Object {
+              "darker1": "#1D1611",
+              "darker2": "#16110D",
+              "default": "#241C15",
+              "lighter1": "#504944",
+              "lighter2": "#7C7773",
+            }
+          }
+          border={0}
+          borderRadius={4}
+          color={
+            Object {
+              "darker1": "#FFFFFF",
+              "darker2": "#FFFFFF",
+              "default": "#FFFFFF",
+              "lighter1": "#FFFFFF",
+              "lighter2": "#FFFFFF",
+            }
+          }
+          data-testid="question-form-submit-btn"
+          display="block"
+          marginTop="3em"
+          marginX="auto"
+          onClick={[Function]}
+          padding="8px 16px"
+          textDecoration="none"
+          type="submit"
+        >
+          <button
+            className="sc-eCssSg iruZaW"
+            color={
+              Object {
+                "darker1": "#FFFFFF",
+                "darker2": "#FFFFFF",
+                "default": "#FFFFFF",
+                "lighter1": "#FFFFFF",
+                "lighter2": "#FFFFFF",
+              }
+            }
+            data-testid="question-form-submit-btn"
+            display="block"
+            onClick={[Function]}
+            textDecoration="none"
+            type="submit"
+          >
+            <Brevier
+              fontWeight={600}
+              lineHeight="initial"
+              tag="span"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize=".778rem"
+                fontWeight={600}
+                letterSpacing={0.32}
+                lineHeight="initial"
+                tag="span"
+              >
+                <styled.p
+                  as="span"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize=".778rem"
+                  fontWeight={600}
+                  letterSpacing={0.32}
+                  lineHeight="initial"
+                >
+                  <span
+                    className="sc-bdfBwQ EFFWh"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize=".778rem"
+                    fontWeight={600}
+                    letterSpacing={0.32}
+                  >
+                    exercises.validate-answer
+                  </span>
+                </styled.p>
+              </DynamicTextComponent>
+            </Brevier>
+          </button>
+        </styled.button>
+      </DynamicButtonComponent>
+    </PrimaryButton>
+  </form>
+</QuestionForm>
+`;
+
+exports[`QuestionForm should match previous snapshot (with singleChoice prop set to true) 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="1"
+      padding="1em"
+    >
+      <input
+        id={1}
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value={1}
+      />
+      <BodyCopy
+        htmlFor={1}
+        tag="label"
+      >
+        answer 1
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="2"
+      padding="1em"
+    >
+      <input
+        id={2}
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value={2}
+      />
+      <BodyCopy
+        htmlFor={2}
+        tag="label"
+      >
+        answer 2
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="3"
+      padding="1em"
+    >
+      <input
+        id={3}
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value={3}
+      />
+      <BodyCopy
+        htmlFor={3}
+        tag="label"
+      >
+        answer 3
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="4"
+      padding="1em"
+    >
+      <input
+        id={4}
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value={4}
+      />
+      <BodyCopy
+        htmlFor={4}
+        tag="label"
+      >
+        answer 4
+      </BodyCopy>
+    </styled.li>
+  </styled.ul>
+  <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;
+
+exports[`QuestionForm should match previous snapshot (with submittedAnswer prop) 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="1"
+      padding="1em"
+    >
+      <input
+        defaultChecked={true}
+        id={1}
+        name="answer"
+        onChange={[Function]}
+        type="checkbox"
+        value={1}
+      />
+      <BodyCopy
+        htmlFor={1}
+        tag="label"
+      >
+        answer 1
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="2"
+      padding="1em"
+    >
+      <input
+        defaultChecked={false}
+        id={2}
+        name="answer"
+        onChange={[Function]}
+        type="checkbox"
+        value={2}
+      />
+      <BodyCopy
+        htmlFor={2}
+        tag="label"
+      >
+        answer 2
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      backgroundColor="#D8EACC"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="3"
+      padding="1em"
+    >
+      <input
+        defaultChecked={false}
+        id={3}
+        name="answer"
+        onChange={[Function]}
+        type="checkbox"
+        value={3}
+      />
+      <BodyCopy
+        htmlFor={3}
+        tag="label"
+      >
+        answer 3
+      </BodyCopy>
+    </styled.li>
+    <styled.li
+      alignItems="center"
+      borderRadius=".2em"
+      cursor="pointer"
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      key="4"
+      padding="1em"
+    >
+      <input
+        defaultChecked={false}
+        id={4}
+        name="answer"
+        onChange={[Function]}
+        type="checkbox"
+        value={4}
+      />
+      <BodyCopy
+        htmlFor={4}
+        tag="label"
+      >
+        answer 4
+      </BodyCopy>
+    </styled.li>
+  </styled.ul>
+  <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;
+
 exports[`QuestionForm should match previous snapshot 1`] = `
 <form
   data-testid="question-form"
@@ -14,6 +674,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
   >
     <styled.li
       alignItems="center"
+      borderRadius=".2em"
       cursor="pointer"
       display="grid"
       gridGap="1em"
@@ -24,6 +685,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       <input
         id={1}
         name="answer"
+        onChange={[Function]}
         type="checkbox"
         value={1}
       />
@@ -36,6 +698,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
     </styled.li>
     <styled.li
       alignItems="center"
+      borderRadius=".2em"
       cursor="pointer"
       display="grid"
       gridGap="1em"
@@ -46,6 +709,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       <input
         id={2}
         name="answer"
+        onChange={[Function]}
         type="checkbox"
         value={2}
       />
@@ -58,6 +722,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
     </styled.li>
     <styled.li
       alignItems="center"
+      borderRadius=".2em"
       cursor="pointer"
       display="grid"
       gridGap="1em"
@@ -68,6 +733,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       <input
         id={3}
         name="answer"
+        onChange={[Function]}
         type="checkbox"
         value={3}
       />
@@ -80,6 +746,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
     </styled.li>
     <styled.li
       alignItems="center"
+      borderRadius=".2em"
       cursor="pointer"
       display="grid"
       gridGap="1em"
@@ -90,6 +757,7 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       <input
         id={4}
         name="answer"
+        onChange={[Function]}
         type="checkbox"
         value={4}
       />
@@ -102,6 +770,8 @@ exports[`QuestionForm should match previous snapshot 1`] = `
     </styled.li>
   </styled.ul>
   <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
     display="block"
     marginTop="3em"
     marginX="auto"

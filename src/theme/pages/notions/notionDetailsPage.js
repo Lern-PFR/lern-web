@@ -1,4 +1,4 @@
-import { basmati, peppercorn, tuna } from 'theme/colors';
+import { basmati, feedbackGreen, peppercorn, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -92,6 +92,10 @@ const stepper = {
 	},
 };
 
+const stepperCurrent = {
+	backgroundColor: peppercorn.default,
+};
+
 const answersList = {
 	listStyle: 'none',
 	display: 'grid',
@@ -102,11 +106,16 @@ const answersList = {
 
 const answerListItem = {
 	display: 'grid',
+	borderRadius: '.2em',
 	gridTemplateColumns: 'min-content 1fr',
 	alignItems: 'center',
 	gridGap: '1em',
 	padding: '1em',
 	cursor: 'pointer',
+};
+
+const validAnswerListItem = {
+	backgroundColor: feedbackGreen,
 };
 
 const answerFormSubmitButton = {
@@ -128,7 +137,9 @@ export {
 	navigationChevrons,
 	stepperList,
 	stepper,
+	stepperCurrent,
 	answersList,
 	answerListItem,
+	validAnswerListItem,
 	answerFormSubmitButton,
 };

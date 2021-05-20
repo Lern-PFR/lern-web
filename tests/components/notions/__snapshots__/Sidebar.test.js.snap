@@ -110,7 +110,7 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
       ]
     }
     onSubmit={[MockFunction]}
-    singleChoice={false}
+    singleChoice={true}
     t={[Function]}
   />
 </styled.div>

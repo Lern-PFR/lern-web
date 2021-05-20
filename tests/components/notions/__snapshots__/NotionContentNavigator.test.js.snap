@@ -24,26 +24,31 @@ exports[`NotionContentNavigator should match previous snapshot 1`] = `
     padding={0}
   >
     <NotionContentNavigatorStepper
+      isCurrent={true}
       key="0"
       label="test lesson 0"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      isCurrent={false}
       key="1"
       label="test lesson 1"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      isCurrent={false}
       key="2"
       label="test lesson 2"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      isCurrent={false}
       key="3"
       label="test exercise 0"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      isCurrent={false}
       key="4"
       label="test lesson 4"
       onClick={[Function]}

@@ -86,6 +86,8 @@ const info = {
 	default: '#61A3F7',
 };
 
+const feedbackGreen = '#D8EACC';
+
 const primary = peppercorn;
 const primaryText = peppercorn;
 
@@ -103,4 +105,5 @@ export {
 	info,
 	primary,
 	primaryText,
+	feedbackGreen,
 };

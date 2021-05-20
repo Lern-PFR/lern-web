@@ -28,6 +28,7 @@ const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSub
 		/>
 		{currentLesson.exercise && (
 			<QuestionForm
+				singleChoice={currentLesson.exercise.question.singleChoice}
 				answers={currentLesson.exercise.question.answers}
 				onSubmit={onQuestionAnswerSubmit}
 			/>
