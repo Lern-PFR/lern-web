@@ -90,7 +90,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-bdfBwQ kEEvGz"
+                    className="sc-bdfBwQ cVKmpZ"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -149,7 +149,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-bdfBwQ kEEvGz"
+                    className="sc-bdfBwQ cVKmpZ"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -208,7 +208,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-bdfBwQ kEEvGz"
+                    className="sc-bdfBwQ cVKmpZ"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -267,7 +267,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-bdfBwQ kEEvGz"
+                    className="sc-bdfBwQ cVKmpZ"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -392,7 +392,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
                   lineHeight="initial"
                 >
                   <span
-                    className="sc-bdfBwQ EFFWh"
+                    className="sc-bdfBwQ kkxcBf"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize=".778rem"
                     fontWeight={600}
