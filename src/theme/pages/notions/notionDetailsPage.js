@@ -114,6 +114,9 @@ const answerListItem = {
 	cursor: 'pointer',
 };
 
+const answerListItemInput = {
+};
+
 const validAnswerListItem = {
 	backgroundColor: feedbackGreen,
 };
@@ -140,6 +143,7 @@ export {
 	stepperCurrent,
 	answersList,
 	answerListItem,
+	answerListItemInput,
 	validAnswerListItem,
 	answerFormSubmitButton,
 };

@@ -4,6 +4,7 @@ import {
 	display,
 	layout,
 	shadow,
+	space,
 	color,
 } from 'styled-system';
 import PropTypes from 'prop-types';
@@ -16,6 +17,7 @@ const StyledRadioButtonComponent = styled('input')(
 	display,
 	layout,
 	shadow,
+	space,
 	color,
 	{ ...radioButtonStyle },
 );

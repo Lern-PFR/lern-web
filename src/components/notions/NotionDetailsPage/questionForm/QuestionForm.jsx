@@ -1,12 +1,13 @@
 import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
-import { BodyCopy } from 'components/shared/typography';
 
-import { StyledList, StyledListItem } from 'components/shared/layout';
+import { StyledList } from 'components/shared/layout';
 import { answersList, answerListItem, answerFormSubmitButton, validAnswerListItem } from 'theme/pages/notions/notionDetailsPage';
 import { PrimaryButton } from 'components/shared/buttons';
 import { withTranslation } from 'react-i18next';
 import _ from 'lodash';
+import QuestionFormLabeledCheckbox from './QuestionFormLabeledCheckbox';
+import QuestionFormLabeledRadioButton from './QuestionFormLabeledRadioButton';
 
 // @TODO: Implement the "see explanation" button and its logic.
 
@@ -66,19 +67,41 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 	return (
 		<form data-testid="question-form" onSubmit={handleSubmit}>
 			<StyledList {...answersList}>
-				{answers.map(({ id, valid, text }) => (
-					<StyledListItem key={id} {...answerListItem} {...(submittedAnswer && valid ? validAnswerListItem : {})}>
-						<input
+				{singleChoice && (
+					answers.map(({ id, valid, text }) => (
+						<QuestionFormLabeledRadioButton
+							key={id}
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
 							type={singleChoice ? 'radio' : 'checkbox'}
 							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
 							value={id}
-						/>
-						<BodyCopy tag="label" htmlFor={id}>{text}</BodyCopy>
-					</StyledListItem>
-				))}
+							{...answerListItem}
+							{...(submittedAnswer && valid ? validAnswerListItem : {})}
+						>
+							{text}
+						</QuestionFormLabeledRadioButton>
+					))
+				)}
+
+				{!singleChoice && (
+					answers.map(({ id, valid, text }) => (
+						<QuestionFormLabeledCheckbox
+							key={id}
+							id={id}
+							onChange={() => onAnswerSelectionChange(id)}
+							name="answer"
+							type={singleChoice ? 'radio' : 'checkbox'}
+							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
+							value={id}
+							{...answerListItem}
+							{...(submittedAnswer && valid ? validAnswerListItem : {})}
+						>
+							{text}
+						</QuestionFormLabeledCheckbox>
+					))
+				)}
 			</StyledList>
 			<PrimaryButton
 				data-testid="question-form-submit-btn"
