@@ -22,7 +22,6 @@ const StyledDynamicButtonComponent = styled('button')(
 			color: ((props) => props.color.darker1),
 			background: ((props) => props.bg.darker1),
 		},
-
 		'& *': {
 			cursor: 'pointer',
 		},

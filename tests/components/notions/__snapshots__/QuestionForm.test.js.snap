@@ -42,245 +42,413 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
       padding={0}
     >
       <ul
-        className="sc-dlfnbm cHULag"
+        className="sc-gsTCUz ecHirb"
         display="grid"
       >
-        <styled.li
+        <LabeledCheckbox
           alignItems="center"
           borderRadius=".2em"
+          checked={false}
           cursor="pointer"
+          disabled={false}
           display="grid"
           gridGap="1em"
           gridTemplateColumns="min-content 1fr"
+          id={1}
           key="1"
+          name="answer"
+          onChange={[Function]}
           padding="1em"
+          type="checkbox"
+          value={1}
         >
-          <li
-            className="sc-hKgILt ikZFWE"
+          <styled.li
+            alignItems="center"
+            borderRadius=".2em"
             cursor="pointer"
             display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            type="checkbox"
+            value={1}
           >
-            <input
-              id={1}
+            <li
+              className="sc-dlfnbm jRlPsC"
+              cursor="pointer"
+              display="grid"
               name="answer"
               onChange={[Function]}
               type="checkbox"
               value={1}
-            />
-            <BodyCopy
-              htmlFor={1}
-              tag="label"
             >
-              <DynamicTextComponent
-                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                fontSize="1rem"
-                fontWeight={400}
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={1}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={1}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-iBPRYJ kWQSXw"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={1}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <BodyCopy
+                color="initial"
                 htmlFor={1}
-                letterSpacing={0}
-                lineHeight="1.5em"
                 tag="label"
               >
-                <styled.p
-                  as="label"
+                <DynamicTextComponent
+                  color="initial"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
                   htmlFor={1}
                   letterSpacing={0}
                   lineHeight="1.5em"
+                  tag="label"
                 >
-                  <label
-                    className="sc-bdfBwQ cVKmpZ"
+                  <styled.p
+                    as="label"
+                    color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={1}
                     letterSpacing={0}
+                    lineHeight="1.5em"
                   >
-                    answer 1
-                  </label>
-                </styled.p>
-              </DynamicTextComponent>
-            </BodyCopy>
-          </li>
-        </styled.li>
-        <styled.li
+                    <label
+                      className="sc-hKgILt hImFla"
+                      color="initial"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      htmlFor={1}
+                      letterSpacing={0}
+                    >
+                      answer 1
+                    </label>
+                  </styled.p>
+                </DynamicTextComponent>
+              </BodyCopy>
+            </li>
+          </styled.li>
+        </LabeledCheckbox>
+        <LabeledCheckbox
           alignItems="center"
           borderRadius=".2em"
+          checked={false}
           cursor="pointer"
+          disabled={false}
           display="grid"
           gridGap="1em"
           gridTemplateColumns="min-content 1fr"
+          id={2}
           key="2"
+          name="answer"
+          onChange={[Function]}
           padding="1em"
+          type="checkbox"
+          value={2}
         >
-          <li
-            className="sc-hKgILt ikZFWE"
+          <styled.li
+            alignItems="center"
+            borderRadius=".2em"
             cursor="pointer"
             display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            type="checkbox"
+            value={2}
           >
-            <input
-              id={2}
+            <li
+              className="sc-dlfnbm jRlPsC"
+              cursor="pointer"
+              display="grid"
               name="answer"
               onChange={[Function]}
               type="checkbox"
               value={2}
-            />
-            <BodyCopy
-              htmlFor={2}
-              tag="label"
             >
-              <DynamicTextComponent
-                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                fontSize="1rem"
-                fontWeight={400}
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={2}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={2}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-iBPRYJ kWQSXw"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={2}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <BodyCopy
+                color="initial"
                 htmlFor={2}
-                letterSpacing={0}
-                lineHeight="1.5em"
                 tag="label"
               >
-                <styled.p
-                  as="label"
+                <DynamicTextComponent
+                  color="initial"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
                   htmlFor={2}
                   letterSpacing={0}
                   lineHeight="1.5em"
+                  tag="label"
                 >
-                  <label
-                    className="sc-bdfBwQ cVKmpZ"
+                  <styled.p
+                    as="label"
+                    color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={2}
                     letterSpacing={0}
+                    lineHeight="1.5em"
                   >
-                    answer 2
-                  </label>
-                </styled.p>
-              </DynamicTextComponent>
-            </BodyCopy>
-          </li>
-        </styled.li>
-        <styled.li
+                    <label
+                      className="sc-hKgILt hImFla"
+                      color="initial"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      htmlFor={2}
+                      letterSpacing={0}
+                    >
+                      answer 2
+                    </label>
+                  </styled.p>
+                </DynamicTextComponent>
+              </BodyCopy>
+            </li>
+          </styled.li>
+        </LabeledCheckbox>
+        <LabeledCheckbox
           alignItems="center"
           borderRadius=".2em"
+          checked={false}
           cursor="pointer"
+          disabled={false}
           display="grid"
           gridGap="1em"
           gridTemplateColumns="min-content 1fr"
+          id={3}
           key="3"
+          name="answer"
+          onChange={[Function]}
           padding="1em"
+          type="checkbox"
+          value={3}
         >
-          <li
-            className="sc-hKgILt ikZFWE"
+          <styled.li
+            alignItems="center"
+            borderRadius=".2em"
             cursor="pointer"
             display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            type="checkbox"
+            value={3}
           >
-            <input
-              id={3}
+            <li
+              className="sc-dlfnbm jRlPsC"
+              cursor="pointer"
+              display="grid"
               name="answer"
               onChange={[Function]}
               type="checkbox"
               value={3}
-            />
-            <BodyCopy
-              htmlFor={3}
-              tag="label"
             >
-              <DynamicTextComponent
-                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                fontSize="1rem"
-                fontWeight={400}
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={3}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={3}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-iBPRYJ kWQSXw"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={3}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <BodyCopy
+                color="initial"
                 htmlFor={3}
-                letterSpacing={0}
-                lineHeight="1.5em"
                 tag="label"
               >
-                <styled.p
-                  as="label"
+                <DynamicTextComponent
+                  color="initial"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
                   htmlFor={3}
                   letterSpacing={0}
                   lineHeight="1.5em"
+                  tag="label"
                 >
-                  <label
-                    className="sc-bdfBwQ cVKmpZ"
+                  <styled.p
+                    as="label"
+                    color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={3}
                     letterSpacing={0}
+                    lineHeight="1.5em"
                   >
-                    answer 3
-                  </label>
-                </styled.p>
-              </DynamicTextComponent>
-            </BodyCopy>
-          </li>
-        </styled.li>
-        <styled.li
+                    <label
+                      className="sc-hKgILt hImFla"
+                      color="initial"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      htmlFor={3}
+                      letterSpacing={0}
+                    >
+                      answer 3
+                    </label>
+                  </styled.p>
+                </DynamicTextComponent>
+              </BodyCopy>
+            </li>
+          </styled.li>
+        </LabeledCheckbox>
+        <LabeledCheckbox
           alignItems="center"
           borderRadius=".2em"
+          checked={false}
           cursor="pointer"
+          disabled={false}
           display="grid"
           gridGap="1em"
           gridTemplateColumns="min-content 1fr"
+          id={4}
           key="4"
+          name="answer"
+          onChange={[Function]}
           padding="1em"
+          type="checkbox"
+          value={4}
         >
-          <li
-            className="sc-hKgILt ikZFWE"
+          <styled.li
+            alignItems="center"
+            borderRadius=".2em"
             cursor="pointer"
             display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            type="checkbox"
+            value={4}
           >
-            <input
-              id={4}
+            <li
+              className="sc-dlfnbm jRlPsC"
+              cursor="pointer"
+              display="grid"
               name="answer"
               onChange={[Function]}
               type="checkbox"
               value={4}
-            />
-            <BodyCopy
-              htmlFor={4}
-              tag="label"
             >
-              <DynamicTextComponent
-                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                fontSize="1rem"
-                fontWeight={400}
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={4}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={4}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-iBPRYJ kWQSXw"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={4}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <BodyCopy
+                color="initial"
                 htmlFor={4}
-                letterSpacing={0}
-                lineHeight="1.5em"
                 tag="label"
               >
-                <styled.p
-                  as="label"
+                <DynamicTextComponent
+                  color="initial"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
                   htmlFor={4}
                   letterSpacing={0}
                   lineHeight="1.5em"
+                  tag="label"
                 >
-                  <label
-                    className="sc-bdfBwQ cVKmpZ"
+                  <styled.p
+                    as="label"
+                    color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={4}
                     letterSpacing={0}
+                    lineHeight="1.5em"
                   >
-                    answer 4
-                  </label>
-                </styled.p>
-              </DynamicTextComponent>
-            </BodyCopy>
-          </li>
-        </styled.li>
+                    <label
+                      className="sc-hKgILt hImFla"
+                      color="initial"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      htmlFor={4}
+                      letterSpacing={0}
+                    >
+                      answer 4
+                    </label>
+                  </styled.p>
+                </DynamicTextComponent>
+              </BodyCopy>
+            </li>
+          </styled.li>
+        </LabeledCheckbox>
       </ul>
     </styled.ul>
     <PrimaryButton
@@ -354,7 +522,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
           type="submit"
         >
           <button
-            className="sc-eCssSg iruZaW"
+            className="sc-eCssSg gXHVcJ"
             color={
               Object {
                 "darker1": "#FFFFFF",
@@ -392,7 +560,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
                   lineHeight="initial"
                 >
                   <span
-                    className="sc-bdfBwQ kkxcBf"
+                    className="sc-hKgILt iaVBDC"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize=".778rem"
                     fontWeight={600}
@@ -423,102 +591,82 @@ exports[`QuestionForm should match previous snapshot (with singleChoice prop set
     margin={0}
     padding={0}
   >
-    <styled.li
+    <LabeledRadioButton
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={1}
       key="1"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="radio"
+      value={1}
     >
-      <input
-        id={1}
-        name="answer"
-        onChange={[Function]}
-        type="radio"
-        value={1}
-      />
-      <BodyCopy
-        htmlFor={1}
-        tag="label"
-      >
-        answer 1
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 1
+    </LabeledRadioButton>
+    <LabeledRadioButton
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={2}
       key="2"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="radio"
+      value={2}
     >
-      <input
-        id={2}
-        name="answer"
-        onChange={[Function]}
-        type="radio"
-        value={2}
-      />
-      <BodyCopy
-        htmlFor={2}
-        tag="label"
-      >
-        answer 2
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 2
+    </LabeledRadioButton>
+    <LabeledRadioButton
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={3}
       key="3"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="radio"
+      value={3}
     >
-      <input
-        id={3}
-        name="answer"
-        onChange={[Function]}
-        type="radio"
-        value={3}
-      />
-      <BodyCopy
-        htmlFor={3}
-        tag="label"
-      >
-        answer 3
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 3
+    </LabeledRadioButton>
+    <LabeledRadioButton
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={4}
       key="4"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="radio"
+      value={4}
     >
-      <input
-        id={4}
-        name="answer"
-        onChange={[Function]}
-        type="radio"
-        value={4}
-      />
-      <BodyCopy
-        htmlFor={4}
-        tag="label"
-      >
-        answer 4
-      </BodyCopy>
-    </styled.li>
+      answer 4
+    </LabeledRadioButton>
   </styled.ul>
   <PrimaryButton
     data-testid="question-form-submit-btn"
@@ -545,107 +693,87 @@ exports[`QuestionForm should match previous snapshot (with submittedAnswer prop)
     margin={0}
     padding={0}
   >
-    <styled.li
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      defaultChecked={true}
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={1}
       key="1"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={1}
     >
-      <input
-        defaultChecked={true}
-        id={1}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={1}
-      />
-      <BodyCopy
-        htmlFor={1}
-        tag="label"
-      >
-        answer 1
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 1
+    </LabeledCheckbox>
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      defaultChecked={false}
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={2}
       key="2"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={2}
     >
-      <input
-        defaultChecked={false}
-        id={2}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={2}
-      />
-      <BodyCopy
-        htmlFor={2}
-        tag="label"
-      >
-        answer 2
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 2
+    </LabeledCheckbox>
+    <LabeledCheckbox
       alignItems="center"
       backgroundColor="#D8EACC"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      defaultChecked={false}
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={3}
       key="3"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={3}
     >
-      <input
-        defaultChecked={false}
-        id={3}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={3}
-      />
-      <BodyCopy
-        htmlFor={3}
-        tag="label"
-      >
-        answer 3
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 3
+    </LabeledCheckbox>
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      defaultChecked={false}
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={4}
       key="4"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={4}
     >
-      <input
-        defaultChecked={false}
-        id={4}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={4}
-      />
-      <BodyCopy
-        htmlFor={4}
-        tag="label"
-      >
-        answer 4
-      </BodyCopy>
-    </styled.li>
+      answer 4
+    </LabeledCheckbox>
   </styled.ul>
   <PrimaryButton
     data-testid="question-form-submit-btn"
@@ -672,102 +800,82 @@ exports[`QuestionForm should match previous snapshot 1`] = `
     margin={0}
     padding={0}
   >
-    <styled.li
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={1}
       key="1"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={1}
     >
-      <input
-        id={1}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={1}
-      />
-      <BodyCopy
-        htmlFor={1}
-        tag="label"
-      >
-        answer 1
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 1
+    </LabeledCheckbox>
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={2}
       key="2"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={2}
     >
-      <input
-        id={2}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={2}
-      />
-      <BodyCopy
-        htmlFor={2}
-        tag="label"
-      >
-        answer 2
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 2
+    </LabeledCheckbox>
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={3}
       key="3"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={3}
     >
-      <input
-        id={3}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={3}
-      />
-      <BodyCopy
-        htmlFor={3}
-        tag="label"
-      >
-        answer 3
-      </BodyCopy>
-    </styled.li>
-    <styled.li
+      answer 3
+    </LabeledCheckbox>
+    <LabeledCheckbox
       alignItems="center"
       borderRadius=".2em"
+      checked={false}
       cursor="pointer"
+      disabled={false}
       display="grid"
       gridGap="1em"
       gridTemplateColumns="min-content 1fr"
+      id={4}
       key="4"
+      name="answer"
+      onChange={[Function]}
       padding="1em"
+      type="checkbox"
+      value={4}
     >
-      <input
-        id={4}
-        name="answer"
-        onChange={[Function]}
-        type="checkbox"
-        value={4}
-      />
-      <BodyCopy
-        htmlFor={4}
-        tag="label"
-      >
-        answer 4
-      </BodyCopy>
-    </styled.li>
+      answer 4
+    </LabeledCheckbox>
   </styled.ul>
   <PrimaryButton
     data-testid="question-form-submit-btn"

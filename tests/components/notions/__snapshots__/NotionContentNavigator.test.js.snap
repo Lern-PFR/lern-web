@@ -9,7 +9,7 @@ exports[`NotionContentNavigator should match previous snapshot 1`] = `
 >
   <Styled(ChevronLeft)
     background="white"
-    data-testid="notion-navigatior-previous"
+    data-testid="notion-navigation-previous"
     disabled={true}
     onClick={[Function]}
     role="button"
@@ -24,30 +24,35 @@ exports[`NotionContentNavigator should match previous snapshot 1`] = `
     padding={0}
   >
     <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-0"
       isCurrent={true}
       key="0"
       label="test lesson 0"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-1"
       isCurrent={false}
       key="1"
       label="test lesson 1"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-2"
       isCurrent={false}
       key="2"
       label="test lesson 2"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-3"
       isCurrent={false}
       key="3"
       label="test exercise 0"
       onClick={[Function]}
     />
     <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-4"
       isCurrent={false}
       key="4"
       label="test lesson 4"
@@ -55,7 +60,7 @@ exports[`NotionContentNavigator should match previous snapshot 1`] = `
     />
   </styled.ul>
   <Styled(ChevronRight)
-    data-testid="notion-navigatior-next"
+    data-testid="notion-navigation-next"
     disabled={false}
     onClick={[Function]}
     role="button"

@@ -19,8 +19,8 @@ const StepperButton = styled('button')(
  * @param {string}	label		The label to display on hover.
  * @param {func}	onClick		Method to trigger when the user clicks the button.
  */
-const NotionContentNavigatorStepper = ({ isCurrent, label, onClick }) => (
-	<StepperButton onClick={onClick} label={label} isCurrent={isCurrent} />
+const NotionContentNavigatorStepper = ({ isCurrent, label, onClick, ...otherProps }) => (
+	<StepperButton onClick={onClick} label={label} isCurrent={isCurrent} {...otherProps} />
 );
 
 NotionContentNavigatorStepper.propTypes = {

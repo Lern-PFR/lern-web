@@ -49,18 +49,19 @@ const NotionContentNavigator = ({ currentDocOrder, notionContent, redirectTo }) 
 
 	return (
 		<StyledDiv {...navigator}>
-			<PreviousButton role="button" data-testid="notion-navigatior-previous" onClick={onPreviousClick} disabled={currentDocOrder === 0} background="white" />
+			<PreviousButton role="button" data-testid="notion-navigation-previous" onClick={onPreviousClick} disabled={currentDocOrder === 0} background="white" />
 			<StyledList {...stepperList}>
 				{notionContent.map(({ id, order, title = '', name = '' }) => (
 					<NotionContentNavigatorStepper
 						isCurrent={_.isEqual(notionContent[currentDocOrder]?.id, id)}
 						key={id}
+						data-testid={`notion-navigation-stepper-${id}`}
 						label={title || name}
 						onClick={() => redirectTo(order)}
 					/>
 				))}
 			</StyledList>
-			<NextButton role="button" data-testid="notion-navigatior-next" onClick={onNextClick} disabled={currentDocOrder === (notionContent.length - 1)} />
+			<NextButton role="button" data-testid="notion-navigation-next" onClick={onNextClick} disabled={currentDocOrder === (notionContent.length - 1)} />
 		</StyledDiv>
 	);
 };

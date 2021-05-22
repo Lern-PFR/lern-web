@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledList } from 'components/shared/layout';
@@ -24,6 +24,14 @@ import QuestionFormLabeledRadioButton from './QuestionFormLabeledRadioButton';
  */
 const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) => {
 	const [formData, setFormData] = useState(submittedAnswer || []);
+
+	/**
+	 * @author Timothée Simon-Franza
+	 * @description Ensures the formData state value is properly reset whenever the form's answers props change.
+	 */
+	useEffect(() => {
+		setFormData(submittedAnswer || []);
+	}, [answers, submittedAnswer]);
 
 	/**
 	 * @function
