@@ -37,7 +37,10 @@ const LabeledRadioButton = forwardRef(
 LabeledRadioButton.displayName = 'LabeledRadioButton';
 
 LabeledRadioButton.propTypes = {
-	id: PropTypes.string.isRequired,
+	id: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	children: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	labelTextStyle: PropTypes.string,

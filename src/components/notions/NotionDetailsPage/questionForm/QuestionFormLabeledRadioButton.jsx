@@ -12,11 +12,11 @@ import { answerListItem, answerListItemInput } from 'theme/pages/notions/notionD
  *
  * @author Timothée Simon-Franza
  *
- * @param {bool}	[disabled]		: Whether the radio button is disabled.
- * @param {bool}	[checked]		: Whether the radio button is checked.
- * @param {string}	id				: The id of the radio button.
- * @param {string}	name			: The name of the radio group this button is part of.
- * @param {string}	children		: Text to display in the label.
+ * @param {bool}			[disabled]		: Whether the radio button is disabled.
+ * @param {bool}			[checked]		: Whether the radio button is checked.
+ * @param {string|number}	id				: The id of the radio button.
+ * @param {string}			name			: The name of the radio group this button is part of.
+ * @param {string}			children		: Text to display in the label.
  */
 const QuestionFormLabeledRadioButton = forwardRef(({ children, id, name, checked, disabled, ...otherProps }, ref) => {
 	const defaultRef = useRef();
@@ -35,7 +35,10 @@ const QuestionFormLabeledRadioButton = forwardRef(({ children, id, name, checked
 QuestionFormLabeledRadioButton.displayName = 'LabeledRadioButton';
 
 QuestionFormLabeledRadioButton.propTypes = {
-	id: PropTypes.string.isRequired,
+	id: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	children: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,

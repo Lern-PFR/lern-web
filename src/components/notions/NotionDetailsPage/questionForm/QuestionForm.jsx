@@ -82,7 +82,6 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
-							type={singleChoice ? 'radio' : 'checkbox'}
 							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
 							value={id}
 							{...answerListItem}
@@ -100,7 +99,6 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
-							type={singleChoice ? 'radio' : 'checkbox'}
 							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
 							value={id}
 							{...answerListItem}

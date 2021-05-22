@@ -36,7 +36,10 @@ const LabeledCheckbox = forwardRef(
 LabeledCheckbox.displayName = 'LabeledCheckbox';
 
 LabeledCheckbox.propTypes = {
-	id: PropTypes.string.isRequired,
+	id: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	children: PropTypes.string.isRequired,
 	labelTextStyle: PropTypes.string,
 	disabled: PropTypes.bool,

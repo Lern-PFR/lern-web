@@ -12,10 +12,10 @@ import { answerListItem } from 'theme/pages/notions/notionDetailsPage';
  *
  * @author Timothée Simon-Franza
  *
- * @param {bool}	[disabled]		: Whether the checkbox is disabled.
- * @param {bool}	[checked]		: Whether the checkbox is checked.
- * @param {string}	id				: The id of the checkbox.
- * @param {string}	children		: Text to display in the label.
+ * @param {bool}			[disabled]		: Whether the checkbox is disabled.
+ * @param {bool}			[checked]		: Whether the checkbox is checked.
+ * @param {string|number}	id				: The id of the checkbox.
+ * @param {string}			children		: Text to display in the label.
  */
 const QuestionFormLabeledCheckbox = forwardRef(({ children, id, checked, disabled, ...otherProps }, ref) => {
 	const defaultRef = useRef();
@@ -34,7 +34,10 @@ const QuestionFormLabeledCheckbox = forwardRef(({ children, id, checked, disable
 QuestionFormLabeledCheckbox.displayName = 'LabeledCheckbox';
 
 QuestionFormLabeledCheckbox.propTypes = {
-	id: PropTypes.string.isRequired,
+	id: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	children: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,

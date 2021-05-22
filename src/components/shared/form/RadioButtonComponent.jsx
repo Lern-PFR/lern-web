@@ -28,10 +28,10 @@ const StyledRadioButtonComponent = styled('input')(
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]		: Whether the radio button is disabled.
- * @param {bool}	[checked]		: Whether the radio button is checked.
- * @param {string}	name			: The name of the radio group this button is part of.
- * @param {string}	id				: The id of the radio button.
+ * @param {bool}			[disabled]	: Whether the radio button is disabled.
+ * @param {bool}			[checked]	: Whether the radio button is checked.
+ * @param {string}			name		: The name of the radio group this button is part of.
+ * @param {string|number}	id			: The id of the radio button.
  */
 const RadioButtonComponent = forwardRef(
 	({ id, name, checked, disabled, ...otherProps }, ref) => {
@@ -56,7 +56,10 @@ const RadioButtonComponent = forwardRef(
 RadioButtonComponent.displayName = 'RadioButtonComponent';
 
 RadioButtonComponent.propTypes = {
-	id: PropTypes.string.isRequired,
+	id: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	name: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,

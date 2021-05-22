@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
+exports[`QuestionForm snapshot testing should match previous snapshot (answer selected) 1`] = `
 <QuestionForm
   answers={
     Array [
@@ -59,7 +59,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
           name="answer"
           onChange={[Function]}
           padding="1em"
-          type="checkbox"
           value={1}
         >
           <styled.li
@@ -72,7 +71,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
             name="answer"
             onChange={[Function]}
             padding="1em"
-            type="checkbox"
             value={1}
           >
             <li
@@ -81,7 +79,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
               display="grid"
               name="answer"
               onChange={[Function]}
-              type="checkbox"
               value={1}
             >
               <CheckboxComponent
@@ -160,7 +157,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
           name="answer"
           onChange={[Function]}
           padding="1em"
-          type="checkbox"
           value={2}
         >
           <styled.li
@@ -173,7 +169,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
             name="answer"
             onChange={[Function]}
             padding="1em"
-            type="checkbox"
             value={2}
           >
             <li
@@ -182,7 +177,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
               display="grid"
               name="answer"
               onChange={[Function]}
-              type="checkbox"
               value={2}
             >
               <CheckboxComponent
@@ -261,7 +255,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
           name="answer"
           onChange={[Function]}
           padding="1em"
-          type="checkbox"
           value={3}
         >
           <styled.li
@@ -274,7 +267,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
             name="answer"
             onChange={[Function]}
             padding="1em"
-            type="checkbox"
             value={3}
           >
             <li
@@ -283,7 +275,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
               display="grid"
               name="answer"
               onChange={[Function]}
-              type="checkbox"
               value={3}
             >
               <CheckboxComponent
@@ -362,7 +353,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
           name="answer"
           onChange={[Function]}
           padding="1em"
-          type="checkbox"
           value={4}
         >
           <styled.li
@@ -375,7 +365,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
             name="answer"
             onChange={[Function]}
             padding="1em"
-            type="checkbox"
             value={4}
           >
             <li
@@ -384,7 +373,6 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
               display="grid"
               name="answer"
               onChange={[Function]}
-              type="checkbox"
               value={4}
             >
               <CheckboxComponent
@@ -579,7 +567,7 @@ exports[`QuestionForm should match previous snapshot (answer selected) 1`] = `
 </QuestionForm>
 `;
 
-exports[`QuestionForm should match previous snapshot (with singleChoice prop set to true) 1`] = `
+exports[`QuestionForm snapshot testing should match previous snapshot (with singleChoice prop set to true) 1`] = `
 <form
   data-testid="question-form"
   onSubmit={[Function]}
@@ -605,7 +593,6 @@ exports[`QuestionForm should match previous snapshot (with singleChoice prop set
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="radio"
       value={1}
     >
       answer 1
@@ -624,7 +611,6 @@ exports[`QuestionForm should match previous snapshot (with singleChoice prop set
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="radio"
       value={2}
     >
       answer 2
@@ -643,7 +629,6 @@ exports[`QuestionForm should match previous snapshot (with singleChoice prop set
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="radio"
       value={3}
     >
       answer 3
@@ -662,7 +647,6 @@ exports[`QuestionForm should match previous snapshot (with singleChoice prop set
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="radio"
       value={4}
     >
       answer 4
@@ -681,7 +665,7 @@ exports[`QuestionForm should match previous snapshot (with singleChoice prop set
 </form>
 `;
 
-exports[`QuestionForm should match previous snapshot (with submittedAnswer prop) 1`] = `
+exports[`QuestionForm snapshot testing should match previous snapshot (with submittedAnswer prop) 1`] = `
 <form
   data-testid="question-form"
   onSubmit={[Function]}
@@ -708,7 +692,6 @@ exports[`QuestionForm should match previous snapshot (with submittedAnswer prop)
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={1}
     >
       answer 1
@@ -728,7 +711,6 @@ exports[`QuestionForm should match previous snapshot (with submittedAnswer prop)
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={2}
     >
       answer 2
@@ -749,7 +731,6 @@ exports[`QuestionForm should match previous snapshot (with submittedAnswer prop)
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={3}
     >
       answer 3
@@ -769,7 +750,6 @@ exports[`QuestionForm should match previous snapshot (with submittedAnswer prop)
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={4}
     >
       answer 4
@@ -788,7 +768,7 @@ exports[`QuestionForm should match previous snapshot (with submittedAnswer prop)
 </form>
 `;
 
-exports[`QuestionForm should match previous snapshot 1`] = `
+exports[`QuestionForm snapshot testing should match previous snapshot 1`] = `
 <form
   data-testid="question-form"
   onSubmit={[Function]}
@@ -814,7 +794,6 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={1}
     >
       answer 1
@@ -833,7 +812,6 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={2}
     >
       answer 2
@@ -852,7 +830,6 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={3}
     >
       answer 3
@@ -871,7 +848,6 @@ exports[`QuestionForm should match previous snapshot 1`] = `
       name="answer"
       onChange={[Function]}
       padding="1em"
-      type="checkbox"
       value={4}
     >
       answer 4
