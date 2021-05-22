@@ -18,22 +18,24 @@ import QuestionForm from './questionForm';
  * @param {func}	onCurrentDocumentRedirect	Method to trigger when the user clicks on a navigation stepper to redirect him to the desired document.
  */
 const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => (
-	<StyledDiv {...sidebar}>
-		<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
-		<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
-		<NotionContentNavigator
-			currentDocOrder={currentLesson.order}
-			notionContent={notionContent}
-			redirectTo={onCurrentDocumentRedirect}
-		/>
-		{currentLesson.exercise && (
-			<QuestionForm
-				singleChoice={currentLesson.exercise.question.singleChoice}
-				answers={currentLesson.exercise.question.answers}
-				onSubmit={onQuestionAnswerSubmit}
+	<aside>
+		<StyledDiv {...sidebar}>
+			<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
+			<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
+			<NotionContentNavigator
+				currentDocOrder={currentLesson.order}
+				notionContent={notionContent}
+				redirectTo={onCurrentDocumentRedirect}
 			/>
-		)}
-	</StyledDiv>
+			{currentLesson.exercise && (
+				<QuestionForm
+					singleChoice={currentLesson.exercise.question.singleChoice}
+					answers={currentLesson.exercise.question.answers}
+					onSubmit={onQuestionAnswerSubmit}
+				/>
+			)}
+		</StyledDiv>
+	</aside>
 );
 
 // @TODO: find a way to have PropTypes for an array of multiple shapes.

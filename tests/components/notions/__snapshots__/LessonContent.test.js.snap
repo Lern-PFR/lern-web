@@ -3,12 +3,16 @@
 exports[`LessonContent should match previous snapshot (no question provided) 1`] = `
 <styled.div
   display="grid"
-  gridGap="48px"
-  gridTemplateRows="3rem 1fr"
+  gridGap="24px"
+  gridTemplateRows="7rem 1fr"
   paddingLeft="64px"
-  paddingTop="24px"
 >
-  <styled.div>
+  <styled.div
+    bg="#FFFFFF"
+    paddingTop="24px"
+    position="sticky"
+    top={0}
+  >
     <Trafalgar
       lineHeight="initial"
       margin={0}
@@ -36,12 +40,16 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
 exports[`LessonContent should match previous snapshot (with question provided) 1`] = `
 <styled.div
   display="grid"
-  gridGap="48px"
-  gridTemplateRows="3rem 1fr"
+  gridGap="24px"
+  gridTemplateRows="7rem 1fr"
   paddingLeft="64px"
-  paddingTop="24px"
 >
-  <styled.div>
+  <styled.div
+    bg="#FFFFFF"
+    paddingTop="24px"
+    position="sticky"
+    top={0}
+  >
     <Trafalgar
       lineHeight="initial"
       margin={0}

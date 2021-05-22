@@ -1,4 +1,4 @@
-import { basmati, feedbackGreen, peppercorn, tuna } from 'theme/colors';
+import { basmati, coconut, feedbackGreen, peppercorn, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -10,6 +10,9 @@ const pageLayout = {
 };
 
 const sidebar = {
+	position: 'sticky',
+	top: '24px',
+	height: '90vh',
 	display: 'grid',
 	padding: '24px 64px',
 	borderLeft: `solid 1px ${basmati.default}`,
@@ -24,10 +27,16 @@ const notionTitle = {
 
 const lessonContentContainer = {
 	display: 'grid',
-	gridTemplateRows: '3rem 1fr',
-	gridGap: '48px',
-	paddingTop: '24px',
+	gridTemplateRows: '7rem 1fr',
+	gridGap: '24px',
 	paddingLeft: '64px',
+};
+
+const lessonTitleContainer = {
+	position: 'sticky',
+	paddingTop: '24px',
+	top: 0,
+	bg: coconut.default,
 };
 
 const lessonTitle = {
@@ -131,6 +140,7 @@ export {
 	pageLayout,
 	sidebar,
 	lessonContentContainer,
+	lessonTitleContainer,
 	lessonTitle,
 	lessonDescription,
 	lessonContent,

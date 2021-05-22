@@ -1,7 +1,7 @@
 import { StyledDiv } from 'components/shared/layout';
 import { BodyCopy, LongPrimer, Trafalgar } from 'components/shared/typography';
 import PropTypes from 'prop-types';
-import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle } from 'theme/pages/notions/notionDetailsPage';
+import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle, lessonTitleContainer } from 'theme/pages/notions/notionDetailsPage';
 
 /**
  * @name LessonContent
@@ -16,7 +16,7 @@ import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle }
  */
 const LessonContent = ({ name, content, description, question }) => (
 	<StyledDiv {...lessonContentContainer}>
-		<StyledDiv>
+		<StyledDiv {...lessonTitleContainer}>
 			<Trafalgar {...lessonTitle} tag="h2">{name}</Trafalgar>
 			<LongPrimer {...lessonDescription}>{description}</LongPrimer>
 		</StyledDiv>
