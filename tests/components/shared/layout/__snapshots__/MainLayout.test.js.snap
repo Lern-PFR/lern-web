@@ -7,7 +7,9 @@ exports[`MainLayout should match previous snapshot 1`] = `
   height="100%"
   width="100%"
 >
-  <nav />
+  <Navbar
+    t={[Function]}
+  />
   <styled.div
     as="main"
     flex="1"

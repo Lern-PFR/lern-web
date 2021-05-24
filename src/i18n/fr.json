@@ -6,6 +6,14 @@
                 "home_page": "Retourner à la page d'accueil"
             }
         },
+		"navigation": {
+			"menu": {
+				"home": "Accueil",
+				"my_courses": "Mes cours",
+				"about": "A propos",
+				"contact_us": "Nous contacter"
+			}
+		},
 		"subjects": {
 			"links": {
 				"back_to_list": "Retourner à la liste des sujets",

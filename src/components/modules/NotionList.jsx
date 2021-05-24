@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StyledList } from 'components/shared/layout';
+import { StyledList } from 'components/shared/styledElements';
 import { notionList } from 'theme/pages/modules/moduleDetailsPage';
 import NotionListItem from './NotionListItem';
 

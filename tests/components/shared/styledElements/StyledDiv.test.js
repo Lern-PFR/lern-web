@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 
 describe('StyledDiv', () => {
 	it('should match previous snapshot', () => {

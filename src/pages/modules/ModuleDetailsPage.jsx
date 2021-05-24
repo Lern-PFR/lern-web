@@ -9,7 +9,7 @@ import { clearNotionList, fetchNotionListByModuleId } from 'redux/actions/notion
 import routes from 'routes/keys';
 
 import { moduleDetailsPageMock } from 'mockedData';
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import { Canon, GreatPrimer } from 'components/shared/typography';
 import NotionList from 'components/modules/NotionList';
 import { SubtleButton } from 'components/shared/buttons';

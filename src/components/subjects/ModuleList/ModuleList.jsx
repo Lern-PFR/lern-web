@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StyledList } from 'components/shared/layout';
+import { StyledList } from 'components/shared/styledElements';
 import { moduleList } from 'theme/pages/subjects/subjectDetailsPage';
 import ModuleListItem from './ModuleListItem';
 

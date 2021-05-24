@@ -7,7 +7,7 @@ import {
 	elevationFifth,
 } from 'theme/elevations';
 import { shallow } from 'enzyme';
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 
 describe('Elevation', () => {
 	describe('ElevationFlat', () => {

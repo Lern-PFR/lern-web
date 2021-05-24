@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { modalFooter } from 'theme/modalStyles';
-import { StyledDiv } from '../layout';
+import { StyledDiv } from '../styledElements';
 
 /**
  * @name ModalFooter

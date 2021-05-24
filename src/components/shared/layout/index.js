@@ -1,11 +1,6 @@
-import StyledDiv from './StyledDiv';
-import StyledList from './StyledList';
-import StyledListItem from './StyledListItem';
 import MainLayout from './MainLayout';
 
 export {
-	StyledDiv,
-	StyledList,
-	StyledListItem,
+	// eslint-disable-next-line import/prefer-default-export
 	MainLayout,
 };

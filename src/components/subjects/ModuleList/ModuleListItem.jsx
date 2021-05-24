@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StyledListItem } from 'components/shared/layout';
+import { StyledListItem } from 'components/shared/styledElements';
 import { BodyCopy, DoublePica } from 'components/shared/typography';
 import { withTranslation } from 'react-i18next';
 import { moduleAccessLinkButton, moduleDescription, moduleListItem, moduleName } from 'theme/pages/subjects/subjectDetailsPage';

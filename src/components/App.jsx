@@ -1,5 +1,6 @@
 import { Home } from 'react-feather';
-import { MainLayout, StyledDiv } from 'components/shared/layout';
+import { MainLayout } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import {
 	Canon,
 	Trafalgar,

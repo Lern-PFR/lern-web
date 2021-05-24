@@ -9,6 +9,7 @@ const StyledLink = styled(ReactRouterLink)(
 	{
 		cursor: 'inherit',
 		color: 'inherit',
+		fontFamily: 'inherit',
 		fontSize: 'inherit',
 		fontWeight: 'inherit',
 		textDecoration: 'inherit',
