@@ -7,7 +7,6 @@ import {
 	crimson,
 	primary,
 } from './colors';
-import { elevationThird } from './elevations';
 import { brevier } from './textStyles';
 
 const labelStyle = {
