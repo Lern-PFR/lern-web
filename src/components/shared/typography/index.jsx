@@ -14,6 +14,29 @@ import {
 import DynamicTextComponent from './DynamicTextComponent';
 
 /**
+ * @name LabeledCheckbox
+ * @description A method used to get the different text styles by their name.
+ *
+ * @author Christopher Walker
+ *
+ * @param {string} textStyleName Name of the text style to return
+ */
+export const getTypographyStyleByName = (textStyleName) => {
+	switch (textStyleName.toLowerCase()) {
+		case 'canon':		return canon;
+		case 'trafalgar':	return trafalgar;
+		case 'paragon':		return paragon;
+		case 'greatprimer':	return greatPrimer;
+		case 'doublepica':	return doublePica;
+		case 'bodycopy':	return bodyCopy;
+		case 'pica':		return pica;
+		case 'longprimer':	return longPrimer;
+		case 'minion':		return minion;
+		default:			return brevier;
+	}
+};
+
+/**
  * @name Canon
  * @description Text component to be used for hero or page title, for example.
  *
