@@ -17,6 +17,7 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
     color="initial"
     forId="inp"
     order="-1"
+    textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
@@ -47,6 +48,7 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
     color="#707070"
     forId="inp"
     order="-1"
+    textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
@@ -77,6 +79,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     color="initial"
     forId="inp"
     order="-1"
+    textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
@@ -107,6 +110,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     color="initial"
     forId="inp"
     order="-1"
+    textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
@@ -139,6 +143,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     color="initial"
     forId="inp"
     order="-1"
+    textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
@@ -169,6 +174,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     color="initial"
     forId="inp"
     order="-1"
+    textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
