@@ -21,12 +21,13 @@ exports[`LabelComponent should match previous snapshot with custom typography 1`
   color="#241C15"
   cursor="pointer"
   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-  fontSize="1.444rem"
+  fontSize=".778rem"
   fontWeight={400}
   htmlFor=""
-  letterSpacing={0}
-  lineHeight="2em"
+  letterSpacing={0.32}
+  lineHeight="1.125em"
   tag="label"
+  typography="doublepica"
 >
   Test label
 </DynamicTextComponent>

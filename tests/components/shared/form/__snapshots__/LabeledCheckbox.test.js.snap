@@ -13,7 +13,7 @@ exports[`LabeledCheckbox should match previous snapshot 1`] = `
   <LabelComponent
     color="initial"
     forId="lcb"
-    typography="brevier"
+    textStyle=""
   >
     Labeled Checkbox
   </LabelComponent>
@@ -33,7 +33,7 @@ exports[`LabeledCheckbox should match previous snapshot for checked and disabled
   <LabelComponent
     color="#707070"
     forId="lcb"
-    typography="brevier"
+    textStyle=""
   >
     Labeled Checkbox
   </LabelComponent>
@@ -53,7 +53,7 @@ exports[`LabeledCheckbox should match previous snapshot for checked state 1`] = 
   <LabelComponent
     color="initial"
     forId="lcb"
-    typography="brevier"
+    textStyle=""
   >
     Labeled Checkbox
   </LabelComponent>
@@ -73,7 +73,7 @@ exports[`LabeledCheckbox should match previous snapshot for disabled state 1`] =
   <LabelComponent
     color="#707070"
     forId="lcb"
-    typography="brevier"
+    textStyle=""
   >
     Labeled Checkbox
   </LabelComponent>
