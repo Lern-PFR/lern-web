@@ -3,12 +3,12 @@ import { pica } from './textStyles';
 
 const navbar = {
 	display: 'grid',
-	gridTemplateColumns: 'max-content 1fr',
+	gridTemplateColumns: 'max-content 1fr max-content',
 	width: '100%',
 	height: '80px',
-	gridGap: '1em',
+	gridGap: '3em',
 	alignItems: 'center',
-	paddingLeft: '3em',
+	paddingX: '3em',
 	backgroundColor: coconut.default,
 	// @TODO: style shadow / blur
 };
@@ -20,8 +20,9 @@ const navbarLogo = {
 
 const navbarLinkList = {
 	listStyle: 'none',
-	display: 'grid',
-	gridTemplateColumns: 'repeat(auto-fit, 125px)',
+	display: 'flex',
+	flexDirection: 'row',
+	gridGap: '1em',
 	padding: 0,
 };
 
