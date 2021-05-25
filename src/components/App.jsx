@@ -33,6 +33,7 @@ import {
 	LabeledCheckbox,
 	FieldsetComponent,
 	LabeledRadioButton,
+	LabelComponent,
 } from 'components/shared/form';
 
 /**
@@ -71,6 +72,10 @@ const App = () => (
 			<StyledDiv {...elevationThird} width="260px" height="260px" padding="10px">20% elevation component</StyledDiv>
 			<StyledDiv {...elevationFourth} width="260px" height="260px" padding="10px">30% elevation component</StyledDiv>
 			<StyledDiv {...elevationFifth} width="260px" height="260px" padding="10px">50% elevation component</StyledDiv>
+		</StyledDiv>
+		<StyledDiv position="relative" display="flex" flexDirection="column">
+			<LabelComponent>Default label component</LabelComponent>
+			<LabelComponent typography="bodycopy">BodyCopy label component</LabelComponent>
 		</StyledDiv>
 		<StyledDiv position="relative" display="flex" flexDirection="column">
 			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>

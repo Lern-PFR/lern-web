@@ -13,4 +13,11 @@ describe('LabelComponent', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should match previous snapshot with custom typography', () => {
+		const sut = (<LabelComponent typography="doublepica">Test label</LabelComponent>);
+		const wrapper = shallow(sut);
+
+		expect(wrapper).toMatchSnapshot();
+	});
 });
