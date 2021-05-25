@@ -12,31 +12,33 @@ import SubTextComponent from './SubTextComponent';
  *
  * @author Christopher Walker
  *
- * @param {string}	id				: The id of the input.
- * @param {string}	children		: The text to be displayed in the label.
- * @param {string}	[hintText]		: The text to be displayed in the hint.
- * @param {string}	[errorText]		: The text to be displayed in the validation error.
- * @param {bool}	[disabled]		: Whether the input is disabled.
- * @param {string}	[type]			: The type of input, default is text.
- * @param {string}	[placeholder]	: Placeholder text for this input.
- * @param {bool}	[error]			: Whether the subtext is an error display or not.
+ * @param {string}	id					: The id of the input.
+ * @param {string}	children			: The text to be displayed in the label.
+ * @param {string}	[hintText]			: The text to be displayed in the hint.
+ * @param {string}	[errorText]			: The text to be displayed in the validation error.
+ * @param {bool}	[disabled]			: Whether the input is disabled.
+ * @param {string}	[type]				: The type of input, default is text.
+ * @param {string}	[placeholder]		: Placeholder text for this input.
+ * @param {bool}	[isErrorMessage]	: Whether the subtext is an error display or not.
  */
 const LabeledInput = forwardRef(
-	({ id, children, hintText, errorText, disabled, type, placeholder, error, ...otherProps }, ref) => {
+	({ id, children, hintText, errorText, disabled, type, placeholder, isErrorMessage, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
-		const errText = error ? errorText : '';
+		const errText = isErrorMessage ? errorText : '';
 
 		return (
 			<StyledDiv display="flex" flexDirection="column" marginTop="10px">
-				<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} error={error} {...otherProps} />
+				<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} isErrorMessage={isErrorMessage} {...otherProps} />
 				<LabelComponent order="-1" forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>
-				<SubTextComponent color={disabled ? tuna.darker1 : 'initial'}>
-					{hintText}
-				</SubTextComponent>
-				<SubTextComponent error>
+				{ !isErrorMessage && (
+					<SubTextComponent color={disabled ? tuna.darker1 : 'initial'}>
+						{hintText}
+					</SubTextComponent>
+				)}
+				<SubTextComponent isErrorMessage>
 					{errText}
 				</SubTextComponent>
 			</StyledDiv>
@@ -54,7 +56,7 @@ LabeledInput.propTypes = {
 	disabled: PropTypes.bool,
 	type: PropTypes.string,
 	placeholder: PropTypes.string,
-	error: PropTypes.bool,
+	isErrorMessage: PropTypes.bool,
 };
 
 LabeledInput.defaultProps = {
@@ -63,7 +65,7 @@ LabeledInput.defaultProps = {
 	disabled: false,
 	type: undefined,
 	placeholder: undefined,
-	error: false,
+	isErrorMessage: false,
 };
 
 export default LabeledInput;

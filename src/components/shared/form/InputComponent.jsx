@@ -26,15 +26,15 @@ const StyledInputComponent = styled('input')(
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]		: Whether the input is disabled.
- * @param {string}	[type]			: The type of input, default is text.
- * @param {string}	[placeholder]	: Placeholder text for this input.
- * @param {bool}	[error]			: Whether the input contains a validation error.
- * @param {string}	id				: The id of the input.
+ * @param {bool}	[disabled]			: Whether the input is disabled.
+ * @param {string}	[type]				: The type of input, default is text.
+ * @param {string}	[placeholder]		: Placeholder text for this input.
+ * @param {bool}	[isErrorMessage]	: Whether the input contains a validation error.
+ * @param {string}	id					: The id of the input.
  */
 
 const InputComponent = forwardRef(
-	({ id, disabled, placeholder, type, error, ...otherProps }, ref) => {
+	({ id, disabled, placeholder, type, isErrorMessage, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 
@@ -46,7 +46,7 @@ const InputComponent = forwardRef(
 				placeholder={placeholder}
 				id={id}
 				ref={resolvedRef}
-				{...(error ? errorInputStyle : {})}
+				{...(isErrorMessage ? errorInputStyle : {})}
 				{...otherProps}
 			/>
 		);
@@ -59,15 +59,15 @@ InputComponent.propTypes = {
 	id: PropTypes.string.isRequired,
 	placeholder: PropTypes.string,
 	disabled: PropTypes.bool,
-	error: PropTypes.bool,
+	isErrorMessage: PropTypes.bool,
 	type: PropTypes.string,
 };
 
 InputComponent.defaultProps = {
 	disabled: false,
-	error: false,
+	isErrorMessage: false,
 	type: 'text',
-	placeholder: 'Type here.',
+	placeholder: '',
 };
 
 export default InputComponent;

@@ -111,7 +111,7 @@ const App = () => (
 					placeholder="Enter details here."
 					hintText="This is a hint for the user."
 					errorText="There is something wrong with the value in this input"
-					error
+					isErrorMessage
 				>
 					Labeled text input with a validation error
 				</LabeledInput>

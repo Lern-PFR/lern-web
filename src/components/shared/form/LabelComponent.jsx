@@ -6,10 +6,10 @@ import { labelStyle } from 'theme/formStyles';
 import { getTypographyStyleByName } from '../typography';
 
 const StyledLabelComponent = styled('label')(
+	{ ...labelStyle },
 	flexbox,
 	color,
 	typography,
-	{ ...labelStyle },
 );
 
 /**
