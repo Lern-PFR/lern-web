@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { color } from 'styled-system';
+
 import { StyledListItem } from 'components/shared/styledElements';
-import { navbarLink } from 'theme/navbar';
-import Link from '../Link';
+import { navbarActiveLink, navbarLink } from 'theme/navbar';
 
 const StyledNavbarLinkContainer = styled(StyledListItem)(
 	{
@@ -16,6 +18,18 @@ const StyledNavbarLinkContainer = styled(StyledListItem)(
 	}
 );
 
+const StyledNavLink = styled(NavLink)(
+	{
+		cursor: 'inherit',
+		color: 'inherit',
+		fontFamily: 'inherit',
+		fontSize: 'inherit',
+		fontWeight: 'inherit',
+		textDecoration: 'inherit',
+	},
+	color,
+);
+
 /**
  * @name NavbarLink
  * @description The link to display inside the Navbar component.
@@ -27,7 +41,7 @@ const StyledNavbarLinkContainer = styled(StyledListItem)(
  */
 const NavbarLink = ({ children, targetUrl }) => (
 	<StyledNavbarLinkContainer {...navbarLink}>
-		<Link to={targetUrl}>{children}</Link>
+		<StyledNavLink to={targetUrl} activeStyle={navbarActiveLink}>{children}</StyledNavLink>
 	</StyledNavbarLinkContainer>
 );
 

@@ -17,10 +17,15 @@ exports[`NavbarLink should match previous snapshot 1`] = `
   textAlign="center"
   transition="font-weight .1s ease-out"
 >
-  <Link
+  <Styled(NavLink)
+    activeStyle={
+      Object {
+        "fontWeight": 600,
+      }
+    }
     to=""
   >
     test
-  </Link>
+  </Styled(NavLink)>
 </Styled(styled.li)>
 `;

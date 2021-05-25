@@ -2,8 +2,15 @@ export default Object.freeze({
 	root: '/',
 	app: {
 		default: '/',
-		about: '/about',
-		contactUs: '/contact-us',
+	},
+	about: {
+		default: '/about',
+	},
+	contactUs: {
+		default: '/contact-us',
+	},
+	home: {
+		default: '/home',
 	},
 	auth: {
 		default: '/auth',

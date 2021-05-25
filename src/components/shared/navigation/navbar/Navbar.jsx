@@ -22,10 +22,10 @@ const Navbar = ({ currentUser, t }) => (
 	<StyledDiv as="nav" {...navbar}>
 		<NavbarLogo />
 		<StyledList {...navbarLinkList}>
-			<NavbarLink targetUrl={routes.app.default}>{t('navigation.menu.home')}</NavbarLink>
+			<NavbarLink targetUrl={routes.home.default}>{t('navigation.menu.home')}</NavbarLink>
 			{currentUser && <NavbarLink targetUrl={routes.subjects.default}>{t('navigation.menu.my_courses')}</NavbarLink> }
-			<NavbarLink targetUrl={routes.app.about}>{t('navigation.menu.about')}</NavbarLink>
-			<NavbarLink targetUrl={routes.app.contactUs}>{t('navigation.menu.contact_us')}</NavbarLink>
+			<NavbarLink targetUrl={routes.about.default}>{t('navigation.menu.about')}</NavbarLink>
+			<NavbarLink targetUrl={routes.contactUs.default}>{t('navigation.menu.contact_us')}</NavbarLink>
 		</StyledList>
 		{currentUser && (
 			<StyledDiv>

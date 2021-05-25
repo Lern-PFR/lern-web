@@ -4,13 +4,17 @@ exports[`Navbar should match previous snapshot with an authentified user 1`] = `
 <styled.div
   alignItems="center"
   as="nav"
-  backgroundColor="#FFFFFF"
+  boxShadow="0px .5em 1em rgba(0, 0, 0, .03)"
   display="grid"
+  flexShrink={0}
   gridGap="3em"
   gridTemplateColumns="max-content 1fr max-content"
   height="80px"
   paddingX="3em"
+  position="sticky"
+  top={0}
   width="100%"
+  zIndex={9000}
 >
   <NavbarLogo />
   <styled.ul
@@ -21,7 +25,7 @@ exports[`Navbar should match previous snapshot with an authentified user 1`] = `
     padding={0}
   >
     <NavbarLink
-      targetUrl="/"
+      targetUrl="/home"
     >
       navigation.menu.home
     </NavbarLink>
@@ -55,13 +59,17 @@ exports[`Navbar should match previous snapshot with no authentified user 1`] = `
 <styled.div
   alignItems="center"
   as="nav"
-  backgroundColor="#FFFFFF"
+  boxShadow="0px .5em 1em rgba(0, 0, 0, .03)"
   display="grid"
+  flexShrink={0}
   gridGap="3em"
   gridTemplateColumns="max-content 1fr max-content"
   height="80px"
   paddingX="3em"
+  position="sticky"
+  top={0}
   width="100%"
+  zIndex={9000}
 >
   <NavbarLogo />
   <styled.ul
@@ -72,7 +80,7 @@ exports[`Navbar should match previous snapshot with no authentified user 1`] = `
     padding={0}
   >
     <NavbarLink
-      targetUrl="/"
+      targetUrl="/home"
     >
       navigation.menu.home
     </NavbarLink>

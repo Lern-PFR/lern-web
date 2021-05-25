@@ -4,13 +4,12 @@ const pageLayout = {
 	display: 'grid',
 	gridTemplateColumns: 'minmax(30%, 1fr) 2fr',
 	gridGap: '124px',
-	paddingTop: '120px',
 	paddingX: '64px',
 };
 
 const subjectDetails = {
 	position: 'sticky',
-	top: pageLayout.paddingTop,
+	top: '176px', // navbar's height + mainLayout's padding.
 };
 
 const subjectName = {

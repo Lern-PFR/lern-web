@@ -1,7 +1,11 @@
-import { coconut, oyster } from './colors';
+import { oyster } from './colors';
 import { pica } from './textStyles';
 
 const navbar = {
+	position: 'sticky',
+	flexShrink: 0,
+	top: 0,
+	zIndex: 9000,
 	display: 'grid',
 	gridTemplateColumns: 'max-content 1fr max-content',
 	width: '100%',
@@ -9,8 +13,7 @@ const navbar = {
 	gridGap: '3em',
 	alignItems: 'center',
 	paddingX: '3em',
-	backgroundColor: coconut.default,
-	// @TODO: style shadow / blur
+	boxShadow: '0px .5em 1em rgba(0, 0, 0, .03)',
 };
 
 const navbarLogo = {
@@ -39,6 +42,10 @@ const navbarLink = {
 	// @TODO: style active link.
 };
 
+const navbarActiveLink = {
+	fontWeight: 600,
+};
+
 const username = {
 	fontWeight: 600,
 };
@@ -48,5 +55,6 @@ export {
 	navbarLogo,
 	navbarLinkList,
 	navbarLink,
+	navbarActiveLink,
 	username,
 };

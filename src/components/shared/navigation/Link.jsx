@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import styled from 'styled-components';
-import {
-	color,
-} from 'styled-system';
+import { color } from 'styled-system';
 
 const StyledLink = styled(ReactRouterLink)(
 	{

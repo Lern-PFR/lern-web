@@ -4,7 +4,6 @@ const pageLayout = {
 	display: 'grid',
 	gridTemplateRows: '1fr auto',
 	paddingX: '64px',
-	paddingTop: '120px',
 	gridGap: '2em',
 	maxHeight: '100%',
 	overflow: 'auto',

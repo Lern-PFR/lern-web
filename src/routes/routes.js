@@ -15,26 +15,31 @@ import keys from './keys';
 export default [
 	{
 		path: keys.app.default,
-		routes: [
-			{
-				path: keys.app.default,
-				exact: true,
-				allowAnonymous: true,
-				component: App,
-			},
-			{
-				path: keys.app.about,
-				exact: true,
-				allowAnonymous: true,
-				component: () => <p>About</p>,
-			},
-			{
-				path: keys.app.contactUs,
-				exact: true,
-				allowAnonymous: true,
-				component: () => <p>Contact us</p>,
-			},
-		],
+		exact: true,
+		allowAnonymous: true,
+		component: App,
+	},
+	{
+		path: keys.about.default,
+		exact: true,
+		allowAnonymous: true,
+		allowAuthenticated: true,
+		component: () => <p>About</p>,
+	},
+	{
+		path: keys.contactUs.default,
+		exact: true,
+		allowAnonymous: true,
+		allowAuthenticated: true,
+		component: () => <p>Contact us</p>,
+	},
+	// Home
+	{
+		path: keys.home.default,
+		exact: true,
+		allowAnonymous: true,
+		allowAuthenticated: true,
+		component: () => <p>Home</p>,
 	},
 	// Auth
 	{
