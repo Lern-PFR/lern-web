@@ -39,7 +39,10 @@ LabelComponent.propTypes = {
 	disabled: PropTypes.bool,
 	hasError: PropTypes.bool,
 	textStyle: PropTypes.string,
-	forId: PropTypes.string,
+	forId: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 };
 
 LabelComponent.defaultProps = {

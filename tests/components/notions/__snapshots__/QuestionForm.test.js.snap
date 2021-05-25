@@ -56,12 +56,13 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
           gridTemplateColumns="min-content 1fr"
           id={1}
           key="1"
+          labelTextStyle="bodyCopy"
           name="answer"
           onChange={[Function]}
           padding="1em"
           value={1}
         >
-          <styled.li
+          <styled.div
             alignItems="center"
             borderRadius=".2em"
             cursor="pointer"
@@ -73,8 +74,8 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
             padding="1em"
             value={1}
           >
-            <li
-              className="sc-dlfnbm jRlPsC"
+            <div
+              className="sc-bdfBwQ ivfGFt"
               cursor="pointer"
               display="grid"
               name="answer"
@@ -101,13 +102,14 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   />
                 </styled.input>
               </CheckboxComponent>
-              <BodyCopy
+              <LabelComponent
                 color="initial"
-                htmlFor={1}
-                tag="label"
+                forId={1}
+                textStyle="bodyCopy"
               >
                 <DynamicTextComponent
                   color="initial"
+                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
@@ -119,6 +121,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   <styled.p
                     as="label"
                     color="initial"
+                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -127,8 +130,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     lineHeight="1.5em"
                   >
                     <label
-                      className="sc-hKgILt hImFla"
+                      className="sc-hKgILt fojEvL"
                       color="initial"
+                      cursor="pointer"
                       fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                       fontSize="1rem"
                       fontWeight={400}
@@ -139,9 +143,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     </label>
                   </styled.p>
                 </DynamicTextComponent>
-              </BodyCopy>
-            </li>
-          </styled.li>
+              </LabelComponent>
+            </div>
+          </styled.div>
         </LabeledCheckbox>
         <LabeledCheckbox
           alignItems="center"
@@ -154,12 +158,13 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
           gridTemplateColumns="min-content 1fr"
           id={2}
           key="2"
+          labelTextStyle="bodyCopy"
           name="answer"
           onChange={[Function]}
           padding="1em"
           value={2}
         >
-          <styled.li
+          <styled.div
             alignItems="center"
             borderRadius=".2em"
             cursor="pointer"
@@ -171,8 +176,8 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
             padding="1em"
             value={2}
           >
-            <li
-              className="sc-dlfnbm jRlPsC"
+            <div
+              className="sc-bdfBwQ ivfGFt"
               cursor="pointer"
               display="grid"
               name="answer"
@@ -199,13 +204,14 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   />
                 </styled.input>
               </CheckboxComponent>
-              <BodyCopy
+              <LabelComponent
                 color="initial"
-                htmlFor={2}
-                tag="label"
+                forId={2}
+                textStyle="bodyCopy"
               >
                 <DynamicTextComponent
                   color="initial"
+                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
@@ -217,6 +223,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   <styled.p
                     as="label"
                     color="initial"
+                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -225,8 +232,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     lineHeight="1.5em"
                   >
                     <label
-                      className="sc-hKgILt hImFla"
+                      className="sc-hKgILt fojEvL"
                       color="initial"
+                      cursor="pointer"
                       fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                       fontSize="1rem"
                       fontWeight={400}
@@ -237,9 +245,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     </label>
                   </styled.p>
                 </DynamicTextComponent>
-              </BodyCopy>
-            </li>
-          </styled.li>
+              </LabelComponent>
+            </div>
+          </styled.div>
         </LabeledCheckbox>
         <LabeledCheckbox
           alignItems="center"
@@ -252,12 +260,13 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
           gridTemplateColumns="min-content 1fr"
           id={3}
           key="3"
+          labelTextStyle="bodyCopy"
           name="answer"
           onChange={[Function]}
           padding="1em"
           value={3}
         >
-          <styled.li
+          <styled.div
             alignItems="center"
             borderRadius=".2em"
             cursor="pointer"
@@ -269,8 +278,8 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
             padding="1em"
             value={3}
           >
-            <li
-              className="sc-dlfnbm jRlPsC"
+            <div
+              className="sc-bdfBwQ ivfGFt"
               cursor="pointer"
               display="grid"
               name="answer"
@@ -297,13 +306,14 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   />
                 </styled.input>
               </CheckboxComponent>
-              <BodyCopy
+              <LabelComponent
                 color="initial"
-                htmlFor={3}
-                tag="label"
+                forId={3}
+                textStyle="bodyCopy"
               >
                 <DynamicTextComponent
                   color="initial"
+                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
@@ -315,6 +325,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   <styled.p
                     as="label"
                     color="initial"
+                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -323,8 +334,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     lineHeight="1.5em"
                   >
                     <label
-                      className="sc-hKgILt hImFla"
+                      className="sc-hKgILt fojEvL"
                       color="initial"
+                      cursor="pointer"
                       fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                       fontSize="1rem"
                       fontWeight={400}
@@ -335,9 +347,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     </label>
                   </styled.p>
                 </DynamicTextComponent>
-              </BodyCopy>
-            </li>
-          </styled.li>
+              </LabelComponent>
+            </div>
+          </styled.div>
         </LabeledCheckbox>
         <LabeledCheckbox
           alignItems="center"
@@ -350,12 +362,13 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
           gridTemplateColumns="min-content 1fr"
           id={4}
           key="4"
+          labelTextStyle="bodyCopy"
           name="answer"
           onChange={[Function]}
           padding="1em"
           value={4}
         >
-          <styled.li
+          <styled.div
             alignItems="center"
             borderRadius=".2em"
             cursor="pointer"
@@ -367,8 +380,8 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
             padding="1em"
             value={4}
           >
-            <li
-              className="sc-dlfnbm jRlPsC"
+            <div
+              className="sc-bdfBwQ ivfGFt"
               cursor="pointer"
               display="grid"
               name="answer"
@@ -395,13 +408,14 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   />
                 </styled.input>
               </CheckboxComponent>
-              <BodyCopy
+              <LabelComponent
                 color="initial"
-                htmlFor={4}
-                tag="label"
+                forId={4}
+                textStyle="bodyCopy"
               >
                 <DynamicTextComponent
                   color="initial"
+                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
@@ -413,6 +427,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   <styled.p
                     as="label"
                     color="initial"
+                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
@@ -421,8 +436,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     lineHeight="1.5em"
                   >
                     <label
-                      className="sc-hKgILt hImFla"
+                      className="sc-hKgILt fojEvL"
                       color="initial"
+                      cursor="pointer"
                       fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                       fontSize="1rem"
                       fontWeight={400}
@@ -433,9 +449,9 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                     </label>
                   </styled.p>
                 </DynamicTextComponent>
-              </BodyCopy>
-            </li>
-          </styled.li>
+              </LabelComponent>
+            </div>
+          </styled.div>
         </LabeledCheckbox>
       </ul>
     </styled.ul>
@@ -590,6 +606,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with sing
       gridTemplateColumns="min-content 1fr"
       id={1}
       key="1"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -608,6 +625,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with sing
       gridTemplateColumns="min-content 1fr"
       id={2}
       key="2"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -626,6 +644,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with sing
       gridTemplateColumns="min-content 1fr"
       id={3}
       key="3"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -644,6 +663,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with sing
       gridTemplateColumns="min-content 1fr"
       id={4}
       key="4"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -689,6 +709,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with subm
       gridTemplateColumns="min-content 1fr"
       id={1}
       key="1"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -708,6 +729,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with subm
       gridTemplateColumns="min-content 1fr"
       id={2}
       key="2"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -728,6 +750,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with subm
       gridTemplateColumns="min-content 1fr"
       id={3}
       key="3"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -747,6 +770,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with subm
       gridTemplateColumns="min-content 1fr"
       id={4}
       key="4"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -791,6 +815,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot 1`] = `
       gridTemplateColumns="min-content 1fr"
       id={1}
       key="1"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -809,6 +834,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot 1`] = `
       gridTemplateColumns="min-content 1fr"
       id={2}
       key="2"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -827,6 +853,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot 1`] = `
       gridTemplateColumns="min-content 1fr"
       id={3}
       key="3"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"
@@ -845,6 +872,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot 1`] = `
       gridTemplateColumns="min-content 1fr"
       id={4}
       key="4"
+      labelTextStyle="bodyCopy"
       name="answer"
       onChange={[Function]}
       padding="1em"

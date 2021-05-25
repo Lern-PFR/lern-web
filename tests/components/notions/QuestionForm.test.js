@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import { fireEvent, render, screen } from '@testing-library/react';
-import QuestionForm from 'components/notions/NotionDetailsPage/questionForm';
+import QuestionForm from 'components/notions/NotionDetailsPage/QuestionForm';
 
 describe('QuestionForm', () => {
 	const answers = [

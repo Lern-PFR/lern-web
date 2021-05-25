@@ -3,7 +3,7 @@ import { StyledDiv } from 'components/shared/layout';
 import { Paragon, Pica } from 'components/shared/typography';
 import { lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
 import NotionContentNavigator from './NotionContentNavigator';
-import QuestionForm from './questionForm';
+import QuestionForm from './QuestionForm';
 
 /**
  * @name Sidebar

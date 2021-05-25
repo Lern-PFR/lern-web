@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 import { StyledList } from 'components/shared/layout';
 import { answersList, answerListItem, answerFormSubmitButton, validAnswerListItem } from 'theme/pages/notions/notionDetailsPage';
 import { PrimaryButton } from 'components/shared/buttons';
 import { withTranslation } from 'react-i18next';
-import _ from 'lodash';
-import QuestionFormLabeledCheckbox from './QuestionFormLabeledCheckbox';
-import QuestionFormLabeledRadioButton from './QuestionFormLabeledRadioButton';
+import { LabeledCheckbox, LabeledRadioButton } from 'components/shared/form';
 
 // @TODO: Implement the "see explanation" button and its logic.
 
@@ -77,35 +76,37 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 			<StyledList {...answersList}>
 				{singleChoice && (
 					answers.map(({ id, valid, text }) => (
-						<QuestionFormLabeledRadioButton
+						<LabeledRadioButton
 							key={id}
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
 							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
 							value={id}
+							labelTextStyle="bodyCopy"
 							{...answerListItem}
 							{...(submittedAnswer && valid ? validAnswerListItem : {})}
 						>
 							{text}
-						</QuestionFormLabeledRadioButton>
+						</LabeledRadioButton>
 					))
 				)}
 
 				{!singleChoice && (
 					answers.map(({ id, valid, text }) => (
-						<QuestionFormLabeledCheckbox
+						<LabeledCheckbox
 							key={id}
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
 							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
 							value={id}
+							labelTextStyle="bodyCopy"
 							{...answerListItem}
 							{...(submittedAnswer && valid ? validAnswerListItem : {})}
 						>
 							{text}
-						</QuestionFormLabeledCheckbox>
+						</LabeledCheckbox>
 					))
 				)}
 			</StyledList>

@@ -78,19 +78,30 @@ const App = () => (
 			<LabelComponent>Default label component</LabelComponent>
 			<LabelComponent textStyle="bodycopy">BodyCopy label component</LabelComponent>
 		</StyledDiv>
+		<StyledDiv position="relative" display="flex" flexDirection="column" gridGap=".5em">
+			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>
+			<LabeledCheckbox checked id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
+			<LabeledCheckbox disabled id="lcb3">Disabled labeled checkbox</LabeledCheckbox>
+			<LabeledCheckbox disabled checked id="lcb4">Disabled default checked labeled checkbox</LabeledCheckbox>
+		</StyledDiv>
 		<StyledDiv position="relative">
-			<FieldsetComponent title="Basic checkbox components">
+			<FieldsetComponent title="Basic fieldset component" display="flex" flexDirection="column" gridGap=".5em">
 				<LabeledCheckbox id="lcb5">Labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox labelTextStyle="bodycopy" checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled id="lcb7">Disabled labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled checked id="lcb8">Disabled default checked labeled checkbox</LabeledCheckbox>
 			</FieldsetComponent>
 		</StyledDiv>
+		<StyledDiv position="relative" display="flex" flexDirection="column" gridGap=".5em">
+			<LabeledRadioButton name="rg1" id="lrb1">Labeled radio button</LabeledRadioButton>
+			<LabeledRadioButton name="rg1" checked id="lrb2">Default checked labeled radio button</LabeledRadioButton>
+			<LabeledRadioButton name="rg1" disabled id="lrb3">Disabled labeled radio button</LabeledRadioButton>
+		</StyledDiv>
 		<StyledDiv position="relative">
-			<FieldsetComponent title="Basic radio button components">
-				<LabeledRadioButton name="rg2" id="lrb5">Labeled radio button</LabeledRadioButton>
-				<LabeledRadioButton labelTextStyle="bodycopy" name="rg2" checked id="lrb6">Default checked labeled radio button</LabeledRadioButton>
-				<LabeledRadioButton name="rg2" disabled id="lrb7">Disabled labeled radio button</LabeledRadioButton>
+			<FieldsetComponent title="Basic fieldset component" display="flex" flexDirection="column" gridGap=".5em">
+				<LabeledRadioButton name="rg2" id="lrb5" display="flex" gridGap=".5em">Labeled radio button</LabeledRadioButton>
+				<LabeledRadioButton labelTextStyle="bodycopy" name="rg2" checked id="lrb6" display="flex" gridGap=".5em">Default checked labeled radio button</LabeledRadioButton>
+				<LabeledRadioButton name="rg2" disabled id="lrb7" display="flex" gridGap=".5em">Disabled labeled radio button</LabeledRadioButton>
 			</FieldsetComponent>
 		</StyledDiv>
 		<StyledDiv position="relative" width="500px">
