@@ -99,17 +99,8 @@ const App = () => (
 				<LabeledInput id="placeholderTextInput" placeholder="Enter details here.">Labeled text input with custom placeholder</LabeledInput>
 				<LabeledInput id="hintTextInput" placeholder="Enter details here." hintText="This is a hint for the user.">Labeled text input with hint</LabeledInput>
 				<LabeledInput
-					id="tooltipTextInput"
-					placeholder="Enter details here."
-					infoText="This info should only appear on hover."
-					hintText="This is a hint for the user."
-				>
-					Labeled text input with info tooltip
-				</LabeledInput>
-				<LabeledInput
 					id="disabledTextInput"
 					placeholder="Enter details here."
-					infoText="This info should only appear on hover."
 					hintText="This is a hint for the user."
 					disabled
 				>
@@ -118,13 +109,14 @@ const App = () => (
 				<LabeledInput
 					id="errorTextInput"
 					placeholder="Enter details here."
-					infoText="This info should only appear on hover."
 					hintText="This is a hint for the user."
 					errorText="There is something wrong with the value in this input"
 					error
 				>
 					Labeled text input with a validation error
 				</LabeledInput>
+				<LabeledInput id="numberInput" placeholder="Number Input" type="number">Labeled number input</LabeledInput>
+				<LabeledInput id="passwordInput" placeholder="Password Input" type="password">Labeled password input</LabeledInput>
 			</FieldsetComponent>
 		</StyledDiv>
 	</MainLayout>

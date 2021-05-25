@@ -1,7 +1,8 @@
 const commonElevation = {
 	margin: 'auto',
 	marginTop: '10px',
-	marginBottom: ' 10px',
+	marginBottom: '10px',
+	zIndex: 10,
 };
 
 const elevationFlat = {

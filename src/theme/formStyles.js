@@ -19,6 +19,7 @@ const groupedLabelStyle = {
 	...brevier,
 	color: tuna.default,
 };
+
 const groupStyle = {
 	borderRadius: 2,
 	border: `solid 1px ${tuna.default}`,
