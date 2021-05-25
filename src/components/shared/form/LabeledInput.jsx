@@ -30,15 +30,15 @@ const LabeledInput = forwardRef(
 		return (
 			<StyledDiv display="flex" flexDirection="column" marginTop="10px">
 				<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} hasError={hasError} {...otherProps} />
-				<LabelComponent order="-1" forId={id} color={disabled ? tuna.darker1 : 'initial'}>
+				<LabelComponent order="-1" forId={id} disabled={disabled} hasError={hasError}>
 					{children}
 				</LabelComponent>
-				{!hasError && (
+				{(!hasError || (hasError && disabled)) && (
 					<SubTextComponent color={disabled ? tuna.darker1 : 'initial'}>
 						{hintText}
 					</SubTextComponent>
 				)}
-				{hasError && (
+				{hasError && !disabled && (
 					<SubTextComponent isErrorMessage={hasError}>
 						{errText}
 					</SubTextComponent>

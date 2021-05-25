@@ -7,8 +7,7 @@ import {
 	color,
 } from 'styled-system';
 import PropTypes from 'prop-types';
-import { disabled as disabledStyle } from 'theme/buttonStyles';
-import { inputStyle, errorInputStyle } from 'theme/formStyles';
+import { inputStyle, errorInputStyle, disabledInputStyle } from 'theme/formStyles';
 import { forwardRef, useRef } from 'react';
 
 const StyledInputComponent = styled('input')(
@@ -40,13 +39,13 @@ const InputComponent = forwardRef(
 
 		return (
 			<StyledInputComponent
-				{...(disabled ? disabledStyle : {})}
 				type={type}
 				disabled={disabled}
 				placeholder={placeholder}
 				id={id}
 				ref={resolvedRef}
 				{...(hasError ? errorInputStyle : {})}
+				{...(disabled ? disabledInputStyle : {})}
 				{...otherProps}
 			/>
 		);

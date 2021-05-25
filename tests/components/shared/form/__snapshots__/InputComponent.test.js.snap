@@ -11,8 +11,7 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
 
 exports[`RadioButtonComponent should match previous snapshot for disabled state 1`] = `
 <styled.input
-  bg="F6F6F4"
-  color="#8C8C8C"
+  border="solid 1px #707070"
   disabled={true}
   id="inp"
   placeholder=""

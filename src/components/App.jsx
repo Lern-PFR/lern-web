@@ -112,6 +112,16 @@ const App = () => (
 					hintText="This is a hint for the user."
 					errorText="There is something wrong with the value in this input"
 					hasError
+					disabled
+				>
+					Disabled labeled text input with a validation error
+				</LabeledInput>
+				<LabeledInput
+					id="errorTextInput"
+					placeholder="Enter details here."
+					hintText="This is a hint for the user."
+					errorText="There is something wrong with the value in this input"
+					hasError
 				>
 					Labeled text input with a validation error
 				</LabeledInput>

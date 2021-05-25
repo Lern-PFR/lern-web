@@ -5,6 +5,7 @@ exports[`LabelComponent should match previous snapshot 1`] = `
   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   fontSize=".778rem"
   fontWeight={400}
+  hasError={false}
   htmlFor=""
   letterSpacing={0.32}
   lineHeight="1.125em"
@@ -18,6 +19,7 @@ exports[`LabelComponent should match previous snapshot with custom typography 1`
   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   fontSize=".778rem"
   fontWeight={400}
+  hasError={false}
   htmlFor=""
   letterSpacing={0.32}
   lineHeight="1.125em"

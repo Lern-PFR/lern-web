@@ -35,8 +35,15 @@ describe('RadioButtonComponent', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should match previous snapshot for labeled input with validation error and disabled state', () => {
+		const sut = (<LabeledInput id="inp" errorText="Validation error" hasError disabled>Labeled Input</LabeledInput>);
+		const wrapper = shallow(sut);
+
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should match previous snapshot for labeled input with validation error', () => {
-		const sut = (<LabeledInput id="inp" errorText="Validation error" error>Labeled Input</LabeledInput>);
+		const sut = (<LabeledInput id="inp" errorText="Validation error" hasError>Labeled Input</LabeledInput>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();

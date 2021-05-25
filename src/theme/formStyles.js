@@ -9,9 +9,13 @@ import {
 import { brevier } from './textStyles';
 
 const labelStyle = {
-	color: (({ disabled }) => (disabled ? tuna.darker1 : peppercorn.default)),
+	color: (({ hasError }) => (hasError ? crimson.default : peppercorn.default)),
 	cursor: 'pointer',
 	paddingBottom: '4px',
+};
+
+const disabledStyle = {
+	color: tuna.darker1,
 };
 
 const groupedLabelStyle = {
@@ -145,6 +149,10 @@ const errorInputStyle = {
 	border: `solid 1px ${crimson.default}`,
 };
 
+const disabledInputStyle = {
+	border: `solid 1px ${tuna.darker1}`,
+};
+
 const selectStyle = {
 	...inputStyle,
 };
@@ -175,4 +183,6 @@ export {
 	textareaStyle,
 	hintStyle,
 	validationStyle,
+	disabledStyle,
+	disabledInputStyle,
 };

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { flexbox, color, typography } from 'styled-system';
-import { labelStyle } from 'theme/formStyles';
+import { disabledStyle, labelStyle } from 'theme/formStyles';
 import { getTypographyStyleByName } from '../typography';
 
 const StyledLabelComponent = styled('label')(
@@ -21,12 +21,14 @@ const StyledLabelComponent = styled('label')(
  * @param {string}	[element]		: The id of the element that the label is associated to.
  * @param {string}	[textStyle]	: The text style of the label text.
  * @param {string}	children		: The test to be displayed in the label.
+ * @param {bool}	[disabled]		Whether the labels input is disabled or not.
+ * @param {bool}	[hasError]		Whether the labels input has an error or not.
  */
-const LabelComponent = ({ children, forId, textStyle, ...otherProps }) => {
+const LabelComponent = ({ children, forId, hasError, disabled, textStyle, ...otherProps }) => {
 	const typographyStyle = useMemo(() => getTypographyStyleByName(textStyle), [textStyle]);
 
 	return (
-		<StyledLabelComponent htmlFor={forId} {...typographyStyle} {...otherProps}>
+		<StyledLabelComponent htmlFor={forId} hasError={hasError} {...typographyStyle} {...otherProps} {...(disabled ? disabledStyle : {})}>
 			{children}
 		</StyledLabelComponent>
 	);
@@ -34,11 +36,15 @@ const LabelComponent = ({ children, forId, textStyle, ...otherProps }) => {
 
 LabelComponent.propTypes = {
 	children: PropTypes.string.isRequired,
+	disabled: PropTypes.bool,
+	hasError: PropTypes.bool,
 	textStyle: PropTypes.string,
 	forId: PropTypes.string,
 };
 
 LabelComponent.defaultProps = {
+	disabled: false,
+	hasError: false,
 	textStyle: 'brevier',
 	forId: '',
 };

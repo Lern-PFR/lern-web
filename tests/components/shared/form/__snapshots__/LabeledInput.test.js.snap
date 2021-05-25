@@ -14,8 +14,9 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
     type="text"
   />
   <LabelComponent
-    color="initial"
+    disabled={false}
     forId="inp"
+    hasError={false}
     order="-1"
     textStyle="brevier"
   >
@@ -42,8 +43,9 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
     type="text"
   />
   <LabelComponent
-    color="#707070"
+    disabled={true}
     forId="inp"
+    hasError={false}
     order="-1"
     textStyle="brevier"
   >
@@ -70,8 +72,9 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     type="text"
   />
   <LabelComponent
-    color="initial"
+    disabled={false}
     forId="inp"
+    hasError={false}
     order="-1"
     textStyle="brevier"
   >
@@ -98,8 +101,9 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     type="text"
   />
   <LabelComponent
-    color="initial"
+    disabled={false}
     forId="inp"
+    hasError={false}
     order="-1"
     textStyle="brevier"
   >
@@ -128,8 +132,9 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     type="password"
   />
   <LabelComponent
-    color="initial"
+    disabled={false}
     forId="inp"
+    hasError={false}
     order="-1"
     textStyle="brevier"
   >
@@ -150,22 +155,52 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 >
   <InputComponent
     disabled={false}
-    error={true}
-    hasError={false}
+    hasError={true}
     id="inp"
     placeholder=""
     type="text"
   />
   <LabelComponent
-    color="initial"
+    disabled={false}
     forId="inp"
+    hasError={true}
     order="-1"
     textStyle="brevier"
   >
     Labeled Input
   </LabelComponent>
   <SubTextComponent
-    color="initial"
+    isErrorMessage={true}
+  >
+    Validation error
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled input with validation error and disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={true}
+    hasError={true}
+    id="inp"
+    placeholder=""
+    type="text"
+  />
+  <LabelComponent
+    disabled={true}
+    forId="inp"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
     isErrorMessage={false}
   />
 </styled.div>
