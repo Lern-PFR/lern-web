@@ -75,7 +75,7 @@ const App = () => (
 		</StyledDiv>
 		<StyledDiv position="relative" display="flex" flexDirection="column">
 			<LabelComponent>Default label component</LabelComponent>
-			<LabelComponent typography="bodycopy">BodyCopy label component</LabelComponent>
+			<LabelComponent textStyle="bodycopy">BodyCopy label component</LabelComponent>
 		</StyledDiv>
 		<StyledDiv position="relative" display="flex" flexDirection="column">
 			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>
@@ -86,7 +86,7 @@ const App = () => (
 		<StyledDiv position="relative">
 			<FieldsetComponent title="Basic fieldset component">
 				<LabeledCheckbox id="lcb5">Labeled checkbox</LabeledCheckbox>
-				<LabeledCheckbox checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
+				<LabeledCheckbox labelTextStyle="bodycopy" checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled id="lcb7">Disabled labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled checked id="lcb8">Disabled default checked labeled checkbox</LabeledCheckbox>
 			</FieldsetComponent>
@@ -99,7 +99,7 @@ const App = () => (
 		<StyledDiv position="relative">
 			<FieldsetComponent title="Basic fieldset component">
 				<LabeledRadioButton name="rg2" id="lrb5">Labeled radio button</LabeledRadioButton>
-				<LabeledRadioButton name="rg2" checked id="lrb6">Default checked labeled radio button</LabeledRadioButton>
+				<LabeledRadioButton labelTextStyle="bodycopy" name="rg2" checked id="lrb6">Default checked labeled radio button</LabeledRadioButton>
 				<LabeledRadioButton name="rg2" disabled id="lrb7">Disabled labeled radio button</LabeledRadioButton>
 			</FieldsetComponent>
 		</StyledDiv>

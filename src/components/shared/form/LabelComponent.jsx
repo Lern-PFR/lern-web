@@ -11,12 +11,12 @@ import { canon, greatPrimer, doublePica, bodyCopy, brevier, longPrimer, minion, 
  * @author Christopher Walker
  *
  * @param {string}	[element]		: The id of the element that the label is associated to.
- * @param {string}	[typography]	: The text style of the label text.
+ * @param {string}	[textStyle]	: The text style of the label text.
  * @param {string}	children		: The test to be displayed in the label.
  */
-const LabelComponent = ({ children, typography, forId, ...otherProps }) => {
-	const textStyle = useMemo(() => {
-		switch (typography.toLowerCase()) {
+const LabelComponent = ({ children, textStyle, forId, ...otherProps }) => {
+	const typography = useMemo(() => {
+		switch (textStyle.toLowerCase()) {
 			case 'canon':		return canon;
 			case 'trafalgar':	return trafalgar;
 			case 'paragon':		return paragon;
@@ -28,13 +28,13 @@ const LabelComponent = ({ children, typography, forId, ...otherProps }) => {
 			case 'minion':		return minion;
 			default:			return brevier;
 		}
-	}, [typography]);
+	}, [textStyle]);
 
 	return (
 		<DynamicTextComponent
 			tag="label"
 			htmlFor={forId}
-			{...textStyle}
+			{...typography}
 			{...labelStyle}
 			{...otherProps}
 		>
@@ -45,12 +45,12 @@ const LabelComponent = ({ children, typography, forId, ...otherProps }) => {
 
 LabelComponent.propTypes = {
 	children: PropTypes.string.isRequired,
-	typography: PropTypes.string,
+	textStyle: PropTypes.string,
 	forId: PropTypes.string,
 };
 
 LabelComponent.defaultProps = {
-	typography: 'brevier',
+	textStyle: 'brevier',
 	forId: '',
 };
 

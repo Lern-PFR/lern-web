@@ -11,20 +11,21 @@ import LabelComponent from './LabelComponent';
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]		: Whether the checkbox is disabled.
- * @param {bool}	[checked]		: Whether the checkbox is checked.
- * @param {string}	id				: The id of the checkbox.
- * @param {string}	children		: Text to display in the label.
+ * @param {bool}	[disabled]			Whether the checkbox is disabled.
+ * @param {bool}	[checked]			Whether the checkbox is checked.
+ * @param {string}	[labelTextStyle]	Text style for the label component.
+ * @param {string}	id					The id of the checkbox.
+ * @param {string}	children			Text to display in the label.
  */
 const LabeledCheckbox = forwardRef(
-	({ children, id, checked, disabled, ...otherProps }, ref) => {
+	({ children, id, checked, disabled, labelTextStyle, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 
 		return (
 			<StyledDiv display="flex" alignItems="center">
 				<CheckboxComponent disabled={disabled} checked={checked} id={id} ref={resolvedRef} {...otherProps} />
-				<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
+				<LabelComponent textStyle={labelTextStyle} forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>
 			</StyledDiv>
@@ -37,11 +38,13 @@ LabeledCheckbox.displayName = 'LabeledCheckbox';
 LabeledCheckbox.propTypes = {
 	id: PropTypes.string.isRequired,
 	children: PropTypes.string.isRequired,
+	labelTextStyle: PropTypes.string,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,
 };
 
 LabeledCheckbox.defaultProps = {
+	labelTextStyle: '',
 	disabled: false,
 	checked: false,
 };
