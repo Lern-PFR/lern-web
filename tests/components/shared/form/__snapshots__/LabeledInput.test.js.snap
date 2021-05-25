@@ -25,9 +25,6 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
     color="initial"
     isErrorMessage={false}
   />
-  <SubTextComponent
-    isErrorMessage={false}
-  />
 </styled.div>
 `;
 
@@ -56,9 +53,6 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
     color="#707070"
     isErrorMessage={false}
   />
-  <SubTextComponent
-    isErrorMessage={false}
-  />
 </styled.div>
 `;
 
@@ -85,9 +79,6 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
   </LabelComponent>
   <SubTextComponent
     color="initial"
-    isErrorMessage={false}
-  />
-  <SubTextComponent
     isErrorMessage={false}
   />
 </styled.div>
@@ -120,9 +111,6 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
   >
     User hint
   </SubTextComponent>
-  <SubTextComponent
-    isErrorMessage={false}
-  />
 </styled.div>
 `;
 
@@ -149,9 +137,6 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
   </LabelComponent>
   <SubTextComponent
     color="initial"
-    isErrorMessage={false}
-  />
-  <SubTextComponent
     isErrorMessage={false}
   />
 </styled.div>
@@ -181,9 +166,6 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
   </LabelComponent>
   <SubTextComponent
     color="initial"
-    isErrorMessage={false}
-  />
-  <SubTextComponent
     isErrorMessage={false}
   />
 </styled.div>
