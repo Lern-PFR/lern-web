@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { flexbox, color } from 'styled-system';
 import { labelStyle } from 'theme/formStyles';
-import { brevier } from 'theme/textStyles';
 import { getTypographyStyleByName } from '../typography';
 
 const StyledLabelComponent = styled('label')(
 	flexbox,
 	color,
-	{ ...(typography || brevier) },
 	{ ...labelStyle },
 );
 

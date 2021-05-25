@@ -6,7 +6,6 @@ import {
 	kale,
 	crimson,
 } from './colors';
-import { elevationThird } from './elevations';
 import { brevier } from './textStyles';
 
 const labelStyle = {
