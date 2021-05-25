@@ -10,7 +10,6 @@ import {
 import { brevier } from './textStyles';
 
 const labelStyle = {
-	...brevier,
 	color: peppercorn.default,
 	cursor: 'pointer',
 };

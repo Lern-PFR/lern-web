@@ -11,21 +11,22 @@ import LabelComponent from './LabelComponent';
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]		: Whether the radio button is disabled.
- * @param {bool}	[checked]		: Whether the radio button is checked.
- * @param {string}	id				: The id of the radio button.
- * @param {string}	name			: The name of the radio group this button is part of.
- * @param {string}	children		: Text to display in the label.
+ * @param {bool}	[disabled]			Whether the radio button is disabled.
+ * @param {bool}	[checked]			Whether the radio button is checked.
+ * @param {string}	[labelTextStyle]	Text style for the label component.
+ * @param {string}	id					The id of the radio button.
+ * @param {string}	name				The name of the radio group this button is part of.
+ * @param {string}	children			Text to display in the label.
  */
 const LabeledRadioButton = forwardRef(
-	({ children, id, name, checked, disabled, ...otherProps }, ref) => {
+	({ children, id, name, checked, disabled, labelTextStyle, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 
 		return (
 			<StyledDiv display="flex" alignItems="center">
 				<RadioButtonComponent name={name} disabled={disabled} checked={checked} id={id} ref={resolvedRef} {...otherProps} />
-				<LabelComponent forId={id} color={disabled ? tuna.darker1 : 'initial'}>
+				<LabelComponent textStyle={labelTextStyle} forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>
 			</StyledDiv>
@@ -39,11 +40,13 @@ LabeledRadioButton.propTypes = {
 	id: PropTypes.string.isRequired,
 	children: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	labelTextStyle: PropTypes.string,
 	disabled: PropTypes.bool,
 	checked: PropTypes.bool,
 };
 
 LabeledRadioButton.defaultProps = {
+	labelTextStyle: '',
 	disabled: false,
 	checked: false,
 };

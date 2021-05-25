@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LabelComponent should match previous snapshot 1`] = `
-<Brevier
+<DynamicTextComponent
   color="#241C15"
   cursor="pointer"
   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
@@ -13,5 +13,22 @@ exports[`LabelComponent should match previous snapshot 1`] = `
   tag="label"
 >
   Test label
-</Brevier>
+</DynamicTextComponent>
+`;
+
+exports[`LabelComponent should match previous snapshot with custom typography 1`] = `
+<DynamicTextComponent
+  color="#241C15"
+  cursor="pointer"
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  htmlFor=""
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  tag="label"
+  typography="doublepica"
+>
+  Test label
+</DynamicTextComponent>
 `;
