@@ -7,6 +7,12 @@ import styled from 'styled-components';
 const StyledNavbarLinkContainer = styled(StyledListItem)(
 	{
 		...navbarLink,
+		'& > * > *::first-letter': {
+			textTransform: 'uppercase',
+		},
+		'& > * > *:not(::first-letter)': {
+			textTransform: 'lowercase',
+		},
 	}
 );
 

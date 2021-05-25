@@ -39,9 +39,14 @@ const navbarLink = {
 	// @TODO: style active link.
 };
 
+const username = {
+	fontWeight: 600,
+};
+
 export {
 	navbar,
 	navbarLogo,
 	navbarLinkList,
 	navbarLink,
+	username,
 };

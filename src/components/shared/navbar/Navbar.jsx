@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import routes from 'routes/keys';
-import { navbar, navbarLinkList } from 'theme/navbar';
+import { navbar, navbarLinkList, username } from 'theme/navbar';
 import { StyledDiv, StyledList } from 'components/shared/styledElements';
 import NavbarLink from './NavbarLink';
 import NavbarLogo from './NavbarLogo';
 import { PrimaryButton } from '../buttons';
 import Link from '../navigation/Link';
+import { Pica } from '../typography';
 
 // @TODO: Add routing.
 /**
@@ -22,14 +23,14 @@ const Navbar = ({ currentUser, t }) => (
 	<StyledDiv as="nav" {...navbar}>
 		<NavbarLogo />
 		<StyledList {...navbarLinkList}>
-			<NavbarLink targetUrl="">{t('navigation.menu.home')}</NavbarLink>
-			{currentUser && <NavbarLink targetUrl="">{t('navigation.menu.my_courses')}</NavbarLink> }
-			<NavbarLink targetUrl="">{t('navigation.menu.about')}</NavbarLink>
-			<NavbarLink targetUrl="">{t('navigation.menu.contact_us')}</NavbarLink>
+			<NavbarLink targetUrl={routes.app.default}>{t('navigation.menu.home')}</NavbarLink>
+			{currentUser && <NavbarLink targetUrl={routes.subjects.default}>{t('navigation.menu.my_courses')}</NavbarLink> }
+			<NavbarLink targetUrl={routes.app.about}>{t('navigation.menu.about')}</NavbarLink>
+			<NavbarLink targetUrl={routes.app.contactUs}>{t('navigation.menu.contact_us')}</NavbarLink>
 		</StyledList>
 		{currentUser && (
 			<StyledDiv>
-				<p>user</p>
+				<Pica {...username}>{currentUser.nickname}</Pica>
 			</StyledDiv>
 		)}
 		{!currentUser && (
@@ -49,7 +50,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-	currentUser: undefined,
+	currentUser: { nickname: 'johnDoe', id: 1 },
 };
 
 export default withTranslation()(Navbar);
