@@ -1,34 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LabelComponent should match previous snapshot 1`] = `
-<DynamicTextComponent
-  color="#241C15"
-  cursor="pointer"
+<styled.label
   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   fontSize=".778rem"
   fontWeight={400}
+  hasError={false}
   htmlFor=""
   letterSpacing={0.32}
   lineHeight="1.125em"
-  tag="label"
 >
   Test label
-</DynamicTextComponent>
+</styled.label>
 `;
 
 exports[`LabelComponent should match previous snapshot with custom typography 1`] = `
-<DynamicTextComponent
-  color="#241C15"
-  cursor="pointer"
+<styled.label
   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   fontSize=".778rem"
   fontWeight={400}
+  hasError={false}
   htmlFor=""
   letterSpacing={0.32}
   lineHeight="1.125em"
-  tag="label"
   typography="doublepica"
 >
   Test label
-</DynamicTextComponent>
+</styled.label>
 `;

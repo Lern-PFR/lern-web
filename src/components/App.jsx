@@ -34,6 +34,7 @@ import {
 	FieldsetComponent,
 	LabeledRadioButton,
 	LabelComponent,
+	LabeledInput,
 } from 'components/shared/form';
 
 /**
@@ -77,30 +78,55 @@ const App = () => (
 			<LabelComponent>Default label component</LabelComponent>
 			<LabelComponent textStyle="bodycopy">BodyCopy label component</LabelComponent>
 		</StyledDiv>
-		<StyledDiv position="relative" display="flex" flexDirection="column">
-			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox checked id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox disabled id="lcb3">Disabled labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox disabled checked id="lcb4">Disabled default checked labeled checkbox</LabeledCheckbox>
-		</StyledDiv>
 		<StyledDiv position="relative">
-			<FieldsetComponent title="Basic fieldset component">
+			<FieldsetComponent title="Basic checkbox components">
 				<LabeledCheckbox id="lcb5">Labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox labelTextStyle="bodycopy" checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled id="lcb7">Disabled labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled checked id="lcb8">Disabled default checked labeled checkbox</LabeledCheckbox>
 			</FieldsetComponent>
 		</StyledDiv>
-		<StyledDiv position="relative" display="flex" flexDirection="column">
-			<LabeledRadioButton name="rg1" id="lrb1">Labeled radio button</LabeledRadioButton>
-			<LabeledRadioButton name="rg1" checked id="lrb2">Default checked labeled radio button</LabeledRadioButton>
-			<LabeledRadioButton name="rg1" disabled id="lrb3">Disabled labeled radio button</LabeledRadioButton>
-		</StyledDiv>
 		<StyledDiv position="relative">
-			<FieldsetComponent title="Basic fieldset component">
+			<FieldsetComponent title="Basic radio button components">
 				<LabeledRadioButton name="rg2" id="lrb5">Labeled radio button</LabeledRadioButton>
 				<LabeledRadioButton labelTextStyle="bodycopy" name="rg2" checked id="lrb6">Default checked labeled radio button</LabeledRadioButton>
 				<LabeledRadioButton name="rg2" disabled id="lrb7">Disabled labeled radio button</LabeledRadioButton>
+			</FieldsetComponent>
+		</StyledDiv>
+		<StyledDiv position="relative" width="500px">
+			<FieldsetComponent title="Text input components">
+				<LabeledInput id="basicTextInput">Labeled text input</LabeledInput>
+				<LabeledInput id="placeholderTextInput" placeholder="Enter details here.">Labeled text input with custom placeholder</LabeledInput>
+				<LabeledInput id="hintTextInput" placeholder="Enter details here." hintText="This is a hint for the user.">Labeled text input with hint</LabeledInput>
+				<LabeledInput
+					id="disabledTextInput"
+					placeholder="Enter details here."
+					hintText="This is a hint for the user."
+					disabled
+				>
+					Disabled labeled text input
+				</LabeledInput>
+				<LabeledInput
+					id="errorTextInput"
+					placeholder="Enter details here."
+					hintText="This is a hint for the user."
+					errorText="There is something wrong with the value in this input"
+					hasError
+					disabled
+				>
+					Disabled labeled text input with a validation error
+				</LabeledInput>
+				<LabeledInput
+					id="errorTextInput"
+					placeholder="Enter details here."
+					hintText="This is a hint for the user."
+					errorText="There is something wrong with the value in this input"
+					hasError
+				>
+					Labeled text input with a validation error
+				</LabeledInput>
+				<LabeledInput id="numberInput" placeholder="Number Input" type="number">Labeled number input</LabeledInput>
+				<LabeledInput id="passwordInput" placeholder="Password Input" type="password">Labeled password input</LabeledInput>
 			</FieldsetComponent>
 		</StyledDiv>
 	</MainLayout>

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonComponent should match previous snapshot 1`] = `
+<styled.input
+  disabled={false}
+  id="inp"
+  placeholder=""
+  type="text"
+/>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for disabled state 1`] = `
+<styled.input
+  border="solid 1px #707070"
+  disabled={true}
+  id="inp"
+  placeholder=""
+  type="text"
+/>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for input with custom placeholder 1`] = `
+<styled.input
+  disabled={false}
+  id="inp"
+  placeholder="Enter details here"
+  type="text"
+/>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for input with specified type 1`] = `
+<styled.input
+  disabled={false}
+  id="inp"
+  placeholder=""
+  type="password"
+/>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for input with validation error 1`] = `
+<styled.input
+  disabled={false}
+  error={true}
+  id="inp"
+  placeholder=""
+  type="text"
+/>
+`;

@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonComponent should match previous snapshot 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={false}
+    hasError={false}
+    id="inp"
+    placeholder=""
+    type="text"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="inp"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={true}
+    hasError={false}
+    id="inp"
+    placeholder=""
+    type="text"
+  />
+  <LabelComponent
+    disabled={true}
+    forId="inp"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled input with custom placeholder 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={false}
+    hasError={false}
+    id="inp"
+    placeholder="Enter details here"
+    type="text"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="inp"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled input with hint 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={false}
+    hasError={false}
+    id="inp"
+    placeholder=""
+    type="text"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="inp"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  >
+    User hint
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled input with specified type 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={false}
+    hasError={false}
+    id="inp"
+    placeholder=""
+    type="password"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="inp"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled input with validation error 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={false}
+    hasError={true}
+    id="inp"
+    placeholder=""
+    type="text"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="inp"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    isErrorMessage={true}
+  >
+    Validation error
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled input with validation error and disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+  marginTop="10px"
+>
+  <InputComponent
+    disabled={true}
+    hasError={true}
+    id="inp"
+    placeholder=""
+    type="text"
+  />
+  <LabelComponent
+    disabled={true}
+    forId="inp"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
