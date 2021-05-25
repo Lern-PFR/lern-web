@@ -111,6 +111,13 @@ export default [
 				exact: true,
 				component: NotionDetailsPage,
 			},
+			{
+				path: keys.notions.lessonDetails,
+				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAuthenticated: true,
+				exact: true,
+				component: NotionDetailsPage,
+			},
 		],
 	},
 	// Lessons

@@ -28,7 +28,9 @@ export default Object.freeze({
 		moduleDetails: '/modules/:id',
 	},
 	notions: {
-		notionDetails: '/notions/:id',
+		default: '/notions',
+		notionDetails: '/notions/:notionId',
+		lessonDetails: '/notions/:notionId/lessons/:lessonId',
 	},
 	lessons: {
 		default: '/lessons',

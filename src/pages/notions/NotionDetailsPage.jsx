@@ -9,6 +9,7 @@ import { pageLayout } from 'theme/pages/notions/notionDetailsPage';
 import { fetchNotion } from 'redux/actions/notions';
 import { LessonContent, Sidebar } from 'components/notions/NotionDetailsPage';
 import { notionDetailsMock } from 'mockedData';
+
 /**
  * @name NotionDetailsPage
  * @description A page used to display a the current notion and its composing lessons.
@@ -17,10 +18,11 @@ import { notionDetailsMock } from 'mockedData';
  *
  * @param {array}			content				An array of the current notion's lessons and exercises.
  * @param {func}			dispatchFetchNotion	Dispatched action creator used to retrieve the current notion.
+ * @param {number|string}	[lessonId]			The current lesson's id.
  * @param {number|string}	notionId			The current notion's id.
  * @param {object}			notion				The current notion.
  */
-const NotionDetailsPage = ({ content, dispatchFetchNotion, notionId, notion }) => {
+const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, notionId, notion }) => {
 	useEffect(() => {
 		dispatchFetchNotion(notionId);
 	}, [dispatchFetchNotion, notionId]);
@@ -32,6 +34,12 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, notionId, notion }) =
 	 * This value should match the order attribute of the lessons and exercises of the current notion.
 	 */
 	const [currentIndex, setCurrentIndex] = useState(0);
+
+	useEffect(() => {
+		if (lessonId) {
+			setCurrentIndex(content.filter(({ id }) => _.isEqual(id, lessonId))[0]?.order || 0);
+		}
+	}, [content, lessonId]);
 
 	/**
 	 * @name onQuestionAnswerSubmit
@@ -60,6 +68,7 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, notionId, notion }) =
 };
 
 NotionDetailsPage.propTypes = {
+	lessonId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	notionId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 	notion: PropTypes.shape({
 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -113,12 +122,16 @@ NotionDetailsPage.propTypes = {
 	dispatchFetchNotion: PropTypes.func.isRequired,
 };
 
+NotionDetailsPage.defaultProps = {
+	lessonId: undefined,
+};
+
 /**
  *
  * @param {*} state
  */
 const mapStateToProps = (state, ownProps) => {
-	const { match: { params: { id: notionId } } } = ownProps;
+	const { match: { params: { notionId, lessonId = undefined } } } = ownProps;
 
 	// @TODO: replace with real information once data can be retrieved from the API.
 	const { exercises, lessons } = notionDetailsMock;
@@ -134,6 +147,7 @@ const mapStateToProps = (state, ownProps) => {
 		notionId,
 		notion: notionDetailsMock.notion,
 		content,
+		lessonId,
 		lessons: notionDetailsMock.lessons,
 		exercises: notionDetailsMock.exercises,
 	};

@@ -3,7 +3,7 @@ import NotionListItem from 'components/modules/NotionListItem';
 
 describe('NotionListItem', () => {
 	it('should match previous snapshot', () => {
-		const sut = (<NotionListItem name="abcd" description="dummy description" />);
+		const sut = (<NotionListItem id="abcd" name="abcd" description="dummy description" />);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
@@ -16,7 +16,7 @@ describe('NotionListItem', () => {
 			{ id: '3', name: 'lesson 3', description: 'Lorem ipsum dolor sit amet.' },
 		];
 
-		const sut = (<NotionListItem name="abcd" description="dummy description" lessons={lessons} />);
+		const sut = (<NotionListItem id="abcd" name="abcd" description="dummy description" lessons={lessons} />);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();

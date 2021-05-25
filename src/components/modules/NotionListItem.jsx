@@ -11,22 +11,27 @@ import LessonListItem from './LessonListItem';
  *
  * @author Timothée Simon-Franza
  *
- * @param {string}	name		The current notion's name.
- * @param {string}	description	The current notion's description.
- * @param {array}	[lessons]	The current notion's lessons.
+ * @param {string|number}	id			The current notion's id.
+ * @param {string}			name		The current notion's name.
+ * @param {string}			description	The current notion's description.
+ * @param {array}			[lessons]	The current notion's lessons.
  */
-const NotionListItem = ({ name, description, lessons }) => (
+const NotionListItem = ({ id, name, description, lessons }) => (
 	<StyledListItem {...notionDataContainer}>
 		<Paragon tag="h2" {...notionName}>{name}</Paragon>
 		<BodyCopy {...notionDescription}>{description}</BodyCopy>
 		<StyledList listStyle="none" {...lessonList}>
 			{lessons && lessons.map(({ id: lessonId, name: lessonName, description: lessonDesc }) => (
-				<LessonListItem key={lessonId} id={lessonId} name={lessonName} description={lessonDesc} />
+				<LessonListItem key={lessonId} id={lessonId} name={lessonName} notionId={id} description={lessonDesc} />
 			))}
 		</StyledList>
 	</StyledListItem>
 );
 NotionListItem.propTypes = {
+	id: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	lessons: PropTypes.arrayOf(PropTypes.shape({
