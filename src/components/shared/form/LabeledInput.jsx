@@ -53,7 +53,6 @@ LabeledInput.displayName = 'LabeledInput';
 LabeledInput.propTypes = {
 	id: PropTypes.string.isRequired,
 	children: PropTypes.string.isRequired,
-	infoText: PropTypes.string,
 	hintText: PropTypes.string,
 	errorText: PropTypes.string,
 	disabled: PropTypes.bool,
@@ -63,7 +62,6 @@ LabeledInput.propTypes = {
 };
 
 LabeledInput.defaultProps = {
-	infoText: '',
 	hintText: '',
 	errorText: '',
 	disabled: false,
