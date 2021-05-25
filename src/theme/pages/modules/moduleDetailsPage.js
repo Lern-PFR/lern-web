@@ -32,6 +32,10 @@ const notionDataContainer = {
 	paddingBottom: '3em',
 };
 
+const startNotionButton = {
+	marginTop: '1em',
+};
+
 const notionName = {
 	lineHeight: 'initial',
 	textTransform: 'capitalize',
@@ -89,4 +93,5 @@ export {
 	lessonListItem,
 	lessonTitle,
 	lessonDescription,
+	startNotionButton,
 };

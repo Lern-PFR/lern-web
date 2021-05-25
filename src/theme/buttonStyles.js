@@ -1,5 +1,5 @@
-import { coconut, crimson, jasmine, oyster, primary as primaryColor, primaryText, tuna } from './colors';
 import { brevier } from './textStyles';
+import { coconut, crimson, jasmine, oyster, parsnip, primary as primaryColor, primaryText, tuna } from './colors';
 
 const commonButtonStyle = {
 	border: 0,
@@ -18,6 +18,16 @@ const primaryLink = {
 	...brevier,
 	display: 'inline-block',
 	fontWeight: 600,
+};
+
+const outlined = {
+	...commonButtonStyle,
+	bg: coconut,
+	border: `solid 1px ${oyster.default}`,
+	color: oyster,
+	hover: {
+		bg: parsnip.lighter2,
+	},
 };
 
 const standard = {
@@ -83,6 +93,7 @@ const floatingActionButton = {
 
 export {
 	primary,
+	outlined,
 	standard,
 	link,
 	subtle,

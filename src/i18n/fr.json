@@ -29,6 +29,11 @@
 				"back_to_subject": "Retourner à la page du sujet"
 			}
 		},
+		"notions": {
+			"links": {
+				"start": "Débuter la notion"
+			}
+		},
 		"lessons": {
 			"links": {
 				"access": "Accéder à la leçon"

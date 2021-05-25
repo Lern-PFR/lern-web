@@ -29,6 +29,11 @@
 				"back_to_subject": "Reurn to the parent subject's page"
 			}
 		},
+		"notions": {
+			"links": {
+				"start": "Start notion"
+			}
+		},
 		"lessons": {
 			"links": {
 				"access": "View lesson"

@@ -8,6 +8,7 @@ import {
 	iconButton,
 	floatingActionButton,
 	primaryLink,
+	outlined,
 } from 'theme/buttonStyles';
 import DynamicButtonComponent from './DynamicButtonComponent';
 import DynamicLinkButtonComponent from './DynamicLinkButtonComponent';
@@ -40,6 +41,20 @@ const PrimaryLinkButton = ({ children, ...otherProps }) => (
 	<DynamicLinkButtonComponent linkStyle={primaryLink} {...primary} {...otherProps}>
 		{children}
 	</DynamicLinkButtonComponent>
+);
+
+/**
+ * @name OutlinedButton
+ * @description Button component to use as primary action when a CTA is already defined.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children : The children to display inside this button.
+ */
+const OutlinedButton = ({ children, ...otherProps }) => (
+	<DynamicButtonComponent {...outlined} {...otherProps}>
+		{children}
+	</DynamicButtonComponent>
 );
 
 /**
@@ -142,6 +157,14 @@ PrimaryLinkButton.propTypes = {
 	]).isRequired,
 };
 
+OutlinedButton.propTypes = {
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.elementType,
+		PropTypes.node,
+	]).isRequired,
+};
+
 StandardButton.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
@@ -192,6 +215,7 @@ FloatingActionButton.propTypes = {
 
 export {
 	FloatingActionButton,
+	OutlinedButton,
 	PrimaryButton,
 	PrimaryLinkButton,
 	StandardButton,

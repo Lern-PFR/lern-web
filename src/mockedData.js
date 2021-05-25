@@ -77,6 +77,7 @@ export const notionDetailsMock = {
 			id: 'lesson-0',
 			name: 'lesson 0',
 			description: 'a lesson description',
+			contentType: 'lesson',
 			content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
 			order: 0,
 			exercise: {
@@ -98,6 +99,7 @@ export const notionDetailsMock = {
 			id: 'lesson-1',
 			name: 'lesson 1',
 			description: 'another lesson description',
+			contentType: 'lesson',
 			content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
 			order: 1,
 		},
@@ -105,6 +107,7 @@ export const notionDetailsMock = {
 			id: 'lesson-2',
 			name: 'lesson 2',
 			description: 'a lesson description',
+			contentType: 'lesson',
 			content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
 			order: 2,
 			exercise: {
@@ -126,6 +129,7 @@ export const notionDetailsMock = {
 			id: 'lesson-4',
 			name: 'lesson 4',
 			description: 'a lesson description',
+			contentType: 'lesson',
 			content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
 			order: 3,
 		},

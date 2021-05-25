@@ -85,7 +85,7 @@ NotionDetailsPage.propTypes = {
 				description: PropTypes.string.isRequired,
 				content: PropTypes.string.isRequired,
 				order: PropTypes.number.isRequired,
-				contentType: PropTypes.exact('lesson').isRequired,
+				contentType: PropTypes.oneOf(['lesson']).isRequired,
 				exercise: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					question: PropTypes.shape({
@@ -104,7 +104,7 @@ NotionDetailsPage.propTypes = {
 			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 				order: PropTypes.number.isRequired,
-				contentType: PropTypes.exact('exercise').isRequired,
+				contentType: PropTypes.oneOf(['exercise']).isRequired,
 				question: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					singleChoice: PropTypes.bool.isRequired,
@@ -148,8 +148,6 @@ const mapStateToProps = (state, ownProps) => {
 		notion: notionDetailsMock.notion,
 		content,
 		lessonId,
-		lessons: notionDetailsMock.lessons,
-		exercises: notionDetailsMock.exercises,
 	};
 };
 

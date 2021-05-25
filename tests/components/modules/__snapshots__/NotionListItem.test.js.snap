@@ -20,6 +20,15 @@ exports[`NotionListItem should match previous snapshot 1`] = `
   >
     dummy description
   </BodyCopy>
+  <OutlinedButton
+    marginTop="1em"
+  >
+    <Link
+      to="/notions/abcd"
+    >
+      notions.links.start
+    </Link>
+  </OutlinedButton>
   <styled.ul
     display="grid"
     gridAutoFlow="row"
@@ -52,6 +61,15 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
   >
     dummy description
   </BodyCopy>
+  <OutlinedButton
+    marginTop="1em"
+  >
+    <Link
+      to="/notions/abcd"
+    >
+      notions.links.start
+    </Link>
+  </OutlinedButton>
   <styled.ul
     display="grid"
     gridAutoFlow="row"

@@ -19,8 +19,8 @@ const StyledDynamicButtonComponent = styled('button')(
 		cursor: 'pointer',
 		textDecoration: (({ txtDecoration }) => txtDecoration || 'initial'),
 		'&:hover': {
-			color: ((props) => props.color.darker1),
-			background: ((props) => props.bg.darker1),
+			color: ((props) => (props.hover?.color || props.color.darker1)),
+			background: ((props) => (props.hover?.bg || props.bg.darker1)),
 		},
 		'& *': {
 			cursor: 'pointer',

@@ -38,8 +38,6 @@ const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSub
 	</aside>
 );
 
-// @TODO: find a way to have PropTypes for an array of multiple shapes.
-
 Sidebar.propTypes = {
 	notionName: PropTypes.string.isRequired,
 	currentLesson: PropTypes.shape({
@@ -71,7 +69,7 @@ Sidebar.propTypes = {
 				description: PropTypes.string.isRequired,
 				content: PropTypes.string.isRequired,
 				order: PropTypes.number.isRequired,
-				contentType: PropTypes.exact('lesson').isRequired,
+				contentType: PropTypes.oneOf(['lesson']).isRequired,
 				exercise: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					question: PropTypes.shape({
@@ -90,7 +88,7 @@ Sidebar.propTypes = {
 			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 				order: PropTypes.number.isRequired,
-				contentType: PropTypes.exact('exercise').isRequired,
+				contentType: PropTypes.oneOf(['exercise']).isRequired,
 				question: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					singleChoice: PropTypes.bool.isRequired,
