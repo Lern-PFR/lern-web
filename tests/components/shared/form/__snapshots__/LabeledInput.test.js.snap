@@ -8,8 +8,8 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
 >
   <InputComponent
     disabled={false}
+    hasError={false}
     id="inp"
-    isErrorMessage={false}
     placeholder=""
     type="text"
   />
@@ -26,7 +26,7 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
     isErrorMessage={false}
   />
   <SubTextComponent
-    isErrorMessage={true}
+    isErrorMessage={false}
   />
 </styled.div>
 `;
@@ -39,8 +39,8 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
 >
   <InputComponent
     disabled={true}
+    hasError={false}
     id="inp"
-    isErrorMessage={false}
     placeholder=""
     type="text"
   />
@@ -57,7 +57,7 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
     isErrorMessage={false}
   />
   <SubTextComponent
-    isErrorMessage={true}
+    isErrorMessage={false}
   />
 </styled.div>
 `;
@@ -70,8 +70,8 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 >
   <InputComponent
     disabled={false}
+    hasError={false}
     id="inp"
-    isErrorMessage={false}
     placeholder="Enter details here"
     type="text"
   />
@@ -88,7 +88,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     isErrorMessage={false}
   />
   <SubTextComponent
-    isErrorMessage={true}
+    isErrorMessage={false}
   />
 </styled.div>
 `;
@@ -101,8 +101,8 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 >
   <InputComponent
     disabled={false}
+    hasError={false}
     id="inp"
-    isErrorMessage={false}
     placeholder=""
     type="text"
   />
@@ -121,7 +121,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     User hint
   </SubTextComponent>
   <SubTextComponent
-    isErrorMessage={true}
+    isErrorMessage={false}
   />
 </styled.div>
 `;
@@ -134,8 +134,8 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 >
   <InputComponent
     disabled={false}
+    hasError={false}
     id="inp"
-    isErrorMessage={false}
     placeholder=""
     type="password"
   />
@@ -152,7 +152,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     isErrorMessage={false}
   />
   <SubTextComponent
-    isErrorMessage={true}
+    isErrorMessage={false}
   />
 </styled.div>
 `;
@@ -166,8 +166,8 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
   <InputComponent
     disabled={false}
     error={true}
+    hasError={false}
     id="inp"
-    isErrorMessage={false}
     placeholder=""
     type="text"
   />
@@ -184,7 +184,7 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
     isErrorMessage={false}
   />
   <SubTextComponent
-    isErrorMessage={true}
+    isErrorMessage={false}
   />
 </styled.div>
 `;
