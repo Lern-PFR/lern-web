@@ -3,13 +3,12 @@ import { withTranslation } from 'react-i18next';
 import routes from 'routes/keys';
 import { navbar, navbarLinkList, username } from 'theme/navbar';
 import { StyledDiv, StyledList } from 'components/shared/styledElements';
+import { Pica } from 'components/shared/typography';
+import { PrimaryButton } from 'components/shared/buttons';
 import NavbarLink from './NavbarLink';
 import NavbarLogo from './NavbarLogo';
-import { PrimaryButton } from '../buttons';
-import Link from '../navigation/Link';
-import { Pica } from '../typography';
+import Link from '../Link';
 
-// @TODO: Add routing.
 /**
  * @name Navbar
  * @description The main navbar component.
@@ -50,7 +49,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-	currentUser: { nickname: 'johnDoe', id: 1 },
+	currentUser: undefined,
 };
 
 export default withTranslation()(Navbar);

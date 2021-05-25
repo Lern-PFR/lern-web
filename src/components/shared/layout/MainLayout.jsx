@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { mainContainerLayout, mainLayout } from 'theme/layout';
-import Navbar from 'components/shared/navbar';
+import { Navbar } from 'components/shared/navigation';
 import { StyledDiv } from 'components/shared/styledElements';
 
 /**

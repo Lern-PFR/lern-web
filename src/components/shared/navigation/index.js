@@ -1,7 +1,7 @@
 import Link from './Link';
+import Navbar from './navbar';
 
 export {
-	// TODO: disable this exception once there is more to export
-	// eslint-disable-next-line import/prefer-default-export
 	Link,
+	Navbar,
 };

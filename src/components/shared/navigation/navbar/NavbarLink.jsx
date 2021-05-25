@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { Link } from 'components/shared/navigation';
+import styled from 'styled-components';
 import { StyledListItem } from 'components/shared/styledElements';
 import { navbarLink } from 'theme/navbar';
-import styled from 'styled-components';
+import Link from '../Link';
 
 const StyledNavbarLinkContainer = styled(StyledListItem)(
 	{

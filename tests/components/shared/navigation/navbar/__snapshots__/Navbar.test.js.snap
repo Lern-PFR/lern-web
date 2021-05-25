@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar should match previous snapshot with an authentified user 1`] = `
+<styled.div
+  alignItems="center"
+  as="nav"
+  backgroundColor="#FFFFFF"
+  display="grid"
+  gridGap="3em"
+  gridTemplateColumns="max-content 1fr max-content"
+  height="80px"
+  paddingX="3em"
+  width="100%"
+>
+  <NavbarLogo />
+  <styled.ul
+    display="flex"
+    flexDirection="row"
+    gridGap="1em"
+    listStyle="none"
+    padding={0}
+  >
+    <NavbarLink
+      targetUrl="/"
+    >
+      navigation.menu.home
+    </NavbarLink>
+    <NavbarLink
+      targetUrl="/subjects"
+    >
+      navigation.menu.my_courses
+    </NavbarLink>
+    <NavbarLink
+      targetUrl="/about"
+    >
+      navigation.menu.about
+    </NavbarLink>
+    <NavbarLink
+      targetUrl="/contact-us"
+    >
+      navigation.menu.contact_us
+    </NavbarLink>
+  </styled.ul>
+  <styled.div>
+    <Pica
+      fontWeight={600}
+    >
+      johnDoe
+    </Pica>
+  </styled.div>
+</styled.div>
+`;
+
+exports[`Navbar should match previous snapshot with no authentified user 1`] = `
+<styled.div
+  alignItems="center"
+  as="nav"
+  backgroundColor="#FFFFFF"
+  display="grid"
+  gridGap="3em"
+  gridTemplateColumns="max-content 1fr max-content"
+  height="80px"
+  paddingX="3em"
+  width="100%"
+>
+  <NavbarLogo />
+  <styled.ul
+    display="flex"
+    flexDirection="row"
+    gridGap="1em"
+    listStyle="none"
+    padding={0}
+  >
+    <NavbarLink
+      targetUrl="/"
+    >
+      navigation.menu.home
+    </NavbarLink>
+    <NavbarLink
+      targetUrl="/about"
+    >
+      navigation.menu.about
+    </NavbarLink>
+    <NavbarLink
+      targetUrl="/contact-us"
+    >
+      navigation.menu.contact_us
+    </NavbarLink>
+  </styled.ul>
+  <PrimaryButton>
+    <Link
+      to="/auth/login"
+    >
+      navigation.menu.sign_in
+    </Link>
+  </PrimaryButton>
+</styled.div>
+`;
