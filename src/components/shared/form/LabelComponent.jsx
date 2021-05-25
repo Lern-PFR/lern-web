@@ -1,13 +1,14 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { flexbox, color } from 'styled-system';
+import { flexbox, color, typography } from 'styled-system';
 import { labelStyle } from 'theme/formStyles';
 import { getTypographyStyleByName } from '../typography';
 
 const StyledLabelComponent = styled('label')(
 	flexbox,
 	color,
+	typography,
 	{ ...labelStyle },
 );
 
@@ -22,10 +23,10 @@ const StyledLabelComponent = styled('label')(
  * @param {string}	children		: The test to be displayed in the label.
  */
 const LabelComponent = ({ children, forId, textStyle, ...otherProps }) => {
-	const typography = useMemo(() => getTypographyStyleByName(textStyle), [textStyle]);
+	const typographyStyle = useMemo(() => getTypographyStyleByName(textStyle), [textStyle]);
 
 	return (
-		<StyledLabelComponent htmlFor={forId} {...typography} {...otherProps}>
+		<StyledLabelComponent htmlFor={forId} {...typographyStyle} {...otherProps}>
 			{children}
 		</StyledLabelComponent>
 	);
