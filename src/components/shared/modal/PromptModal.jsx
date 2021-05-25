@@ -11,14 +11,14 @@ import ModalFooter from './ModalFooter';
  *
  * @author Yann Hodiesne
  *
- * @param {bool}	isShowing	: Determines if the modal is currently being shown to the user
- * @param {string}	message		: The message displayed to the user
- * @param {func}	confirm		: The function to execute when the user clicks on confirm
- * @param {func}	cancel		: The function to execute when the user clicks on cancel
- * @param {string}	confirmText	: The text displayed inside the confirmation button
- * @param {string}	cancelText	: The text displayed inside the cancel button
- * @param {string}	titleText	: The text displayed inside the confirmation button
- * @param {func}	t			: A translation method provided by the withTranslation HoC
+ * @param {bool}	isShowing	Determines if the modal is currently being shown to the user
+ * @param {string}	message		The message displayed to the user
+ * @param {func}	confirm		The function to execute when the user clicks on confirm
+ * @param {func}	cancel		The function to execute when the user clicks on cancel
+ * @param {string}	confirmText	The text displayed inside the confirmation button
+ * @param {string}	cancelText	The text displayed inside the cancel button
+ * @param {string}	titleText	The text displayed inside the confirmation button
+ * @param {func}	t			A translation method provided by the withTranslation HoC
  */
 const PromptModal = ({ isShowing, message, confirm, cancel, confirmText, cancelText, titleText, t }) => (
 	<Modal isShowing={isShowing} title={titleText || t('components.prompt.title')}>

@@ -8,8 +8,8 @@ import { Brevier } from 'components/shared/typography';
  *
  * @author Christopher Walker
  *
- * @param {bool}	[isErrorMessage]			: Whether the subtext is an error display or not.
- * @param {string}	children		: The text to be displayed in the subtext.
+ * @param {bool}	[isErrorMessage]	Whether the subtext is an error display or not.
+ * @param {string}	children			The text to be displayed in the subtext.
  */
 const SubTextComponent = ({ isErrorMessage, children, ...otherProps }) => (
 	<Brevier tag="span" {...(isErrorMessage ? validationStyle : hintStyle)} {...otherProps}>

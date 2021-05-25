@@ -26,9 +26,9 @@ const StyledCheckboxComponent = styled('input')(
  *
  * @author Christopher Walker
  *
- * @param {bool}			[disabled]	: Whether the checkbox is disabled.
- * @param {bool}			[checked]	: Whether the checkbox is checked.
- * @param {string|number}	id			: The id of the checkbox.
+ * @param {bool}			[disabled]		Whether the checkbox is disabled.
+ * @param {bool}			[checked]		Whether the checkbox is checked.
+ * @param {string|number}	id				The id of the checkbox.
  */
 const CheckboxComponent = forwardRef(
 	({ id, checked, disabled, ...otherProps }, ref) => {

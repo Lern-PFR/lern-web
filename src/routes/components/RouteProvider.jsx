@@ -13,8 +13,8 @@ import keys from '../keys';
  *
  * @author Yann Hodiesne
  *
- * @param {func}	dispatchLoginWithToken	: A dispatched redux action creator used to check if the current auth token is valid.
- * @param {object}	currentUser				: The currently authentified user.
+ * @param {func}	dispatchLoginWithToken	A dispatched redux action creator used to check if the current auth token is valid.
+ * @param {object}	currentUser				The currently authentified user.
  */
 const RouteProvider = ({ dispatchLoginWithToken, currentUser }) => {
 	useEffect(() => {

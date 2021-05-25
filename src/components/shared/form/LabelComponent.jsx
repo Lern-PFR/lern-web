@@ -18,9 +18,9 @@ const StyledLabelComponent = styled('label')(
  *
  * @author Christopher Walker
  *
- * @param {string}	[element]		: The id of the element that the label is associated to.
- * @param {string}	[textStyle]	: The text style of the label text.
- * @param {string}	children		: The test to be displayed in the label.
+ * @param {string}	[element]		The id of the element that the label is associated to.
+ * @param {string}	[textStyle]		The text style of the label text.
+ * @param {string}	children		The test to be displayed in the label.
  * @param {bool}	[disabled]		Whether the labels input is disabled or not.
  * @param {bool}	[hasError]		Whether the labels input has an error or not.
  */

@@ -9,12 +9,12 @@ import { history } from './RouterProvider';
  *
  * @author Yann Hodiesne
  *
- * @param {object}	currentUser				: If a user is authenticated, this variable contains its information. Undefined otherwise.
- * @param {string}	redirectAnonymous		: path to target if the user should be authenticated
- * @param {string}	redirectAuthenticated	: path to target if the user should be anonymous
- * @param {*}		fallback				: component to render as a fallback
- * @param {string}	accessRight				: access right to check against the current user rights
- * @param {object}	route 					: route to render
+ * @param {object}	currentUser				If a user is authenticated, this variable contains its information. Undefined otherwise.
+ * @param {string}	redirectAnonymous		Path to target if the user should be authenticated
+ * @param {string}	redirectAuthenticated	Path to target if the user should be anonymous
+ * @param {*}		fallback				Component to render as a fallback
+ * @param {string}	accessRight				Access right to check against the current user rights
+ * @param {object}	route 					Route to render
  */
 const RouteWithSubRoutes = ({ currentUser, redirectAnonymous, redirectAuthenticated, fallback, accessRight, ...route }) => {
 	// Here we check if the user should be redirected to another route
@@ -96,11 +96,11 @@ RouteWithSubRoutes.defaultProps = {
  *
  * @author Yann Hodiesne
  *
- * @param {object}	currentUser				: If a user is authenticated, this variable contains its information. Undefined otherwise.
- * @param {string}	redirectAnonymous		: path to target if the user should be authenticated
- * @param {string}	redirectAuthenticated	: path to target if the user should be anonymous
- * @param {*}		fallback				: component to render as a fallback
- * @param {array}	route					: routes to render
+ * @param {object}	currentUser				If a user is authenticated, this variable contains its information. Undefined otherwise.
+ * @param {string}	redirectAnonymous		Path to target if the user should be authenticated
+ * @param {string}	redirectAuthenticated	Path to target if the user should be anonymous
+ * @param {*}		fallback				Component to render as a fallback
+ * @param {array}	route					Routes to render
  */
 const RenderRoutes = ({ currentUser, redirectAnonymous, redirectAuthenticated, fallback, routes }) => (
 	<Switch>

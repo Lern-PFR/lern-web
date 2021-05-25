@@ -9,7 +9,7 @@ import { StyledDiv } from '../styledElements';
  * @author Yann Hodiesne
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The components to render inside the footer.
+ * @param {*} children The components to render inside the footer.
  */
 const ModalFooter = ({ children, ...otherProps }) => (
 	<StyledDiv {...modalFooter} {...otherProps}>

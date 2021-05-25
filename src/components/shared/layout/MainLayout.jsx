@@ -9,7 +9,7 @@ import { StyledDiv } from 'components/shared/styledElements';
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : Elements to be displayed in the page.
+ * @param {*} children Elements to be displayed in the page.
  */
 const MainLayout = ({ children }) => (
 	<StyledDiv {...mainContainerLayout}>

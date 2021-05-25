@@ -31,8 +31,8 @@ const StyledDynamicTextComponent = styled('p')(
  *
  * @author Timothée Simon-Franza
  *
- * @param {*}		children	: The content to be displayed inside the element.
- * @param {string}	[tag]		: The HTML tag we want the element to be displayed as.
+ * @param {*}		children	The content to be displayed inside the element.
+ * @param {string}	[tag]		The HTML tag we want the element to be displayed as.
  */
 const DynamicTextComponent = ({ children, tag, ...otherProps }) => (
 	<StyledDynamicTextComponent as={tag} {...otherProps}>

@@ -16,7 +16,7 @@ export const history = createBrowserHistory();
  *
  * @author Yann Hodiesne
  *
- * @param {*} children : The children to render inside the Router
+ * @param {*} children The children to render inside the Router
  */
 const RouterProvider = ({ children }) => (
 	<Router history={history}>

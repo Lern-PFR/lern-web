@@ -30,8 +30,8 @@ const StyledFieldsetComponent = styled('fieldset')(
  *
  * @author Christopher Walker
  *
- * @param {string}	title		    : The title of the fieldset.
- * @param {*}	    children		: The child elements of the fieldset.
+ * @param {string}	title		    The title of the fieldset.
+ * @param {*}	    children		The child elements of the fieldset.
  */
 const FieldsetComponent = ({ children, title, ...otherProps }) => (
 	<StyledFieldsetComponent {...groupStyle} {...otherProps}>
