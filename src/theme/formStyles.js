@@ -3,8 +3,8 @@ import {
 	tuna,
 	coconut,
 	jasmine,
-	kale,
 	crimson,
+	primary,
 } from './colors';
 import { brevier } from './textStyles';
 
@@ -125,18 +125,18 @@ const inputStyle = {
 	},
 
 	'&:focus-visible': {
-		border: `solid 2px ${kale.default}`,
+		border: `solid 2px ${primary.default}`,
 
 		'&::placeholder': {
-			color: `${kale.default}`,
+			color: `${primary.default}`,
 		},
 
 		'& + label': {
-			color: `${kale.default}`,
+			color: `${primary.default}`,
 		},
 
 		'& + label + div': {
-			color: `${kale.default}`,
+			color: `${primary.default}`,
 		},
 	},
 };
