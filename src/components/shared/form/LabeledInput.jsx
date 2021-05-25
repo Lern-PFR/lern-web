@@ -19,26 +19,26 @@ import SubTextComponent from './SubTextComponent';
  * @param {bool}	[disabled]			: Whether the input is disabled.
  * @param {string}	[type]				: The type of input, default is text.
  * @param {string}	[placeholder]		: Placeholder text for this input.
- * @param {bool}	[isErrorMessage]	: Whether the subtext is an error display or not.
+ * @param {bool}	[hasError]	: Whether the subtext is an error display or not.
  */
 const LabeledInput = forwardRef(
-	({ id, children, hintText, errorText, disabled, type, placeholder, isErrorMessage, ...otherProps }, ref) => {
+	({ id, children, hintText, errorText, disabled, type, placeholder, hasError, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
-		const errText = isErrorMessage ? errorText : '';
+		const errText = hasError ? errorText : '';
 
 		return (
 			<StyledDiv display="flex" flexDirection="column" marginTop="10px">
-				<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} isErrorMessage={isErrorMessage} {...otherProps} />
+				<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} hasError={hasError} {...otherProps} />
 				<LabelComponent order="-1" forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>
-				{ !isErrorMessage && (
+				{ !hasError && (
 					<SubTextComponent color={disabled ? tuna.darker1 : 'initial'}>
 						{hintText}
 					</SubTextComponent>
 				)}
-				<SubTextComponent isErrorMessage>
+				<SubTextComponent isErrorMessage={hasError}>
 					{errText}
 				</SubTextComponent>
 			</StyledDiv>
@@ -56,7 +56,7 @@ LabeledInput.propTypes = {
 	disabled: PropTypes.bool,
 	type: PropTypes.string,
 	placeholder: PropTypes.string,
-	isErrorMessage: PropTypes.bool,
+	hasError: PropTypes.bool,
 };
 
 LabeledInput.defaultProps = {
@@ -65,7 +65,7 @@ LabeledInput.defaultProps = {
 	disabled: false,
 	type: undefined,
 	placeholder: undefined,
-	isErrorMessage: false,
+	hasError: false,
 };
 
 export default LabeledInput;
