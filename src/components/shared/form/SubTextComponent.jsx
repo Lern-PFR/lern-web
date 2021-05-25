@@ -12,7 +12,7 @@ import { Brevier } from 'components/shared/typography';
  * @param {string}	children		: The text to be displayed in the subtext.
  */
 const SubTextComponent = ({ isErrorMessage, children, ...otherProps }) => (
-	<Brevier tag="div" {...(isErrorMessage ? validationStyle : hintStyle)} {...otherProps}>
+	<Brevier tag="span" {...(isErrorMessage ? validationStyle : hintStyle)} {...otherProps}>
 		{children}
 	</Brevier>
 );

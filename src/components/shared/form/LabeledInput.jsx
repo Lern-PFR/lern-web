@@ -33,14 +33,16 @@ const LabeledInput = forwardRef(
 				<LabelComponent order="-1" forId={id} color={disabled ? tuna.darker1 : 'initial'}>
 					{children}
 				</LabelComponent>
-				{ !hasError && (
+				{!hasError && (
 					<SubTextComponent color={disabled ? tuna.darker1 : 'initial'}>
 						{hintText}
 					</SubTextComponent>
 				)}
-				<SubTextComponent isErrorMessage={hasError}>
-					{errText}
-				</SubTextComponent>
+				{hasError && (
+					<SubTextComponent isErrorMessage={hasError}>
+						{errText}
+					</SubTextComponent>
+				)}
 			</StyledDiv>
 		);
 	}
