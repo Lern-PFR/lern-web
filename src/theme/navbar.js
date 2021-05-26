@@ -1,3 +1,4 @@
+import { navbarHeight } from './constants';
 import { oyster } from './colors';
 import { pica } from './textStyles';
 
@@ -9,7 +10,7 @@ const navbar = {
 	display: 'grid',
 	gridTemplateColumns: 'max-content 1fr max-content',
 	width: '100%',
-	height: '80px',
+	height: `${navbarHeight}px`,
 	gridGap: '3em',
 	alignItems: 'center',
 	paddingX: '3em',

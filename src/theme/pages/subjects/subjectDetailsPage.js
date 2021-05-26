@@ -1,4 +1,5 @@
 import { peppercorn, tuna } from 'theme/colors';
+import { mainLayoutTopPadding, navbarHeight } from 'theme/constants';
 
 const pageLayout = {
 	display: 'grid',
@@ -9,7 +10,7 @@ const pageLayout = {
 
 const subjectDetails = {
 	position: 'sticky',
-	top: '176px', // navbar's height + mainLayout's padding.
+	top: `${navbarHeight + mainLayoutTopPadding}px`,
 };
 
 const subjectName = {

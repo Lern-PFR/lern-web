@@ -1,3 +1,5 @@
+import { mainLayoutTopPadding } from './constants';
+
 const mainContainerLayout = {
 	display: 'flex',
 	flexDirection: 'column',
@@ -8,7 +10,7 @@ const mainContainerLayout = {
 
 const mainLayout = {
 	flex: '1',
-	padding: '64px',
+	padding: `${mainLayoutTopPadding}px`,
 };
 
 export {
