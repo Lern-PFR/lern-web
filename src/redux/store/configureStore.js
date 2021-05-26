@@ -7,7 +7,7 @@ import rootReducer from '../reducers';
  * @function
  * @description Configures Redux store depending on the environment and applies middlewares and enhancers.
  *
- * @param {object} initialState : The initial state value to populate the store with.
+ * @param {object} initialState The initial state value to populate the store with.
  */
 export default (initialState) => {
 	const composeEnhancers = process.env.NODE_ENV !== 'production'

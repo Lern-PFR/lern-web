@@ -10,9 +10,9 @@ import { StyledDiv } from '../styledElements';
  *
  * @author Yann Hodiesne
  *
- * @param {node}	children	: The components to render inside the modal
- * @param {bool}	isShowing	: Determines if the modal is currently being shown to the user
- * @param {string}	title		: The title of the modal, displayed inside its header
+ * @param {node}	children	The components to render inside the modal
+ * @param {bool}	isShowing	Determines if the modal is currently being shown to the user
+ * @param {string}	title		The title of the modal, displayed inside its header
  */
 const Modal = ({ children, isShowing, title }) => {
 	if (!isShowing) {

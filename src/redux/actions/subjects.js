@@ -54,7 +54,7 @@ const fetchSubjectRequest = () => ({ type: ActionTypes.FETCH_SUBJECT_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subject : The subject retrieved from the API.
+ * @param {object} subject The subject retrieved from the API.
  *
  * @returns {object}
  */
@@ -70,7 +70,7 @@ const fetchSubjectSuccess = ({ subject }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -101,8 +101,8 @@ const fetchSubjectListRequest = () => ({ type: ActionTypes.FETCH_SUBJECT_LIST_RE
  *
  * @author Timothée SimonFranza
  *
- * @param {array}	subjects	: The list of subjects retrieved from the API.
- * @param {number}	totalCount	: The total amount of subjects available in the database to the current user.
+ * @param {array}	subjects	The list of subjects retrieved from the API.
+ * @param {number}	totalCount	The total amount of subjects available in the database to the current user.
  *
  * @returns {object}
  */
@@ -118,7 +118,7 @@ const fetchSubjectListSuccess = ({ subjects, totalCount }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {objcet} error : The exception sent back from the API.
+ * @param {objcet} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -149,7 +149,7 @@ const createSubjectRequest = () => ({ type: ActionTypes.CREATE_SUBJECT_REQUEST }
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subject : The newly created subject.
+ * @param {object} subject The newly created subject.
  *
  * @returns {object}
  */
@@ -165,7 +165,7 @@ const createSubjectSuccess = ({ subject }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -196,7 +196,7 @@ const updateSubjectRequest = () => ({ type: ActionTypes.UPDATE_SUBJECT_REQUEST }
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subject : The updated subject object.
+ * @param {object} subject The updated subject object.
  *
  * @returns {object}
  */
@@ -212,7 +212,7 @@ const updateSubjectSuccess = ({ subject }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -243,7 +243,7 @@ const deleteSubjectRequest = () => ({ type: ActionTypes.DELETE_SUBJECT_REQUEST }
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subject : The deleted subject object.
+ * @param {object} subject The deleted subject object.
  *
  * @returns {object}
  */
@@ -259,7 +259,7 @@ const deleteSubjectSuccess = ({ subject }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -294,7 +294,7 @@ const clearSubjectListAction = () => ({ type: ActionTypes.CLEAR_SUBJECT_LIST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} subjectId : The id of the subject we want to retrieve.
+ * @param {string} subjectId The id of the subject we want to retrieve.
  */
 export const fetchSubject = (subjectId) => (dispatch) => {
 	dispatch(fetchSubjectRequest());
@@ -326,7 +326,7 @@ export const fetchSubjectList = () => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subjectData : The data to create the new subject from.
+ * @param {object} subjectData The data to create the new subject from.
  */
 export const createSubject = (subjectData) => (dispatch) => {
 	dispatch(createSubjectRequest());
@@ -343,8 +343,8 @@ export const createSubject = (subjectData) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subjectData	: The data to update the subject with.
- * @param {string} subjectId	: The id to identify the subject to update.
+ * @param {object} subjectData	The data to update the subject with.
+ * @param {string} subjectId	The id to identify the subject to update.
  */
 export const updateSubject = (subjectData, subjectId) => (dispatch) => {
 	dispatch(updateSubjectRequest());
@@ -361,7 +361,7 @@ export const updateSubject = (subjectData, subjectId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} subjectId : The id identifying the subject to remove.
+ * @param {string} subjectId The id identifying the subject to remove.
  */
 export const deleteSubject = (subjectId) => (dispatch) => {
 	dispatch(deleteSubjectRequest());

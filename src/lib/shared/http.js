@@ -44,7 +44,7 @@ export const getHeaders = () => {
  * @author Timothée Simon-Franza
  * @author Yann Hodiesne
  *
- * @param {object} params : The object to convert to QS.
+ * @param {object} params The object to convert to QS.
  *
  * @returns {string}
  */
@@ -66,7 +66,7 @@ export const objectToQS = (params) => Object
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} response : The response to handle.
+ * @param {object} response The response to handle.
  *
  * @returns {Promise | object}
  */
@@ -93,7 +93,7 @@ export const handleResponse = (response) => {
  *
  * @author Yann Hodiesne
  *
- * @param {object} error : The error to handle.
+ * @param {object} error The error to handle.
  *
  * @returns {Promise.reject}
  */
@@ -113,8 +113,8 @@ export const handleError = (error) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} url	: The url to target.
- * @param {object} body	: The body to include.
+ * @param {string} url	The url to target.
+ * @param {object} body	The body to include.
  *
  * @returns {Promise | object}
  */
@@ -131,8 +131,8 @@ export const post = (url, body) => fetch(`${baseUrl}${url}`, {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} url		: The url to target.
- * @param {objcet} qsObject	: The object to convert into a query string.
+ * @param {string} url		The url to target.
+ * @param {objcet} qsObject	The object to convert into a query string.
  *
  * @returns {Promise | object}
  */
@@ -152,8 +152,8 @@ export const get = (url, qsObject) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} url : The url to target.
- * @param {object} body : The body to include.
+ * @param {string} url The url to target.
+ * @param {object} body The body to include.
  */
 export const put = (url, body) => fetch(`${baseUrl}${url}`, {
 	method: 'PUT',
@@ -168,7 +168,7 @@ export const put = (url, body) => fetch(`${baseUrl}${url}`, {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} url : The url to target.
+ * @param {string} url The url to target.
  */
 export const del = (url) => fetch(`${baseUrl}${url}`, {
 	method: 'DELETE',

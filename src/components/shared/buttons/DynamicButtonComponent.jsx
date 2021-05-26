@@ -40,10 +40,10 @@ const StyledDynamicButtonComponent = styled('button')(
  * @name DynamicButtonComponent
  * @description A dynamic component used to display styled button element.
  *
- * @param {*}		children		: text or component to display inside the button.
- * @param {bool}	[disabled]		: Whather the button is disabled.
- * @param {bool}	[isIconOnly]	: Whether the button only contains an icon.
- * @param {func}	[onClick]		: Function to trigger on user click.
+ * @param {*}		children		Text or component to display inside the button.
+ * @param {bool}	[disabled]		Whather the button is disabled.
+ * @param {bool}	[isIconOnly]	Whether the button only contains an icon.
+ * @param {func}	[onClick]		Function to trigger on user click.
  */
 const DynamicButtonComponent = ({ children, disabled, isIconOnly, onClick, ...otherProps }) => (
 	<StyledDynamicButtonComponent onClick={onClick} {...otherProps} {...(disabled ? disabledStyle : {})}>

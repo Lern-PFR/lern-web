@@ -54,7 +54,7 @@ const fetchNotionRequest = () => ({ type: ActionTypes.FETCH_NOTION_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} notion : The notion retrieved from the API.
+ * @param {object} notion The notion retrieved from the API.
  *
  * @returns {object}
  */
@@ -70,7 +70,7 @@ const fetchNotionSuccess = ({ notion }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -101,8 +101,8 @@ const fetchNotionListRequest = () => ({ type: ActionTypes.FETCH_NOTION_LIST_REQU
  *
  * @author Timothée Simon-Franza
  *
- * @param {array}	notions		: The list of notions retrieved from the API.
- * @param {number}	totalCount	: The total amount of notions available for the module.
+ * @param {array}	notions		The list of notions retrieved from the API.
+ * @param {number}	totalCount	The total amount of notions available for the module.
  *
  * @returns {object}
  */
@@ -118,7 +118,7 @@ const fetchNotionListSuccess = ({ notions, totalCount }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -149,7 +149,7 @@ const createNotionRequest = () => ({ type: ActionTypes.CREATE_NOTION_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} notion : The newly created notion.
+ * @param {object} notion The newly created notion.
  *
  * @returns {object}
  */
@@ -165,7 +165,7 @@ const createNotionSuccess = ({ notion }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -196,7 +196,7 @@ const updateNotionRequest = () => ({ type: ActionTypes.UPDATE_NOTION_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} notion : The updated notion object.
+ * @param {object} notion The updated notion object.
  *
  * @returns {object}
  */
@@ -212,7 +212,7 @@ const updateNotionSuccess = ({ notion }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -243,7 +243,7 @@ const deleteNotionRequest = () => ({ type: ActionTypes.DELETE_NOTION_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} notion : The deleted notion object.
+ * @param {object} notion The deleted notion object.
  *
  * @returns {object}
  */
@@ -259,7 +259,7 @@ const deleteNotionSuccess = ({ notion }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -294,7 +294,7 @@ const clearNotionListAction = () => ({ type: ActionTypes.CLEAR_NOTION_LIST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} notionId : The id of the notion we want to retrieve.
+ * @param {string} notionId The id of the notion we want to retrieve.
  */
 export const fetchNotion = (notionId) => (dispatch) => {
 	dispatch(fetchNotionRequest());
@@ -311,7 +311,7 @@ export const fetchNotion = (notionId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} moduleId : The id of the module we want to retrieve notions from.
+ * @param {string} moduleId The id of the module we want to retrieve notions from.
  */
 export const fetchNotionListByModuleId = (moduleId) => (dispatch) => {
 	dispatch(fetchNotionListRequest());
@@ -328,7 +328,7 @@ export const fetchNotionListByModuleId = (moduleId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} notionData : The data to create the new notion from.
+ * @param {object} notionData The data to create the new notion from.
  */
 export const createNotion = (notionData) => (dispatch) => {
 	dispatch(createNotionRequest());
@@ -345,8 +345,8 @@ export const createNotion = (notionData) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} notionData	: The data to update the notion with.
- * @param {string} notionId		: The id to identify the notion to update.
+ * @param {object} notionData	The data to update the notion with.
+ * @param {string} notionId		The id to identify the notion to update.
  */
 export const updateNotion = (notionData, notionId) => (dispatch) => {
 	dispatch(updateNotionRequest());
@@ -363,7 +363,7 @@ export const updateNotion = (notionData, notionId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} notionId : The id identifying the notion to remove.
+ * @param {string} notionId The id identifying the notion to remove.
  */
 export const deleteNotion = (notionId) => (dispatch) => {
 	dispatch(deleteNotionRequest());

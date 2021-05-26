@@ -22,7 +22,7 @@ import DynamicLinkButtonComponent from './DynamicLinkButtonComponent';
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const PrimaryButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...primary} {...otherProps}>
@@ -64,7 +64,7 @@ const OutlinedButton = ({ children, ...otherProps }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const StandardButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...standard} {...otherProps}>
@@ -78,7 +78,7 @@ const StandardButton = ({ children, ...otherProps }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const SubtleButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...subtle} {...otherProps}>
@@ -106,7 +106,7 @@ const SubtleLinkButton = ({ children, ...otherProps }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const DropdownButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...dropdown} {...otherProps}>
@@ -120,7 +120,7 @@ const DropdownButton = ({ children, ...otherProps }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const DangerButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...danger} {...otherProps}>
@@ -134,7 +134,7 @@ const DangerButton = ({ children, ...otherProps }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const IconButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...iconButton} {...otherProps} isIconOnly>
@@ -148,7 +148,7 @@ const IconButton = ({ children, ...otherProps }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The children to display inside this button.
+ * @param {*} children The children to display inside this button.
  */
 const FloatingActionButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...floatingActionButton} {...otherProps}>

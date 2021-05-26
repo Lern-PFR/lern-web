@@ -9,7 +9,7 @@ import routes from 'routes';
  *
  * @author Yann Hodiesne
  *
- * @param {function} t : The i18next translation method.
+ * @param {function} t The i18next translation method.
  */
 const NotFoundPage = ({ t }) => (
 	<>

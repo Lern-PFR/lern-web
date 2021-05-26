@@ -54,7 +54,7 @@ const fetchLessonRequest = () => ({ type: ActionTypes.FETCH_LESSON_REQUEST });
   *
   * @author Timothée Simon-Franza
   *
-  * @param {object} lesson : The lesson retrieved from the API.
+  * @param {object} lesson The lesson retrieved from the API.
   *
   * @returns {object}
   */
@@ -70,7 +70,7 @@ const fetchLessonSuccess = ({ lesson }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -101,8 +101,8 @@ const fetchLessonListRequest = () => ({ type: ActionTypes.FETCH_LESSON_LIST_REQU
   *
   * @author Timothée Simon-Franza
   *
-  * @param {array}	lessons		: The list of lessons retrieved from the API.
-  * @param {number}	totalCount	: The total amount of lessons available for the notion.
+  * @param {array}	lessons		The list of lessons retrieved from the API.
+  * @param {number}	totalCount	The total amount of lessons available for the notion.
   *
   * @returns {object}
   */
@@ -118,7 +118,7 @@ const fetchLessonListSuccess = ({ lessons, totalCount }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -149,7 +149,7 @@ const createLessonRequest = () => ({ type: ActionTypes.CREATE_LESSON_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} lesson : The newly created lesson.
+ * @param {object} lesson The newly created lesson.
  *
  * @returns {object}
  */
@@ -165,7 +165,7 @@ const createLessonSuccess = ({ lesson }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -196,7 +196,7 @@ const updateLessonRequest = () => ({ type: ActionTypes.UPDATE_LESSON_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} lesson : The updated lesson object.
+ * @param {object} lesson The updated lesson object.
  *
  * @returns {object}
  */
@@ -212,7 +212,7 @@ const updateLessonSuccess = ({ lesson }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -243,7 +243,7 @@ const deleteLessonRequest = () => ({ type: ActionTypes.DELETE_LESSON_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} lesson : The deleted lesson object.
+ * @param {object} lesson The deleted lesson object.
  *
  * @returns {object}
  */
@@ -259,7 +259,7 @@ const deleteLessonSuccess = ({ lesson }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -294,7 +294,7 @@ const clearLessonListAction = () => ({ type: ActionTypes.CLEAR_LESSON_LIST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} lessonId : The id of the lesson we want to retrieve.
+ * @param {string} lessonId The id of the lesson we want to retrieve.
  */
 export const fetchLesson = (lessonId) => (dispatch) => {
 	dispatch(fetchLessonRequest());
@@ -311,7 +311,7 @@ export const fetchLesson = (lessonId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} notionId : The id of the notion we want to retrieve lessons from.
+ * @param {string} notionId The id of the notion we want to retrieve lessons from.
  */
 export const fetchLessonListByNotionId = (notionId) => (dispatch) => {
 	dispatch(fetchLessonListRequest());
@@ -328,7 +328,7 @@ export const fetchLessonListByNotionId = (notionId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} lessonData : The data to create the new lesson from.
+ * @param {object} lessonData The data to create the new lesson from.
  */
 export const createLesson = (lessonData) => (dispatch) => {
 	dispatch(createLessonRequest());
@@ -345,8 +345,8 @@ export const createLesson = (lessonData) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} lessonData	: The data to update the lesson with.
- * @param {string} lessonId		: The id to identify the lesson to update.
+ * @param {object} lessonData	The data to update the lesson with.
+ * @param {string} lessonId		The id to identify the lesson to update.
  */
 export const updateLesson = (lessonData, lessonId) => (dispatch) => {
 	dispatch(updateLessonRequest());
@@ -363,7 +363,7 @@ export const updateLesson = (lessonData, lessonId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} lessonId : The id identifying the lesson to remove.
+ * @param {string} lessonId The id identifying the lesson to remove.
  */
 export const deleteLesson = (lessonId) => (dispatch) => {
 	dispatch(deleteLessonRequest());

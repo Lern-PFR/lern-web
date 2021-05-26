@@ -42,7 +42,7 @@ export const getTypographyStyleByName = (textStyleName) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const Canon = ({ children, ...props }) => (
 	<DynamicTextComponent {...canon} {...props}>
@@ -56,7 +56,7 @@ const Canon = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const Trafalgar = ({ children, ...props }) => (
 	<DynamicTextComponent {...trafalgar} {...props}>
@@ -70,7 +70,7 @@ const Trafalgar = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const Paragon = ({ children, ...props }) => (
 	<DynamicTextComponent {...paragon} {...props}>
@@ -84,7 +84,7 @@ const Paragon = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const DoublePica = ({ children, ...props }) => (
 	<DynamicTextComponent {...doublePica} {...props}>
@@ -98,7 +98,7 @@ const DoublePica = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const GreatPrimer = ({ children, ...props }) => (
 	<DynamicTextComponent {...greatPrimer} {...props}>
@@ -112,7 +112,7 @@ const GreatPrimer = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const BodyCopy = ({ children, ...props }) => (
 	<DynamicTextComponent {...bodyCopy} {...props}>
@@ -126,7 +126,7 @@ const BodyCopy = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const Pica = ({ children, ...props }) => (
 	<DynamicTextComponent {...pica} {...props}>
@@ -140,7 +140,7 @@ const Pica = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const LongPrimer = ({ children, ...props }) => (
 	<DynamicTextComponent {...longPrimer} {...props}>
@@ -154,7 +154,7 @@ const LongPrimer = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const Brevier = ({ children, ...props }) => (
 	<DynamicTextComponent {...brevier} {...props}>
@@ -168,7 +168,7 @@ const Brevier = ({ children, ...props }) => (
  *
  * @author Timothée Simon-Franza
  *
- * @param {*} children : The text to be displayed.
+ * @param {*} children The text to be displayed.
  */
 const Minion = ({ children, ...props }) => (
 	<DynamicTextComponent {...minion} {...props}>

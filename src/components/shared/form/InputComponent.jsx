@@ -25,11 +25,11 @@ const StyledInputComponent = styled('input')(
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]			: Whether the input is disabled.
- * @param {string}	[type]				: The type of input, default is text.
- * @param {string}	[placeholder]		: Placeholder text for this input.
- * @param {bool}	[hasError]			: Whether the input contains a validation error.
- * @param {string}	id					: The id of the input.
+ * @param {bool}	[disabled]		Whether the input is disabled.
+ * @param {string}	[type]			The type of input, default is text.
+ * @param {string}	[placeholder]	Placeholder text for this input.
+ * @param {bool}	[hasError]		Whether the input contains a validation error.
+ * @param {string}	id				The id of the input.
  */
 
 const InputComponent = forwardRef(

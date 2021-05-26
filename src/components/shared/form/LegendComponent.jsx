@@ -32,7 +32,7 @@ const StyledLegendComponent = styled('legend')(
  *
  * @author Christopher Walker
  *
- * @param {string}	children		: Test to display as the legend.
+ * @param {string}	children		Test to display as the legend.
  */
 const LegendComponent = ({ children, ...otherProps }) => (
 	<StyledLegendComponent {...otherProps}>

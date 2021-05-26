@@ -54,7 +54,7 @@ const fetchModuleRequest = () => ({ type: ActionTypes.FETCH_MODULE_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} module : The module retrieved from the API.
+ * @param {object} module The module retrieved from the API.
  *
  * @returns {object}
  */
@@ -70,7 +70,7 @@ const fetchModuleSuccess = ({ module }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -101,8 +101,8 @@ const fetchModuleListRequest = () => ({ type: ActionTypes.FETCH_MODULE_LIST_REQU
  *
  * @author Timothée Simon-Franza
  *
- * @param {array}	modules		: The list of modules retrieved from the API.
- * @param {number}	totalCount	: The total amount of modules available for the subject.
+ * @param {array}	modules		The list of modules retrieved from the API.
+ * @param {number}	totalCount	The total amount of modules available for the subject.
  *
  * @returns {object}
  */
@@ -118,7 +118,7 @@ const fetchModuleListSuccess = ({ modules, totalCount }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -149,7 +149,7 @@ const createModuleRequest = () => ({ type: ActionTypes.CREATE_MODULE_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} module : The newly created module.
+ * @param {object} module The newly created module.
  *
  * @returns {object}
  */
@@ -165,7 +165,7 @@ const createModuleSuccess = ({ module }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -196,7 +196,7 @@ const updateModuleRequest = () => ({ type: ActionTypes.UPDATE_MODULE_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} module : The updated module object.
+ * @param {object} module The updated module object.
  *
  * @returns {object}
  */
@@ -212,7 +212,7 @@ const updateModuleSuccess = ({ module }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -243,7 +243,7 @@ const deleteModuleRequest = () => ({ type: ActionTypes.DELETE_MODULE_REQUEST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} module : The deleted module object.
+ * @param {object} module The deleted module object.
  *
  * @returns {object}
  */
@@ -259,7 +259,7 @@ const deleteModuleSuccess = ({ module }) => ({
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} error : The exception sent back from the API.
+ * @param {object} error The exception sent back from the API.
  *
  * @returns {object}
  */
@@ -294,7 +294,7 @@ const clearModuleListAction = () => ({ type: ActionTypes.CLEAR_MODULE_LIST });
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} moduleId : The id of the module we want to retrieve.
+ * @param {string} moduleId The id of the module we want to retrieve.
  */
 export const fetchModule = (moduleId) => (dispatch) => {
 	dispatch(fetchModuleRequest());
@@ -311,7 +311,7 @@ export const fetchModule = (moduleId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} subjectId : The id of the subject we want to retrieve modules from.
+ * @param {string} subjectId The id of the subject we want to retrieve modules from.
  */
 export const fetchModuleListBySubjectId = (subjectId) => (dispatch) => {
 	dispatch(fetchModuleListRequest());
@@ -328,7 +328,7 @@ export const fetchModuleListBySubjectId = (subjectId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} moduleData : The data to create the new module from.
+ * @param {object} moduleData The data to create the new module from.
  */
 export const createModule = (moduleData) => (dispatch) => {
 	dispatch(createModuleRequest());
@@ -345,8 +345,8 @@ export const createModule = (moduleData) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} moduleData	: The data to update the module with.
- * @param {string} moduleId		: The id to identify the module to update.
+ * @param {object} moduleData	The data to update the module with.
+ * @param {string} moduleId		The id to identify the module to update.
  */
 export const updateModule = (moduleData, moduleId) => (dispatch) => {
 	dispatch(updateModuleRequest());
@@ -363,7 +363,7 @@ export const updateModule = (moduleData, moduleId) => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} moduleId : The id identifying the module to remove.
+ * @param {string} moduleId The id identifying the module to remove.
  */
 export const deleteModule = (moduleId) => (dispatch) => {
 	dispatch(deleteModuleRequest());

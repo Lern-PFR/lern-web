@@ -12,14 +12,14 @@ import SubTextComponent from './SubTextComponent';
  *
  * @author Christopher Walker
  *
- * @param {string}	id					: The id of the input.
- * @param {string}	children			: The text to be displayed in the label.
- * @param {string}	[hintText]			: The text to be displayed in the hint.
- * @param {string}	[errorText]			: The text to be displayed in the validation error.
- * @param {bool}	[disabled]			: Whether the input is disabled.
- * @param {string}	[type]				: The type of input, default is text.
- * @param {string}	[placeholder]		: Placeholder text for this input.
- * @param {bool}	[hasError]	: Whether the subtext is an error display or not.
+ * @param {string}	id				The id of the input.
+ * @param {string}	children		The text to be displayed in the label.
+ * @param {string}	[hintText]		The text to be displayed in the hint.
+ * @param {string}	[errorText]		The text to be displayed in the validation error.
+ * @param {bool}	[disabled]		Whether the input is disabled.
+ * @param {string}	[type]			The type of input, default is text.
+ * @param {string}	[placeholder]	Placeholder text for this input.
+ * @param {bool}	[hasError]		Whether the subtext is an error display or not.
  */
 const LabeledInput = forwardRef(
 	({ id, children, hintText, errorText, disabled, type, placeholder, hasError, ...otherProps }, ref) => {
