@@ -47,7 +47,7 @@ const ModuleDetailsPage = ({ dispatchFetchNotionList, dispatchClearNotionList, m
 				<SubtleLinkButton {...backToListButton}>
 					<Link to={generatePath(routes.subjects.subjectDetails, { subjectId: module?.subjectId })}>
 						<StyledDiv {...backToParentButtonContentLayout}>
-							<StyledSvg src={`${conf.svgPath}/ChevronLeft.svg`} {...backToSubjectSvg} />
+							<StyledSvg src={`${conf.svgPath}/chevronLeft.svg`} {...backToSubjectSvg} />
 							{t('modules.links.back_to_subject')}
 						</StyledDiv>
 					</Link>

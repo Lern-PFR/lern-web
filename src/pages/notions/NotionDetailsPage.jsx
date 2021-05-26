@@ -66,7 +66,7 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, module, not
 					<SubtleLinkButton padding="0">
 						<Link to={generatePath(routes.modules.moduleDetails, { moduleId: module.id })}>
 							<StyledDiv {...backToParentButtonContentLayout}>
-								<StyledSvg src={`${conf.svgPath}/ChevronLeft.svg`} {...backToModuleSvg} />
+								<StyledSvg src={`${conf.svgPath}/chevronLeft.svg`} {...backToModuleSvg} />
 								{t('notions.links.back_to_module', { module })}
 							</StyledDiv>
 						</Link>
