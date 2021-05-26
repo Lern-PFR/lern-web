@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StyledListItem } from 'components/shared/layout';
+import { StyledListItem } from 'components/shared/styledElements';
 import { BodyCopy, GreatPrimer } from 'components/shared/typography';
 import { withTranslation } from 'react-i18next';
 import { SubtleButton } from 'components/shared/buttons';

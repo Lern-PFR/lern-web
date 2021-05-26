@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { DoublePica } from 'components/shared/typography';
 import { modal, modalBackdrop, modalHeader, modalWrapper } from 'theme/modalStyles';
-import { StyledDiv } from '../layout';
+import { StyledDiv } from '../styledElements';
 
 /**
  * @name Modal

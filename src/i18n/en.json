@@ -6,6 +6,15 @@
                 "home_page": "Back to the home page"
             }
         },
+		"navigation": {
+			"menu": {
+				"home": "Home",
+				"my_courses": "My courses",
+				"about": "About us",
+				"contact_us": "Contact us",
+				"sign_in": "Sign in"
+			}
+		},
 		"subjects": {
 			"links": {
 				"back_to_list": "Back to subject list",

@@ -3,6 +3,15 @@ export default Object.freeze({
 	app: {
 		default: '/',
 	},
+	about: {
+		default: '/about',
+	},
+	contactUs: {
+		default: '/contact-us',
+	},
+	home: {
+		default: '/home',
+	},
 	auth: {
 		default: '/auth',
 		login: '/auth/login',

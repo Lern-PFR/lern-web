@@ -3,6 +3,7 @@ import { Home } from 'react-feather';
 
 import {
 	PrimaryButton,
+	PrimaryLinkButton,
 	StandardButton,
 	SubtleButton,
 	DropdownButton,
@@ -15,6 +16,15 @@ describe('Exported buttons elements', () => {
 	describe('PrimaryButton', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<PrimaryButton>Primary button</PrimaryButton>);
+			const wrapper = shallow(sut);
+
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	describe('PrimaryButton', () => {
+		it('should match previous snapshot', () => {
+			const sut = (<PrimaryLinkButton>Primary Link button</PrimaryLinkButton>);
 			const wrapper = shallow(sut);
 
 			expect(wrapper).toMatchSnapshot();

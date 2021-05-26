@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StyledList, StyledListItem } from 'components/shared/layout';
+import { StyledList, StyledListItem } from 'components/shared/styledElements';
 import { BodyCopy, Paragon } from 'components/shared/typography';
 import { lessonList, notionDataContainer, notionDescription, notionName } from 'theme/pages/modules/moduleDetailsPage';
 

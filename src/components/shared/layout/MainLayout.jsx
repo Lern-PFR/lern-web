@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { mainContainerLayout, mainLayout } from 'theme/layout';
-import StyledDiv from './StyledDiv';
+import { Navbar } from 'components/shared/navigation';
+import { StyledDiv } from 'components/shared/styledElements';
 
 /**
  * @name MainLayout
@@ -12,8 +13,7 @@ import StyledDiv from './StyledDiv';
  */
 const MainLayout = ({ children }) => (
 	<StyledDiv {...mainContainerLayout}>
-		{/* @TODO: replace next line with custom Navbar react component. */}
-		<nav />
+		<Navbar />
 		<StyledDiv as="main" {...mainLayout}>
 			{children}
 		</StyledDiv>

@@ -19,6 +19,28 @@ export default [
 		allowAnonymous: true,
 		component: App,
 	},
+	{
+		path: keys.about.default,
+		exact: true,
+		allowAnonymous: true,
+		allowAuthenticated: true,
+		component: () => <p>About</p>,
+	},
+	{
+		path: keys.contactUs.default,
+		exact: true,
+		allowAnonymous: true,
+		allowAuthenticated: true,
+		component: () => <p>Contact us</p>,
+	},
+	// Home
+	{
+		path: keys.home.default,
+		exact: true,
+		allowAnonymous: true,
+		allowAuthenticated: true,
+		component: () => <p>Home</p>,
+	},
 	// Auth
 	{
 		path: keys.auth.default,

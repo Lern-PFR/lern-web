@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavbarLink should match previous snapshot 1`] = `
+<Styled(styled.li)
+  &:hover={
+    Object {
+      "fontWeight": 600,
+    }
+  }
+  color="#403B3B"
+  cursor="pointer"
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize="1rem"
+  fontWeight={400}
+  letterSpacing={0.16}
+  lineHeight="1.5em"
+  textAlign="center"
+  transition="font-weight .1s ease-out"
+>
+  <Styled(NavLink)
+    activeStyle={
+      Object {
+        "fontWeight": 600,
+      }
+    }
+    to=""
+  >
+    test
+  </Styled(NavLink)>
+</Styled(styled.li)>
+`;

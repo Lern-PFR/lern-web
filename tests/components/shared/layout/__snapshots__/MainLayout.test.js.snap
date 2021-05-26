@@ -5,13 +5,15 @@ exports[`MainLayout should match previous snapshot 1`] = `
   display="flex"
   flexDirection="column"
   height="100%"
+  overflow="auto"
   width="100%"
 >
-  <nav />
+  <Navbar
+    t={[Function]}
+  />
   <styled.div
     as="main"
     flex="1"
-    overflow="auto"
     padding="64px"
   >
     <p>

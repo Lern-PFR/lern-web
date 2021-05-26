@@ -25,7 +25,7 @@ exports[`ModuleListItem should match previous disabled-state snapshot 1`] = `
   >
     dummy description
   </BodyCopy>
-  <PrimaryButton
+  <PrimaryLinkButton
     disabled={true}
     width="max-content"
   >
@@ -35,7 +35,7 @@ exports[`ModuleListItem should match previous disabled-state snapshot 1`] = `
     >
       subjects.links.module
     </Link>
-  </PrimaryButton>
+  </PrimaryLinkButton>
 </Styled(styled.li)>
 `;
 
@@ -64,7 +64,7 @@ exports[`ModuleListItem should match previous snapshot 1`] = `
   >
     dummy description
   </BodyCopy>
-  <PrimaryButton
+  <PrimaryLinkButton
     disabled={false}
     width="max-content"
   >
@@ -74,6 +74,6 @@ exports[`ModuleListItem should match previous snapshot 1`] = `
     >
       subjects.links.module
     </Link>
-  </PrimaryButton>
+  </PrimaryLinkButton>
 </Styled(styled.li)>
 `;

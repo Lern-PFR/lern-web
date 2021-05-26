@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import styled from 'styled-components';
-import {
-	color,
-} from 'styled-system';
+import { color, layout, space } from 'styled-system';
 
 const StyledLink = styled(ReactRouterLink)(
 	{
 		cursor: 'inherit',
 		color: 'inherit',
-		fontSize: 'inherit',
-		fontWeight: 'inherit',
+		fontFamily: 'inherit',
+		fontSize: (({ fontSize }) => (fontSize || 'inherit')),
+		fontWeight: (({ fontWeight }) => (fontWeight || 'inherit')),
 		textDecoration: 'inherit',
 	},
 	color,
+	layout,
+	space,
 );
 
 /**

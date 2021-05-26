@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DynamicLinkButtonComponent should match previous snapshot 1`] = `
+<styled.button>
+  <Component
+    disabled={false}
+  />
+</styled.button>
+`;
+
+exports[`DynamicLinkButtonComponent should match previous snapshot for disabled state 1`] = `
+<styled.button
+  bg="F6F6F4"
+  color="#8C8C8C"
+>
+  <Component
+    disabled={true}
+  />
+</styled.button>
+`;

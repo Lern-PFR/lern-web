@@ -2,6 +2,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import RouterProvider from 'routes/components/RouterProvider';
 import RouteProvider from 'routes/components/RouteProvider';
+import { MainLayout } from 'components/shared/layout';
 
 import 'lib/shared/i18n';
 import configureStore from './redux/store/configureStore';
@@ -18,7 +19,9 @@ const store = configureStore();
 const Root = () => (
 	<Provider store={store}>
 		<RouterProvider>
-			<RouteProvider />
+			<MainLayout>
+				<RouteProvider />
+			</MainLayout>
 		</RouterProvider>
 	</Provider>
 );

@@ -154,6 +154,46 @@ exports[`Exported buttons elements PrimaryButton should match previous snapshot 
 </DynamicButtonComponent>
 `;
 
+exports[`Exported buttons elements PrimaryButton should match previous snapshot 2`] = `
+<DynamicLinkButtonComponent
+  bg={
+    Object {
+      "darker1": "#1D1611",
+      "darker2": "#16110D",
+      "default": "#241C15",
+      "lighter1": "#504944",
+      "lighter2": "#7C7773",
+    }
+  }
+  border={0}
+  borderRadius={4}
+  color={
+    Object {
+      "darker1": "#FFFFFF",
+      "darker2": "#FFFFFF",
+      "default": "#FFFFFF",
+      "lighter1": "#FFFFFF",
+      "lighter2": "#FFFFFF",
+    }
+  }
+  disabled={false}
+  linkStyle={
+    Object {
+      "display": "inline-block",
+      "fontFamily": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+      "fontSize": ".778rem",
+      "fontWeight": 600,
+      "letterSpacing": 0.32,
+      "lineHeight": "1.125em",
+    }
+  }
+  padding="8px 16px"
+  textDecoration="none"
+>
+  Primary Link button
+</DynamicLinkButtonComponent>
+`;
+
 exports[`Exported buttons elements StandardButton should match previous snapshot 1`] = `
 <DynamicButtonComponent
   bg={

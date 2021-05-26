@@ -1,5 +1,5 @@
 import { Home } from 'react-feather';
-import { MainLayout, StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import {
 	Canon,
 	Trafalgar,
@@ -44,7 +44,7 @@ import {
  * @author Timothée Simon-Franza
  */
 const App = () => (
-	<MainLayout>
+	<>
 		<StyledDiv position="relative">
 			<Canon>Canon text element.</Canon>
 			<Trafalgar>Trafalgar text element.</Trafalgar>
@@ -129,7 +129,7 @@ const App = () => (
 				<LabeledInput id="passwordInput" placeholder="Password Input" type="password">Labeled password input</LabeledInput>
 			</FieldsetComponent>
 		</StyledDiv>
-	</MainLayout>
+	</>
 );
 
 export default App;

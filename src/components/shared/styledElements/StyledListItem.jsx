@@ -9,6 +9,7 @@ import {
 	padding,
 	position,
 	shadow,
+	typography,
 } from 'styled-system';
 
 /**
@@ -19,6 +20,7 @@ import {
  */
 const StyledListItem = styled('li')(
 	{
+		cursor: (({ cursor }) => (cursor || 'initial')),
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		boxSizing: (({ boxSizing }) => (boxSizing || 'border-box')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
@@ -32,6 +34,7 @@ const StyledListItem = styled('li')(
 	padding,
 	position,
 	shadow,
+	typography,
 );
 
 export default StyledListItem;

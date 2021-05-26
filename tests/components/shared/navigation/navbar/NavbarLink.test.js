@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
-import { StyledList } from 'components/shared/layout';
+import { NavbarLink } from 'components/shared/navigation/navbar';
 
-describe('StyledList', () => {
+describe('NavbarLink', () => {
 	it('should match previous snapshot', () => {
-		const sut = (<StyledList><li>Hello, world!</li></StyledList>);
+		const sut = (<NavbarLink targetUrl="">test</NavbarLink>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();

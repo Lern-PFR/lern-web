@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import { StyledListItem } from 'components/shared/layout';
-import { BodyCopy, DoublePica } from 'components/shared/typography';
-import { withTranslation } from 'react-i18next';
-import { moduleAccessLinkButton, moduleDescription, moduleListItem, moduleName } from 'theme/pages/subjects/subjectDetailsPage';
-import { PrimaryButton } from 'components/shared/buttons';
-import { Link } from 'components/shared/navigation';
-import routes from 'routes/keys';
 import styled from 'styled-components';
+import { withTranslation } from 'react-i18next';
+
+import routes from 'routes/keys';
+import { moduleAccessLinkButton, moduleDescription, moduleListItem, moduleName } from 'theme/pages/subjects/subjectDetailsPage';
+import { StyledListItem } from 'components/shared/styledElements';
+import { BodyCopy, DoublePica } from 'components/shared/typography';
+import { Link } from 'components/shared/navigation';
+import { PrimaryLinkButton } from 'components/shared/buttons';
 
 const StyledModuleListItem = styled(StyledListItem)(
 	{
@@ -37,9 +38,9 @@ const ModuleListItem = ({ id, name, description, disabled, t }) => (
 	<StyledModuleListItem {...moduleListItem}>
 		<DoublePica {...moduleName}>{name}</DoublePica>
 		<BodyCopy {...moduleDescription}>{description}</BodyCopy>
-		<PrimaryButton {...moduleAccessLinkButton} disabled={disabled}>
+		<PrimaryLinkButton {...moduleAccessLinkButton} disabled={disabled}>
 			<Link to={routes.modules.moduleDetails.replace(':id', id)} disabled={disabled}>{t('subjects.links.module')}</Link>
-		</PrimaryButton>
+		</PrimaryLinkButton>
 	</StyledModuleListItem>
 );
 

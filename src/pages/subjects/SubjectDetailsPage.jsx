@@ -8,7 +8,7 @@ import { ChevronLeft } from 'react-feather';
 import { clearModuleList, fetchModuleListBySubjectId } from 'redux/actions/modules';
 import routes from 'routes/keys';
 
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import { Brevier, Canon, BodyCopy } from 'components/shared/typography';
 import ModuleList from 'components/subjects/ModuleList';
 import { SubtleButton } from 'components/shared/buttons';

@@ -1,4 +1,4 @@
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import PropTypes from 'prop-types';
 import { tuna } from 'theme/colors';
 import { forwardRef, useRef } from 'react';

@@ -1,16 +1,16 @@
 import { peppercorn, tuna } from 'theme/colors';
+import { mainLayoutTopPadding, navbarHeight } from 'theme/constants';
 
 const pageLayout = {
 	display: 'grid',
 	gridTemplateColumns: 'minmax(30%, 1fr) 2fr',
 	gridGap: '124px',
-	paddingTop: '120px',
 	paddingX: '64px',
 };
 
 const subjectDetails = {
 	position: 'sticky',
-	top: pageLayout.paddingTop,
+	top: `${navbarHeight + mainLayoutTopPadding}px`,
 };
 
 const subjectName = {
