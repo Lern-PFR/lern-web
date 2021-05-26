@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar should match previous snapshot with an authentified user 1`] = `
+exports[`Navbar should match previous snapshot with an authenticated user 1`] = `
 <styled.div
   alignItems="center"
   as="nav"
@@ -55,7 +55,7 @@ exports[`Navbar should match previous snapshot with an authentified user 1`] = `
 </styled.div>
 `;
 
-exports[`Navbar should match previous snapshot with no authentified user 1`] = `
+exports[`Navbar should match previous snapshot with no authenticated user 1`] = `
 <styled.div
   alignItems="center"
   as="nav"
