@@ -1,4 +1,5 @@
 import { coconut, crimson, jasmine, oyster, primary as primaryColor, primaryText, tuna } from './colors';
+import { brevier } from './textStyles';
 
 const commonButtonStyle = {
 	border: 0,
@@ -11,6 +12,12 @@ const primary = {
 	...commonButtonStyle,
 	bg: primaryColor,
 	color: coconut,
+};
+
+const primaryLink = {
+	...brevier,
+	display: 'inline-block',
+	fontWeight: 600,
 };
 
 const standard = {
@@ -85,4 +92,6 @@ export {
 	danger,
 	iconButton,
 	floatingActionButton,
+
+	primaryLink,
 };

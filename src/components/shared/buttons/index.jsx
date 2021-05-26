@@ -7,8 +7,10 @@ import {
 	danger,
 	iconButton,
 	floatingActionButton,
+	primaryLink,
 } from 'theme/buttonStyles';
 import DynamicButtonComponent from './DynamicButtonComponent';
+import DynamicLinkButtonComponent from './DynamicLinkButtonComponent';
 
 // @TODO: write link and subtleLink buttons once navigation has been set up.
 
@@ -24,6 +26,20 @@ const PrimaryButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...primary} {...otherProps}>
 		{children}
 	</DynamicButtonComponent>
+);
+
+/**
+ * @name PrimaryLinkButton
+ * @description Link button component to use as Call to action. Should only be used once per page (header not included).
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children : The children to display inside this button.
+ */
+const PrimaryLinkButton = ({ children, ...otherProps }) => (
+	<DynamicLinkButtonComponent linkStyle={primaryLink} {...primary} {...otherProps}>
+		{children}
+	</DynamicLinkButtonComponent>
 );
 
 /**
@@ -118,6 +134,14 @@ PrimaryButton.propTypes = {
 	]).isRequired,
 };
 
+PrimaryLinkButton.propTypes = {
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.elementType,
+		PropTypes.node,
+	]).isRequired,
+};
+
 StandardButton.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
@@ -169,6 +193,7 @@ FloatingActionButton.propTypes = {
 export {
 	FloatingActionButton,
 	PrimaryButton,
+	PrimaryLinkButton,
 	StandardButton,
 	SubtleButton,
 	DropdownButton,
