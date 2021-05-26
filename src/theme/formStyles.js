@@ -122,7 +122,7 @@ const inputStyle = {
 	},
 
 	'&:focus-visible': {
-		border: `solid 2px ${primary.default}`,
+		outline: `solid 1px ${primary.default}`,
 
 		'&::placeholder': {
 			color: `${primary.default}`,

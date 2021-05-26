@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/display-name */
 import App from 'components/App';
+import { SignupPage } from 'pages/auth';
 import { NotionDetailsPage } from 'pages/notions';
 import { SubjectDetailsPage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
@@ -70,7 +71,7 @@ export default [
 				allowAnonymous: true,
 				allowAuthenticated: false,
 				exact: true,
-				component: () => <p>Sign up</p>,
+				component: SignupPage,
 			},
 		],
 	},

@@ -15,6 +15,43 @@
 				"sign_in": "Sign in"
 			}
 		},
+		"authentication": {
+			"pages": {
+				"signup": {
+					"hero": "A stranger ! From the outside !",
+					"subtitle": "Tell us about yourself !",
+					"form": {
+						"fields": {
+							"firstname": {
+								"label": "First name",
+								"placeholder": "Jean"
+							},
+							"lastname": {
+								"label": "Last name",
+								"placeholder": "Valjean"
+							},
+							"email": {
+								"label": "Email address",
+								"placeholder": "jeanValjean@email.fr"
+							},
+							"nickname": {
+								"label": "Nickname",
+								"placeholder": "jeanValjean"
+							},
+							"password": {
+								"label": "Password"
+							},
+							"password_confirmation": {
+								"label": "Password confirmation"
+							}
+						},
+						"action": {
+							"submit": "Sign up"
+						}
+					}
+				}
+			}
+		},
 		"subjects": {
 			"links": {
 				"back_to_list": "Back to subject list",

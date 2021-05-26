@@ -15,6 +15,43 @@
 				"sign_in": "Se connecter"
 			}
 		},
+		"authentication": {
+			"pages": {
+				"signup": {
+					"hero": "Un visiteur ! Venu d'ailleurs !",
+					"subtitle": "Parlez-nous un peu de vous !",
+					"form": {
+						"fields": {
+							"firstname": {
+								"label": "Prénom",
+								"placeholder": "Jean"
+							},
+							"lastname": {
+								"label": "Nom",
+								"placeholder": "Valjean"
+							},
+							"email": {
+								"label": "Adresse e-mail",
+								"placeholder": "jeanValjean@email.fr"
+							},
+							"nickname": {
+								"label": "Pseudonyme",
+								"placeholder": "jeanValjean"
+							},
+							"password": {
+								"label": "Mot de passe"
+							},
+							"password_confirmation": {
+								"label": "Confirmation de mot de passe"
+							}
+						},
+						"action": {
+							"submit": "Créer un compte"
+						}
+					}
+				}
+			}
+		},
 		"subjects": {
 			"links": {
 				"back_to_list": "Retourner à la liste des sujets",
