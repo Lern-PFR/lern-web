@@ -1,5 +1,6 @@
 import { mount, shallow } from 'enzyme';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import QuestionForm from 'components/notions/NotionDetailsPage/QuestionForm';
 
 describe('QuestionForm', () => {
@@ -40,15 +41,15 @@ describe('QuestionForm', () => {
 			const onSubmit = jest.fn();
 			render(<QuestionForm answers={answers} singleChoice onSubmit={onSubmit} />);
 
-			fireEvent.click(screen.getAllByRole('radio')[0]);
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getAllByRole('radio')[0]);
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 			expect(onSubmit).toHaveBeenCalledTimes(1);
 			expect(onSubmit).toHaveBeenCalledWith([answers[0].id]);
 
 			onSubmit.mockClear();
 
-			fireEvent.click(screen.getAllByRole('radio')[2]);
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getAllByRole('radio')[2]);
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 			expect(onSubmit).toHaveBeenCalledTimes(1);
 			expect(onSubmit).toHaveBeenCalledWith([answers[2].id]);
 		});
@@ -57,16 +58,16 @@ describe('QuestionForm', () => {
 			const onSubmit = jest.fn();
 			render(<QuestionForm answers={answers} singleChoice={false} onSubmit={onSubmit} />);
 
-			fireEvent.click(screen.getAllByRole('checkbox')[0]);
-			fireEvent.click(screen.getAllByRole('checkbox')[1]);
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getAllByRole('checkbox')[0]);
+			userEvent.click(screen.getAllByRole('checkbox')[1]);
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 			expect(onSubmit).toHaveBeenCalledTimes(1);
 			expect(onSubmit).toHaveBeenCalledWith([answers[0].id, answers[1].id]);
 
 			onSubmit.mockClear();
 
-			fireEvent.click(screen.getAllByRole('checkbox')[0]);
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getAllByRole('checkbox')[0]);
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 			expect(onSubmit).toHaveBeenCalledTimes(1);
 			expect(onSubmit).toHaveBeenCalledWith([answers[1].id]);
 		});
@@ -77,7 +78,7 @@ describe('QuestionForm', () => {
 			const onSubmit = jest.fn();
 			render(<QuestionForm answers={answers} onSubmit={onSubmit} submittedAnswer={[answers[0].id]} />);
 
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 
 			expect(onSubmit).not.toHaveBeenCalled();
 		});
@@ -86,9 +87,9 @@ describe('QuestionForm', () => {
 			const onSubmit = jest.fn();
 			render(<QuestionForm answers={answers} singleChoice={false} onSubmit={onSubmit} />);
 
-			fireEvent.click(screen.getAllByRole('checkbox')[0]);
-			fireEvent.click(screen.getAllByRole('checkbox')[2]);
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getAllByRole('checkbox')[0]);
+			userEvent.click(screen.getAllByRole('checkbox')[2]);
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 
 			expect(onSubmit).toHaveBeenCalledTimes(1);
 			expect(onSubmit).toHaveBeenCalledWith([answers[0].id, answers[2].id]);
@@ -98,9 +99,9 @@ describe('QuestionForm', () => {
 			const onSubmit = jest.fn();
 			render(<QuestionForm answers={answers} singleChoice onSubmit={onSubmit} />);
 
-			fireEvent.click(screen.getAllByRole('radio')[0]);
-			fireEvent.click(screen.getAllByRole('radio')[2]);
-			fireEvent.click(screen.getByTestId('question-form-submit-btn'));
+			userEvent.click(screen.getAllByRole('radio')[0]);
+			userEvent.click(screen.getAllByRole('radio')[2]);
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 
 			expect(onSubmit).toHaveBeenCalledTimes(1);
 			expect(onSubmit).toHaveBeenCalledWith([answers[2].id]);
