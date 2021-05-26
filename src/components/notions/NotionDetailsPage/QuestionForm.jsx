@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 import { StyledList } from 'components/shared/styledElements';
 import { answersList, answerListItem, answerFormSubmitButton, validAnswerListItem } from 'theme/pages/notions/notionDetailsPage';
