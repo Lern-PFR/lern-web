@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import styled from 'styled-components';
-import { StyledDiv, StyledList } from 'components/shared/layout';
+import { StyledDiv, StyledList } from 'components/shared/styledElements';
 import { navigationChevrons, navigator, stepperList } from 'theme/pages/notions/notionDetailsPage';
 
 import NotionContentNavigatorStepper from './NotionContentNavigatorStepper';

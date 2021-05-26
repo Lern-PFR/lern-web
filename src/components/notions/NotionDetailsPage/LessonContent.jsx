@@ -1,4 +1,4 @@
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import { BodyCopy, LongPrimer, Trafalgar } from 'components/shared/typography';
 import PropTypes from 'prop-types';
 import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle, lessonTitleContainer } from 'theme/pages/notions/notionDetailsPage';

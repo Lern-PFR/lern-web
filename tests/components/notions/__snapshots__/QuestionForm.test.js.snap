@@ -94,7 +94,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iBPRYJ kWQSXw"
+                    className="sc-fubCfw tNcDL"
                     defaultChecked={false}
                     disabled={false}
                     id={1}
@@ -104,45 +104,33 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
               </CheckboxComponent>
               <LabelComponent
                 color="initial"
+                disabled={false}
                 forId={1}
+                hasError={false}
                 textStyle="bodyCopy"
               >
-                <DynamicTextComponent
+                <styled.label
                   color="initial"
-                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
+                  hasError={false}
                   htmlFor={1}
                   letterSpacing={0}
                   lineHeight="1.5em"
-                  tag="label"
                 >
-                  <styled.p
-                    as="label"
+                  <label
+                    className="sc-pFZIQ jgkYGk"
                     color="initial"
-                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={1}
                     letterSpacing={0}
-                    lineHeight="1.5em"
                   >
-                    <label
-                      className="sc-hKgILt fojEvL"
-                      color="initial"
-                      cursor="pointer"
-                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                      fontSize="1rem"
-                      fontWeight={400}
-                      htmlFor={1}
-                      letterSpacing={0}
-                    >
-                      answer 1
-                    </label>
-                  </styled.p>
-                </DynamicTextComponent>
+                    answer 1
+                  </label>
+                </styled.label>
               </LabelComponent>
             </div>
           </styled.div>
@@ -196,7 +184,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iBPRYJ kWQSXw"
+                    className="sc-fubCfw tNcDL"
                     defaultChecked={false}
                     disabled={false}
                     id={2}
@@ -206,45 +194,33 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
               </CheckboxComponent>
               <LabelComponent
                 color="initial"
+                disabled={false}
                 forId={2}
+                hasError={false}
                 textStyle="bodyCopy"
               >
-                <DynamicTextComponent
+                <styled.label
                   color="initial"
-                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
+                  hasError={false}
                   htmlFor={2}
                   letterSpacing={0}
                   lineHeight="1.5em"
-                  tag="label"
                 >
-                  <styled.p
-                    as="label"
+                  <label
+                    className="sc-pFZIQ jgkYGk"
                     color="initial"
-                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={2}
                     letterSpacing={0}
-                    lineHeight="1.5em"
                   >
-                    <label
-                      className="sc-hKgILt fojEvL"
-                      color="initial"
-                      cursor="pointer"
-                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                      fontSize="1rem"
-                      fontWeight={400}
-                      htmlFor={2}
-                      letterSpacing={0}
-                    >
-                      answer 2
-                    </label>
-                  </styled.p>
-                </DynamicTextComponent>
+                    answer 2
+                  </label>
+                </styled.label>
               </LabelComponent>
             </div>
           </styled.div>
@@ -298,7 +274,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iBPRYJ kWQSXw"
+                    className="sc-fubCfw tNcDL"
                     defaultChecked={false}
                     disabled={false}
                     id={3}
@@ -308,45 +284,33 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
               </CheckboxComponent>
               <LabelComponent
                 color="initial"
+                disabled={false}
                 forId={3}
+                hasError={false}
                 textStyle="bodyCopy"
               >
-                <DynamicTextComponent
+                <styled.label
                   color="initial"
-                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
+                  hasError={false}
                   htmlFor={3}
                   letterSpacing={0}
                   lineHeight="1.5em"
-                  tag="label"
                 >
-                  <styled.p
-                    as="label"
+                  <label
+                    className="sc-pFZIQ jgkYGk"
                     color="initial"
-                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={3}
                     letterSpacing={0}
-                    lineHeight="1.5em"
                   >
-                    <label
-                      className="sc-hKgILt fojEvL"
-                      color="initial"
-                      cursor="pointer"
-                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                      fontSize="1rem"
-                      fontWeight={400}
-                      htmlFor={3}
-                      letterSpacing={0}
-                    >
-                      answer 3
-                    </label>
-                  </styled.p>
-                </DynamicTextComponent>
+                    answer 3
+                  </label>
+                </styled.label>
               </LabelComponent>
             </div>
           </styled.div>
@@ -400,7 +364,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iBPRYJ kWQSXw"
+                    className="sc-fubCfw tNcDL"
                     defaultChecked={false}
                     disabled={false}
                     id={4}
@@ -410,45 +374,33 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
               </CheckboxComponent>
               <LabelComponent
                 color="initial"
+                disabled={false}
                 forId={4}
+                hasError={false}
                 textStyle="bodyCopy"
               >
-                <DynamicTextComponent
+                <styled.label
                   color="initial"
-                  cursor="pointer"
                   fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                   fontSize="1rem"
                   fontWeight={400}
+                  hasError={false}
                   htmlFor={4}
                   letterSpacing={0}
                   lineHeight="1.5em"
-                  tag="label"
                 >
-                  <styled.p
-                    as="label"
+                  <label
+                    className="sc-pFZIQ jgkYGk"
                     color="initial"
-                    cursor="pointer"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
                     fontWeight={400}
                     htmlFor={4}
                     letterSpacing={0}
-                    lineHeight="1.5em"
                   >
-                    <label
-                      className="sc-hKgILt fojEvL"
-                      color="initial"
-                      cursor="pointer"
-                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-                      fontSize="1rem"
-                      fontWeight={400}
-                      htmlFor={4}
-                      letterSpacing={0}
-                    >
-                      answer 4
-                    </label>
-                  </styled.p>
-                </DynamicTextComponent>
+                    answer 4
+                  </label>
+                </styled.label>
               </LabelComponent>
             </div>
           </styled.div>

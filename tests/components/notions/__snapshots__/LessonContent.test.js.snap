@@ -5,7 +5,6 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
   display="grid"
   gridGap="24px"
   gridTemplateRows="7rem 1fr"
-  paddingLeft="64px"
 >
   <styled.div
     bg="#FFFFFF"
@@ -42,7 +41,6 @@ exports[`LessonContent should match previous snapshot (with question provided) 1
   display="grid"
   gridGap="24px"
   gridTemplateRows="7rem 1fr"
-  paddingLeft="64px"
 >
   <styled.div
     bg="#FFFFFF"

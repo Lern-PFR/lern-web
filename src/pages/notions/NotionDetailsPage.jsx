@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import _ from 'lodash';
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import { pageLayout } from 'theme/pages/notions/notionDetailsPage';
 import { fetchNotion } from 'redux/actions/notions';
 import { LessonContent, Sidebar } from 'components/notions/NotionDetailsPage';

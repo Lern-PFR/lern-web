@@ -29,7 +29,6 @@ const lessonContentContainer = {
 	display: 'grid',
 	gridTemplateRows: '7rem 1fr',
 	gridGap: '24px',
-	paddingLeft: '64px',
 };
 
 const lessonTitleContainer = {

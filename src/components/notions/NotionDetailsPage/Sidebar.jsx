@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { StyledDiv } from 'components/shared/layout';
+import { StyledDiv } from 'components/shared/styledElements';
 import { Paragon, Pica } from 'components/shared/typography';
 import { lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
 import NotionContentNavigator from './NotionContentNavigator';
