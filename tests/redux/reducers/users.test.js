@@ -90,6 +90,72 @@ describe('Users reducer', () => {
 		});
 	});
 
+	describe('user signup actions', () => {
+		it('should update the state\'s isLoading field to true when receiving SIGNUP_REQUEST', () => {
+			// Arrange
+			const action = { type: ActionTypes.SIGNUP_REQUEST };
+
+			const expectedState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			// Act
+			const result = usersReducer(undefined, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving SIGNUP_FAILURE', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.SIGNUP_FAILURE,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+
+		it('should update the state\'s isLoading field to false when receiving SIGNUP_SUCCESS', () => {
+			// Arrange
+			const action = {
+				type: ActionTypes.SIGNUP_SUCCESS,
+				payload: { error: { status: 500, message: 'Internal Server Error' } },
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
+	});
+
 	describe('single user fetching actions', () => {
 		it('should update the state\'s isLoading field to true when receiving FETCH_USER_REQUEST', () => {
 			// Arrange

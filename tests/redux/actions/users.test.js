@@ -208,6 +208,96 @@ describe('User-related redux actions', () => {
 		});
 	});
 
+	describe('User sign up', () => {
+		it('sould create a SIGNUP_REQUEST action when user signup logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.SIGNUP_REQUEST },
+			];
+			const userData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			// Act
+			store.dispatch(usersActions.signUp(userData));
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('sould create a SIGNUP_SUCCESS action when user login logic is successful', () => {
+			// Arrange
+			const expectedResponse = {
+				id: 0,
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+			};
+
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					user: expectedResponse,
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.SIGNUP_REQUEST },
+				{
+					type: usersActions.ActionTypes.SIGNUP_SUCCESS,
+					payload: { user: expectedResponse },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.signUp(userCreationData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('sould create a SIGNUP_FAILURE action when user login logic has failed', () => {
+			// Arrange
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.SIGNUP_REQUEST },
+				{
+					type: usersActions.ActionTypes.SIGNUP_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.signUp(userCreationData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+	});
+
 	describe('Specific user fetching', () => {
 		it('should create a FETCH_USER_REQUEST action when user fetching logic is initialized', () => {
 			// Arrange

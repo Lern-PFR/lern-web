@@ -15,6 +15,10 @@ export const ActionTypes = {
 	LOGIN_SUCCESS: '@USERS/LOGIN_SUCCESS',
 	LOGIN_FAILURE: '@USERS/LOGIN_FAILURE',
 
+	SIGNUP_REQUEST: '@USERS/SIGNUP_REQUEST',
+	SIGNUP_SUCCESS: '@USERS/SIGNUP_SUCCESS',
+	SIGNUP_FAILURE: '@USERS/SIGNUP_FAILURE',
+
 	FETCH_USER_REQUEST: '@USERS/FETCH_REQUEST',
 	FETCH_USER_SUCCESS: '@USERS/FETCH_SUCCESS',
 	FETCH_USER_FAILURE: '@USERS/FETCH_FAILURE',
@@ -127,6 +131,53 @@ const loginWithTokenSuccess = ({ user }) => ({
  */
 const loginWithTokenFailure = (error) => ({
 	type: ActionTypes.LOGIN_TOKEN_FAILURE,
+	payload: { error },
+});
+
+// //////////////////////////////////////////////////////// //
+// /////////////////// User login actions ///////////////// //
+// //////////////////////////////////////////////////////// //
+
+/**
+ * @function
+ * @name signUpRequest
+ * @description Action triggered anytime a signup call is made to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {object}
+ */
+const signUpRequest = () => ({ type: ActionTypes.SIGNUP_REQUEST });
+
+/**
+ * @function
+ * @name signUpSuccess
+ * @description Action triggered as a result to a successful signup API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} user		: The newly created user object.
+ *
+ * @returns {object}
+ */
+const signUpSuccess = ({ user }) => ({
+	type: ActionTypes.SIGNUP_SUCCESS,
+	payload: { user },
+});
+
+/**
+ * @function
+ * @name signUpFailure
+ * @description Action triggered as a result to a signup login API call.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} error : The exception sent back from the API.
+ *
+ * @returns {object}
+ */
+const signUpFailure = (error) => ({
+	type: ActionTypes.SIGNUP_FAILURE,
 	payload: { error },
 });
 
@@ -347,6 +398,28 @@ export const loginWithToken = () => (dispatch) => {
 				session.remove();
 			}
 		});
+};
+
+/**
+ * @function
+ * @name signUp
+ * @description Method used to register a new user into the database.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {Object} param			The data to provide the API.
+ * @param {string} param.firstname	The first name of the user we want to create.
+ * @param {string} param.lastname	The last name of the user we want to create.
+ * @param {string} param.nickname	The nickname that the user will provide to signin.
+ * @param {string} param.email		The email address to send the account activation link to.
+ * @param {string} param.password	The password linked to the account.
+ */
+export const signUp = (params) => (dispatch) => {
+	dispatch(signUpRequest());
+
+	return UsersApi.createUser(params)
+		.then(({ user }) => dispatch(signUpSuccess({ user })))
+		.catch((error) => dispatch(signUpFailure(error)));
 };
 
 /**
