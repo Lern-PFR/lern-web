@@ -14,7 +14,7 @@ import NotionListItem from './NotionListItem';
 const NotionList = ({ notions }) => (
 	<StyledList listStyle="none" {...notionList}>
 		{notions && notions.map(({ id, name, description, lessons }) => (
-			<NotionListItem key={id} name={name} description={description} lessons={lessons} />
+			<NotionListItem key={id} id={id} name={name} description={description} lessons={lessons} />
 		))}
 	</StyledList>
 );

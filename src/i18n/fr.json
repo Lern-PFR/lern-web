@@ -29,10 +29,20 @@
 				"back_to_subject": "Retourner à la page du sujet"
 			}
 		},
+		"notions": {
+			"links": {
+				"start": "Débuter la notion",
+				"back_to_module": "Retourner au module '{{module.name}}'"
+			}
+		},
 		"lessons": {
 			"links": {
 				"access": "Accéder à la leçon"
 			}
+		},
+		"exercises": {
+			"validate-answer": "Valider ma réponse",
+			"get-explanation": "Voir l'explication"
 		},
         "components": {
             "prompt": {

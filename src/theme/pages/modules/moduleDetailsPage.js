@@ -1,4 +1,4 @@
-import { basmati } from 'theme/colors';
+import { basmati, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -30,6 +30,10 @@ const notionDataContainer = {
 	borderTop: `solid 1px ${basmati.default}`,
 	paddingTop: '2em',
 	paddingBottom: '3em',
+};
+
+const startNotionButton = {
+	marginTop: '1em',
 };
 
 const notionName = {
@@ -77,6 +81,11 @@ const lessonDescription = {
 	whiteSpace: 'nowrap',
 };
 
+const backToSubjectSvg = {
+	height: '.7em',
+	stroke: tuna.default,
+};
+
 export {
 	pageLayout,
 	moduleName,
@@ -89,4 +98,6 @@ export {
 	lessonListItem,
 	lessonTitle,
 	lessonDescription,
+	startNotionButton,
+	backToSubjectSvg,
 };

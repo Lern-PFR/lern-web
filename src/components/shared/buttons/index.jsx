@@ -8,6 +8,8 @@ import {
 	iconButton,
 	floatingActionButton,
 	primaryLink,
+	outlined,
+	subtleLink,
 } from 'theme/buttonStyles';
 import DynamicButtonComponent from './DynamicButtonComponent';
 import DynamicLinkButtonComponent from './DynamicLinkButtonComponent';
@@ -43,6 +45,20 @@ const PrimaryLinkButton = ({ children, ...otherProps }) => (
 );
 
 /**
+ * @name OutlinedButton
+ * @description Button component to use as primary action when a CTA is already defined.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children : The children to display inside this button.
+ */
+const OutlinedButton = ({ children, ...otherProps }) => (
+	<DynamicButtonComponent linkStyle={primaryLink} {...outlined} {...otherProps}>
+		{children}
+	</DynamicButtonComponent>
+);
+
+/**
  * @name StandardButton
  * @description Standard button component to be used for most use-cases.
  *
@@ -68,6 +84,20 @@ const SubtleButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...subtle} {...otherProps}>
 		{children}
 	</DynamicButtonComponent>
+);
+
+/**
+ * @name SubtleLinkButton
+ * @description Link button component to be used along a primary button for less used redirections.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children : The children to display inside this button.
+ */
+const SubtleLinkButton = ({ children, ...otherProps }) => (
+	<DynamicLinkButtonComponent linkStyle={subtleLink} {...subtle} {...otherProps}>
+		{children}
+	</DynamicLinkButtonComponent>
 );
 
 /**
@@ -142,6 +172,14 @@ PrimaryLinkButton.propTypes = {
 	]).isRequired,
 };
 
+OutlinedButton.propTypes = {
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.elementType,
+		PropTypes.node,
+	]).isRequired,
+};
+
 StandardButton.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
@@ -151,6 +189,14 @@ StandardButton.propTypes = {
 };
 
 SubtleButton.propTypes = {
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.elementType,
+		PropTypes.node,
+	]).isRequired,
+};
+
+SubtleLinkButton.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
 		PropTypes.elementType,
@@ -192,10 +238,12 @@ FloatingActionButton.propTypes = {
 
 export {
 	FloatingActionButton,
+	OutlinedButton,
 	PrimaryButton,
 	PrimaryLinkButton,
 	StandardButton,
 	SubtleButton,
+	SubtleLinkButton,
 	DropdownButton,
 	DangerButton,
 	IconButton,

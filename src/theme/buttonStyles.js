@@ -1,5 +1,5 @@
-import { coconut, crimson, jasmine, oyster, primary as primaryColor, primaryText, tuna } from './colors';
 import { brevier } from './textStyles';
+import { coconut, crimson, jasmine, oyster, parsnip, primary as primaryColor, primaryText, tuna } from './colors';
 
 const commonButtonStyle = {
 	border: 0,
@@ -20,6 +20,22 @@ const primaryLink = {
 	fontWeight: 600,
 };
 
+const subtleLink = {
+	...brevier,
+	color: tuna,
+	display: 'inline-block',
+};
+
+const outlined = {
+	...commonButtonStyle,
+	bg: coconut,
+	border: `solid 1px ${oyster.default}`,
+	color: oyster,
+	hover: {
+		bg: parsnip.lighter2,
+	},
+};
+
 const standard = {
 	...commonButtonStyle,
 	bg: jasmine,
@@ -36,12 +52,7 @@ const subtle = {
 	...commonButtonStyle,
 	bg: coconut,
 	color: tuna,
-};
-
-const subtleLink = {
-	...commonButtonStyle,
-	bg: coconut,
-	color: tuna,
+	iconSize: brevier.lineHeight,
 };
 
 const dropdown = {
@@ -81,12 +92,18 @@ const floatingActionButton = {
 	textDecoration: 'none',
 };
 
+const backToParentButtonContentLayout = {
+	display: 'flex',
+	alignItems: 'center',
+	gridGap: '.5em',
+};
+
 export {
 	primary,
+	outlined,
 	standard,
 	link,
 	subtle,
-	subtleLink,
 	dropdown,
 	disabled,
 	danger,
@@ -94,4 +111,7 @@ export {
 	floatingActionButton,
 
 	primaryLink,
+	subtleLink,
+
+	backToParentButtonContentLayout,
 };

@@ -16,6 +16,7 @@ import { disabled as disabledStyle } from 'theme/buttonStyles';
 const StyledDynamicLinkButtonComponent = styled('button')(
 	{
 		cursor: 'pointer',
+		padding: '0',
 		textDecoration: (({ txtDecoration }) => txtDecoration || 'initial'),
 		'&:hover': {
 			color: ((props) => props.color.darker1),

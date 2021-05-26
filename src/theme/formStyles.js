@@ -1,5 +1,6 @@
 import {
 	peppercorn,
+	parsnip,
 	tuna,
 	coconut,
 	jasmine,
@@ -73,6 +74,7 @@ const radioButtonStyle = {
 	borderRadius: '50%',
 	height: '16px',
 	width: '16px',
+	margin: (({ margin }) => (margin || '0')),
 	cursor: 'pointer',
 	appearance: 'none',
 	MozAppearance: 'none',
@@ -94,27 +96,18 @@ const radioButtonStyle = {
 		textAlign: 'center',
 		borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	},
-	'&:hover': {
-		backgroundColor: jasmine.darker1,
-		'&::before': {
-			content: '""',
-			borderRadius: '50%',
-			height: '8px',
-			width: '8px',
-			margin: '3px',
-			backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
-		},
+	'&:not(:disabled):hover': {
+		backgroundColor: parsnip.lighter1,
 	},
 	'&:checked': {
 		backgroundColor: coconut.default,
 		'&::before': {
 			content: '""',
 			backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : peppercorn.default)),
-			borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 			borderRadius: '50%',
 			width: '8px',
 			height: '8px',
-			margin: '3px',
+			border: `solid 3px ${coconut.default}`,
 		},
 	},
 };

@@ -39,7 +39,7 @@ const ModuleListItem = ({ id, name, description, disabled, t }) => (
 		<DoublePica {...moduleName}>{name}</DoublePica>
 		<BodyCopy {...moduleDescription}>{description}</BodyCopy>
 		<PrimaryLinkButton {...moduleAccessLinkButton} disabled={disabled}>
-			<Link to={routes.modules.moduleDetails.replace(':id', id)} disabled={disabled}>{t('subjects.links.module')}</Link>
+			<Link to={routes.modules.moduleDetails.replace(':moduleId', id)} disabled={disabled}>{t('subjects.links.module')}</Link>
 		</PrimaryLinkButton>
 	</StyledModuleListItem>
 );

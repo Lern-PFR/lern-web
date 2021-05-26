@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { StyledListItem } from 'components/shared/styledElements';
+import { generatePath } from 'react-router';
 import { BodyCopy, GreatPrimer } from 'components/shared/typography';
 import { withTranslation } from 'react-i18next';
 import { SubtleButton } from 'components/shared/buttons';
@@ -15,17 +16,18 @@ import { backToListButton } from 'theme/pages/subjects/subjectDetailsPage';
  * @author Timothée Simon-Franza
  *
  * @param {bool}			[disabled]	Whether the access to the current lesson is disabled to the current user.
- * @param {string|number}	lessonId	The current lesson's id.
- * @param {string}			lessonName	The current lesson's name.
- * @param {string}			lessonDesc	The current lesson's description.
+ * @param {string|number}	id			The current lesson's id.
+ * @param {string}			name		The current lesson's name.
+ * @param {string|number}	notionId	The lesson's parent notion's id.
+ * @param {string}			description	The current lesson's description.
  * @param {func}			t			The translation method provided by the withTranslation HoC.
  */
-const LessonListItem = ({ disabled, id, name, description, t }) => (
+const LessonListItem = ({ disabled, id, name, notionId, description, t }) => (
 	<StyledListItem key={id} {...lessonListItem}>
 		<GreatPrimer {...lessonTitle}>{name}</GreatPrimer>
 		<BodyCopy {...lessonDescription}>{description}</BodyCopy>
 		<SubtleButton {...backToListButton}>
-			<Link to={routes.lessons.lessonDetails.replace(':id', id)} disabled={disabled}>
+			<Link to={generatePath(routes.notions.lessonDetails, { notionId, lessonId: id })} disabled={disabled}>
 				{t('lessons.links.access')}
 			</Link>
 		</SubtleButton>
@@ -39,6 +41,10 @@ LessonListItem.propTypes = {
 		PropTypes.number,
 	]).isRequired,
 	name: PropTypes.string.isRequired,
+	notionId: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]).isRequired,
 	description: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 };

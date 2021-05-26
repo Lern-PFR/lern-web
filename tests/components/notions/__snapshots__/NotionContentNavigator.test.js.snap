@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotionContentNavigator should match previous snapshot 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+  flexDirection="row"
+  justifyContent="center"
+>
+  <Styled(ChevronLeft)
+    background="white"
+    data-testid="notion-navigation-previous"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+  />
+  <styled.ul
+    display="flex"
+    flex={0.5}
+    flexDirection="row"
+    listStyle="none"
+    marginLeft="1em"
+    marginRight="1em"
+    padding={0}
+  >
+    <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-0"
+      isCurrent={true}
+      key="0"
+      label="test lesson 0"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-1"
+      isCurrent={false}
+      key="1"
+      label="test lesson 1"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-2"
+      isCurrent={false}
+      key="2"
+      label="test lesson 2"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-3"
+      isCurrent={false}
+      key="3"
+      label="test exercise 0"
+      onClick={[Function]}
+    />
+    <NotionContentNavigatorStepper
+      data-testid="notion-navigation-stepper-4"
+      isCurrent={false}
+      key="4"
+      label="test lesson 4"
+      onClick={[Function]}
+    />
+  </styled.ul>
+  <Styled(ChevronRight)
+    data-testid="notion-navigation-next"
+    disabled={false}
+    onClick={[Function]}
+    role="button"
+  />
+</styled.div>
+`;

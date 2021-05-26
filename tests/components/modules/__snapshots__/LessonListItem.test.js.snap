@@ -31,11 +31,11 @@ exports[`LessonListItem should match previous disabled-state snapshot 1`] = `
   <SubtleButton
     alignItems="center"
     display="flex"
-    paddingLeft="initial"
+    padding="0"
   >
     <Link
       disabled={true}
-      to="/lessons/abcd"
+      to="/notions/1/lessons/abcd"
     >
       lessons.links.access
     </Link>
@@ -74,11 +74,11 @@ exports[`LessonListItem should match previous snapshot 1`] = `
   <SubtleButton
     alignItems="center"
     display="flex"
-    paddingLeft="initial"
+    padding="0"
   >
     <Link
       disabled={false}
-      to="/lessons/abcd"
+      to="/notions/1/lessons/abcd"
     >
       lessons.links.access
     </Link>

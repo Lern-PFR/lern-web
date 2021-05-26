@@ -20,6 +20,15 @@ exports[`NotionListItem should match previous snapshot 1`] = `
   >
     dummy description
   </BodyCopy>
+  <OutlinedButton
+    marginTop="1em"
+  >
+    <Link
+      to="/notions/abcd"
+    >
+      notions.links.start
+    </Link>
+  </OutlinedButton>
   <styled.ul
     display="grid"
     gridAutoFlow="row"
@@ -52,6 +61,15 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
   >
     dummy description
   </BodyCopy>
+  <OutlinedButton
+    marginTop="1em"
+  >
+    <Link
+      to="/notions/abcd"
+    >
+      notions.links.start
+    </Link>
+  </OutlinedButton>
   <styled.ul
     display="grid"
     gridAutoFlow="row"
@@ -67,6 +85,7 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
       id="1"
       key="1"
       name="lesson 1"
+      notionId="abcd"
       t={[Function]}
     />
     <LessonListItem
@@ -75,6 +94,7 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
       id="2"
       key="2"
       name="lesson 2"
+      notionId="abcd"
       t={[Function]}
     />
     <LessonListItem
@@ -83,6 +103,7 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
       id="3"
       key="3"
       name="lesson 3"
+      notionId="abcd"
       t={[Function]}
     />
   </styled.ul>

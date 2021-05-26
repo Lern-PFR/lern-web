@@ -1,0 +1,847 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionForm snapshot testing should match previous snapshot (answer selected) 1`] = `
+<QuestionForm
+  answers={
+    Array [
+      Object {
+        "id": 1,
+        "text": "answer 1",
+        "valid": false,
+      },
+      Object {
+        "id": 2,
+        "text": "answer 2",
+        "valid": false,
+      },
+      Object {
+        "id": 3,
+        "text": "answer 3",
+        "valid": true,
+      },
+      Object {
+        "id": 4,
+        "text": "answer 4",
+        "valid": false,
+      },
+    ]
+  }
+  onSubmit={[MockFunction]}
+  singleChoice={false}
+  t={[Function]}
+>
+  <form
+    data-testid="question-form"
+    onSubmit={[Function]}
+  >
+    <styled.ul
+      display="grid"
+      gridAutoRows="1fr"
+      listStyle="none"
+      margin={0}
+      padding={0}
+    >
+      <ul
+        className="sc-gsTCUz ecHirb"
+        display="grid"
+      >
+        <LabeledCheckbox
+          alignItems="center"
+          borderRadius=".2em"
+          checked={false}
+          cursor="pointer"
+          disabled={false}
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          id={1}
+          key="1"
+          labelTextStyle="bodyCopy"
+          name="answer"
+          onChange={[Function]}
+          padding="1em"
+          value={1}
+        >
+          <styled.div
+            alignItems="center"
+            borderRadius=".2em"
+            cursor="pointer"
+            display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            value={1}
+          >
+            <div
+              className="sc-bdfBwQ ivfGFt"
+              cursor="pointer"
+              display="grid"
+              name="answer"
+              onChange={[Function]}
+              value={1}
+            >
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={1}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={1}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-pFZIQ hWZefA"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={1}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <LabelComponent
+                color="initial"
+                disabled={false}
+                forId={1}
+                hasError={false}
+                textStyle="bodyCopy"
+              >
+                <styled.label
+                  color="initial"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  hasError={false}
+                  htmlFor={1}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-jrAGrp dgmFFM"
+                    color="initial"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={1}
+                    letterSpacing={0}
+                  >
+                    answer 1
+                  </label>
+                </styled.label>
+              </LabelComponent>
+            </div>
+          </styled.div>
+        </LabeledCheckbox>
+        <LabeledCheckbox
+          alignItems="center"
+          borderRadius=".2em"
+          checked={false}
+          cursor="pointer"
+          disabled={false}
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          id={2}
+          key="2"
+          labelTextStyle="bodyCopy"
+          name="answer"
+          onChange={[Function]}
+          padding="1em"
+          value={2}
+        >
+          <styled.div
+            alignItems="center"
+            borderRadius=".2em"
+            cursor="pointer"
+            display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            value={2}
+          >
+            <div
+              className="sc-bdfBwQ ivfGFt"
+              cursor="pointer"
+              display="grid"
+              name="answer"
+              onChange={[Function]}
+              value={2}
+            >
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={2}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={2}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-pFZIQ hWZefA"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={2}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <LabelComponent
+                color="initial"
+                disabled={false}
+                forId={2}
+                hasError={false}
+                textStyle="bodyCopy"
+              >
+                <styled.label
+                  color="initial"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  hasError={false}
+                  htmlFor={2}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-jrAGrp dgmFFM"
+                    color="initial"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={2}
+                    letterSpacing={0}
+                  >
+                    answer 2
+                  </label>
+                </styled.label>
+              </LabelComponent>
+            </div>
+          </styled.div>
+        </LabeledCheckbox>
+        <LabeledCheckbox
+          alignItems="center"
+          borderRadius=".2em"
+          checked={false}
+          cursor="pointer"
+          disabled={false}
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          id={3}
+          key="3"
+          labelTextStyle="bodyCopy"
+          name="answer"
+          onChange={[Function]}
+          padding="1em"
+          value={3}
+        >
+          <styled.div
+            alignItems="center"
+            borderRadius=".2em"
+            cursor="pointer"
+            display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            value={3}
+          >
+            <div
+              className="sc-bdfBwQ ivfGFt"
+              cursor="pointer"
+              display="grid"
+              name="answer"
+              onChange={[Function]}
+              value={3}
+            >
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={3}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={3}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-pFZIQ hWZefA"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={3}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <LabelComponent
+                color="initial"
+                disabled={false}
+                forId={3}
+                hasError={false}
+                textStyle="bodyCopy"
+              >
+                <styled.label
+                  color="initial"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  hasError={false}
+                  htmlFor={3}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-jrAGrp dgmFFM"
+                    color="initial"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={3}
+                    letterSpacing={0}
+                  >
+                    answer 3
+                  </label>
+                </styled.label>
+              </LabelComponent>
+            </div>
+          </styled.div>
+        </LabeledCheckbox>
+        <LabeledCheckbox
+          alignItems="center"
+          borderRadius=".2em"
+          checked={false}
+          cursor="pointer"
+          disabled={false}
+          display="grid"
+          gridGap="1em"
+          gridTemplateColumns="min-content 1fr"
+          id={4}
+          key="4"
+          labelTextStyle="bodyCopy"
+          name="answer"
+          onChange={[Function]}
+          padding="1em"
+          value={4}
+        >
+          <styled.div
+            alignItems="center"
+            borderRadius=".2em"
+            cursor="pointer"
+            display="grid"
+            gridGap="1em"
+            gridTemplateColumns="min-content 1fr"
+            name="answer"
+            onChange={[Function]}
+            padding="1em"
+            value={4}
+          >
+            <div
+              className="sc-bdfBwQ ivfGFt"
+              cursor="pointer"
+              display="grid"
+              name="answer"
+              onChange={[Function]}
+              value={4}
+            >
+              <CheckboxComponent
+                checked={false}
+                disabled={false}
+                id={4}
+              >
+                <styled.input
+                  defaultChecked={false}
+                  disabled={false}
+                  id={4}
+                  type="checkbox"
+                >
+                  <input
+                    className="sc-pFZIQ hWZefA"
+                    defaultChecked={false}
+                    disabled={false}
+                    id={4}
+                    type="checkbox"
+                  />
+                </styled.input>
+              </CheckboxComponent>
+              <LabelComponent
+                color="initial"
+                disabled={false}
+                forId={4}
+                hasError={false}
+                textStyle="bodyCopy"
+              >
+                <styled.label
+                  color="initial"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  hasError={false}
+                  htmlFor={4}
+                  letterSpacing={0}
+                  lineHeight="1.5em"
+                >
+                  <label
+                    className="sc-jrAGrp dgmFFM"
+                    color="initial"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    htmlFor={4}
+                    letterSpacing={0}
+                  >
+                    answer 4
+                  </label>
+                </styled.label>
+              </LabelComponent>
+            </div>
+          </styled.div>
+        </LabeledCheckbox>
+      </ul>
+    </styled.ul>
+    <PrimaryButton
+      data-testid="question-form-submit-btn"
+      disabled={false}
+      display="block"
+      marginTop="3em"
+      marginX="auto"
+      type="submit"
+    >
+      <DynamicButtonComponent
+        bg={
+          Object {
+            "darker1": "#1D1611",
+            "darker2": "#16110D",
+            "default": "#241C15",
+            "lighter1": "#504944",
+            "lighter2": "#7C7773",
+          }
+        }
+        border={0}
+        borderRadius={4}
+        color={
+          Object {
+            "darker1": "#FFFFFF",
+            "darker2": "#FFFFFF",
+            "default": "#FFFFFF",
+            "lighter1": "#FFFFFF",
+            "lighter2": "#FFFFFF",
+          }
+        }
+        data-testid="question-form-submit-btn"
+        disabled={false}
+        display="block"
+        isIconOnly={false}
+        marginTop="3em"
+        marginX="auto"
+        onClick={[Function]}
+        padding="8px 16px"
+        textDecoration="none"
+        type="submit"
+      >
+        <styled.button
+          bg={
+            Object {
+              "darker1": "#1D1611",
+              "darker2": "#16110D",
+              "default": "#241C15",
+              "lighter1": "#504944",
+              "lighter2": "#7C7773",
+            }
+          }
+          border={0}
+          borderRadius={4}
+          color={
+            Object {
+              "darker1": "#FFFFFF",
+              "darker2": "#FFFFFF",
+              "default": "#FFFFFF",
+              "lighter1": "#FFFFFF",
+              "lighter2": "#FFFFFF",
+            }
+          }
+          data-testid="question-form-submit-btn"
+          display="block"
+          marginTop="3em"
+          marginX="auto"
+          onClick={[Function]}
+          padding="8px 16px"
+          textDecoration="none"
+          type="submit"
+        >
+          <button
+            className="sc-jSgupP bzQVzE"
+            color={
+              Object {
+                "darker1": "#FFFFFF",
+                "darker2": "#FFFFFF",
+                "default": "#FFFFFF",
+                "lighter1": "#FFFFFF",
+                "lighter2": "#FFFFFF",
+              }
+            }
+            data-testid="question-form-submit-btn"
+            display="block"
+            onClick={[Function]}
+            textDecoration="none"
+            type="submit"
+          >
+            <Brevier
+              fontWeight={600}
+              lineHeight="initial"
+              tag="span"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize=".778rem"
+                fontWeight={600}
+                letterSpacing={0.32}
+                lineHeight="initial"
+                tag="span"
+              >
+                <styled.p
+                  as="span"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize=".778rem"
+                  fontWeight={600}
+                  letterSpacing={0.32}
+                  lineHeight="initial"
+                >
+                  <span
+                    className="sc-eCssSg jDyLTd"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize=".778rem"
+                    fontWeight={600}
+                    letterSpacing={0.32}
+                  >
+                    exercises.validate-answer
+                  </span>
+                </styled.p>
+              </DynamicTextComponent>
+            </Brevier>
+          </button>
+        </styled.button>
+      </DynamicButtonComponent>
+    </PrimaryButton>
+  </form>
+</QuestionForm>
+`;
+
+exports[`QuestionForm snapshot testing should match previous snapshot (with singleChoice prop set to true) 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <LabeledRadioButton
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={1}
+      key="1"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={1}
+    >
+      answer 1
+    </LabeledRadioButton>
+    <LabeledRadioButton
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={2}
+      key="2"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={2}
+    >
+      answer 2
+    </LabeledRadioButton>
+    <LabeledRadioButton
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={3}
+      key="3"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={3}
+    >
+      answer 3
+    </LabeledRadioButton>
+    <LabeledRadioButton
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={4}
+      key="4"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={4}
+    >
+      answer 4
+    </LabeledRadioButton>
+  </styled.ul>
+  <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;
+
+exports[`QuestionForm snapshot testing should match previous snapshot (with submittedAnswer prop) 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      defaultChecked={true}
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={1}
+      key="1"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={1}
+    >
+      answer 1
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      defaultChecked={false}
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={2}
+      key="2"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={2}
+    >
+      answer 2
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      backgroundColor="#D8EACC"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      defaultChecked={false}
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={3}
+      key="3"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={3}
+    >
+      answer 3
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      defaultChecked={false}
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={4}
+      key="4"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={4}
+    >
+      answer 4
+    </LabeledCheckbox>
+  </styled.ul>
+  <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;
+
+exports[`QuestionForm snapshot testing should match previous snapshot 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={1}
+      key="1"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={1}
+    >
+      answer 1
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={2}
+      key="2"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={2}
+    >
+      answer 2
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={3}
+      key="3"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={3}
+    >
+      answer 3
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={false}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={4}
+      key="4"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={4}
+    >
+      answer 4
+    </LabeledCheckbox>
+  </styled.ul>
+  <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;
