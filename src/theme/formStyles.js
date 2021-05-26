@@ -146,10 +146,6 @@ const disabledInputStyle = {
 	border: `solid 1px ${tuna.darker1}`,
 };
 
-const errorInputStyle = {
-	border: `solid 1px ${crimson.default}`,
-};
-
 const selectStyle = {
 	...inputStyle,
 };
