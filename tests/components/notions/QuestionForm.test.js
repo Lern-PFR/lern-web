@@ -74,6 +74,15 @@ describe('QuestionForm', () => {
 	});
 
 	describe('form submit', () => {
+		it('should not call the provided \'onSubmit\' method prop if no answer is selected', () => {
+			const onSubmit = jest.fn();
+			render(<QuestionForm answers={answers} onSubmit={onSubmit} />);
+
+			userEvent.click(screen.getByTestId('question-form-submit-btn'));
+
+			expect(onSubmit).not.toHaveBeenCalled();
+		});
+
 		it('should not call the provided \'onSubmit\' method prop if provided with a defined, non-empty \'submittedAnswer\' prop array', () => {
 			const onSubmit = jest.fn();
 			render(<QuestionForm answers={answers} onSubmit={onSubmit} submittedAnswer={[answers[0].id]} />);

@@ -44,7 +44,7 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		if (submittedAnswer) {
+		if (submittedAnswer || formData.length === 0) {
 			return;
 		}
 		onSubmit(formData);
@@ -114,7 +114,7 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 				data-testid="question-form-submit-btn"
 				type="submit"
 				{...answerFormSubmitButton}
-				disabled={(submittedAnswer && submittedAnswer !== []) || _.isEmpty(formData)}
+				disabled={(submittedAnswer && submittedAnswer !== []) || formData.length === 0}
 			>
 				{t('exercises.validate-answer')}
 			</PrimaryButton>
