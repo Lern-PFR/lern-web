@@ -97,7 +97,7 @@ ModuleDetailsPage.propTypes = {
  * @param {*} state
  */
 const mapStateToProps = (state, ownProps) => {
-	const { match: { params: { id: moduleId } } } = ownProps;
+	const { match: { params: { moduleId } } } = ownProps;
 
 	// @TODO: uncomment these lines once data can be retrieved from the API.
 	// const {

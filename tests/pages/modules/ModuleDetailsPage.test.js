@@ -38,7 +38,7 @@ describe('ModuleDetailsPage', () => {
 	});
 
 	it('should call the fetchNotionListByModuleId action creator on mount', () => {
-		const ownProps = { match: { params: { id: 1 } } };
+		const ownProps = { match: { params: { moduleId: 1 } } };
 
 		mount(
 			<Provider store={store}>
@@ -61,7 +61,7 @@ describe('ModuleDetailsPage', () => {
 	});
 
 	it('should call the clearNotionList action creator on unmount', () => {
-		const ownProps = { match: { params: { id: 1 } } };
+		const ownProps = { match: { params: { moduleId: 1 } } };
 
 		const wrapper = mount(
 			<Provider store={store}>

@@ -34,7 +34,7 @@ describe('SubjectDetailsPage', () => {
 	});
 
 	it('should call the fetchModuleListBySubjectId action creator on mount', () => {
-		const ownProps = { match: { params: { id: 1 } } };
+		const ownProps = { match: { params: { subjectId: 1 } } };
 
 		mount(
 			<Provider store={store}>
@@ -56,7 +56,7 @@ describe('SubjectDetailsPage', () => {
 	});
 
 	it('should call the clearModuleList action creator on unmount', () => {
-		const ownProps = { match: { params: { id: 1 } } };
+		const ownProps = { match: { params: { subjectId: 1 } } };
 
 		const wrapper = mount(
 			<Provider store={store}>

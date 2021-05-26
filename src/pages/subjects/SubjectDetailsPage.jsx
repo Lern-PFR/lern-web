@@ -91,7 +91,7 @@ SubjectDetailsPage.propTypes = {
  * @param {*} state
  */
 const mapStateToProps = (state, ownProps) => {
-	const { match: { params: { id: subjectId } } } = ownProps;
+	const { match: { params: { subjectId } } } = ownProps;
 
 	// @TODO: uncomment these lines once data can be retrieved from the API.
 	// const {
