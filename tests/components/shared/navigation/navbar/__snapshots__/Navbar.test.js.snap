@@ -97,11 +97,6 @@ exports[`Navbar should match previous snapshot with no authentified user 1`] = `
   </styled.ul>
   <PrimaryLinkButton>
     <Link
-      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-      fontSize=".778rem"
-      fontWeight={600}
-      letterSpacing={0.32}
-      lineHeight="1.125em"
       to="/auth/login"
     >
       navigation.menu.sign_in

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import routes from 'routes/keys';
 import { navbar, navbarLinkList, username } from 'theme/navbar';
-import { brevier } from 'theme/textStyles';
 import { StyledDiv, StyledList } from 'components/shared/styledElements';
 import { Pica } from 'components/shared/typography';
 import { PrimaryLinkButton } from 'components/shared/buttons';
@@ -35,7 +34,7 @@ const Navbar = ({ currentUser, t }) => (
 		)}
 		{!currentUser && (
 			<PrimaryLinkButton>
-				<Link to={routes.auth.login} {...brevier} fontWeight={600}>{t('navigation.menu.sign_in')}</Link>
+				<Link to={routes.auth.login}>{t('navigation.menu.sign_in')}</Link>
 			</PrimaryLinkButton>
 		)}
 	</StyledDiv>
