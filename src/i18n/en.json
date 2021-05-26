@@ -26,12 +26,13 @@
 		},
 		"modules": {
 			"links": {
-				"back_to_subject": "Reurn to the parent subject's page"
+				"back_to_subject": "Return to the parent subject's page"
 			}
 		},
 		"notions": {
 			"links": {
-				"start": "Start notion"
+				"start": "Start notion",
+				"back_to_module": "Return to module '{{module.name}}'"
 			}
 		},
 		"lessons": {

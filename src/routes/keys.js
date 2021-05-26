@@ -21,11 +21,11 @@ export default Object.freeze({
 	},
 	subjects: {
 		default: '/subjects',
-		subjectDetails: '/subjects/:id',
+		subjectDetails: '/subjects/:subjectId',
 	},
 	modules: {
 		default: '/modules',
-		moduleDetails: '/modules/:id',
+		moduleDetails: '/modules/:moduleId',
 	},
 	notions: {
 		default: '/notions',

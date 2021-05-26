@@ -66,11 +66,17 @@ export const moduleDetailsPageMock = {
 };
 
 export const notionDetailsMock = {
+	modules: [
+		{ id: '0', name: 'Module 0', description: 'Lorem ipsum dolor sit amet', subjectId: '1' },
+		{ id: '1', name: 'Module 1', description: 'Lorem ipsum dolor sit amet', subjectId: '1' },
+		{ id: '2', name: 'Module 2', description: 'Lorem ipsum dolor sit amet', subjectId: '1' },
+		{ id: '3', name: 'Module 3', description: 'Lorem ipsum dolor sit amet', subjectId: '1' },
+	],
 	notion: {
 		id: 1,
 		title: 'notion title',
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
-		moduleId: 'a',
+		moduleId: '0',
 	},
 	lessons: [
 		{

@@ -4,11 +4,10 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
 <styled.div
   display="grid"
   gridGap="24px"
-  gridTemplateRows="7rem 1fr"
+  gridTemplateRows="auto 1fr"
 >
   <styled.div
     bg="#FFFFFF"
-    paddingTop="24px"
     position="sticky"
     top={0}
   >
@@ -40,11 +39,10 @@ exports[`LessonContent should match previous snapshot (with question provided) 1
 <styled.div
   display="grid"
   gridGap="24px"
-  gridTemplateRows="7rem 1fr"
+  gridTemplateRows="auto 1fr"
 >
   <styled.div
     bg="#FFFFFF"
-    paddingTop="24px"
     position="sticky"
     top={0}
   >

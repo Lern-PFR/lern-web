@@ -3,20 +3,21 @@ import Proptypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { ChevronLeft } from 'react-feather';
 
+import conf from 'conf';
 import { clearModuleList, fetchModuleListBySubjectId } from 'redux/actions/modules';
 import routes from 'routes/keys';
 
-import { StyledDiv } from 'components/shared/styledElements';
+import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
 import { Brevier, Canon, BodyCopy } from 'components/shared/typography';
 import ModuleList from 'components/subjects/ModuleList';
-import { SubtleButton } from 'components/shared/buttons';
+import { SubtleLinkButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
 
-import { backToListButton, pageLayout, subjectAuthor, subjectName, subjectDetails } from 'theme/pages/subjects/subjectDetailsPage';
+import { backToListButton, pageLayout, subjectAuthor, subjectName, subjectDetails, backToListSvg } from 'theme/pages/subjects/subjectDetailsPage';
 
 import { subjectDetailsPageMock } from 'mockedData';
+import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 
 /**
  * @name SubjectDetailsPage
@@ -47,14 +48,14 @@ const SubjectDetailsPage = ({ dispatchFetchModuleList, dispatchClearModuleList, 
 						{t('subjects.details.author_section', { author: subject?.author, lastUpdate: subject?.lastUpdate })}
 					</Brevier>
 					<BodyCopy>{subject?.description}</BodyCopy>
-					<SubtleButton {...backToListButton}>
+					<SubtleLinkButton {...backToListButton}>
 						<Link to={routes.subjects.default}>
-							<StyledDiv display="flex" alignItems="center">
-								<ChevronLeft />
+							<StyledDiv {...backToParentButtonContentLayout}>
+								<StyledSvg src={`${conf.svgPath}/ChevronLeft.svg`} {...backToListSvg} />
 								{t('subjects.links.back_to_list')}
 							</StyledDiv>
 						</Link>
-					</SubtleButton>
+					</SubtleLinkButton>
 				</StyledDiv>
 			</StyledDiv>
 			<StyledDiv>

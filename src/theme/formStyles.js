@@ -96,7 +96,7 @@ const radioButtonStyle = {
 		textAlign: 'center',
 		borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
 	},
-	'&:hover': {
+	'&:not(:disabled):hover': {
 		backgroundColor: parsnip.lighter1,
 	},
 	'&:checked': {

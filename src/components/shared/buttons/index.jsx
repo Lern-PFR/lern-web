@@ -9,6 +9,7 @@ import {
 	floatingActionButton,
 	primaryLink,
 	outlined,
+	subtleLink,
 } from 'theme/buttonStyles';
 import DynamicButtonComponent from './DynamicButtonComponent';
 import DynamicLinkButtonComponent from './DynamicLinkButtonComponent';
@@ -52,7 +53,7 @@ const PrimaryLinkButton = ({ children, ...otherProps }) => (
  * @param {*} children : The children to display inside this button.
  */
 const OutlinedButton = ({ children, ...otherProps }) => (
-	<DynamicButtonComponent {...outlined} {...otherProps}>
+	<DynamicButtonComponent linkStyle={primaryLink} {...outlined} {...otherProps}>
 		{children}
 	</DynamicButtonComponent>
 );
@@ -83,6 +84,20 @@ const SubtleButton = ({ children, ...otherProps }) => (
 	<DynamicButtonComponent {...subtle} {...otherProps}>
 		{children}
 	</DynamicButtonComponent>
+);
+
+/**
+ * @name SubtleLinkButton
+ * @description Link button component to be used along a primary button for less used redirections.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children : The children to display inside this button.
+ */
+const SubtleLinkButton = ({ children, ...otherProps }) => (
+	<DynamicLinkButtonComponent linkStyle={subtleLink} {...subtle} {...otherProps}>
+		{children}
+	</DynamicLinkButtonComponent>
 );
 
 /**
@@ -181,6 +196,14 @@ SubtleButton.propTypes = {
 	]).isRequired,
 };
 
+SubtleLinkButton.propTypes = {
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.elementType,
+		PropTypes.node,
+	]).isRequired,
+};
+
 DropdownButton.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
@@ -220,6 +243,7 @@ export {
 	PrimaryLinkButton,
 	StandardButton,
 	SubtleButton,
+	SubtleLinkButton,
 	DropdownButton,
 	DangerButton,
 	IconButton,

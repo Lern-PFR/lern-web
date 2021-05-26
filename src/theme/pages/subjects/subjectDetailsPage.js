@@ -66,7 +66,12 @@ const moduleAccessLinkButton = {
 const backToListButton = {
 	display: 'flex',
 	alignItems: 'center',
-	paddingLeft: 'initial',
+	padding: '0',
+};
+
+const backToListSvg = {
+	height: '.7em',
+	stroke: tuna.default,
 };
 
 export {
@@ -81,4 +86,5 @@ export {
 	subjectAuthor,
 	subjectDescription,
 	backToListButton,
+	backToListSvg,
 };

@@ -1,4 +1,4 @@
-import { basmati } from 'theme/colors';
+import { basmati, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -81,6 +81,11 @@ const lessonDescription = {
 	whiteSpace: 'nowrap',
 };
 
+const backToSubjectSvg = {
+	height: '.7em',
+	stroke: tuna.default,
+};
+
 export {
 	pageLayout,
 	moduleName,
@@ -94,4 +99,5 @@ export {
 	lessonTitle,
 	lessonDescription,
 	startNotionButton,
+	backToSubjectSvg,
 };

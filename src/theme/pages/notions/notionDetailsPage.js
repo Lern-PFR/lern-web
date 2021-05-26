@@ -16,7 +16,7 @@ const sidebar = {
 	display: 'grid',
 	padding: '24px 64px',
 	borderLeft: `solid 1px ${basmati.default}`,
-	gridTemplateRows: 'auto auto 48px 1fr',
+	gridTemplateRows: 'auto auto auto 1fr',
 };
 
 const notionTitle = {
@@ -27,13 +27,12 @@ const notionTitle = {
 
 const lessonContentContainer = {
 	display: 'grid',
-	gridTemplateRows: '7rem 1fr',
+	gridTemplateRows: 'auto 1fr',
 	gridGap: '24px',
 };
 
 const lessonTitleContainer = {
 	position: 'sticky',
-	paddingTop: '24px',
 	top: 0,
 	bg: coconut.default,
 };
@@ -135,6 +134,11 @@ const answerFormSubmitButton = {
 	marginTop: '3em',
 };
 
+const backToModuleSvg = {
+	height: '.7em',
+	stroke: tuna.default,
+};
+
 export {
 	pageLayout,
 	sidebar,
@@ -155,4 +159,5 @@ export {
 	answerListItemInput,
 	validAnswerListItem,
 	answerFormSubmitButton,
+	backToModuleSvg,
 };

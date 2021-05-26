@@ -31,7 +31,8 @@
 		},
 		"notions": {
 			"links": {
-				"start": "Débuter la notion"
+				"start": "Débuter la notion",
+				"back_to_module": "Retourner au module '{{module.name}}'"
 			}
 		},
 		"lessons": {

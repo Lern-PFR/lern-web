@@ -2,14 +2,21 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { generatePath } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import _ from 'lodash';
-import { StyledDiv } from 'components/shared/styledElements';
-import { pageLayout } from 'theme/pages/notions/notionDetailsPage';
-import { fetchNotion } from 'redux/actions/notions';
-import { LessonContent, Sidebar } from 'components/notions/NotionDetailsPage';
+
+import routes from 'routes/keys';
+import conf from 'conf';
 import { notionDetailsMock } from 'mockedData';
 
+import { fetchNotion } from 'redux/actions/notions';
+import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
+import { LessonContent, Sidebar } from 'components/notions/NotionDetailsPage';
+import { SubtleLinkButton } from 'components/shared/buttons';
+import { Link } from 'components/shared/navigation';
+import { backToModuleSvg, pageLayout } from 'theme/pages/notions/notionDetailsPage';
+import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 /**
  * @name NotionDetailsPage
  * @description A page used to display a the current notion and its composing lessons.
@@ -19,10 +26,12 @@ import { notionDetailsMock } from 'mockedData';
  * @param {array}			content				An array of the current notion's lessons and exercises.
  * @param {func}			dispatchFetchNotion	Dispatched action creator used to retrieve the current notion.
  * @param {number|string}	[lessonId]			The current lesson's id.
+ * @param {object}			module				The notion's parent module.
  * @param {number|string}	notionId			The current notion's id.
  * @param {object}			notion				The current notion.
+ * @param {func}			t					The translation method provided by the withTranslation HoC.
  */
-const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, notionId, notion }) => {
+const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, module, notionId, notion, t }) => {
 	useEffect(() => {
 		dispatchFetchNotion(notionId);
 	}, [dispatchFetchNotion, notionId]);
@@ -51,18 +60,30 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, notionId, n
 	};
 
 	return (
-		<StyledDiv {...pageLayout}>
-			<LessonContent
-				{...content[currentIndex]}
-				question={content[currentIndex].exercise?.question?.statement}
-			/>
-			<Sidebar
-				currentLesson={content[currentIndex]}
-				notionContent={content}
-				notionName={notion.title}
-				onQuestionAnswerSubmit={onQuestionAnswerSubmit}
-				onCurrentDocumentRedirect={(index) => setCurrentIndex(index)}
-			/>
+		<StyledDiv>
+			<StyledDiv {...pageLayout}>
+				<StyledDiv paddingTop="24px">
+					<SubtleLinkButton padding="0">
+						<Link to={generatePath(routes.modules.moduleDetails, { moduleId: module.id })}>
+							<StyledDiv {...backToParentButtonContentLayout}>
+								<StyledSvg src={`${conf.svgPath}/ChevronLeft.svg`} {...backToModuleSvg} />
+								{t('notions.links.back_to_module', { module })}
+							</StyledDiv>
+						</Link>
+					</SubtleLinkButton>
+					<LessonContent
+						{...content[currentIndex]}
+						question={content[currentIndex].exercise?.question?.statement}
+					/>
+				</StyledDiv>
+				<Sidebar
+					currentLesson={content[currentIndex]}
+					notionContent={content}
+					notionName={notion.title}
+					onQuestionAnswerSubmit={onQuestionAnswerSubmit}
+					onCurrentDocumentRedirect={(index) => setCurrentIndex(index)}
+				/>
+			</StyledDiv>
 		</StyledDiv>
 	);
 };
@@ -118,6 +139,11 @@ NotionDetailsPage.propTypes = {
 			}),
 		])
 	).isRequired,
+	module: PropTypes.shape({
+		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+		name: PropTypes.string.isRequired,
+	}).isRequired,
+	t: PropTypes.func.isRequired,
 	// Dispatched redux action creators
 	dispatchFetchNotion: PropTypes.func.isRequired,
 };
@@ -134,7 +160,7 @@ const mapStateToProps = (state, ownProps) => {
 	const { match: { params: { notionId, lessonId = undefined } } } = ownProps;
 
 	// @TODO: replace with real information once data can be retrieved from the API.
-	const { exercises, lessons } = notionDetailsMock;
+	const { exercises, lessons, modules, notion } = notionDetailsMock;
 
 	const content = [
 		...lessons.map((lesson) => ({ ...lesson, contentType: 'lesson' })),
@@ -145,9 +171,10 @@ const mapStateToProps = (state, ownProps) => {
 
 	return {
 		notionId,
-		notion: notionDetailsMock.notion,
+		notion,
 		content,
 		lessonId,
+		module: _.head(_.filter(modules, ({ id }) => _.isEqual(id, notion.moduleId))),
 	};
 };
 

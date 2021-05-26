@@ -20,6 +20,12 @@ const primaryLink = {
 	fontWeight: 600,
 };
 
+const subtleLink = {
+	...brevier,
+	color: tuna,
+	display: 'inline-block',
+};
+
 const outlined = {
 	...commonButtonStyle,
 	bg: coconut,
@@ -46,12 +52,7 @@ const subtle = {
 	...commonButtonStyle,
 	bg: coconut,
 	color: tuna,
-};
-
-const subtleLink = {
-	...commonButtonStyle,
-	bg: coconut,
-	color: tuna,
+	iconSize: brevier.lineHeight,
 };
 
 const dropdown = {
@@ -91,13 +92,18 @@ const floatingActionButton = {
 	textDecoration: 'none',
 };
 
+const backToParentButtonContentLayout = {
+	display: 'flex',
+	alignItems: 'center',
+	gridGap: '.5em',
+};
+
 export {
 	primary,
 	outlined,
 	standard,
 	link,
 	subtle,
-	subtleLink,
 	dropdown,
 	disabled,
 	danger,
@@ -105,4 +111,7 @@ export {
 	floatingActionButton,
 
 	primaryLink,
+	subtleLink,
+
+	backToParentButtonContentLayout,
 };

@@ -5,7 +5,7 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
   <styled.div
     borderLeft="solid 1px #DBD9D2"
     display="grid"
-    gridTemplateRows="auto auto 48px 1fr"
+    gridTemplateRows="auto auto auto 1fr"
     height="90vh"
     padding="24px 64px"
     position="sticky"
@@ -126,7 +126,7 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
   <styled.div
     borderLeft="solid 1px #DBD9D2"
     display="grid"
-    gridTemplateRows="auto auto 48px 1fr"
+    gridTemplateRows="auto auto auto 1fr"
     height="90vh"
     padding="24px 64px"
     position="sticky"

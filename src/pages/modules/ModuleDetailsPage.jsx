@@ -1,21 +1,24 @@
 import { useEffect } from 'react';
 import { compose } from 'redux';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { ChevronLeft } from 'react-feather';
+import { generatePath } from 'react-router';
 
-import { clearNotionList, fetchNotionListByModuleId } from 'redux/actions/notions';
+import conf from 'conf';
 import routes from 'routes/keys';
 
+import { clearNotionList, fetchNotionListByModuleId } from 'redux/actions/notions';
+
 import { moduleDetailsPageMock } from 'mockedData';
-import { StyledDiv } from 'components/shared/styledElements';
+import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
 import { Canon, GreatPrimer } from 'components/shared/typography';
 import NotionList from 'components/modules/NotionList';
-import { SubtleButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
-import { moduleName, moduleDescription, pageLayout } from 'theme/pages/modules/moduleDetailsPage';
+import { SubtleLinkButton } from 'components/shared/buttons';
+import { moduleName, moduleDescription, pageLayout, backToSubjectSvg } from 'theme/pages/modules/moduleDetailsPage';
 import { backToListButton } from 'theme/pages/subjects/subjectDetailsPage';
+import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 
 /**
  * @name ModuleDetailsPage
@@ -41,14 +44,14 @@ const ModuleDetailsPage = ({ dispatchFetchNotionList, dispatchClearNotionList, m
 	return (
 		<StyledDiv {...pageLayout}>
 			<StyledDiv>
-				<SubtleButton {...backToListButton}>
-					<Link to={routes.subjects.subjectDetails.replace(':id', module?.subjectId)}>
-						<StyledDiv display="flex" alignItems="center">
-							<ChevronLeft />
+				<SubtleLinkButton {...backToListButton}>
+					<Link to={generatePath(routes.subjects.subjectDetails, { subjectId: module?.subjectId })}>
+						<StyledDiv {...backToParentButtonContentLayout}>
+							<StyledSvg src={`${conf.svgPath}/ChevronLeft.svg`} {...backToSubjectSvg} />
 							{t('modules.links.back_to_subject')}
 						</StyledDiv>
 					</Link>
-				</SubtleButton>
+				</SubtleLinkButton>
 				<Canon tag="h1" {...moduleName}>{module?.name}</Canon>
 			</StyledDiv>
 			<GreatPrimer {...moduleDescription}>{module?.description}</GreatPrimer>
