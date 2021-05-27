@@ -1,9 +1,12 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { LabeledInput } from 'components/shared/form';
 import { withTranslation } from 'react-i18next';
 import { PrimaryButton } from 'components/shared/buttons';
 import { input, submitButton } from 'theme/pages/auth/signUpPage';
+import { isEmailAddress, isRequired } from 'lib/shared/inputValidation';
+import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
+import _ from 'lodash';
 
 /**
  * @constant
@@ -18,7 +21,28 @@ const initialState = {
 	email: '',
 	nickname: '',
 	password: '',
-	passwordConfirmation: '',
+	'password-confirmation': '',
+};
+
+/**
+ * @constant
+ * @name validationRules
+ * @description The validation rules for each field.
+ *
+ * Note : the 'password-confirmation' field has an additional 'matchPassword' rule
+ * 		defined in the component since it requires a ref defined at runtime.
+ *
+ * @author Timothée Simon-Franza
+ */
+const validationRules = {
+	firstname: { required: isRequired() },
+	lastname: { required: isRequired() },
+	email: { required: isRequired(), email: isEmailAddress() },
+	nickname: { required: isRequired() },
+	password: { required: isRequired() },
+	'password-confirmation': {
+		required: isRequired(),
+	},
 };
 
 /**
@@ -34,7 +58,7 @@ const inputsDefinition = {
 	email: { id: 'email', name: 'email', inputType: 'email', hasPlaceholder: true },
 	nickname: { id: 'nickname', name: 'nickname', hasPlaceholder: true },
 	password: { id: 'password', name: 'password', inputType: 'password' },
-	passwordConfirmation: { id: 'password-confirmation', name: 'password-confirmation', inputType: 'password', labelKey: 'password_confirmation' },
+	'password-confirmation': { id: 'password-confirmation', name: 'password-confirmation', inputType: 'password', labelKey: 'password_confirmation' },
 };
 
 /**
@@ -48,6 +72,13 @@ const inputsDefinition = {
  */
 const SignUpForm = ({ onSubmit, t }) => {
 	const [formState, setFormState] = useState(initialState);
+	const [errors, setErrors] = useState({});
+	const fieldsRef = useRef({});
+
+	validationRules['password-confirmation'] = {
+		...validationRules['password-confirmation'],
+		matchPassword: (value) => (_.isEqual(value, fieldsRef.current?.password?.value) ? '' : 'custom validator error message'),
+	};
 
 	/**
 	 * @function
@@ -60,27 +91,62 @@ const SignUpForm = ({ onSubmit, t }) => {
 	 */
 	const handleSubmit = useCallback((event) => {
 		event?.preventDefault();
-		const { passwordConfirmation, ...userCreationData } = formState;
+
+		const formValidationResult = validateForm(fieldsRef.current, validationRules);
+		setErrors(formValidationResult);
+
+		if (!isFormValid(errors)) {
+			return;
+		}
+
+		// Removes the 'password-confirmation' field value from the object sent to the onSubmit method.
+		const { 'password-confirmation': passwordConf, ...userCreationData } = formState;
 
 		onSubmit(userCreationData);
-	}, [formState, onSubmit]);
+	}, [errors, formState, onSubmit]);
 
 	/**
 	 * @function
-	 * @name onChange
+	 * @name handleChange
 	 * @description Updates the formState object with the new value.
 	 *
 	 * @author Timothée Simon-Franza
 	 *
-	 * @param {string} name		The name of the input the event originated from.
-	 * @param {string} value	The new value to update the state with.
+	 * @param {object} event				The onChange event.
+	 * @param {object} event.target			The target which the onChange event originated from.
+	 * @param {string} event.target.name	The name of the input the event originated from.
+	 * @param {string} event.target.value	The new value to update the state with.
 	 */
-	const onChange = (event) => {
+	const handleChange = (event) => {
 		event.preventDefault();
+		const { target: { name, value: newValue } } = event;
+
+		setFormState((prevState) => ({ ...prevState, [name]: newValue }));
+	};
+
+	/**
+	 * @function
+	 * @name handleBlur
+	 * @description Performs validation checks for the input generating the blur event.
+	 *
+	 * @author Timothée Simon-Franza
+	 *
+	 * @param {object} event				The onBlur event.
+	 * @param {object} event.target			The target which the onBlur event originated from.
+	 * @param {string} event.target.name	The name of the input the event originated from.
+	 * @param {string} event.target.value	The current value of the input the event originated from.
+	 */
+	const handleBlur = (event) => {
 		const { target: { name, value } } = event;
 
-		setFormState((prevState) => ({ ...prevState, [name]: value }));
+		// Removes previous errors for current field.
+		const { [name]: removedError, ...rest } = errors;
+
+		// Performs validation check on the field and updates the errors state.
+		setErrors({ ...rest, [name]: validateField(value, validationRules[name]) });
 	};
+
+	console.log(errors.firstname);
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -90,8 +156,12 @@ const SignUpForm = ({ onSubmit, t }) => {
 					id={id}
 					name={name}
 					type={inputType}
-					onChange={onChange}
+					onChange={handleChange}
+					onBlur={handleBlur}
+					hasError={errors[name] && Object.keys(errors[name])?.length > 0}
+					errorText={errors[name] && (Object.values(errors[name])?.[0] || '')}
 					placeholder={hasPlaceholder ? t(`authentication.pages.signup.form.fields.${labelKey ?? name}.placeholder`) : undefined}
+					ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
 					{...input}
 				>
 					{t(`authentication.pages.signup.form.fields.${labelKey ?? name}.label`)}
