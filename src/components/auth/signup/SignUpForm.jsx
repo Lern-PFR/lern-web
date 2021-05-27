@@ -4,7 +4,7 @@ import { LabeledInput } from 'components/shared/form';
 import { withTranslation } from 'react-i18next';
 import { PrimaryButton } from 'components/shared/buttons';
 import { input, submitButton } from 'theme/pages/auth/signUpPage';
-import { isEmailAddress, isRequired } from 'lib/shared/inputValidation';
+import { hasMaxLength, hasMinLength, isEmailAddress, isRequired } from 'lib/shared/inputValidation';
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
 import _ from 'lodash';
 
@@ -35,13 +35,34 @@ const initialState = {
  * @author Timothée Simon-Franza
  */
 const validationRules = {
-	firstname: { required: isRequired() },
-	lastname: { required: isRequired() },
-	email: { required: isRequired(), email: isEmailAddress() },
-	nickname: { required: isRequired() },
-	password: { required: isRequired() },
+	firstname: {
+		required: isRequired('required'),
+		hasMinLength: hasMinLength(3, 'min_length'),
+		hasMaxLength: hasMaxLength(50, 'max_length'),
+	},
+	lastname: {
+		required: isRequired('required'),
+		hasMinLength: hasMinLength(3, 'min_length'),
+		hasMaxLength: hasMaxLength(100, 'max_length'),
+	},
+	email: {
+		required: isRequired('required'),
+		format: isEmailAddress('email_format'),
+	},
+	nickname: {
+		required: isRequired('required'),
+		hasMinLength: hasMinLength(3, 'min_length'),
+		hasMaxLength: hasMaxLength(50, 'max_length'),
+	},
+	password: {
+		required: isRequired('required'),
+		hasMinLength: hasMinLength(8, 'min_length'),
+		hasMaxLength: hasMaxLength(100, 'max_length'),
+	},
 	'password-confirmation': {
-		required: isRequired(),
+		required: isRequired('required'),
+		hasMinLength: hasMinLength(8, 'min_length'),
+		hasMaxLength: hasMaxLength(100, 'max_length'),
 	},
 };
 
@@ -77,7 +98,7 @@ const SignUpForm = ({ onSubmit, t }) => {
 
 	validationRules['password-confirmation'] = {
 		...validationRules['password-confirmation'],
-		matchPassword: (value) => (_.isEqual(value, fieldsRef.current?.password?.value) ? '' : 'custom validator error message'),
+		matchPassword: (value) => (_.isEqual(value, fieldsRef.current?.password?.value) ? '' : 'match_password'),
 	};
 
 	/**
@@ -122,6 +143,11 @@ const SignUpForm = ({ onSubmit, t }) => {
 		const { target: { name, value: newValue } } = event;
 
 		setFormState((prevState) => ({ ...prevState, [name]: newValue }));
+
+		// Removes previous errors for current field.
+		const { [name]: removedError, ...rest } = errors;
+		// Performs validation check on the field and updates the errors state.
+		setErrors({ ...rest, [name]: validateField(newValue, validationRules[name]) });
 	};
 
 	/**
@@ -146,7 +172,18 @@ const SignUpForm = ({ onSubmit, t }) => {
 		setErrors({ ...rest, [name]: validateField(value, validationRules[name]) });
 	};
 
-	console.log(errors.firstname);
+	/**
+	 *
+	 * @param {*} fieldName
+	 * @returns
+	 */
+	const getErrorMessageByFieldName = (fieldName, fieldLabelKey = undefined) => {
+		if (errors[fieldName] && Object.keys(errors[fieldName])?.length > 0) {
+			return t(`authentication.pages.signup.form.fields.${fieldLabelKey ?? fieldName}.validation_rules.${Object.values(errors[fieldName])?.[0]}`);
+		}
+
+		return '';
+	};
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -159,7 +196,7 @@ const SignUpForm = ({ onSubmit, t }) => {
 					onChange={handleChange}
 					onBlur={handleBlur}
 					hasError={errors[name] && Object.keys(errors[name])?.length > 0}
-					errorText={errors[name] && (Object.values(errors[name])?.[0] || '')}
+					errorText={getErrorMessageByFieldName(name, labelKey)}
 					placeholder={hasPlaceholder ? t(`authentication.pages.signup.form.fields.${labelKey ?? name}.placeholder`) : undefined}
 					ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
 					{...input}

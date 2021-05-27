@@ -24,25 +24,56 @@
 						"fields": {
 							"firstname": {
 								"label": "Prénom",
-								"placeholder": "Jean"
+								"placeholder": "Jean",
+								"validation_rules": {
+									"required": "Veuillez renseigner un prénom.",
+									"min_length": "Veuillez saisir au moins 3 caractères.",
+									"max_length": "Veuillez saisir 50 caractères maximum."
+								}
 							},
 							"lastname": {
 								"label": "Nom",
-								"placeholder": "Valjean"
+								"placeholder": "Valjean",
+								"validation_rules": {
+									"required": "Veuillez renseigner un nom.",
+									"min_length": "Veuillez saisir au moins 3 caractères.",
+									"max_length": "Veuillez saisir 100 caractères maximum."
+								}
 							},
 							"email": {
 								"label": "Adresse e-mail",
-								"placeholder": "jeanValjean@email.fr"
+								"placeholder": "jeanValjean@email.fr",
+								"validation_rules": {
+									"required": "Veuillez renseigner une adresse email valide.",
+									"email_format": "Le format d'adresse renseigné est invalide."
+								}
 							},
 							"nickname": {
 								"label": "Pseudonyme",
-								"placeholder": "jeanValjean"
+								"placeholder": "jeanValjean",
+								"validation_rules": {
+									"required": "Veuillez renseigner un pseudonyme.",
+									"min_length": "Veuillez saisir au moins 3 caractères.",
+									"max_length": "Veuillez saisir 50 caractères maximum."
+								}
 							},
 							"password": {
-								"label": "Mot de passe"
+								"label": "Mot de passe",
+								"validation_rules": {
+									"required": "Veuillez renseigner un mot de passe.",
+									"min_length": "Veuillez saisir au moins 8 caractères",
+									"max_length": "Veuillez saisir 100 caractères maximum"
+								}
 							},
 							"password_confirmation": {
-								"label": "Confirmation de mot de passe"
+								"label": "Confirmation de mot de passe",
+								"validation_rules": {
+									"required": "Veuillez confirmer votre mot de passe.",
+									"min_length": "Veuillez saisir au moins 8 caractères.",
+									"max_length": "Veuillez saisir 100 caractères maximum.",
+									"match_password": "Les mots de passes ne correspondent pas."
+								}
+
 							}
 						},
 						"action": {
