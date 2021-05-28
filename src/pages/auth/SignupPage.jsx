@@ -1,4 +1,5 @@
 import SignUpForm from 'components/auth/signup/SignUpForm';
+import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
 import { Canon, DoublePica } from 'components/shared/typography';
 import PropTypes from 'prop-types';
 import { useCallback } from 'react';
@@ -6,7 +7,8 @@ import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { signUp } from 'redux/actions/users';
-import { hero, subtitle } from 'theme/pages/auth/signUpPage';
+import { hero, illustrationSvg, layout, subtitle } from 'theme/pages/auth/signUpPage';
+import conf from 'conf';
 
 /**
  * @name SignUpPage
@@ -27,11 +29,14 @@ const SignUpPage = ({ dispatchSignUp, t }) => {
 	}, [dispatchSignUp]);
 
 	return (
-		<>
-			<Canon {...hero} tag="h1">{t('authentication.pages.signup.hero')}</Canon>
-			<DoublePica {...subtitle}>{t('authentication.pages.signup.subtitle')}</DoublePica>
-			<SignUpForm onSubmit={onSubmit} />
-		</>
+		<StyledDiv {...layout}>
+			<StyledDiv>
+				<Canon {...hero} tag="h1">{t('authentication.pages.signup.hero')}</Canon>
+				<DoublePica {...subtitle}>{t('authentication.pages.signup.subtitle')}</DoublePica>
+				<SignUpForm onSubmit={onSubmit} />
+			</StyledDiv>
+			<StyledSvg src={`${conf.svgIllustrationsPath}/sign_up.svg`} {...illustrationSvg} />
+		</StyledDiv>
 	);
 };
 

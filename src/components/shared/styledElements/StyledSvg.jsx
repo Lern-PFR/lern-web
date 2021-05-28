@@ -10,6 +10,7 @@ import styled from 'styled-components';
 const StyledSvg = styled(ReactSVG)(
 	{
 		...((props) => props),
+		display: (({ display }) => (display || 'inline-block')),
 
 		'& svg, & svg *': {
 			height: (({ height }) => (height || 'auto')),
