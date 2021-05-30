@@ -91,3 +91,26 @@ exports[`LabeledRadioButton should match previous snapshot for disabled state 1`
   </LabelComponent>
 </styled.div>
 `;
+
+exports[`LabeledRadioButton should match previous snapshot for radio button with custom label text style 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+  textStyle="bodycopy"
+>
+  <RadioButtonComponent
+    checked={false}
+    disabled={false}
+    id="lcb"
+  />
+  <LabelComponent
+    color="initial"
+    disabled={false}
+    forId="lcb"
+    hasError={false}
+    textStyle=""
+  >
+    Labeled Checkbox
+  </LabelComponent>
+</styled.div>
+`;

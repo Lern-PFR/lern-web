@@ -55,4 +55,11 @@ describe('RadioButtonComponent', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should match previous snapshot for labeled input with custom label text style', () => {
+		const sut = (<LabeledInput id="inp" textStyle="bodycopy">Labeled Input</LabeledInput>);
+		const wrapper = shallow(sut);
+
+		expect(wrapper).toMatchSnapshot();
+	});
 });

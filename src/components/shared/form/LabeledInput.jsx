@@ -14,6 +14,7 @@ import SubTextComponent from './SubTextComponent';
  *
  * @param {string}	id					: The id of the input.
  * @param {string}	children			: The text to be displayed in the label.
+ * @param {string}	[textStyle]			The text style for this input and its label.
  * @param {string}	[hintText]			: The text to be displayed in the hint.
  * @param {string}	[errorText]			: The text to be displayed in the validation error.
  * @param {bool}	[disabled]			: Whether the input is disabled.
@@ -22,15 +23,15 @@ import SubTextComponent from './SubTextComponent';
  * @param {bool}	[hasError]	: Whether the subtext is an error display or not.
  */
 const LabeledInput = forwardRef(
-	({ id, children, hintText, errorText, disabled, type, placeholder, hasError, ...otherProps }, ref) => {
+	({ textStyle, id, children, hintText, errorText, disabled, type, placeholder, hasError, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 		const errText = hasError ? errorText : '';
 
 		return (
 			<StyledDiv display="flex" flexDirection="column" marginTop="10px">
-				<InputComponent id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} hasError={hasError} {...otherProps} />
-				<LabelComponent order="-1" forId={id} disabled={disabled} hasError={hasError}>
+				<InputComponent textStyle={textStyle} id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} hasError={hasError} {...otherProps} />
+				<LabelComponent textStyle={textStyle} order="-1" forId={id} disabled={disabled} hasError={hasError}>
 					{children}
 				</LabelComponent>
 				{(!hasError || (hasError && disabled)) && (
@@ -53,6 +54,7 @@ LabeledInput.displayName = 'LabeledInput';
 LabeledInput.propTypes = {
 	id: PropTypes.string.isRequired,
 	children: PropTypes.string.isRequired,
+	textStyle: PropTypes.string,
 	hintText: PropTypes.string,
 	errorText: PropTypes.string,
 	disabled: PropTypes.bool,
@@ -62,6 +64,7 @@ LabeledInput.propTypes = {
 };
 
 LabeledInput.defaultProps = {
+	textStyle: 'brevier',
 	hintText: '',
 	errorText: '',
 	disabled: false,

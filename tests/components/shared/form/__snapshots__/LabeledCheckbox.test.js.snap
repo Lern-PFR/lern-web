@@ -22,6 +22,29 @@ exports[`LabeledCheckbox should match previous snapshot 1`] = `
 </styled.div>
 `;
 
+exports[`LabeledCheckbox should match previous snapshot for checkbox with custom label text style 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+  textStyle="bodycopy"
+>
+  <CheckboxComponent
+    checked={false}
+    disabled={false}
+    id="lcb"
+  />
+  <LabelComponent
+    color="initial"
+    disabled={false}
+    forId="lcb"
+    hasError={false}
+    textStyle=""
+  >
+    Labeled Checkbox
+  </LabelComponent>
+</styled.div>
+`;
+
 exports[`LabeledCheckbox should match previous snapshot for checked and disabled states 1`] = `
 <styled.div
   alignItems="center"

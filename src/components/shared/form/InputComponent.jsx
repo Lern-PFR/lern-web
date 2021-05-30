@@ -1,3 +1,4 @@
+import { forwardRef, useRef, useMemo } from 'react';
 import styled from 'styled-components';
 import {
 	border,
@@ -8,7 +9,7 @@ import {
 } from 'styled-system';
 import PropTypes from 'prop-types';
 import { inputStyle, errorInputStyle, disabledInputStyle } from 'theme/formStyles';
-import { forwardRef, useRef } from 'react';
+import { getTypographyStyleByName } from '../typography';
 
 const StyledInputComponent = styled('input')(
 	{ ...inputStyle },
@@ -25,6 +26,7 @@ const StyledInputComponent = styled('input')(
  *
  * @author Christopher Walker
  *
+ * @param {string}	[textStyle]			The text style for this input.
  * @param {bool}	[disabled]			: Whether the input is disabled.
  * @param {string}	[type]				: The type of input, default is text.
  * @param {string}	[placeholder]		: Placeholder text for this input.
@@ -33,9 +35,10 @@ const StyledInputComponent = styled('input')(
  */
 
 const InputComponent = forwardRef(
-	({ id, disabled, placeholder, type, hasError, ...otherProps }, ref) => {
+	({ textStyle, id, disabled, placeholder, type, hasError, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
+		const typographyStyle = useMemo(() => getTypographyStyleByName(textStyle), [textStyle]);
 
 		return (
 			<StyledInputComponent
@@ -44,6 +47,7 @@ const InputComponent = forwardRef(
 				placeholder={placeholder}
 				id={id}
 				ref={resolvedRef}
+				{...typographyStyle}
 				{...(hasError ? errorInputStyle : {})}
 				{...(disabled ? disabledInputStyle : {})}
 				{...otherProps}
@@ -56,6 +60,7 @@ InputComponent.displayName = 'InputComponent';
 
 InputComponent.propTypes = {
 	id: PropTypes.string.isRequired,
+	textStyle: PropTypes.string,
 	placeholder: PropTypes.string,
 	disabled: PropTypes.bool,
 	hasError: PropTypes.bool,
@@ -63,6 +68,7 @@ InputComponent.propTypes = {
 };
 
 InputComponent.defaultProps = {
+	textStyle: 'brevier',
 	disabled: false,
 	hasError: false,
 	type: 'text',
