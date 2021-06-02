@@ -95,6 +95,7 @@ const SignUpForm = ({ onSubmit, t }) => {
 	const [formState, setFormState] = useState(initialState);
 	const [errors, setErrors] = useState({});
 	const fieldsRef = useRef({});
+	const hasFormBeenSubmitted = useRef(false);
 
 	validationRules['password-confirmation'] = {
 		...validationRules['password-confirmation'],
@@ -113,18 +114,16 @@ const SignUpForm = ({ onSubmit, t }) => {
 	const handleSubmit = useCallback((event) => {
 		event?.preventDefault();
 
+		hasFormBeenSubmitted.current = true;
 		const formValidationResult = validateForm(fieldsRef.current, validationRules);
 		setErrors(formValidationResult);
 
-		if (!isFormValid(errors)) {
+		if (!isFormValid(formValidationResult)) {
 			return;
 		}
 
-		// Removes the 'password-confirmation' field value from the object sent to the onSubmit method.
-		const { 'password-confirmation': passwordConf, ...userCreationData } = formState;
-
-		onSubmit(userCreationData);
-	}, [errors, formState, onSubmit]);
+		onSubmit(formState);
+	}, [formState, onSubmit]);
 
 	/**
 	 * @function
@@ -138,17 +137,18 @@ const SignUpForm = ({ onSubmit, t }) => {
 	 * @param {string} event.target.name	The name of the input the event originated from.
 	 * @param {string} event.target.value	The new value to update the state with.
 	 */
-	const handleChange = (event) => {
+	const handleChange = useCallback((event) => {
 		event.preventDefault();
 		const { target: { name, value: newValue } } = event;
 
 		setFormState((prevState) => ({ ...prevState, [name]: newValue }));
 
-		// Removes previous errors for current field.
-		const { [name]: removedError, ...rest } = errors;
-		// Performs validation check on the field and updates the errors state.
-		setErrors({ ...rest, [name]: validateField(newValue, validationRules[name]) });
-	};
+		// Prevents the validation error message to be displayed while the user types in for the first time.
+		if (hasFormBeenSubmitted.current || errors[name]) {
+			const { [name]: removedError, ...rest } = errors; 								// Removes previous errors for current field.
+			setErrors({ ...rest, [name]: validateField(newValue, validationRules[name]) });	// Performs validation check on the field and updates the errors state.
+		}
+	}, [errors]);
 
 	/**
 	 * @function
@@ -162,7 +162,7 @@ const SignUpForm = ({ onSubmit, t }) => {
 	 * @param {string} event.target.name	The name of the input the event originated from.
 	 * @param {string} event.target.value	The current value of the input the event originated from.
 	 */
-	const handleBlur = (event) => {
+	const handleBlur = useCallback((event) => {
 		const { target: { name, value } } = event;
 
 		// Removes previous errors for current field.
@@ -170,7 +170,7 @@ const SignUpForm = ({ onSubmit, t }) => {
 
 		// Performs validation check on the field and updates the errors state.
 		setErrors({ ...rest, [name]: validateField(value, validationRules[name]) });
-	};
+	}, [errors]);
 
 	/**
 	 *

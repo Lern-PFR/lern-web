@@ -417,6 +417,7 @@ export const loginWithToken = () => (dispatch) => {
 export const signUp = (params) => (dispatch) => {
 	dispatch(signUpRequest());
 
+	// @TODO: redirect to the "you've got mail" page once it has been implemented.
 	return UsersApi.createUser(params)
 		.then(({ user }) => dispatch(signUpSuccess({ user })))
 		.catch((error) => dispatch(signUpFailure(error)));

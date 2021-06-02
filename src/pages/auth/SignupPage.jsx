@@ -1,11 +1,11 @@
-import SignUpForm from 'components/auth/signup/SignUpForm';
-import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
-import { Canon, DoublePica } from 'components/shared/typography';
-import PropTypes from 'prop-types';
 import { useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
+import { Canon, DoublePica } from 'components/shared/typography';
+import { SignUpForm } from 'components/auth/signup';
 import { signUp } from 'redux/actions/users';
 import { hero, illustrationSvg, layout, subtitle } from 'theme/pages/auth/signUpPage';
 import conf from 'conf';
@@ -21,11 +21,10 @@ import conf from 'conf';
  */
 const SignUpPage = ({ dispatchSignUp, t }) => {
 	const onSubmit = useCallback((formData) => {
-		console.log(formData);
+		// Removes the 'password-confirmation' field value from the object sent to the onSubmit method.
+		const { 'password-confirmation': passwordConf, ...userCreationData } = formData;
 
-		if (false) {
-			dispatchSignUp(formData);
-		}
+		dispatchSignUp(userCreationData);
 	}, [dispatchSignUp]);
 
 	return (

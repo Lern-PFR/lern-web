@@ -20,7 +20,7 @@ const input = {
 };
 
 const illustrationSvg = {
-	display: window.innerWidth >= 1000 ? 'inline-bloc' : 'none', // makeshit media query.
+	display: window.innerWidth >= 1000 ? 'inline-block' : 'none', // makeshit media query.
 };
 
 const submitButton = {
