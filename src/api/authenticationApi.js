@@ -14,7 +14,7 @@ import { baseUrl, getHeaders, post } from 'lib/shared/http';
  */
 export const tryLogin = (username, password) => {
 	const params = {
-		username,
+		login: username,
 		password,
 	};
 

@@ -111,6 +111,30 @@ describe('User-related redux actions', () => {
 				.then(() => expect(sessionSetSpy).toHaveBeenNthCalledWith(1, 'dummy_token'));
 		});
 
+		it('sould call redirectOnSuccess if the onSuccessRoute param is not null and user login logic is successful', () => {
+			// Arrange
+			const userLoginData = {
+				username: 'johnDoe',
+				password: 'efgh',
+			};
+
+			const redirectOnSuccessSpy = jest.spyOn(redirectionHelper, 'redirectOnSuccess');
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					user: {},
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/login`, httpResponse);
+
+			// Act & assert
+			return store.dispatch(usersActions.login(userLoginData, 'dummy_redirection_route'))
+				.then(() => expect(redirectOnSuccessSpy).toHaveBeenCalledTimes(1));
+		});
+
 		it('sould create a LOGIN_FAILURE action when user login logic has failed', () => {
 			// Arrange
 			const userData = {

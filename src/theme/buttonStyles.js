@@ -96,6 +96,7 @@ const backToParentButtonContentLayout = {
 	display: 'flex',
 	alignItems: 'center',
 	gridGap: '.5em',
+	height: 'auto',
 };
 
 export {

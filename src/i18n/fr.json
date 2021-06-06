@@ -17,6 +17,30 @@
 		},
 		"authentication": {
 			"pages": {
+				"signin": {
+					"hero": "Eh là qui va là ?",
+					"subtitle": "On est quasiment sûrs, mais on préfère vérifier.",
+					"form": {
+						"fields": {
+							"username": {
+								"label": "Nom de compte",
+								"placeholder": "jeanValjean",
+								"validation_rules": {
+									"required": "Veuillez renseigner votre nom de compte."
+								}
+							},
+							"password": {
+								"label": "Mot de passe",
+								"validation_rules": {
+									"required": "Veuillez renseigner votre mot de passe."
+								}
+							}
+						},
+						"action": {
+							"submit": "Se connecter"
+						}
+					}
+				},
 				"signup": {
 					"hero": "Un visiteur ! Venu d'ailleurs !",
 					"subtitle": "Parlez-nous un peu de vous !",
