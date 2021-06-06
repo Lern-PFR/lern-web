@@ -1,12 +1,13 @@
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { SignInForm } from 'components/auth/signin';
-import { containInput, checkRequired, matchSnapshot, setupForm } from '../../testUtils/forms';
+import { StaticRouter } from 'react-router';
+import { containInput, checkRequired, matchSnapshot, setupFormWithRouter } from '../../testUtils/forms';
 
 describe('Signup form', () => {
 	let sut;
 
 	beforeEach(() => {
-		sut = setupForm(<SignInForm onSubmit={jest.fn()} />, 'authentication.pages.signin.form');
+		sut = setupFormWithRouter(<SignInForm onSubmit={jest.fn()} />, 'authentication.pages.signin.form');
 	});
 
 	afterEach(() => {
@@ -42,7 +43,7 @@ describe('Signup form', () => {
 		// Note : we only test this on username since all fields have the same handleChange callback.
 
 		it('should trigger validation onChange until form is submitted at least once', async () => {
-			const { container } = render(<SignInForm onSubmit={jest.fn()} />);
+			const { container } = render(<StaticRouter><SignInForm onSubmit={jest.fn()} /></StaticRouter>);
 			const usernameInput = container.querySelector('input[name="username"]');
 
 			await act(async () => {
@@ -54,7 +55,7 @@ describe('Signup form', () => {
 		});
 
 		it('should trigger validation onChange after form has been submitted at least once', async () => {
-			const { container } = render(<SignInForm onSubmit={jest.fn()} />);
+			const { container } = render(<StaticRouter><SignInForm onSubmit={jest.fn()} /></StaticRouter>);
 			const usernameInput = container.querySelector('input[name="username"]');
 
 			await act(async () => {
@@ -73,7 +74,7 @@ describe('Signup form', () => {
 	describe('onSubmit', () => {
 		it('should call the onSubmit prop method with the form\'s inputs\' values.', async () => {
 			const mockedOnSubmit = jest.fn();
-			const { container } = render(<SignInForm onSubmit={mockedOnSubmit} />);
+			const { container } = render(<StaticRouter><SignInForm onSubmit={mockedOnSubmit} /></StaticRouter>);
 
 			const expectedFormData = {
 				username: 'johnDoe',

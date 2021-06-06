@@ -59,10 +59,9 @@ describe('User-related redux actions', () => {
 			const httpResponse = {
 				status: 200,
 				body: {
-					user: {
-						id: userData.id,
-						username: userData.username,
-					},
+					id: userData.id,
+					username: userData.username,
+					token: 'totally_legit_authentication_token',
 				},
 				headers: { 'content-type': 'application/json' },
 			};
@@ -73,12 +72,15 @@ describe('User-related redux actions', () => {
 				{ type: usersActions.ActionTypes.LOGIN_REQUEST },
 				{
 					type: usersActions.ActionTypes.LOGIN_SUCCESS,
-					payload: { user: { id: userData.id, username: userData.username } },
+					payload: {
+						user: { id: userData.id, username: userData.username },
+						token: 'totally_legit_authentication_token',
+					},
 				},
 			];
 
 			// Act & assert
-			return store.dispatch(usersActions.login(userData.username, userData.password))
+			return store.dispatch(usersActions.login(userData))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 
@@ -193,7 +195,7 @@ describe('User-related redux actions', () => {
 				headers: { 'content-type': 'application/json' },
 			};
 
-			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
+			fetchMock.get(`${baseUrl}/api/whoami`, httpResponse);
 
 			// Act & assert
 			return store.dispatch(usersActions.loginWithToken())
@@ -213,7 +215,7 @@ describe('User-related redux actions', () => {
 			];
 
 			const httpResponse = { status: 401 };
-			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
+			fetchMock.get(`${baseUrl}/api/whoami`, httpResponse);
 
 			return store.dispatch(usersActions.loginWithToken())
 				.catch(() => expect(store.getActions()).toEqual(expectedActions));
@@ -225,7 +227,7 @@ describe('User-related redux actions', () => {
 			const sessionRemove = jest.spyOn(session, 'remove').mockImplementation(() => {});
 
 			const httpResponse = { status: 401 };
-			fetchMock.post(`${baseUrl}/api/whoami`, httpResponse);
+			fetchMock.get(`${baseUrl}/api/whoami`, httpResponse);
 
 			// Act & assert
 			return store.dispatch(usersActions.loginWithToken())

@@ -23,7 +23,10 @@ const illustrationSvg = {
 	display: window.innerWidth >= 1472 ? 'inline-block' : 'none', // makeshift media query.
 };
 
-const submitButton = {
+const buttonsContainer = {
+	display: 'grid',
+	gridGap: '1em',
+	gridTemplateColumns: 'repeat(2, max-content)',
 	marginTop: '1em',
 };
 
@@ -33,5 +36,5 @@ export {
 	subtitle,
 	illustrationSvg,
 	input,
-	submitButton,
+	buttonsContainer,
 };

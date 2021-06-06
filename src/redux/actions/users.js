@@ -370,7 +370,7 @@ export const login = (credentials, onSuccessRoute = null) => (dispatch) => {
 	const { username, password } = credentials;
 
 	return AuthenticationAPI.tryLogin(username, password)
-		.then(({ token, user }) => {
+		.then(({ token, ...user }) => {
 			session.set(token);
 
 			dispatch(loginSuccess({ token, user }));
@@ -487,9 +487,13 @@ export const updateUser = (userData, userId) => (dispatch) => {
  *
  * @author Yann Hodiesne
  * @author Timothée Simon-Franza
+ *
+ * @param {string} [onSuccessRoute]	The url to redirect the user to upon successful completion. Should be imported from the {@Link routes/keys.js} file.
  */
-export const logout = () => (dispatch) => {
+export const logout = (onSuccessRoute = null) => (dispatch) => {
 	dispatch(logoutRequest());
 	session.remove();
 	dispatch(logoutSuccess());
+
+	redirectOnSuccess(onSuccessRoute);
 };

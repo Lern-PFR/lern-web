@@ -42,6 +42,12 @@ export default (state = initialState, { type, payload }) => {
 				items: [payload.user],
 				totalCount: 1,
 			};
+		case ActionTypes.LOGIN_TOKEN_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				currentUser: payload.user,
+			};
 		case ActionTypes.FETCH_USER_SUCCESS:
 			return {
 				...state,

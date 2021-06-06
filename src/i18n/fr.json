@@ -20,6 +20,9 @@
 				"signin": {
 					"hero": "Eh là qui va là ?",
 					"subtitle": "On est quasiment sûrs, mais on préfère vérifier.",
+					"links": {
+						"signup": "Créer un compte"
+					},
 					"form": {
 						"fields": {
 							"username": {

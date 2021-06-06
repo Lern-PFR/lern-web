@@ -1,45 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Signup form snapshot testing should match previous snapshot 1`] = `
-<form
-  onSubmit={[Function]}
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  staticContext={Object {}}
 >
-  <LabeledInput
-    disabled={false}
-    errorText=""
-    hasError={false}
-    height="2em"
-    hintText=""
-    id="username"
-    key="username"
-    name="username"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="authentication.pages.signin.form.fields.username.placeholder"
-    type="text"
-  >
-    authentication.pages.signin.form.fields.username.label
-  </LabeledInput>
-  <LabeledInput
-    disabled={false}
-    errorText=""
-    hasError={false}
-    height="2em"
-    hintText=""
-    id="password"
-    key="password"
-    name="password"
-    onBlur={[Function]}
-    onChange={[Function]}
-    type="password"
-  >
-    authentication.pages.signin.form.fields.password.label
-  </LabeledInput>
-  <PrimaryButton
-    marginTop="1em"
-    type="submit"
-  >
-    authentication.pages.signin.form.action.submit
-  </PrimaryButton>
-</form>
+  <SignInForm
+    onSubmit={[MockFunction]}
+    t={[Function]}
+  />
+</Router>
 `;

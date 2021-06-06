@@ -20,6 +20,9 @@
 				"signin": {
 					"hero": "Who's there ?",
 					"subtitle": "We're about 99% sure, but we'd rather make it 100.",
+					"links": {
+						"signup": "Sign up"
+					},
 					"form": {
 						"fields": {
 							"username": {

@@ -1,4 +1,4 @@
-import { baseUrl, getHeaders, post } from 'lib/shared/http';
+import { get, post } from 'lib/shared/http';
 
 /**
  * @function
@@ -30,11 +30,4 @@ export const tryLogin = (username, password) => {
  *
  * @returns {Promise}
  */
-export const checkToken = () => fetch(`${baseUrl}/api/whoami`, { method: 'POST', headers: getHeaders() })
-	.then((res) => {
-		if (res.status === 401) {
-			return Promise.reject(res);
-		}
-
-		return res.json();
-	});
+export const checkToken = () => get('/api/whoami');

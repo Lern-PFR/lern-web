@@ -1,11 +1,14 @@
 import { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { PrimaryButton } from 'components/shared/buttons';
+import { PrimaryButton, OutlinedButton } from 'components/shared/buttons';
 import { LabeledInput } from 'components/shared/form';
-import { input, submitButton } from 'theme/pages/auth/signInPage';
+import { buttonsContainer, input } from 'theme/pages/auth/signInPage';
 import { isRequired } from 'lib/shared/inputValidation';
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
+import routes from 'routes';
+import { Link } from 'components/shared/navigation';
+import { StyledDiv } from 'components/shared/styledElements';
 
 /**
  * @constant
@@ -148,6 +151,7 @@ const SignInForm = ({ onSubmit, t }) => {
 		return '';
 	};
 
+	// @TODO: add a redirection to the ForgottenPassword page.
 	return (
 		<form onSubmit={handleSubmit}>
 			{Object.values(inputsDefinition).map(({ id, name, inputType = 'text', hasPlaceholder }) => (
@@ -167,9 +171,14 @@ const SignInForm = ({ onSubmit, t }) => {
 					{t(`authentication.pages.signin.form.fields.${name}.label`)}
 				</LabeledInput>
 			))}
-			<PrimaryButton type="submit" {...submitButton}>
-				{t('authentication.pages.signin.form.action.submit')}
-			</PrimaryButton>
+			<StyledDiv {...buttonsContainer}>
+				<PrimaryButton type="submit">
+					{t('authentication.pages.signin.form.action.submit')}
+				</PrimaryButton>
+				<OutlinedButton type="button">
+					<Link to={routes.auth.signup}>{t('authentication.pages.signin.links.signup')}</Link>
+				</OutlinedButton>
+			</StyledDiv>
 		</form>
 	);
 };
