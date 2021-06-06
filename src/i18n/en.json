@@ -79,6 +79,10 @@
 							"submit": "Sign up"
 						}
 					}
+				},
+				"post_signup": {
+					"hero": "You've got mail !",
+					"subtitle": "We've sent you a email to verify your account."
 				}
 			}
 		},

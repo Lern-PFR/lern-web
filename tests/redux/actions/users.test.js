@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import * as usersActions from 'redux/actions/users';
 import { baseUrl } from 'lib/shared/http';
 import session from 'lib/shared/session';
+import * as redirectionHelper from 'lib/shared/redirectionHelper';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -268,6 +269,33 @@ describe('User-related redux actions', () => {
 			// Act & assert
 			return store.dispatch(usersActions.signUp(userCreationData))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('sould call redirectOnSuccess if the onSuccessRoute param is not null and user login logic is successful', () => {
+			// Arrange
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const redirectOnSuccessSpy = jest.spyOn(redirectionHelper, 'redirectOnSuccess');
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					user: {},
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			// Act & assert
+			return store.dispatch(usersActions.signUp(userCreationData, 'dummy_redirection_route'))
+				.then(() => expect(redirectOnSuccessSpy).toHaveBeenCalledTimes(1));
 		});
 
 		it('sould create a SIGNUP_FAILURE action when user login logic has failed', () => {

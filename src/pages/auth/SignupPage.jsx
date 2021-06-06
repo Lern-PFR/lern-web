@@ -1,14 +1,15 @@
 import { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { useDispatch } from 'react-redux';
+
 import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
 import { Canon, DoublePica } from 'components/shared/typography';
 import { SignUpForm } from 'components/auth/signup';
 import { signUp } from 'redux/actions/users';
 import { hero, illustrationSvg, layout, subtitle } from 'theme/pages/auth/signUpPage';
 import conf from 'conf';
+import routes from 'routes';
 
 /**
  * @name SignUpPage
@@ -16,16 +17,17 @@ import conf from 'conf';
  *
  * @author Timothée Simon-Franza
  *
- * @param {func} 	dispatchSignUp	Dispatched action creator used to send the user creation request to the API.
- * @param {func}	t				The translation method provided by the withTranslation HoC.
+ * @param {func} t	The translation method provided by the withTranslation HoC.
  */
-const SignUpPage = ({ dispatchSignUp, t }) => {
+const SignUpPage = ({ t }) => {
+	const dispatch = useDispatch();
+
 	const onSubmit = useCallback((formData) => {
 		// Removes the 'password-confirmation' field value from the object sent to the onSubmit method.
 		const { 'password-confirmation': passwordConf, ...userCreationData } = formData;
 
-		dispatchSignUp(userCreationData);
-	}, [dispatchSignUp]);
+		dispatch(signUp(userCreationData, routes.auth.postSignup));
+	}, [dispatch]);
 
 	return (
 		<StyledDiv {...layout}>
@@ -40,27 +42,7 @@ const SignUpPage = ({ dispatchSignUp, t }) => {
 };
 
 SignUpPage.propTypes = {
-	dispatchSignUp: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
 
-/**
- *
- * @param {*} state
- */
-const mapStateToProps = (state) => {
-	const { users: { currentUser } } = state;
-
-	return {
-		currentUser,
-	};
-};
-
-const mapDispatchToProps = {
-	dispatchSignUp: signUp,
-};
-
-export default compose(
-	withTranslation(),
-	connect(mapStateToProps, mapDispatchToProps)
-)(SignUpPage);
+export default withTranslation()(SignUpPage);

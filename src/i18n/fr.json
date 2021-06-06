@@ -80,6 +80,10 @@
 							"submit": "Créer un compte"
 						}
 					}
+				},
+				"post_signup": {
+					"hero": "C'est l'heure du courrier !",
+					"subtitle": "On vous a envoyé un e-mail pour confirmer votre compte, allez vite le lire !"
 				}
 			}
 		},

@@ -1,5 +1,6 @@
 import * as AuthenticationAPI from 'api/authenticationApi';
 import * as UsersApi from 'api/usersApi';
+import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
 import session from 'lib/shared/session';
 
 /**
@@ -407,19 +408,22 @@ export const loginWithToken = () => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {Object} param			The data to provide the API.
- * @param {string} param.firstname	The first name of the user we want to create.
- * @param {string} param.lastname	The last name of the user we want to create.
- * @param {string} param.nickname	The nickname that the user will provide to signin.
- * @param {string} param.email		The email address to send the account activation link to.
- * @param {string} param.password	The password linked to the account.
+ * @param {Object} params			The data to provide the API.
+ * @param {string} params.firstname	The first name of the user we want to create.
+ * @param {string} params.lastname	The last name of the user we want to create.
+ * @param {string} params.nickname	The nickname that the user will provide to signin.
+ * @param {string} params.email		The email address to send the account activation link to.
+ * @param {string} params.password	The password linked to the account.
+ * @param {string} [onSuccessRoute]	The url to redirect the user to upon successful completion. Should be imported from the {@Link routes/keys.js} file.
  */
-export const signUp = (params) => (dispatch) => {
+export const signUp = (params, onSuccessRoute = null) => (dispatch) => {
 	dispatch(signUpRequest());
 
-	// @TODO: redirect to the "you've got mail" page once it has been implemented.
 	return UsersApi.createUser(params)
-		.then(({ user }) => dispatch(signUpSuccess({ user })))
+		.then(({ user }) => {
+			dispatch(signUpSuccess({ user }));
+			redirectOnSuccess(onSuccessRoute);
+		})
 		.catch((error) => dispatch(signUpFailure(error)));
 };
 
