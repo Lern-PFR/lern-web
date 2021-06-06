@@ -1,4 +1,4 @@
-import { cleanup, act, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, act, fireEvent, render } from '@testing-library/react';
 import { SignUpForm } from 'components/auth/signup';
 import { containInput, checkRequired, matchSnapshot, setupForm, checkEmailPattern } from '../../testUtils/forms';
 import { Patterns } from '../../testUtils/forms/patterns';
