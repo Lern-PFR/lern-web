@@ -114,6 +114,14 @@
 			}
 		},
 		"subjects": {
+			"list_page": {
+				"hero": "Subjects list",
+				"sections": {
+					"active_subjects": "My currently active subjects",
+					"my_subjects": "Subjects of which I'm the author",
+					"other_available_subjects": "Other available subjects"
+				}
+			},
 			"links": {
 				"back_to_list": "Back to subject list",
 				"module": "Access module"

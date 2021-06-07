@@ -115,6 +115,14 @@
 			}
 		},
 		"subjects": {
+			"list_page": {
+				"hero": "Liste des sujets",
+				"sections": {
+					"active_subjects": "Mes sujets actuels",
+					"my_subjects": "Sujets dont je suis l'auteur",
+					"other_available_subjects": "Autres sujets disponibles"
+				}
+			},
 			"links": {
 				"back_to_list": "Retourner à la liste des sujets",
 				"module": "Accéder au module"

@@ -49,7 +49,7 @@ const SubjectDetailsPage = ({ dispatchFetchModuleList, dispatchClearModuleList, 
 					</Brevier>
 					<BodyCopy>{subject?.description}</BodyCopy>
 					<SubtleLinkButton {...backToListButton}>
-						<Link to={routes.subjects.default}>
+						<Link to={routes.subjects.list}>
 							<StyledDiv {...backToParentButtonContentLayout}>
 								<StyledSvg src={`${conf.svgPath}/chevronLeft.svg`} {...backToListSvg} />
 								{t('subjects.links.back_to_list')}

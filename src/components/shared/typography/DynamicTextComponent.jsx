@@ -13,6 +13,7 @@ const StyledDynamicTextComponent = styled('p')(
 	{
 		textDecoration: (({ textDecoration }) => textDecoration || 'initial'),
 		textTransform: (({ textTransform }) => textTransform || 'initial'),
+		textOverflow: (({ textOverflow }) => textOverflow || 'initial'),
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
 		cursor: (({ cursor }) => (cursor || 'initial')),

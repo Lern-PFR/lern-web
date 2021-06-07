@@ -1,6 +1,7 @@
 import SubjectDetailsPage from './SubjectDetailsPage';
+import SubjectListPage from './SubjectListPage';
 
 export {
-	// eslint-disable-next-line import/prefer-default-export
 	SubjectDetailsPage,
+	SubjectListPage,
 };
