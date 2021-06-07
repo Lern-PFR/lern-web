@@ -1,4 +1,4 @@
-import { getSubjects } from 'redux/selectors/subjects';
+import { getSubjects } from 'redux/selectors/subjects';
 
 describe('Subject state selectors', () => {
 	describe('getSubjects', () => {

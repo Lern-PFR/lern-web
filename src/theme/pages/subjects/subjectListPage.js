@@ -29,6 +29,8 @@ const sectionTitleSeparator = {
 
 const sectionList = {
 	display: 'grid',
+	listStyle: 'none',
+	padding: 0,
 	gridTemplateColumns: 'repeat(4, 300px)',
 	gridGap: '2em',
 	marginTop: '1em',

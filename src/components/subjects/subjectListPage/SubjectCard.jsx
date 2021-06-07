@@ -4,7 +4,7 @@ import routes from 'routes';
 
 import { BodyCopy, GreatPrimer } from 'components/shared/typography';
 import { subjectCard, subjectCardBodyText, subjectCardTitle } from 'theme/pages/subjects/subjectListPage';
-import { StyledDiv } from 'components/shared/styledElements';
+import { StyledListItem } from 'components/shared/styledElements';
 import { useCallback } from 'react';
 import { history } from 'routes/components/RouterProvider';
 
@@ -32,10 +32,10 @@ const SubjectCard = ({ id, name, description }) => {
 	}, [id]);
 
 	return (
-		<StyledDiv {...subjectCard} onClick={handleClick}>
+		<StyledListItem {...subjectCard} onClick={handleClick}>
 			<GreatPrimer {...subjectCardTitle}>{name}</GreatPrimer>
 			<BodyCopy {...subjectCardBodyText}>{description}</BodyCopy>
-		</StyledDiv>
+		</StyledListItem>
 	);
 };
 

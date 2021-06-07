@@ -1,6 +1,7 @@
 import SubjectCard from './SubjectCard';
+import SubjectListSectionTitle from './SubjectListSectionTitle';
 
 export {
-	// eslint-disable-next-line import/prefer-default-export
 	SubjectCard,
+	SubjectListSectionTitle,
 };
