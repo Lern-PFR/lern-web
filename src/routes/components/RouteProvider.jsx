@@ -16,7 +16,7 @@ import keys from '../keys';
  */
 const RouteProvider = () => {
 	const dispatch = useDispatch();
-	const currentUser = useSelector(getCurrentUser); // @TODO: memoize this selector to provide efficient management.
+	const currentUser = useSelector(getCurrentUser);
 
 	useEffect(() => {
 		dispatch(loginWithToken());
