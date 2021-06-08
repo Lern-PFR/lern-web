@@ -1,5 +1,6 @@
 import { ReactSVG } from 'react-svg';
 import styled from 'styled-components';
+import { display } from 'styled-system';
 
 /**
  * @name StyledSvg
@@ -10,13 +11,13 @@ import styled from 'styled-components';
 const StyledSvg = styled(ReactSVG)(
 	{
 		...((props) => props),
-		display: (({ display }) => (display || 'inline-block')),
 
 		'& svg, & svg *': {
-			height: (({ height }) => (height || 'auto')),
+			...(({ height }) => (height ? { height } : {})),
 			stroke: (({ stroke }) => (stroke || 'inherit')),
 		},
 	},
+	display,
 );
 
 export default StyledSvg;

@@ -88,6 +88,35 @@ describe('Users reducer', () => {
 			// Assert
 			return expect(result).toEqual(expectedState);
 		});
+
+		it('should update the state with currentUser data when receiving LOGIN_TOKEN_SUCCESS', () => {
+			// Arrange
+			const user = { id: 'abcd', username: 'abcd' };
+
+			const action = {
+				type: ActionTypes.LOGIN_TOKEN_SUCCESS,
+				payload: {
+					user,
+				},
+			};
+
+			const temporaryState = {
+				...initialState,
+				isLoading: true,
+			};
+
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+				currentUser: user,
+			};
+
+			// Act
+			const result = usersReducer(temporaryState, action);
+
+			// Assert
+			return expect(result).toEqual(expectedState);
+		});
 	});
 
 	describe('user signup actions', () => {

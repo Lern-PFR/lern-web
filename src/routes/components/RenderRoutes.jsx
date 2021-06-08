@@ -74,8 +74,7 @@ const RouteWithSubRoutes = ({ currentUser, redirectAnonymous, redirectAuthentica
 RouteWithSubRoutes.propTypes = {
 	currentUser: PropTypes.shape({
 		id: PropTypes.string.isRequired,
-		username: PropTypes.string.isRequired,
-		superadmin: PropTypes.bool.isRequired,
+		nickname: PropTypes.string.isRequired,
 	}),
 	redirectAnonymous: PropTypes.string.isRequired,
 	redirectAuthenticated: PropTypes.string.isRequired,
@@ -121,8 +120,7 @@ const RenderRoutes = ({ currentUser, redirectAnonymous, redirectAuthenticated, f
 RenderRoutes.propTypes = {
 	currentUser: PropTypes.shape({
 		id: PropTypes.string.isRequired,
-		username: PropTypes.string.isRequired,
-		superadmin: PropTypes.bool.isRequired,
+		nickname: PropTypes.string.isRequired,
 	}),
 	redirectAnonymous: PropTypes.string.isRequired,
 	redirectAuthenticated: PropTypes.string.isRequired,

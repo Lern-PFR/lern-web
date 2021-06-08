@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/display-name */
 import App from 'components/App';
-import { PostSignupPage, SignupPage } from 'pages/auth';
+import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { NotionDetailsPage } from 'pages/notions';
 import { SubjectDetailsPage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
@@ -52,7 +52,7 @@ export default [
 				allowAnonymous: true,
 				allowAuthenticated: false,
 				exact: true,
-				component: () => <p>Login</p>,
+				component: SignInPage,
 			},
 			{
 				path: keys.auth.logout,

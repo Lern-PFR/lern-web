@@ -17,6 +17,33 @@
 		},
 		"authentication": {
 			"pages": {
+				"signin": {
+					"hero": "Who's there ?",
+					"subtitle": "We're about 99% sure, but we'd rather make it 100.",
+					"links": {
+						"signup": "Sign up"
+					},
+					"form": {
+						"fields": {
+							"username": {
+								"label": "Username",
+								"placeholder": "jeanValjean",
+								"validation_rules": {
+									"required": "Please provide a username."
+								}
+							},
+							"password": {
+								"label": "Password",
+								"validation_rules": {
+									"required": "Please provide a password."
+								}
+							}
+						},
+						"action": {
+							"submit": "Sign in"
+						}
+					}
+				},
 				"signup": {
 					"hero": "A stranger ! From the outside !",
 					"subtitle": "Tell us about yourself !",
