@@ -1,3 +1,4 @@
+import InputComponent from './InputComponent';
 import FieldsetComponent from './FieldsetComponent';
 import LabeledCheckbox from './LabeledCheckbox';
 import LabeledRadioButton from './LabeledRadioButton';
@@ -6,6 +7,7 @@ import LabeledSelect from './LabeledSelect';
 import LabelComponent from './LabelComponent';
 
 export {
+	InputComponent,
 	LabeledCheckbox,
 	FieldsetComponent,
 	LabeledRadioButton,

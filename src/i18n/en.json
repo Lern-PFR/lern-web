@@ -120,7 +120,11 @@
 					"active_subjects": "My currently active subjects",
 					"my_subjects": "Subjects of which I'm the author",
 					"other_available_subjects": "Other available subjects"
-				}
+				},
+				"search_input": {
+					"placeholder": "Search a subject by its name or author."
+				},
+				"no_data": "No subject found with the specified criterias."
 			},
 			"links": {
 				"back_to_list": "Back to subject list",

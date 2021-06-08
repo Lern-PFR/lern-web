@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { StyledDiv, StyledList } from 'components/shared/styledElements';
-import { getSubjects } from 'redux/selectors/subjects';
-import { fetchSubjectList } from 'redux/actions/subjects';
-import { Canon } from 'components/shared/typography';
-import { subjectListPageMock } from 'mockedData';
-import { layout, sectionList } from 'theme/pages/subjects/subjectListPage';
+import { getSubjectsByNameOrAuthor } from 'redux/selectors/subjects';
+import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
+import { BodyCopy, Canon } from 'components/shared/typography';
+import { layout, searchInput, sectionList } from 'theme/pages/subjects/subjectListPage';
 import { SubjectCard, SubjectListSectionTitle } from 'components/subjects/subjectListPage';
+import { InputComponent } from 'components/shared/form';
 
 /**
  * @name SubjectListPage
@@ -20,37 +20,64 @@ import { SubjectCard, SubjectListSectionTitle } from 'components/subjects/subjec
  */
 const SubjectListPage = ({ t }) => {
 	const dispatch = useDispatch();
+	const [searchValue, setSearchValue] = useState('');
 
-	// @TODO: remove data mock usage once authentication has been merged.
-	let subjects = useSelector(getSubjects);
-	subjects = subjectListPageMock.subjects;
+	const subjects = useSelector((state) => getSubjectsByNameOrAuthor(state, searchValue));
 
 	useEffect(() => {
 		dispatch(fetchSubjectList());
+
+		return () => dispatch(clearSubjectList());
 	}, [dispatch]);
+
+	/**
+	 * @function
+	 * @name handleSearchInputChange
+	 * @description Handles the onChange event for the search input.
+	 *
+	 * @author Timothée Simon-Franza
+	 *
+	 * @param {object} e				The onChange event.
+	 * @param {object} e.target			The input triggering the event.
+	 * @param {string} e.target.value	The current value of the input.
+	 */
+	const handleSearchInputChange = useCallback(({ target: { value } }) => {
+		setSearchValue(value);
+	}, [setSearchValue]);
 
 	return (
 		<StyledDiv {...layout}>
 			<Canon as="h1">{t('subjects.list_page.hero')}</Canon>
 
+			<InputComponent
+				id="subject-list-search-input"
+				type="text"
+				onChange={handleSearchInputChange}
+				placeholder={t('subjects.list_page.search_input.placeholder')}
+				{...searchInput}
+			/>
+
 			<StyledDiv as="section">
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.active_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{subjects && subjects.length > 0 && subjects.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{(!subjects || subjects.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 			</StyledDiv>
 
 			<StyledDiv as="section">
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.my_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{subjects && subjects.length > 0 && subjects.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{(!subjects || subjects.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 			</StyledDiv>
 
 			<StyledDiv as="section">
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.other_available_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{subjects && subjects.length > 0 && subjects.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{(!subjects || subjects.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 			</StyledDiv>
 		</StyledDiv>

@@ -3,8 +3,14 @@ import { tuna } from 'theme/colors';
 const layout = {
 	display: 'grid',
 	gridGap: '3em',
-	width: 'auto',
+	width: '75%',
+	margin: 'auto',
+	gridTemplateColumns: '100%',
 	justifyContent: 'center',
+};
+
+const searchInput = {
+	height: '32px',
 };
 
 const sectionTitleContainer = {
@@ -28,21 +34,21 @@ const sectionTitleSeparator = {
 };
 
 const sectionList = {
-	display: 'grid',
+	display: 'flex',
+	flexWrap: 'wrap',
 	listStyle: 'none',
 	padding: 0,
-	gridTemplateColumns: 'repeat(4, 300px)',
 	gridGap: '2em',
 	marginTop: '1em',
 };
 
 const subjectCard = {
 	display: 'grid',
+	width: '300px',
 	cursor: 'pointer',
-	maxWidth: '300px',
-	maxHeight: '300px',
 	gridTemplateRows: 'auto 1fr',
 	gridGap: '.5em',
+	alignItems: 'flex-end',
 };
 
 const subjectCardTitle = {
@@ -55,13 +61,14 @@ const subjectCardBodyText = {
 	cursor: 'pointer',
 	margin: 0,
 	textOverflow: 'ellipsis',
-	whiteSpace: 'nowrap',
+	// whiteSpace: 'nowrap',
 	overflow: 'hidden',
 	color: tuna.default,
 };
 
 export {
 	layout,
+	searchInput,
 	sectionTitleContainer,
 	sectionTitle,
 	sectionTitleSeparator,

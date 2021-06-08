@@ -2,7 +2,7 @@
 
 exports[`StyledDiv should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ iuZjjL"
+  className="sc-bdfBwQ dKXXvR"
 >
   <p>
     Hello, world!
