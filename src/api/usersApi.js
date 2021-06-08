@@ -1,4 +1,22 @@
-import { get, put } from 'lib/shared/http';
+import { get, post, put } from 'lib/shared/http';
+
+/**
+ * @function
+ * @name createUser
+ * @description Sends a user creation request to the API.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {Object} param			The data to provide the API.
+ * @param {string} param.firstname	The first name of the user we want to create.
+ * @param {string} param.lastname	The last name of the user we want to create.
+ * @param {string} param.nickname	The nickname that the user will provide to signin.
+ * @param {string} param.email		The email address to send the account activation link to.
+ * @param {string} param.password	The password linked to the account.
+ *
+ * @returns {Promise}
+ */
+export const createUser = (params) => post('/api/users', params);
 
 /**
  * @function

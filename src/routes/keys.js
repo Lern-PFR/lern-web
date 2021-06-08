@@ -17,6 +17,7 @@ export default Object.freeze({
 		login: '/auth/login',
 		logout: '/auth/logout',
 		signup: '/auth/signup',
+		postSignup: '/auth/email-sent',
 		forgottenPassword: '/auth/forgotten-password',
 	},
 	subjects: {

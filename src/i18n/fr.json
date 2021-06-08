@@ -15,6 +15,78 @@
 				"sign_in": "Se connecter"
 			}
 		},
+		"authentication": {
+			"pages": {
+				"signup": {
+					"hero": "Un visiteur ! Venu d'ailleurs !",
+					"subtitle": "Parlez-nous un peu de vous !",
+					"form": {
+						"fields": {
+							"firstname": {
+								"label": "Prénom",
+								"placeholder": "Jean",
+								"validation_rules": {
+									"required": "Veuillez renseigner un prénom.",
+									"min_length": "Veuillez saisir au moins 3 caractères.",
+									"max_length": "Veuillez saisir 50 caractères maximum."
+								}
+							},
+							"lastname": {
+								"label": "Nom",
+								"placeholder": "Valjean",
+								"validation_rules": {
+									"required": "Veuillez renseigner un nom.",
+									"min_length": "Veuillez saisir au moins 3 caractères.",
+									"max_length": "Veuillez saisir 100 caractères maximum."
+								}
+							},
+							"email": {
+								"label": "Adresse e-mail",
+								"placeholder": "jeanValjean@email.fr",
+								"validation_rules": {
+									"required": "Veuillez renseigner une adresse email valide.",
+									"email_format": "Le format d'adresse renseigné est invalide."
+								}
+							},
+							"nickname": {
+								"label": "Pseudonyme",
+								"placeholder": "jeanValjean",
+								"validation_rules": {
+									"required": "Veuillez renseigner un pseudonyme.",
+									"min_length": "Veuillez saisir au moins 3 caractères.",
+									"max_length": "Veuillez saisir 50 caractères maximum."
+								}
+							},
+							"password": {
+								"label": "Mot de passe",
+								"validation_rules": {
+									"required": "Veuillez renseigner un mot de passe.",
+									"min_length": "Veuillez saisir au moins 8 caractères",
+									"max_length": "Veuillez saisir 100 caractères maximum"
+								}
+							},
+							"password_confirmation": {
+								"label": "Confirmation de mot de passe",
+								"validation_rules": {
+									"required": "Veuillez confirmer votre mot de passe.",
+									"min_length": "Veuillez saisir au moins 8 caractères.",
+									"max_length": "Veuillez saisir 100 caractères maximum.",
+									"match_password": "Les mots de passes ne correspondent pas."
+								}
+
+							}
+						},
+						"action": {
+							"submit": "Créer un compte"
+						}
+					}
+				},
+				"post_signup": {
+					"hero": "C'est l'heure du courrier !",
+					"subtitle": "On vous a envoyé un e-mail pour confirmer votre compte, allez vite le lire !"
+				}
+			}
+		},
 		"subjects": {
 			"links": {
 				"back_to_list": "Retourner à la liste des sujets",

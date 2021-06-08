@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Sign-up page should match previous snapshot. 1`] = `
+<styled.div
+  alignItems="center"
+  display="grid"
+  gridGap="3em"
+  gridTemplateColumns="minmax(400px, 1fr) 1fr"
+  height="100%"
+  marginX="auto"
+  maxWidth="1450px"
+>
+  <styled.div>
+    <Canon
+      as="h1"
+      lineHeight="initial"
+    >
+      authentication.pages.post_signup.hero
+    </Canon>
+    <BodyCopy
+      lineHeight="initial"
+    >
+      authentication.pages.post_signup.subtitle
+    </BodyCopy>
+  </styled.div>
+  <Styled(ReactSVG)
+    display="inline-block"
+    src="/assets/svg/illustrations/mail_box.svg"
+  />
+</styled.div>
+`;

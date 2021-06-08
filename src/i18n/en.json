@@ -15,6 +15,77 @@
 				"sign_in": "Sign in"
 			}
 		},
+		"authentication": {
+			"pages": {
+				"signup": {
+					"hero": "A stranger ! From the outside !",
+					"subtitle": "Tell us about yourself !",
+					"form": {
+						"fields": {
+							"firstname": {
+								"label": "First name",
+								"placeholder": "Jean",
+								"validation_rules": {
+									"required": "Please provide a first name.",
+									"min_length": "Please enter at least 3 characters.",
+									"max_length": "Please enter 50 characters maximum."
+								}
+							},
+							"lastname": {
+								"label": "Last name",
+								"placeholder": "Valjean",
+								"validation_rules": {
+									"required": "Please provide a last name.",
+									"min_length": "Please enter at least 3 characters.",
+									"max_length": "Please enter 100 characters maximum."
+								}
+							},
+							"email": {
+								"label": "Email address",
+								"placeholder": "jeanValjean@email.fr",
+								"validation_rules": {
+									"required": "Please provide a valid email address.",
+									"email_format": "The provided email address' format is invalid."
+								}
+							},
+							"nickname": {
+								"label": "Nickname",
+								"placeholder": "jeanValjean",
+								"validation_rules": {
+									"required": "Please provide a nickname.",
+									"min_length": "Please enter at least 3 characters.",
+									"max_length": "Please enter 50 characters maximum."
+								}
+							},
+							"password": {
+								"label": "Password",
+								"validation_rules": {
+									"required": "Please provide a password.",
+									"min_length": "Please enter at least 8 characters.",
+									"max_length": "Please enter 100 characters maximum."
+								}
+							},
+							"password_confirmation": {
+								"label": "Password confirmation",
+								"validation_rules": {
+									"required": "Please confirm your password.",
+									"min_length": "Please enter at least 8 characters.",
+									"max_length": "Please enter 100 characters maximum.",
+									"match_password": "Passwords don't match."
+								}
+							}
+						},
+						"action": {
+							"submit": "Sign up"
+						}
+					}
+				},
+				"post_signup": {
+					"hero": "You've got mail !",
+					"subtitle": "We've sent you a email to verify your account."
+				}
+			}
+		},
 		"subjects": {
 			"links": {
 				"back_to_list": "Back to subject list",

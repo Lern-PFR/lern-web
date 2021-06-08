@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import * as usersActions from 'redux/actions/users';
 import { baseUrl } from 'lib/shared/http';
 import session from 'lib/shared/session';
+import * as redirectionHelper from 'lib/shared/redirectionHelper';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -205,6 +206,123 @@ describe('User-related redux actions', () => {
 			// Act & assert
 			return store.dispatch(usersActions.loginWithToken())
 				.then(() => expect(sessionRemove).toHaveBeenCalledTimes(1));
+		});
+	});
+
+	describe('User sign up', () => {
+		it('sould create a SIGNUP_REQUEST action when user signup logic is initialized', () => {
+			// Arrange
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.SIGNUP_REQUEST },
+			];
+			const userData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			// Act
+			store.dispatch(usersActions.signUp(userData));
+
+			// Assert
+			return expect(store.getActions()).toEqual(expectedActions);
+		});
+
+		it('sould create a SIGNUP_SUCCESS action when user login logic is successful', () => {
+			// Arrange
+			const expectedResponse = {
+				id: 0,
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+			};
+
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					user: expectedResponse,
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.SIGNUP_REQUEST },
+				{
+					type: usersActions.ActionTypes.SIGNUP_SUCCESS,
+					payload: { user: expectedResponse },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.signUp(userCreationData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('sould call redirectOnSuccess if the onSuccessRoute param is not null and user login logic is successful', () => {
+			// Arrange
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const redirectOnSuccessSpy = jest.spyOn(redirectionHelper, 'redirectOnSuccess');
+
+			const httpResponse = {
+				status: 200,
+				body: {
+					user: {},
+				},
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			// Act & assert
+			return store.dispatch(usersActions.signUp(userCreationData, 'dummy_redirection_route'))
+				.then(() => expect(redirectOnSuccessSpy).toHaveBeenCalledTimes(1));
+		});
+
+		it('sould create a SIGNUP_FAILURE action when user login logic has failed', () => {
+			// Arrange
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const httpResponse = { status: 500 };
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			const expectedActions = [
+				{ type: usersActions.ActionTypes.SIGNUP_REQUEST },
+				{
+					type: usersActions.ActionTypes.SIGNUP_FAILURE,
+					payload: { error: { status: 500, message: 'Internal Server Error' } },
+				},
+			];
+
+			// Act & assert
+			return store.dispatch(usersActions.signUp(userCreationData))
+				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});
 

@@ -10,6 +10,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
 	switch (type) {
 		case ActionTypes.LOGIN_REQUEST:
+		case ActionTypes.SIGNUP_REQUEST:
 		case ActionTypes.FETCH_USER_REQUEST:
 		case ActionTypes.FETCH_USER_LIST_REQUEST:
 		case ActionTypes.UPDATE_USER_REQUEST:
@@ -19,6 +20,7 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: true,
 			};
 		case ActionTypes.LOGIN_FAILURE:
+		case ActionTypes.SIGNUP_FAILURE:
 		case ActionTypes.FETCH_USER_FAILURE:
 		case ActionTypes.FETCH_USER_LIST_FAILURE:
 		case ActionTypes.UPDATE_USER_FAILURE:
@@ -26,6 +28,7 @@ export default (state = initialState, { type, payload }) => {
 				...state,
 				isLoading: false,
 			};
+		case ActionTypes.SIGNUP_SUCCESS:
 		case ActionTypes.UPDATE_USER_SUCCESS:
 			return {
 				...state,
