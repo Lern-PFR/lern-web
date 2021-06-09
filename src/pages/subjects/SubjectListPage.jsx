@@ -6,7 +6,7 @@ import { StyledDiv, StyledList } from 'components/shared/styledElements';
 import { getSubjectsByTitleOrAuthor } from 'redux/selectors/subjects';
 import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
 import { BodyCopy, Canon } from 'components/shared/typography';
-import { layout, searchInput, sectionList } from 'theme/pages/subjects/subjectListPage';
+import { hero, layout, searchInput, sectionList } from 'theme/pages/subjects/subjectListPage';
 import { SubjectCard, SubjectListSectionTitle } from 'components/subjects/subjectListPage';
 import { InputComponent } from 'components/shared/form';
 
@@ -47,7 +47,7 @@ const SubjectListPage = ({ t }) => {
 
 	return (
 		<StyledDiv {...layout}>
-			<Canon as="h1">{t('subjects.list_page.hero')}</Canon>
+			<Canon as="h1" {...hero}>{t('subjects.list_page.hero')}</Canon>
 
 			<InputComponent
 				id="subject-list-search-input"

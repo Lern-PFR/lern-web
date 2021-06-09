@@ -8,6 +8,10 @@ const layout = {
 	gridTemplateColumns: '100%',
 	justifyContent: 'center',
 };
+const hero = {
+	lineHeight: 'initial',
+	margin: 0,
+};
 
 const searchInput = {
 	height: '32px',
@@ -69,6 +73,7 @@ const subjectCardBodyText = {
 
 export {
 	layout,
+	hero,
 	searchInput,
 	sectionTitleContainer,
 	sectionTitle,
