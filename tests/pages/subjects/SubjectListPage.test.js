@@ -63,8 +63,8 @@ describe('SubjectListPage', () => {
 		expect(store.getActions()).toContainEqual({ type: SubjectActionTypes.CLEAR_SUBJECT_LIST });
 	});
 
-	it('should call the getSubjectsByNameOrAuthor selector callback whenever the search input triggers an onChange event.', () => {
-		const selectorSpy = jest.spyOn(SubjectSelectors, 'getSubjectsByNameOrAuthor').mockReturnValue([]);
+	it('should call the getSubjectsByTitleOrAuthor selector callback whenever the search input triggers an onChange event.', () => {
+		const selectorSpy = jest.spyOn(SubjectSelectors, 'getSubjectsByTitleOrAuthor').mockReturnValue([]);
 
 		render(
 			<Provider store={store}>

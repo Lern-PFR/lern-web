@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { StyledDiv, StyledList } from 'components/shared/styledElements';
-import { getSubjectsByNameOrAuthor } from 'redux/selectors/subjects';
+import { getSubjectsByTitleOrAuthor } from 'redux/selectors/subjects';
 import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
 import { BodyCopy, Canon } from 'components/shared/typography';
 import { layout, searchInput, sectionList } from 'theme/pages/subjects/subjectListPage';
@@ -22,7 +22,7 @@ const SubjectListPage = ({ t }) => {
 	const dispatch = useDispatch();
 	const [searchValue, setSearchValue] = useState('');
 
-	const subjects = useSelector((state) => getSubjectsByNameOrAuthor(state, searchValue));
+	const subjects = useSelector((state) => getSubjectsByTitleOrAuthor(state, searchValue));
 
 	useEffect(() => {
 		dispatch(fetchSubjectList());

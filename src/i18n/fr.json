@@ -132,7 +132,10 @@
 				"module": "Accéder au module"
 			},
 			"details": {
-				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
+				"author_section": "{{author.firstname}} {{author.lastname}} - Dernière mise à jour : {{lastUpdate, L - LT }}",
+				"modules": {
+					"no_data": "Ce sujet ne possède actuellement aucun module."
+				}
 			}
 		},
 		"modules": {

@@ -131,7 +131,10 @@
 				"module": "Access module"
 			},
 			"details": {
-				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
+				"author_section": "{{author.firstname}} {{author.lastname}} - last update : {{lastUpdate, L - LT }}",
+				"modules": {
+					"no_data": "This subject doesn't have any module, yet."
+				}
 			}
 		},
 		"modules": {

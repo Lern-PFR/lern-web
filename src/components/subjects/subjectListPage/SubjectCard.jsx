@@ -16,10 +16,10 @@ import { history } from 'routes/components/RouterProvider';
  *
  * @param {object}	subject				The subject to display.
  * @param {id}		subject.id			The subject's id. Used for redirection on click.
- * @param {string}	subject.name		The subject's name.
+ * @param {string}	subject.title		The subject's title.
  * @param {string}	subject.description	The subject's description.
  */
-const SubjectCard = ({ id, name, description }) => {
+const SubjectCard = ({ id, title, description }) => {
 	/**
 	 * @function
 	 * @name handleClick
@@ -33,7 +33,7 @@ const SubjectCard = ({ id, name, description }) => {
 
 	return (
 		<StyledListItem {...subjectCard} onClick={handleClick}>
-			<GreatPrimer {...subjectCardTitle}>{name}</GreatPrimer>
+			<GreatPrimer {...subjectCardTitle}>{title}</GreatPrimer>
 			<BodyCopy {...subjectCardBodyText}>{description}</BodyCopy>
 		</StyledListItem>
 	);
@@ -41,7 +41,7 @@ const SubjectCard = ({ id, name, description }) => {
 
 SubjectCard.propTypes = {
 	id: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 };
 

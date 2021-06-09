@@ -43,25 +43,26 @@ const sectionList = {
 };
 
 const subjectCard = {
-	display: 'grid',
+	display: 'inline-grid',
 	width: '300px',
 	cursor: 'pointer',
-	gridTemplateRows: 'auto 1fr',
+	gridTemplateRows: '4.5em 1fr',
 	gridGap: '.5em',
-	alignItems: 'flex-end',
 };
 
 const subjectCardTitle = {
 	cursor: 'pointer',
 	fontWeight: 600,
 	margin: 0,
+	borderBottom: 'solid 1px #C4C4C4',
+	borderOpacity: '.4',
+	alignSelf: 'flex-end',
 };
 
 const subjectCardBodyText = {
 	cursor: 'pointer',
 	margin: 0,
 	textOverflow: 'ellipsis',
-	// whiteSpace: 'nowrap',
 	overflow: 'hidden',
 	color: tuna.default,
 };

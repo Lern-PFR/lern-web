@@ -3,7 +3,7 @@ import { mainLayoutTopPadding, navbarHeight } from 'theme/constants';
 
 const pageLayout = {
 	display: 'grid',
-	gridTemplateColumns: 'minmax(30%, 1fr) 2fr',
+	gridTemplateColumns: 'minmax(30%, 1fr) minmax(calc(70% - 124px), 2fr)',
 	gridGap: '124px',
 	paddingX: '64px',
 };
@@ -34,6 +34,24 @@ const moduleList = {
 	gridAutoRows: 'minmax(40%, 1fr)',
 	gridRowGap: '2em',
 	maxHeight: '100%',
+};
+
+const moduleListNoDataContainer = {
+	display: 'grid',
+	justifyContent: 'center',
+};
+
+const moduleListNoDataText = {
+	textAlign: 'center',
+	fontWeight: 600,
+	marginTop: '1em',
+};
+
+const moduleListNoDataSvg = {
+	width: '75%',
+	height: 'auto',
+	display: 'block',
+	margin: 'auto',
 };
 
 const moduleListItem = {
@@ -77,6 +95,9 @@ const backToListSvg = {
 export {
 	pageLayout,
 	moduleList,
+	moduleListNoDataContainer,
+	moduleListNoDataText,
+	moduleListNoDataSvg,
 	moduleListItem,
 	moduleName,
 	moduleDescription,

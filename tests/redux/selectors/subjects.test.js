@@ -1,4 +1,4 @@
-import { getSubjects, getSubjectsByNameOrAuthor } from 'redux/selectors/subjects';
+import { getSubjectById, getSubjects, getSubjectsByTitleOrAuthor } from 'redux/selectors/subjects';
 
 describe('Subject state selectors', () => {
 	describe('getSubjects', () => {
@@ -6,10 +6,10 @@ describe('Subject state selectors', () => {
 			const mockedStore = {
 				subjects: {
 					items: [
-						{ id: 0, name: 'dummy subject 0' },
-						{ id: 1, name: 'dummy subject 1' },
-						{ id: 2, name: 'dummy subject 2' },
-						{ id: 3, name: 'dummy subject 3' },
+						{ id: 0, title: 'dummy subject 0' },
+						{ id: 1, title: 'dummy subject 1' },
+						{ id: 2, title: 'dummy subject 2' },
+						{ id: 3, title: 'dummy subject 3' },
 					],
 				},
 			};
@@ -24,26 +24,26 @@ describe('Subject state selectors', () => {
 		});
 	});
 
-	describe('getSubjectsByNameOrAuthor', () => {
-		it('should return the subjects that include the param value in their names.', () => {
+	describe('getSubjectsByTitleOrAuthor', () => {
+		it('should return the subjects that include the param value in their titles.', () => {
 			const mockedStore = {
 				subjects: {
 					items: [
-						{ id: 0, name: 'dummy subject 0' },
-						{ id: 1, name: 'dummy subject 1' },
-						{ id: 2, name: 'dummy subject 2' },
-						{ id: 3, name: 'dummier subject' },
+						{ id: 0, title: 'dummy subject 0' },
+						{ id: 1, title: 'dummy subject 1' },
+						{ id: 2, title: 'dummy subject 2' },
+						{ id: 3, title: 'dummier subject' },
 					],
 				},
 			};
 
 			const expectedResult = [
-				{ id: 0, name: 'dummy subject 0' },
-				{ id: 1, name: 'dummy subject 1' },
-				{ id: 2, name: 'dummy subject 2' },
+				{ id: 0, title: 'dummy subject 0' },
+				{ id: 1, title: 'dummy subject 1' },
+				{ id: 2, title: 'dummy subject 2' },
 			];
 
-			const actualResult = getSubjectsByNameOrAuthor(mockedStore, 'dummy');
+			const actualResult = getSubjectsByTitleOrAuthor(mockedStore, 'dummy');
 			expect(actualResult).toStrictEqual(expectedResult);
 			expect(actualResult).not.toContain(mockedStore.subjects.items[4]);
 		});
@@ -52,20 +52,20 @@ describe('Subject state selectors', () => {
 			const mockedStore = {
 				subjects: {
 					items: [
-						{ id: 0, name: 'dummy subject 0', author: { firstName: 'abcd', lastName: 'efgh' } },
-						{ id: 1, name: 'dummy subject 1', author: { firstName: 'hijk', lastName: 'lmno' } },
-						{ id: 2, name: 'dummy subject 2', author: { firstName: 'pqrs', lastName: 'tuvw' } },
-						{ id: 3, name: 'dummier subject', author: { firstName: 'xyz', lastName: 'abcd' } },
+						{ id: 0, title: 'dummy subject 0', author: { firstName: 'abcd', lastName: 'efgh' } },
+						{ id: 1, title: 'dummy subject 1', author: { firstName: 'hijk', lastName: 'lmno' } },
+						{ id: 2, title: 'dummy subject 2', author: { firstName: 'pqrs', lastName: 'tuvw' } },
+						{ id: 3, title: 'dummier subject', author: { firstName: 'xyz', lastName: 'abcd' } },
 					],
 				},
 			};
 
 			const expectedResult = [
-				{ id: 0, name: 'dummy subject 0', author: { firstName: 'abcd', lastName: 'efgh' } },
-				{ id: 3, name: 'dummier subject', author: { firstName: 'xyz', lastName: 'abcd' } },
+				{ id: 0, title: 'dummy subject 0', author: { firstName: 'abcd', lastName: 'efgh' } },
+				{ id: 3, title: 'dummier subject', author: { firstName: 'xyz', lastName: 'abcd' } },
 			];
 
-			const actualResult = getSubjectsByNameOrAuthor(mockedStore, 'abcd');
+			const actualResult = getSubjectsByTitleOrAuthor(mockedStore, 'abcd');
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 
@@ -73,16 +73,67 @@ describe('Subject state selectors', () => {
 			const mockedStore = {
 				subjects: {
 					items: [
-						{ id: 0, name: 'dummy subject 0', author: { firstName: 'abcd', lastName: 'efgh' } },
-						{ id: 1, name: 'dummy subject 1', author: { firstName: 'hijk', lastName: 'lmno' } },
-						{ id: 2, name: 'dummy subject 2', author: { firstName: 'pqrs', lastName: 'tuvw' } },
-						{ id: 3, name: 'dummier subject', author: { firstName: 'xyz', lastName: 'abcd' } },
+						{ id: 0, title: 'dummy subject 0', author: { firstName: 'abcd', lastName: 'efgh' } },
+						{ id: 1, title: 'dummy subject 1', author: { firstName: 'hijk', lastName: 'lmno' } },
+						{ id: 2, title: 'dummy subject 2', author: { firstName: 'pqrs', lastName: 'tuvw' } },
+						{ id: 3, title: 'dummier subject', author: { firstName: 'xyz', lastName: 'abcd' } },
 					],
 				},
 			};
 
-			const actualResult = getSubjectsByNameOrAuthor(mockedStore, '');
+			const actualResult = getSubjectsByTitleOrAuthor(mockedStore, '');
 			expect(actualResult).toStrictEqual(mockedStore.subjects.items);
+		});
+	});
+
+	describe('getSubjectById', () => {
+		it('should return the subject whose id equals the one in parameter.', () => {
+			const mockedStore = {
+				subjects: {
+					items: [
+						{ id: 'abcd', title: 'dummy subject 0' },
+						{ id: 'efgh', title: 'dummy subject 1' },
+						{ id: 'ijkl', title: 'dummy subject 2' },
+						{ id: 'mnop', title: 'dummier subject' },
+					],
+				},
+			};
+
+			const expectedResult = { id: 'efgh', title: 'dummy subject 1' };
+
+			const actualResult = getSubjectById(mockedStore, 'efgh');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should return undefined if no subject contains the provided id.', () => {
+			const mockedStore = {
+				subjects: {
+					items: [
+						{ id: 'abcd', title: 'dummy subject 0' },
+						{ id: 'efgh', title: 'dummy subject 1' },
+						{ id: 'ijkl', title: 'dummy subject 2' },
+						{ id: 'mnop', title: 'dummier subject' },
+					],
+				},
+			};
+
+			const expectedResult = undefined;
+
+			const actualResult = getSubjectById(mockedStore, 'qrst');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should return undefined if the subject state has no item.', () => {
+			const mockedStore = {
+				subjects: {
+					items: [],
+				},
+			};
+
+			const expectedResult = undefined;
+
+			const actualResult = getSubjectById(mockedStore, 'qrst');
+			expect(actualResult).toStrictEqual(expectedResult);
 		});
 	});
 });

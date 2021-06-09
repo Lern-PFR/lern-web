@@ -22,7 +22,7 @@ export default Object.freeze({
 	},
 	subjects: {
 		default: '/subjects',
-		list: '/subjects/list',
+		list: '/subjects',
 		subjectDetails: '/subjects/:subjectId',
 	},
 	modules: {
