@@ -16,6 +16,7 @@ exports[`Signup form snapshot testing should match previous snapshot 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="authentication.pages.signup.form.fields.firstname.placeholder"
+    textStyle="brevier"
     type="text"
   >
     authentication.pages.signup.form.fields.firstname.label
@@ -32,6 +33,7 @@ exports[`Signup form snapshot testing should match previous snapshot 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="authentication.pages.signup.form.fields.lastname.placeholder"
+    textStyle="brevier"
     type="text"
   >
     authentication.pages.signup.form.fields.lastname.label
@@ -48,6 +50,7 @@ exports[`Signup form snapshot testing should match previous snapshot 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="authentication.pages.signup.form.fields.email.placeholder"
+    textStyle="brevier"
     type="email"
   >
     authentication.pages.signup.form.fields.email.label
@@ -64,6 +67,7 @@ exports[`Signup form snapshot testing should match previous snapshot 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="authentication.pages.signup.form.fields.nickname.placeholder"
+    textStyle="brevier"
     type="text"
   >
     authentication.pages.signup.form.fields.nickname.label
@@ -79,6 +83,7 @@ exports[`Signup form snapshot testing should match previous snapshot 1`] = `
     name="password"
     onBlur={[Function]}
     onChange={[Function]}
+    textStyle="brevier"
     type="password"
   >
     authentication.pages.signup.form.fields.password.label
@@ -94,6 +99,7 @@ exports[`Signup form snapshot testing should match previous snapshot 1`] = `
     name="password-confirmation"
     onBlur={[Function]}
     onChange={[Function]}
+    textStyle="brevier"
     type="password"
   >
     authentication.pages.signup.form.fields.password_confirmation.label
