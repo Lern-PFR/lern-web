@@ -96,6 +96,12 @@ describe('http helper methods', () => {
 			expect(httpModule.handleResponse(param)).rejects.toEqual(param);
 		});
 
+		it('should return Promise.reject(...) upon reception of a status 409 object.', () => {
+			const param = { status: 409 };
+
+			expect(httpModule.handleResponse(param)).rejects.toEqual(param);
+		});
+
 		it('should return Promise.reject(...) upon reception of a status 413 object.', () => {
 			const param = { status: 413 };
 
