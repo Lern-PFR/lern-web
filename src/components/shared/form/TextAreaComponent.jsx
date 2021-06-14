@@ -19,25 +19,23 @@ const StyledTextAreaComponent = styled('textarea')(
 
 /**
  * @name TextAreaComponent
- * @description A component used to display styled input element.
+ * @description A component used to display styled textarea element.
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]			: Whether the input is disabled.
- * @param {string}	[type]				: The type of input, default is text.
- * @param {string}	[placeholder]		: Placeholder text for this input.
- * @param {bool}	[hasError]			: Whether the input contains a validation error.
- * @param {string}	id					: The id of the input.
+ * @param {bool}	[disabled]			: Whether the textarea is disabled.
+ * @param {string}	[placeholder]		: Placeholder text for this textarea.
+ * @param {bool}	[hasError]			: Whether the textarea contains a validation error.
+ * @param {string}	id					: The id of the textarea.
  */
 
 const TextAreaComponent = forwardRef(
-	({ id, disabled, placeholder, type, hasError, ...otherProps }, ref) => {
+	({ id, disabled, placeholder, hasError, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 
 		return (
 			<StyledTextAreaComponent
-				type={type}
 				disabled={disabled}
 				placeholder={placeholder}
 				id={id}

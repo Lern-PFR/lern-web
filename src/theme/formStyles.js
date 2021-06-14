@@ -150,6 +150,19 @@ const disabledInputStyle = {
 const textareaStyle = {
 	...inputStyle,
 	resize: 'none',
+	'::-webkit-scrollbar': {
+		width: '5px',
+	},
+	'::-webkit-scrollbar-track': {
+		borderRadius: '2px',
+		backgroundColor: `${tuna.lighter1}`,
+	},
+	'::-webkit-scrollbar-thumb': {
+		borderRadius: '2px',
+		backgroundColor: `${peppercorn.darker1}`,
+	},
+	'scrollbar-width': 'thin',
+	'scrollbar-color': `${peppercorn.darker1} ${tuna.lighter1}`,
 };
 
 const hintStyle = {
