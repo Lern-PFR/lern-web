@@ -60,24 +60,24 @@ const SubjectListPage = ({ t }) => {
 			<StyledDiv as="section">
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.active_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects?.active && subjects?.active?.length > 0 && subjects.active.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
-					{(!subjects?.active || subjects?.active?.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
+					{subjects?.active && subjects?.active.length > 0 && subjects.active.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{(!subjects?.active || subjects.active.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 			</StyledDiv>
 
 			<StyledDiv as="section">
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.my_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects?.mine && subjects?.mine?.length > 0 && subjects.mine.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
-					{(!subjects?.mine || subjects?.mine?.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
+					{subjects?.mine && subjects?.mine.length > 0 && subjects.mine.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{(!subjects?.mine || subjects?.mine.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 			</StyledDiv>
 
 			<StyledDiv as="section">
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.other_available_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects?.available && subjects?.available?.length > 0 && subjects.available.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
-					{(!subjects?.available || subjects?.available?.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
+					{subjects?.available && subjects?.available.length > 0 && subjects.available.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{(!subjects?.available || subjects?.available.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 			</StyledDiv>
 		</StyledDiv>
