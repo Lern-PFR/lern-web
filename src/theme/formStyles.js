@@ -151,7 +151,7 @@ const textareaStyle = {
 	...inputStyle,
 	resize: 'none',
 	'::-webkit-scrollbar': {
-		width: '5px',
+		width: '7px',
 	},
 	'::-webkit-scrollbar-track': {
 		borderRadius: '2px',

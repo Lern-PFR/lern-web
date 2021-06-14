@@ -5,6 +5,7 @@ import LabeledRadioButton from './LabeledRadioButton';
 import LabeledInput from './LabeledInput';
 import LabeledSelect from './LabeledSelect';
 import LabelComponent from './LabelComponent';
+import LabeledTextArea from './LabeledTextArea';
 
 export {
 	InputComponent,
@@ -14,4 +15,5 @@ export {
 	LabeledInput,
 	LabeledSelect,
 	LabelComponent,
+	LabeledTextArea,
 };

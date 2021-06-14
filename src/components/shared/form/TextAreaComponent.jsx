@@ -23,14 +23,15 @@ const StyledTextAreaComponent = styled('textarea')(
  *
  * @author Christopher Walker
  *
- * @param {bool}	[disabled]			: Whether the textarea is disabled.
- * @param {string}	[placeholder]		: Placeholder text for this textarea.
- * @param {bool}	[hasError]			: Whether the textarea contains a validation error.
- * @param {string}	id					: The id of the textarea.
+ * @param {bool}	[disabled]			Whether the textarea is disabled.
+ * @param {string}	[placeholder]		Placeholder text for this textarea.
+ * @param {bool}	[hasError]			Whether the textarea contains a validation error.
+ * @param {number}	[rows]				The number of rows of text visible to the user.
+ * @param {string}	id					The id of the textarea.
  */
 
 const TextAreaComponent = forwardRef(
-	({ id, disabled, placeholder, hasError, ...otherProps }, ref) => {
+	({ id, rows, disabled, placeholder, hasError, ...otherProps }, ref) => {
 		const defaultRef = useRef();
 		const resolvedRef = ref || defaultRef;
 
@@ -40,6 +41,7 @@ const TextAreaComponent = forwardRef(
 				placeholder={placeholder}
 				id={id}
 				ref={resolvedRef}
+				rows={rows}
 				{...(hasError ? errorInputStyle : {})}
 				{...(disabled ? disabledInputStyle : {})}
 				{...otherProps}
@@ -48,20 +50,20 @@ const TextAreaComponent = forwardRef(
 	}
 );
 
-TextAreaComponent.displayName = 'InputComponent';
+TextAreaComponent.displayName = 'TextAreaComponent';
 
 TextAreaComponent.propTypes = {
 	id: PropTypes.string.isRequired,
+	rows: PropTypes.number,
 	placeholder: PropTypes.string,
 	disabled: PropTypes.bool,
 	hasError: PropTypes.bool,
-	type: PropTypes.string,
 };
 
 TextAreaComponent.defaultProps = {
+	rows: 2,
 	disabled: false,
 	hasError: false,
-	type: 'text',
 	placeholder: '',
 };
 
