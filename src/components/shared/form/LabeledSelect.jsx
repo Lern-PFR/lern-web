@@ -32,7 +32,7 @@ const LabeledSelect = forwardRef(
 		const errText = hasError ? errorText : '';
 
 		return (
-			<StyledDiv display="flex" flexDirection="column" marginTop="10px">
+			<StyledDiv display="flex" flexDirection="column">
 				<SelectComponent
 					textStyle={textStyle}
 					id={id}
@@ -77,12 +77,12 @@ LabeledSelect.propTypes = {
 			value: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
-			]),
+			]).isRequired,
 			label: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
 				PropTypes.node,
-			]),
+			]).isRequired,
 		}),
 	).isRequired,
 	selectedOptions: PropTypes.oneOfType([
@@ -91,24 +91,24 @@ LabeledSelect.propTypes = {
 				value: PropTypes.oneOfType([
 					PropTypes.string,
 					PropTypes.number,
-				]),
+				]).isRequired,
 				label: PropTypes.oneOfType([
 					PropTypes.string,
 					PropTypes.number,
 					PropTypes.node,
-				]),
+				]).isRequired,
 			}),
 		),
 		PropTypes.shape({
 			value: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
-			]),
+			]).isRequired,
 			label: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
 				PropTypes.node,
-			]),
+			]).isRequired,
 		}),
 	]),
 	multiple: PropTypes.bool,

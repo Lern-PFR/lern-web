@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {
 	border,
 	color,
-	display,
 	flexbox,
 	layout,
 	margin,
@@ -16,7 +15,6 @@ import LegendComponent from './LegendComponent';
 const StyledFieldsetComponent = styled('fieldset')(
 	border,
 	color,
-	display,
 	flexbox,
 	layout,
 	margin,

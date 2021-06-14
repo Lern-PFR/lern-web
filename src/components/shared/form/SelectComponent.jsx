@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {
 	border,
-	display,
 	flexbox,
 	layout,
 	margin,
@@ -16,7 +15,6 @@ import { getTypographyStyleByName } from '../typography';
 
 const StyledSelect = styled(ReactSelect)(
 	border,
-	display,
 	flexbox,
 	layout,
 	margin,
@@ -92,12 +90,12 @@ SelectComponent.propTypes = {
 			value: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
-			]),
+			]).isRequired,
 			label: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
 				PropTypes.node,
-			]),
+			]).isRequired,
 		}),
 	).isRequired,
 	selectedOptions: PropTypes.oneOfType([
@@ -106,24 +104,24 @@ SelectComponent.propTypes = {
 				value: PropTypes.oneOfType([
 					PropTypes.string,
 					PropTypes.number,
-				]),
+				]).isRequired,
 				label: PropTypes.oneOfType([
 					PropTypes.string,
 					PropTypes.number,
 					PropTypes.node,
-				]),
+				]).isRequired,
 			}),
 		),
 		PropTypes.shape({
 			value: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
-			]),
+			]).isRequired,
 			label: PropTypes.oneOfType([
 				PropTypes.string,
 				PropTypes.number,
 				PropTypes.node,
-			]),
+			]).isRequired,
 		}),
 	]),
 	noOptionsMessage: PropTypes.string,

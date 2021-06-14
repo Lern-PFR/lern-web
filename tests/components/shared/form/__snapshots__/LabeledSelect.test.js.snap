@@ -4,7 +4,6 @@ exports[`LabeledSelect should match previous snapshot 1`] = `
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -57,7 +56,6 @@ exports[`LabeledSelect should match previous snapshot for disabled state 1`] = `
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={true}
@@ -110,7 +108,6 @@ exports[`LabeledSelect should match previous snapshot for labeled select with cu
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -163,7 +160,6 @@ exports[`LabeledSelect should match previous snapshot for labeled select with cu
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -197,7 +193,6 @@ exports[`LabeledSelect should match previous snapshot for labeled select with hi
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -232,7 +227,6 @@ exports[`LabeledSelect should match previous snapshot for labeled select with pr
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -290,7 +284,6 @@ exports[`LabeledSelect should match previous snapshot for labeled select with va
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -324,7 +317,6 @@ exports[`LabeledSelect should match previous snapshot for labeled select with va
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={true}
@@ -357,7 +349,6 @@ exports[`LabeledSelect should match previous snapshot for multiple option labele
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -410,7 +401,6 @@ exports[`LabeledSelect should match previous snapshot for multiple option labele
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}
@@ -474,7 +464,6 @@ exports[`LabeledSelect should match previous snapshot for select with custom pla
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <SelectComponent
     disabled={false}

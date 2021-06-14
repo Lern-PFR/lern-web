@@ -29,7 +29,7 @@ const LabeledInput = forwardRef(
 		const errText = hasError ? errorText : '';
 
 		return (
-			<StyledDiv display="flex" flexDirection="column" marginTop="10px">
+			<StyledDiv display="flex" flexDirection="column">
 				<InputComponent textStyle={textStyle} id={id} type={type} disabled={disabled} placeholder={placeholder} ref={resolvedRef} hasError={hasError} {...otherProps} />
 				<LabelComponent textStyle={textStyle} order="-1" forId={id} disabled={disabled} hasError={hasError}>
 					{children}

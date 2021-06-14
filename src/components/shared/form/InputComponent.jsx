@@ -2,7 +2,6 @@ import { forwardRef, useRef, useMemo } from 'react';
 import styled from 'styled-components';
 import {
 	border,
-	display,
 	layout,
 	shadow,
 	color,
@@ -14,7 +13,6 @@ import { getTypographyStyleByName } from '../typography';
 const StyledInputComponent = styled('input')(
 	{ ...inputStyle },
 	border,
-	display,
 	layout,
 	shadow,
 	color,

@@ -94,7 +94,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-pFZIQ hWZefA"
+                    className="sc-pFZIQ cvuSnp"
                     defaultChecked={false}
                     disabled={false}
                     id={1}
@@ -184,7 +184,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-pFZIQ hWZefA"
+                    className="sc-pFZIQ cvuSnp"
                     defaultChecked={false}
                     disabled={false}
                     id={2}
@@ -274,7 +274,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-pFZIQ hWZefA"
+                    className="sc-pFZIQ cvuSnp"
                     defaultChecked={false}
                     disabled={false}
                     id={3}
@@ -364,7 +364,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-pFZIQ hWZefA"
+                    className="sc-pFZIQ cvuSnp"
                     defaultChecked={false}
                     disabled={false}
                     id={4}
