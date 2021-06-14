@@ -43,8 +43,8 @@ const getSubjectsByTitleOrAuthor = createSelector(
 	(subjects, filterValue) => (
 		subjects.filter(({ title, author = undefined }) => (
 			title.toLowerCase().includes(filterValue.toLowerCase())
-			|| (author?.firstName && author.firstName.toLowerCase().includes(filterValue.toLowerCase()))
-			|| (author?.lastName && author.lastName.toLowerCase().includes(filterValue.toLowerCase()))
+			|| (author?.firstname && author.firstname.toLowerCase().includes(filterValue.toLowerCase()))
+			|| (author?.lastname && author.lastname.toLowerCase().includes(filterValue.toLowerCase()))
 		)) ?? []
 	)
 );
