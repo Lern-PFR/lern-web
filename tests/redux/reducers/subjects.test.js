@@ -4,7 +4,12 @@ import { ActionTypes } from 'redux/actions/subjects';
 describe('Subjects reducer', () => {
 	const initialState = {
 		isLoading: false,
-		items: [],
+		items: {
+			all: [],
+			active: [],
+			available: [],
+			mine: [],
+		},
 		totalCount: 0,
 	};
 
@@ -45,17 +50,27 @@ describe('Subjects reducer', () => {
 			const temporaryState = {
 				...initialState,
 				isLoading: true,
-				items: [
-					{ id: 'abcd', name: 'An introduction to JSDoc' },
-					{ id: 'efgh', name: 'The tabs or spaces dilemma' },
-				],
+				items: {
+					all: [],
+					active: [],
+					available: [
+						{ id: 'abcd', name: 'An introduction to JSDoc' },
+						{ id: 'efgh', name: 'The tabs or spaces dilemma' },
+					],
+					mine: [],
+				},
 				totalCount: 2,
 			};
 
 			const expectedState = {
 				...initialState,
 				isLoading: false,
-				items: [fetchedSubject],
+				items: {
+					all: [fetchedSubject],
+					active: [],
+					available: [],
+					mine: [],
+				},
 				totalCount: 1,
 			};
 
@@ -110,11 +125,16 @@ describe('Subjects reducer', () => {
 
 		it('should update the state\'s items and totalCount fields with payload data when receiving FETCH_SUBJECT_LIST_SUCCESS', () => {
 			// Arrange
-			const fetchedSubjects = [
-				{ id: 'ijkl', name: 'Why not testing your code makes you a bad person' },
-				{ id: 'mnop', name: 'ECMAScript 2018 operators to save the day' },
-				{ id: 'qrst', name: '15 to stop using PHP - the fourth one will blow your mind!' },
-			];
+			const fetchedSubjects = {
+				active: [
+					{ id: 'ijkl', name: 'Why not testing your code makes you a bad person' },
+				],
+				available: [
+					{ id: 'mnop', name: 'ECMAScript 2018 operators to save the day' },
+					{ id: 'qrst', name: '15 to stop using PHP - the fourth one will blow your mind!' },
+				],
+				mine: [],
+			};
 
 			const action = {
 				type: ActionTypes.FETCH_SUBJECT_LIST_SUCCESS,
@@ -124,17 +144,25 @@ describe('Subjects reducer', () => {
 			const temporaryState = {
 				...initialState,
 				isLoading: true,
-				items: [
-					{ id: 'abcd', name: 'An introduction to JSDoc' },
-					{ id: 'efgh', name: 'The tabs or spaces dilemma' },
-				],
+				items: {
+					all: [
+						{ id: 'abcd', name: 'An introduction to JSDoc' },
+						{ id: 'efgh', name: 'The tabs or spaces dilemma' },
+					],
+					active: [],
+					available: [],
+					mine: [],
+				},
 				totalCount: 2,
 			};
 
 			const expectedState = {
 				...initialState,
 				isLoading: false,
-				items: [...fetchedSubjects],
+				items: {
+					all: [],
+					...fetchedSubjects,
+				},
 				totalCount: 3,
 			};
 
@@ -335,16 +363,26 @@ describe('Subjects reducer', () => {
 
 			const temporaryState = {
 				...initialState,
-				items: [
-					{ id: 'abcd', name: 'Dummy subject 1' },
-					{ id: 'efgh', name: 'Dummy subject 2' },
-				],
+				items: {
+					all: [
+						{ id: 'abcd', name: 'Dummy subject 1' },
+						{ id: 'efgh', name: 'Dummy subject 2' },
+					],
+					active: [],
+					available: [],
+					mine: [],
+				},
 				totalCount: 2,
 			};
 
 			const expectedState = {
 				...initialState,
-				items: [],
+				items: {
+					all: [],
+					active: [],
+					available: [],
+					mine: [],
+				},
 				totalCount: 0,
 			};
 

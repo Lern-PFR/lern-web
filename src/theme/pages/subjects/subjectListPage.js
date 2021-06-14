@@ -42,7 +42,7 @@ const sectionList = {
 	flexWrap: 'wrap',
 	listStyle: 'none',
 	padding: 0,
-	gridGap: '2em',
+	gridGap: '3em 3.5em',
 	marginTop: '1em',
 };
 
@@ -50,7 +50,7 @@ const subjectCard = {
 	display: 'inline-grid',
 	width: '300px',
 	cursor: 'pointer',
-	gridTemplateRows: '4.5em 1fr',
+	gridTemplateRows: 'auto auto 1fr',
 	gridGap: '.5em',
 };
 
@@ -58,6 +58,15 @@ const subjectCardTitle = {
 	cursor: 'pointer',
 	fontWeight: 600,
 	margin: 0,
+	alignSelf: 'flex-end',
+};
+
+const subjectCardAuthor = {
+	cursor: 'pointer',
+	fontWeight: 500,
+	color: tuna.default,
+	margin: 0,
+	paddingBottom: '.5em',
 	borderBottom: 'solid 1px #C4C4C4',
 	borderOpacity: '.4',
 	alignSelf: 'flex-end',
@@ -81,5 +90,6 @@ export {
 	sectionList,
 	subjectCard,
 	subjectCardTitle,
+	subjectCardAuthor,
 	subjectCardBodyText,
 };

@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { generatePath } from 'react-router';
 import routes from 'routes';
 
-import { BodyCopy, GreatPrimer } from 'components/shared/typography';
-import { subjectCard, subjectCardBodyText, subjectCardTitle } from 'theme/pages/subjects/subjectListPage';
+import { BodyCopy, GreatPrimer, LongPrimer } from 'components/shared/typography';
+import { subjectCard, subjectCardAuthor, subjectCardBodyText, subjectCardTitle } from 'theme/pages/subjects/subjectListPage';
 import { StyledListItem } from 'components/shared/styledElements';
 import { useCallback } from 'react';
 import { history } from 'routes/components/RouterProvider';
@@ -14,12 +14,15 @@ import { history } from 'routes/components/RouterProvider';
  *
  * @author Timothée Simon-Franza
  *
- * @param {object}	subject				The subject to display.
- * @param {id}		subject.id			The subject's id. Used for redirection on click.
- * @param {string}	subject.title		The subject's title.
- * @param {string}	subject.description	The subject's description.
+ * @param {object}	subject						The subject to display.
+ * @param {object}	subject.author				The subject's author.
+ * @param {string}	subject.author.firstname
+ * @param {string}	subject.author.lastname
+ * @param {id}		subject.id					The subject's id. Used for redirection on click.
+ * @param {string}	subject.title				The subject's title.
+ * @param {string}	subject.description			The subject's description.
  */
-const SubjectCard = ({ id, title, description }) => {
+const SubjectCard = ({ author, id, title, description }) => {
 	/**
 	 * @function
 	 * @name handleClick
@@ -34,12 +37,17 @@ const SubjectCard = ({ id, title, description }) => {
 	return (
 		<StyledListItem {...subjectCard} onClick={handleClick}>
 			<GreatPrimer {...subjectCardTitle}>{title}</GreatPrimer>
+			<LongPrimer {...subjectCardAuthor}>{`${author.firstname} ${author.lastname}`}</LongPrimer>
 			<BodyCopy {...subjectCardBodyText}>{description}</BodyCopy>
 		</StyledListItem>
 	);
 };
 
 SubjectCard.propTypes = {
+	author: PropTypes.shape({
+		firstname: PropTypes.string.isRequired,
+		lastname: PropTypes.string.isRequired,
+	}).isRequired,
 	id: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,

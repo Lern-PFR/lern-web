@@ -12,7 +12,12 @@ import { fireEvent, render, screen } from '@testing-library/react';
 const mockStore = configureMockStore([thunk]);
 const store = mockStore({
 	subjects: {
-		items: [],
+		items: {
+			all: [],
+			active: [],
+			available: [],
+			mine: [],
+		},
 	},
 });
 
@@ -64,7 +69,11 @@ describe('SubjectListPage', () => {
 	});
 
 	it('should call the getSubjectsByTitleOrAuthor selector callback whenever the search input triggers an onChange event.', () => {
-		const selectorSpy = jest.spyOn(SubjectSelectors, 'getSubjectsByTitleOrAuthor').mockReturnValue([]);
+		const selectorSpy = jest.spyOn(SubjectSelectors, 'getSubjectsByTitleOrAuthor').mockReturnValue({
+			active: [],
+			available: [],
+			mine: [],
+		});
 
 		render(
 			<Provider store={store}>

@@ -11,7 +11,7 @@ import { createSelector } from 'reselect';
  *
  * @returns {Array}
  */
-const getSubjects = (state) => state?.subjects?.items ?? [];
+const getSubjects = (state) => state?.subjects?.items ?? { all: [], mine: [], active: [], available: [] };
 
 /**
  * @function
@@ -28,6 +28,26 @@ const getSubjectFilterValue = (_, filterValue) => filterValue ?? '';
 
 /**
  * @function
+ * @name filterByTitleOrAuthor
+ * @description Pure private method which filters the subjectList array param with the filterValue parameter's value.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {array} subjectList	The list of subjects to filter.
+ * @param {string} filterValue	The value to use as a filtering criteria.
+ *
+ * @returns {Array}
+ */
+const filterByTitleOrAuthor = (subjectList, filterValue) => (
+	subjectList.filter(({ title, author = undefined }) => (
+		title.toLowerCase().includes(filterValue.toLowerCase())
+		|| (author?.firstname && author.firstname.toLowerCase().includes(filterValue.toLowerCase()))
+		|| (author?.lastname && author.lastname.toLowerCase().includes(filterValue.toLowerCase()))
+	)) ?? []
+);
+
+/**
+ * @function
  * @name getSubjectsByTitleOrAuthor
  * @description A selector callback which returns subjects whose name or author matches the filterValue param.
  *
@@ -40,16 +60,12 @@ const getSubjectFilterValue = (_, filterValue) => filterValue ?? '';
 const getSubjectsByTitleOrAuthor = createSelector(
 	getSubjects,
 	getSubjectFilterValue,
-	(subjects, filterValue) => (
-		subjects.filter(({ title, author = undefined }) => (
-			title.toLowerCase().includes(filterValue.toLowerCase())
-			|| (author?.firstname && author.firstname.toLowerCase().includes(filterValue.toLowerCase()))
-			|| (author?.lastname && author.lastname.toLowerCase().includes(filterValue.toLowerCase()))
-		)) ?? []
-	)
+	({ mine, active, available }, filterValue) => ({
+		mine: filterByTitleOrAuthor(mine, filterValue),
+		active: filterByTitleOrAuthor(active, filterValue),
+		available: filterByTitleOrAuthor(available, filterValue),
+	})
 );
-
-// @TODO: create a selector to split subjects into categories (active, mine, available...)
 
 /**
  * @function
@@ -65,7 +81,7 @@ const getSubjectsByTitleOrAuthor = createSelector(
 const getSubjectById = createSelector(
 	getSubjects,
 	(_, subjectId) => subjectId,
-	(subjects, subjectId) => subjects.filter(({ id }) => (id === subjectId))?.[0] ?? undefined
+	({ all: subjects }, subjectId) => subjects.filter(({ id }) => (id === subjectId))?.[0] ?? undefined
 );
 
 export {
