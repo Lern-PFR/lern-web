@@ -7,7 +7,7 @@ import {
 	crimson,
 	primary,
 } from './colors';
-import { brevier } from './textStyles';
+import { brevier, longPrimer } from './textStyles';
 
 const labelStyle = {
 	color: (({ hasError }) => (hasError ? crimson.default : peppercorn.default)),
@@ -111,6 +111,7 @@ const radioButtonStyle = {
 		},
 	},
 };
+
 const inputStyle = {
 	borderRadius: 6,
 	border: `solid 1px ${tuna.default}`,
@@ -146,9 +147,6 @@ const disabledInputStyle = {
 	border: `solid 1px ${tuna.darker1}`,
 };
 
-const selectStyle = {
-	...inputStyle,
-};
 const textareaStyle = {
 	...inputStyle,
 };
@@ -164,6 +162,57 @@ const validationStyle = {
 	color: crimson.default,
 };
 
+const selectStyle = {
+	placeholder: (provided) => ({
+		...provided,
+		...longPrimer,
+	}),
+	option: (provided) => ({
+		...provided,
+		borderRadius: 6,
+	}),
+	valueContainer: (provided) => ({
+		...provided,
+		...longPrimer,
+	}),
+	menu: (provided) => ({
+		...provided,
+		...longPrimer,
+		borderRadius: '8px',
+		marginTop: '4px',
+		padding: '16px',
+	}),
+	control: (provided, state) => ({
+		...provided,
+		borderRadius: 6,
+		borderColor: state.isDisabled ? tuna.lighter2 : provided.primary,
+	}),
+	multiValueLabel: (provided) => ({
+		...provided,
+		...longPrimer,
+	}),
+};
+
+const errorSelectStyle = {
+	...selectStyle,
+	control: (provided) => ({
+		...provided,
+		borderRadius: 6,
+		borderColor: crimson.default,
+		'&:hover': {
+			borderColor: crimson.default,
+		},
+	}),
+	option: (provided, state) => ({
+		...provided,
+		borderRadius: 6,
+		backgroundColor: state.isSelected ? primary.default : coconut.default,
+		'&:hover': {
+			backgroundColor: state.isSelected ? primary.default : jasmine.darker1,
+		},
+	}),
+};
+
 export {
 	labelStyle,
 	groupedLabelStyle,
@@ -172,10 +221,11 @@ export {
 	radioButtonStyle,
 	inputStyle,
 	errorInputStyle,
-	selectStyle,
 	textareaStyle,
 	hintStyle,
 	validationStyle,
 	disabledStyle,
 	disabledInputStyle,
+	selectStyle,
+	errorSelectStyle,
 };

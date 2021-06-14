@@ -3,7 +3,12 @@
 exports[`RadioButtonComponent should match previous snapshot 1`] = `
 <styled.input
   disabled={false}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
   id="inp"
+  letterSpacing={0.32}
+  lineHeight="1.125em"
   placeholder=""
   type="text"
 />
@@ -13,7 +18,12 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
 <styled.input
   border="solid 1px #707070"
   disabled={true}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
   id="inp"
+  letterSpacing={0.32}
+  lineHeight="1.125em"
   placeholder=""
   type="text"
 />
@@ -22,7 +32,12 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
 exports[`RadioButtonComponent should match previous snapshot for input with custom placeholder 1`] = `
 <styled.input
   disabled={false}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
   id="inp"
+  letterSpacing={0.32}
+  lineHeight="1.125em"
   placeholder="Enter details here"
   type="text"
 />
@@ -31,7 +46,12 @@ exports[`RadioButtonComponent should match previous snapshot for input with cust
 exports[`RadioButtonComponent should match previous snapshot for input with specified type 1`] = `
 <styled.input
   disabled={false}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
   id="inp"
+  letterSpacing={0.32}
+  lineHeight="1.125em"
   placeholder=""
   type="password"
 />
@@ -39,9 +59,14 @@ exports[`RadioButtonComponent should match previous snapshot for input with spec
 
 exports[`RadioButtonComponent should match previous snapshot for input with validation error 1`] = `
 <styled.input
+  border="solid 1px red"
   disabled={false}
-  error={true}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
   id="inp"
+  letterSpacing={0.32}
+  lineHeight="1.125em"
   placeholder=""
   type="text"
 />

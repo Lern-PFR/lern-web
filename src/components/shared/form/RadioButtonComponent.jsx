@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {
 	border,
-	display,
 	layout,
 	shadow,
 	space,
@@ -14,7 +13,6 @@ import { forwardRef, useRef } from 'react';
 
 const StyledRadioButtonComponent = styled('input')(
 	border,
-	display,
 	layout,
 	shadow,
 	space,

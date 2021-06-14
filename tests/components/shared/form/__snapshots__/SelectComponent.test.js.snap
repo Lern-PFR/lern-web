@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectComponent should match previous snapshot 1`] = `
+<Styled(StateManager)
+  defaultValue={Array []}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={false}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for disabled state 1`] = `
+<Styled(StateManager)
+  defaultValue={Array []}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={true}
+  isMulti={false}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for multiple option select 1`] = `
+<Styled(StateManager)
+  defaultValue={Array []}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={true}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for multiple option select with pre-selected options 1`] = `
+<Styled(StateManager)
+  defaultValue={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+    ]
+  }
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={true}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for select with custom noOptionsMessage 1`] = `
+<Styled(StateManager)
+  defaultValue={Array []}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={false}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={Array []}
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for select with custom placeholder 1`] = `
+<Styled(StateManager)
+  defaultValue={Array []}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={false}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder="Select an option"
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for select with pre-selected option 1`] = `
+<Styled(StateManager)
+  defaultValue={
+    Object {
+      "label": "Two",
+      "value": "2",
+    }
+  }
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={false}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;
+
+exports[`SelectComponent should match previous snapshot for select with validation error 1`] = `
+<Styled(StateManager)
+  defaultValue={Array []}
+  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  fontSize=".778rem"
+  fontWeight={400}
+  id="select"
+  isClearable={true}
+  isDisabled={false}
+  isMulti={false}
+  letterSpacing={0.32}
+  lineHeight="1.125em"
+  noOptionsMessage={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "One",
+        "value": 1,
+      },
+      Object {
+        "label": "Two",
+        "value": "2",
+      },
+      Object {
+        "label": "Three",
+        "value": 3,
+      },
+      Object {
+        "label": "Four",
+        "value": "4",
+      },
+    ]
+  }
+  placeholder=" - "
+  styles={
+    Object {
+      "control": [Function],
+      "menu": [Function],
+      "multiValueLabel": [Function],
+      "option": [Function],
+      "placeholder": [Function],
+      "valueContainer": [Function],
+    }
+  }
+  theme={[Function]}
+/>
+`;

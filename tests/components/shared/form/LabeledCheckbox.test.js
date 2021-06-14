@@ -36,6 +36,13 @@ describe('LabeledCheckbox', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should match previous snapshot for checkbox with custom label text style', () => {
+		const sut = (<LabeledCheckbox id="lcb" textStyle="bodycopy">Labeled Checkbox</LabeledCheckbox>);
+		const wrapper = shallow(sut);
+
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should call the onChange method when clicking on checkbox', async () => {
 		const mockedOnChange = jest.fn(() => {});
 		const sut = (<LabeledCheckbox onChange={mockedOnChange} id="cb">Labeled Checkbox</LabeledCheckbox>);

@@ -4,13 +4,13 @@ exports[`RadioButtonComponent should match previous snapshot 1`] = `
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={false}
     hasError={false}
     id="inp"
     placeholder=""
+    textStyle="brevier"
     type="text"
   />
   <LabelComponent
@@ -33,13 +33,13 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={true}
     hasError={false}
     id="inp"
     placeholder=""
+    textStyle="brevier"
     type="text"
   />
   <LabelComponent
@@ -58,17 +58,46 @@ exports[`RadioButtonComponent should match previous snapshot for disabled state 
 </styled.div>
 `;
 
+exports[`RadioButtonComponent should match previous snapshot for labeled input with custom label text style 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <InputComponent
+    disabled={false}
+    hasError={false}
+    id="inp"
+    placeholder=""
+    textStyle="bodycopy"
+    type="text"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="inp"
+    hasError={false}
+    order="-1"
+    textStyle="bodycopy"
+  >
+    Labeled Input
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
 exports[`RadioButtonComponent should match previous snapshot for labeled input with custom placeholder 1`] = `
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={false}
     hasError={false}
     id="inp"
     placeholder="Enter details here"
+    textStyle="brevier"
     type="text"
   />
   <LabelComponent
@@ -91,13 +120,13 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={false}
     hasError={false}
     id="inp"
     placeholder=""
+    textStyle="brevier"
     type="text"
   />
   <LabelComponent
@@ -122,13 +151,13 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={false}
     hasError={false}
     id="inp"
     placeholder=""
+    textStyle="brevier"
     type="password"
   />
   <LabelComponent
@@ -151,13 +180,13 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={false}
     hasError={true}
     id="inp"
     placeholder=""
+    textStyle="brevier"
     type="text"
   />
   <LabelComponent
@@ -181,13 +210,13 @@ exports[`RadioButtonComponent should match previous snapshot for labeled input w
 <styled.div
   display="flex"
   flexDirection="column"
-  marginTop="10px"
 >
   <InputComponent
     disabled={true}
     hasError={true}
     id="inp"
     placeholder=""
+    textStyle="brevier"
     type="text"
   />
   <LabelComponent

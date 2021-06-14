@@ -1,0 +1,513 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabeledSelect should match previous snapshot 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={true}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={true}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for labeled select with custom label text style 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="bodycopy"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="bodycopy"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for labeled select with custom noOptionsMessage 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="Sorry, we couldn't find any options"
+    options={Array []}
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for labeled select with hint 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  >
+    User hint
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for labeled select with pre-selected option 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder=" - "
+    required={false}
+    selectedOptions={
+      Object {
+        "label": "Two",
+        "value": "2",
+      }
+    }
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for labeled select with validation error 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={true}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    isErrorMessage={true}
+  >
+    Validation error
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for labeled select with validation error and disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={true}
+    hasError={true}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={true}
+    forId="select"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for multiple option labeled select 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={true}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder=" - "
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for multiple option labeled select with pre-selected options 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={true}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder=" - "
+    required={false}
+    selectedOptions={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+      ]
+    }
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`LabeledSelect should match previous snapshot for select with custom placeholder 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <SelectComponent
+    disabled={false}
+    hasError={false}
+    id="select"
+    multiple={false}
+    noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
+    placeholder="Select an option"
+    required={false}
+    selectedOptions={Array []}
+    textStyle="brevier"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="select"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled select
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;

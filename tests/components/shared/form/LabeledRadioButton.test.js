@@ -36,6 +36,13 @@ describe('LabeledRadioButton', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should match previous snapshot for radio button with custom label text style', () => {
+		const sut = (<LabeledRadioButton id="lcb" textStyle="bodycopy">Labeled Checkbox</LabeledRadioButton>);
+		const wrapper = shallow(sut);
+
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should call the onChange method when clicking on the radio button', async () => {
 		const mockedOnChange = jest.fn(() => {});
 		const sut = (<LabeledRadioButton onChange={mockedOnChange} id="cb" name="rg">Labeled Radio Button</LabeledRadioButton>);

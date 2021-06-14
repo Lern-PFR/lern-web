@@ -35,7 +35,27 @@ import {
 	LabeledRadioButton,
 	LabelComponent,
 	LabeledInput,
+	LabeledSelect,
 } from 'components/shared/form';
+
+const options = [
+	{
+		value: 1,
+		label: 'One',
+	},
+	{
+		value: '2',
+		label: 'Two',
+	},
+	{
+		value: 3,
+		label: 'Three',
+	},
+	{
+		value: '4',
+		label: 'Four',
+	},
+];
 
 /**
  * @name App
@@ -78,29 +98,18 @@ const App = () => (
 			<LabelComponent>Default label component</LabelComponent>
 			<LabelComponent textStyle="bodycopy">BodyCopy label component</LabelComponent>
 		</StyledDiv>
-		<StyledDiv position="relative" display="flex" flexDirection="column" gridGap=".5em">
-			<LabeledCheckbox id="lcb1">Labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox checked id="lcb2">Default checked labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox disabled id="lcb3">Disabled labeled checkbox</LabeledCheckbox>
-			<LabeledCheckbox disabled checked id="lcb4">Disabled default checked labeled checkbox</LabeledCheckbox>
-		</StyledDiv>
 		<StyledDiv position="relative">
-			<FieldsetComponent title="Basic fieldset component" display="flex" flexDirection="column" gridGap=".5em">
+			<FieldsetComponent title="Basic checkbox components" display="flex" flexDirection="column" gridGap=".5em">
 				<LabeledCheckbox id="lcb5">Labeled checkbox</LabeledCheckbox>
-				<LabeledCheckbox labelTextStyle="bodycopy" checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
+				<LabeledCheckbox checked id="lcb6">Default checked labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled id="lcb7">Disabled labeled checkbox</LabeledCheckbox>
 				<LabeledCheckbox disabled checked id="lcb8">Disabled default checked labeled checkbox</LabeledCheckbox>
 			</FieldsetComponent>
 		</StyledDiv>
-		<StyledDiv position="relative" display="flex" flexDirection="column" gridGap=".5em">
-			<LabeledRadioButton name="rg1" id="lrb1">Labeled radio button</LabeledRadioButton>
-			<LabeledRadioButton name="rg1" checked id="lrb2">Default checked labeled radio button</LabeledRadioButton>
-			<LabeledRadioButton name="rg1" disabled id="lrb3">Disabled labeled radio button</LabeledRadioButton>
-		</StyledDiv>
 		<StyledDiv position="relative">
-			<FieldsetComponent title="Basic fieldset component" display="flex" flexDirection="column" gridGap=".5em">
+			<FieldsetComponent title="Basic radio button components" display="flex" flexDirection="column" gridGap=".5em">
 				<LabeledRadioButton name="rg2" id="lrb5" display="flex" gridGap=".5em">Labeled radio button</LabeledRadioButton>
-				<LabeledRadioButton labelTextStyle="bodycopy" name="rg2" checked id="lrb6" display="flex" gridGap=".5em">Default checked labeled radio button</LabeledRadioButton>
+				<LabeledRadioButton name="rg2" checked id="lrb6" display="flex" gridGap=".5em">Default checked labeled radio button</LabeledRadioButton>
 				<LabeledRadioButton name="rg2" disabled id="lrb7" display="flex" gridGap=".5em">Disabled labeled radio button</LabeledRadioButton>
 			</FieldsetComponent>
 		</StyledDiv>
@@ -118,7 +127,7 @@ const App = () => (
 					Disabled labeled text input
 				</LabeledInput>
 				<LabeledInput
-					id="errorTextInput"
+					id="disabledErrorTextInput"
 					placeholder="Enter details here."
 					hintText="This is a hint for the user."
 					errorText="There is something wrong with the value in this input"
@@ -138,6 +147,71 @@ const App = () => (
 				</LabeledInput>
 				<LabeledInput id="numberInput" placeholder="Number Input" type="number">Labeled number input</LabeledInput>
 				<LabeledInput id="passwordInput" placeholder="Password Input" type="password">Labeled password input</LabeledInput>
+			</FieldsetComponent>
+		</StyledDiv>
+		<StyledDiv position="relative" width="500px">
+			<FieldsetComponent title="Select component">
+				<LabeledSelect id="select1" options={options}>Default labeled select</LabeledSelect>
+				<LabeledSelect id="select2" options={options} placeholder="Select one">Default labeled select with placeholder</LabeledSelect>
+				<LabeledSelect id="select3" options={options} placeholder="Select one" hintText="Select an option">Default labeled select with a hint</LabeledSelect>
+				<LabeledSelect
+					id="select4"
+					options={options}
+					placeholder="Select one"
+					hintText="Select an option"
+					errorText="There is a problem with the selection"
+					hasError
+				>
+					Default labeled select with a validation error
+				</LabeledSelect>
+				<LabeledSelect
+					id="select5"
+					options={options}
+					placeholder="Select one"
+					hintText="Select an option"
+					errorText="There is a problem with the selection"
+					hasError
+					disabled
+				>
+					Disabled labeled select
+				</LabeledSelect>
+				<LabeledSelect
+					id="select6"
+					options={options}
+					placeholder="Select one"
+					hintText="Select an option"
+					multiple
+				>
+					Multiple labeled select
+				</LabeledSelect>
+				<LabeledSelect
+					id="select7"
+					options={options}
+					placeholder="Select one"
+					hintText="Select an option"
+					selectedOptions={options[1]}
+				>
+					Labeled select with default selected
+				</LabeledSelect>
+				<LabeledSelect
+					id="select8"
+					options={options}
+					placeholder="Select one"
+					hintText="Select an option"
+					multiple
+					selectedOptions={[options[0], options[2]]}
+				>
+					Multiple labeled select with default selected
+				</LabeledSelect>
+				<LabeledSelect
+					id="select9"
+					options={[]}
+					placeholder="Select one"
+					hintText="Select an option"
+					noOptionsMessage="Sorry, we couldn't find any options"
+				>
+					Labeled select with custom &quot;no options&quot; text
+				</LabeledSelect>
 			</FieldsetComponent>
 		</StyledDiv>
 	</>

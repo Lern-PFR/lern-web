@@ -29,7 +29,7 @@ describe('RadioButtonComponent', () => {
 	});
 
 	it('should match previous snapshot for input with validation error', () => {
-		const sut = (<InputComponent id="inp" error />);
+		const sut = (<InputComponent id="inp" hasError />);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();

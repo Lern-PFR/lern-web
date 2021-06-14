@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {
 	border,
 	color,
-	display,
 	flexbox,
 	layout,
 	margin,
@@ -18,7 +17,6 @@ const StyledLegendComponent = styled('legend')(
 	},
 	border,
 	color,
-	display,
 	flexbox,
 	layout,
 	margin,
