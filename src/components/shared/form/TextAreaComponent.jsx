@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {
 	border,
-	display,
 	layout,
 	shadow,
 	color,
@@ -13,7 +12,6 @@ import { forwardRef, useRef } from 'react';
 const StyledTextAreaComponent = styled('textarea')(
 	{ ...textareaStyle },
 	border,
-	display,
 	layout,
 	shadow,
 	color,
