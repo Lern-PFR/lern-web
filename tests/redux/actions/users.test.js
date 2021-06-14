@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import * as usersActions from 'redux/actions/users';
 import { baseUrl } from 'lib/shared/http';
 import session from 'lib/shared/session';
