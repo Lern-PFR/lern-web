@@ -1,5 +1,7 @@
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import RouterProvider from 'routes/components/RouterProvider';
 import RouteProvider from 'routes/components/RouteProvider';
 import { MainLayout } from 'components/shared/layout';
@@ -21,6 +23,7 @@ const Root = () => (
 		<RouterProvider>
 			<MainLayout>
 				<RouteProvider />
+				<ToastContainer />
 			</MainLayout>
 		</RouterProvider>
 	</Provider>

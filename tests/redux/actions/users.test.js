@@ -1,6 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
+import { toast } from 'react-toastify';
 import * as usersActions from 'redux/actions/users';
 import { baseUrl } from 'lib/shared/http';
 import session from 'lib/shared/session';
@@ -349,6 +350,29 @@ describe('User-related redux actions', () => {
 			// Act & assert
 			return store.dispatch(usersActions.signUp(userCreationData))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
+		});
+
+		it('sould trigger an error toast when user login logic has failed with a 409 status', async () => {
+			// Arrange
+			const userCreationData = {
+				firstname: 'john',
+				lastname: 'doe',
+				nickname: 'johnDoe',
+				email: 'johndoe@example.com',
+				password: 'efgh',
+			};
+
+			const httpResponse = { status: 409 };
+
+			fetchMock.post(`${baseUrl}/api/users`, httpResponse);
+
+			const toastSpy = jest.spyOn(toast, 'error');
+
+			// Act
+			await store.dispatch(usersActions.signUp(userCreationData));
+
+			// Assert
+			expect(toastSpy).toHaveBeenCalledTimes(1);
 		});
 	});
 
