@@ -119,11 +119,11 @@ const inputStyle = {
 	padding: '5px 10px',
 
 	'&:focus': {
-		outline: 'none',
+		border: 'none',
 	},
 
 	'&:focus-visible': {
-		outline: `solid 1px ${primary.default}`,
+		border: `solid 2px ${primary.default}`,
 
 		'&::placeholder': {
 			color: `${primary.default}`,

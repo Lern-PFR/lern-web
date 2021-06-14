@@ -36,6 +36,7 @@ import {
 	LabelComponent,
 	LabeledInput,
 	LabeledSelect,
+	LabeledTextArea,
 } from 'components/shared/form';
 
 const options = [
@@ -212,6 +213,36 @@ const App = () => (
 				>
 					Labeled select with custom &quot;no options&quot; text
 				</LabeledSelect>
+			</FieldsetComponent>
+		</StyledDiv>
+		<StyledDiv position="relative" width="500px">
+			<FieldsetComponent title="Text input components">
+				<LabeledTextArea id="basicTextArea">Basic labeled textarea</LabeledTextArea>
+				<LabeledTextArea id="placeholderTextArea" placeholder="Text area">Labeled textarea with placeholder</LabeledTextArea>
+				<LabeledTextArea id="sizedTextArea" placeholder="Text area" rows="5">Labeled textarea with custom size</LabeledTextArea>
+				<LabeledTextArea id="hintTextArea" placeholder="Text area" rows="5" hintText="Type some text">Labeled textarea with hint</LabeledTextArea>
+				<LabeledTextArea id="disabledTextArea" placeholder="Text area" rows="5" hintText="Type some text" disabled>Disabled labeled textarea with hint</LabeledTextArea>
+				<LabeledTextArea
+					id="errorTextArea"
+					placeholder="Text area"
+					rows="5"
+					hintText="Type some text"
+					errorText="There is something wrong with the value in this textarea"
+					hasError
+				>
+					Disabled labeled textarea with hint
+				</LabeledTextArea>
+				<LabeledTextArea
+					id="disabledErrorTextArea"
+					placeholder="Text area"
+					rows="5"
+					hintText="Type some text"
+					errorText="There is something wrong with the value in this textarea"
+					hasError
+					disabled
+				>
+					Disabled labeled textarea with hint
+				</LabeledTextArea>
 			</FieldsetComponent>
 		</StyledDiv>
 	</>
