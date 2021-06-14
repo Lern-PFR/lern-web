@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { forwardRef, useRef, useMemo } from 'react';
 import { errorSelectStyle, selectStyle } from 'theme/formStyles';
-import { primary, crimson } from 'theme/colors';
+import { primary, crimson, jasmine } from 'theme/colors';
 import { getTypographyStyleByName } from '../typography';
 
 const StyledSelect = styled(ReactSelect)(
@@ -61,7 +61,7 @@ const SelectComponent = forwardRef(
 					colors: {
 						...theme.colors,
 						primary: hasError ? crimson.default : primary.default,
-						primary25: primary.lighter2,
+						primary25: jasmine.darker1,
 						primary50: primary.lighter1,
 					},
 				})}
