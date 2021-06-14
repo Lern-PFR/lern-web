@@ -3,7 +3,7 @@
 import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { NotionDetailsPage } from 'pages/notions';
-import { SubjectDetailsPage, SubjectListPage } from 'pages/subjects';
+import { SubjectCreationPage, SubjectDetailsPage, SubjectListPage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
 
@@ -92,6 +92,13 @@ export default [
 				allowAuthenticated: true,
 				exact: true,
 				component: SubjectListPage,
+			},
+			{
+				path: keys.subjects.subjectCreation,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: SubjectCreationPage,
 			},
 			{
 				path: keys.subjects.subjectDetails,

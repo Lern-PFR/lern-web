@@ -132,6 +132,33 @@
 				},
 				"no_data": "Aucun sujet n'a été trouvé pour les critères spécifiés."
 			},
+			"creation": {
+				"form": {
+					"action": {
+						"submit": "Créer mon sujet"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Introduction à l'UX Design",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "Qu'est-ce que l'UX ? Quelle différence avec l'UI ? Quel est son lien avec la psychologie ? Découvrez comment rendre un produit agréable.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre sujet.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						}
+					}
+				}
+			},
 			"links": {
 				"back_to_list": "Retourner à la liste des sujets",
 				"module": "Accéder au module"
