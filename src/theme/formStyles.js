@@ -208,7 +208,7 @@ const errorSelectStyle = {
 		borderRadius: 6,
 		backgroundColor: state.isSelected ? primary.default : coconut.default,
 		'&:hover': {
-			backgroundColor: state.isSelected ? primary.default : primary.lighter2,
+			backgroundColor: state.isSelected ? primary.default : tuna.lighter1,
 		},
 	}),
 };
