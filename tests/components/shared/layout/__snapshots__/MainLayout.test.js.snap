@@ -42,7 +42,7 @@ exports[`MainLayout should match previous snapshot with no-padding requirement 1
       "entries": Array [
         Object {
           "hash": "",
-          "key": "ejfkb0",
+          "key": "tu6sex",
           "pathname": "/subjects/create",
           "search": "",
           "state": undefined,
@@ -56,7 +56,7 @@ exports[`MainLayout should match previous snapshot with no-padding requirement 1
       "listen": [Function],
       "location": Object {
         "hash": "",
-        "key": "ejfkb0",
+        "key": "tu6sex",
         "pathname": "/subjects/create",
         "search": "",
         "state": undefined,

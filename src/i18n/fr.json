@@ -164,6 +164,7 @@
 				}
 			},
 			"links": {
+				"create": "Créer un nouveau sujet",
 				"back_to_list": "Retourner à la liste des sujets",
 				"module": "Accéder au module"
 			},
