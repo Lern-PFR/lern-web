@@ -133,6 +133,7 @@
 				"no_data": "Aucun sujet n'a été trouvé pour les critères spécifiés."
 			},
 			"creation": {
+				"title": "Nouveau sujet",
 				"form": {
 					"action": {
 						"submit": "Créer mon sujet"
@@ -157,6 +158,9 @@
 							}
 						}
 					}
+				},
+				"sidebar": {
+					"new_subject": "Nouveau sujet"
 				}
 			},
 			"links": {

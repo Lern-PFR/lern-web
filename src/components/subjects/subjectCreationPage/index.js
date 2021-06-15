@@ -1,6 +1,7 @@
 import SubjectCreationForm from './SubjectCreationForm';
+import NavigationSidebar from './NavigationSidebar';
 
 export {
-	// eslint-disable-next-line import/prefer-default-export
+	NavigationSidebar,
 	SubjectCreationForm,
 };

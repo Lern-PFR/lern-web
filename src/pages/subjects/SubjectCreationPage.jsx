@@ -1,8 +1,12 @@
 import { StyledDiv } from 'components/shared/styledElements';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { createSubject } from 'redux/actions/subjects';
-import { SubjectCreationForm } from 'components/subjects/subjectCreationPage';
+import { DoublePica } from 'components/shared/typography';
+import { NavigationSidebar, SubjectCreationForm } from 'components/subjects/subjectCreationPage';
+import { contentSection, layout, title } from 'theme/pages/subjects/subjectCreationPage';
 
 /**
  * @name SubjectCreationPage
@@ -12,15 +16,19 @@ import { SubjectCreationForm } from 'components/subjects/subjectCreationPage';
  */
 const SubjectCreationPage = () => {
 	const dispatch = useDispatch();
+	const { t } = useTranslation();
 
 	const onSubmit = useCallback((formData) => {
 		dispatch(createSubject(formData));
 	}, [dispatch]);
 
 	return (
-		<StyledDiv>
-			{/* sidebar */}
-			<SubjectCreationForm onSubmit={onSubmit} />
+		<StyledDiv {...layout}>
+			<NavigationSidebar />
+			<StyledDiv {...contentSection}>
+				<DoublePica as="h1" {...title}>{t('subjects.creation.title')}</DoublePica>
+				<SubjectCreationForm onSubmit={onSubmit} />
+			</StyledDiv>
 		</StyledDiv>
 	);
 };

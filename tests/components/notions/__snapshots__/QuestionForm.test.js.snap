@@ -94,7 +94,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
+<<<<<<< HEAD
                     className="sc-kEjbxe cuJDeC"
+=======
+                    className="sc-jrAGrp bXwPaR"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     defaultChecked={false}
                     disabled={false}
                     id={1}
@@ -120,7 +124,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
+<<<<<<< HEAD
                     className="sc-iqHYGH jCIhGO"
+=======
+                    className="sc-kEjbxe ePBVnr"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -184,7 +192,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
+<<<<<<< HEAD
                     className="sc-kEjbxe cuJDeC"
+=======
+                    className="sc-jrAGrp bXwPaR"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     defaultChecked={false}
                     disabled={false}
                     id={2}
@@ -210,7 +222,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
+<<<<<<< HEAD
                     className="sc-iqHYGH jCIhGO"
+=======
+                    className="sc-kEjbxe ePBVnr"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -274,7 +290,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
+<<<<<<< HEAD
                     className="sc-kEjbxe cuJDeC"
+=======
+                    className="sc-jrAGrp bXwPaR"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     defaultChecked={false}
                     disabled={false}
                     id={3}
@@ -300,7 +320,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
+<<<<<<< HEAD
                     className="sc-iqHYGH jCIhGO"
+=======
+                    className="sc-kEjbxe ePBVnr"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -364,7 +388,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
+<<<<<<< HEAD
                     className="sc-kEjbxe cuJDeC"
+=======
+                    className="sc-jrAGrp bXwPaR"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     defaultChecked={false}
                     disabled={false}
                     id={4}
@@ -390,7 +418,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
+<<<<<<< HEAD
                     className="sc-iqHYGH jCIhGO"
+=======
+                    className="sc-kEjbxe ePBVnr"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -516,7 +548,11 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="initial"
                 >
                   <span
+<<<<<<< HEAD
                     className="sc-jSgupP gpcOyR"
+=======
+                    className="sc-jSgupP iYFWcM"
+>>>>>>> 792841a (Started updating the subject creation page's design.)
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize=".778rem"
                     fontWeight={600}

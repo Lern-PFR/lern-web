@@ -5,6 +5,8 @@ import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidati
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
 import { LabeledInput } from 'components/shared/form';
 import { PrimaryButton } from 'components/shared/buttons';
+import { StyledForm } from 'components/shared/styledElements';
+import { form, formSubmit } from 'theme/pages/subjects/subjectCreationPage';
 
 /**
  * @constant
@@ -149,7 +151,7 @@ const SubjectCreationForm = ({ onSubmit }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<StyledForm onSubmit={handleSubmit} {...form}>
 			{Object.values(inputsDefinition).map(({ id, name, inputType = 'text', hasPlaceholder }) => (
 				<LabeledInput
 					key={id}
@@ -166,10 +168,10 @@ const SubjectCreationForm = ({ onSubmit }) => {
 					{t(`subjects.creation.form.fields.${name}.label`)}
 				</LabeledInput>
 			))}
-			<PrimaryButton type="submit">
+			<PrimaryButton type="submit" {...formSubmit}>
 				{t('subjects.creation.form.action.submit')}
 			</PrimaryButton>
-		</form>
+		</StyledForm>
 	);
 };
 

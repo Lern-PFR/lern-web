@@ -1,24 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MainLayout should match previous snapshot 1`] = `
-<styled.div
-  display="flex"
-  flexDirection="column"
-  height="100%"
-  overflow="auto"
-  width="100%"
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  staticContext={Object {}}
 >
-  <Navbar
-    t={[Function]}
-  />
-  <styled.div
-    as="main"
-    flex="1"
-    padding="64px"
-  >
+  <MainLayout>
     <p>
       Hello, world!
     </p>
-  </styled.div>
-</styled.div>
+  </MainLayout>
+</Router>
+`;
+
+exports[`MainLayout should match previous snapshot with no-padding requirement 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
+          "hash": "",
+          "key": "ejfkb0",
+          "pathname": "/subjects/create",
+          "search": "",
+          "state": undefined,
+        },
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "ejfkb0",
+        "pathname": "/subjects/create",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <MainLayout>
+    <p>
+      Hello, world!
+    </p>
+  </MainLayout>
+</Router>
 `;

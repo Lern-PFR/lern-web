@@ -10,7 +10,7 @@ const mainContainerLayout = {
 
 const mainLayout = {
 	flex: '1',
-	padding: `${mainLayoutTopPadding}px`,
+	padding: mainLayoutTopPadding,
 };
 
 export {

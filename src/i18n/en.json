@@ -132,6 +132,7 @@
 				"no_data": "No subject found with the specified criteria."
 			},
 			"creation": {
+				"title": "New subject",
 				"form": {
 					"action": {
 						"submit": "Create my subject"
@@ -156,6 +157,9 @@
 							}
 						}
 					}
+				},
+				"sidebar": {
+					"new_subject": "New subject"
 				}
 			},
 			"links": {

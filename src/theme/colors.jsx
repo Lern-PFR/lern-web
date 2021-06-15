@@ -91,6 +91,8 @@ const feedbackGreen = '#D8EACC';
 const primary = peppercorn;
 const primaryText = peppercorn;
 
+const lightgrey = '#FBFCFD';
+
 export {
 	kale,
 	coconut,
@@ -106,4 +108,5 @@ export {
 	primary,
 	primaryText,
 	feedbackGreen,
+	lightgrey,
 };
