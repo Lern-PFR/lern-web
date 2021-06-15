@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonComponent should match previous snapshot 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={false}
+    hasError={false}
+    id="ta"
+    placeholder=""
+    rows={2}
+  />
+  <LabelComponent
+    disabled={false}
+    forId="ta"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={true}
+    hasError={false}
+    id="ta"
+    placeholder=""
+    rows={2}
+  />
+  <LabelComponent
+    disabled={true}
+    forId="ta"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled TextArea with custom label text style 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={false}
+    hasError={false}
+    id="ta"
+    placeholder=""
+    rows={2}
+    textStyle="bodycopy"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="ta"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled TextArea with custom placeholder 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={false}
+    hasError={false}
+    id="ta"
+    placeholder="Enter details here"
+    rows={2}
+  />
+  <LabelComponent
+    disabled={false}
+    forId="ta"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled TextArea with custom size 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={false}
+    hasError={false}
+    id="ta"
+    placeholder=""
+    rows="5"
+  />
+  <LabelComponent
+    disabled={false}
+    forId="ta"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled TextArea with hint 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={false}
+    hasError={false}
+    id="ta"
+    placeholder=""
+    rows={2}
+  />
+  <LabelComponent
+    disabled={false}
+    forId="ta"
+    hasError={false}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="initial"
+    isErrorMessage={false}
+  >
+    User hint
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled TextArea with validation error 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={false}
+    hasError={true}
+    id="ta"
+    placeholder=""
+    rows={2}
+  />
+  <LabelComponent
+    disabled={false}
+    forId="ta"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    isErrorMessage={true}
+  >
+    Validation error
+  </SubTextComponent>
+</styled.div>
+`;
+
+exports[`RadioButtonComponent should match previous snapshot for labeled TextArea with validation error and disabled state 1`] = `
+<styled.div
+  display="flex"
+  flexDirection="column"
+>
+  <TextAreaComponent
+    disabled={true}
+    hasError={true}
+    id="ta"
+    placeholder=""
+    rows={2}
+  />
+  <LabelComponent
+    disabled={true}
+    forId="ta"
+    hasError={true}
+    order="-1"
+    textStyle="brevier"
+  >
+    Labeled TextArea
+  </LabelComponent>
+  <SubTextComponent
+    color="#707070"
+    isErrorMessage={false}
+  />
+</styled.div>
+`;

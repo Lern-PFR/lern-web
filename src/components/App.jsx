@@ -114,8 +114,8 @@ const App = () => (
 				<LabeledRadioButton name="rg2" disabled id="lrb7" display="flex" gridGap=".5em">Disabled labeled radio button</LabeledRadioButton>
 			</FieldsetComponent>
 		</StyledDiv>
-		<StyledDiv position="relative" width="500px">
-			<FieldsetComponent title="Text input components">
+		<StyledDiv position="relative" width="100%" display="flex">
+			<FieldsetComponent title="Text input components" width="33%">
 				<LabeledInput id="basicTextInput">Labeled text input</LabeledInput>
 				<LabeledInput id="placeholderTextInput" placeholder="Enter details here.">Labeled text input with custom placeholder</LabeledInput>
 				<LabeledInput id="hintTextInput" placeholder="Enter details here." hintText="This is a hint for the user.">Labeled text input with hint</LabeledInput>
@@ -149,9 +149,7 @@ const App = () => (
 				<LabeledInput id="numberInput" placeholder="Number Input" type="number">Labeled number input</LabeledInput>
 				<LabeledInput id="passwordInput" placeholder="Password Input" type="password">Labeled password input</LabeledInput>
 			</FieldsetComponent>
-		</StyledDiv>
-		<StyledDiv position="relative" width="500px">
-			<FieldsetComponent title="Select component">
+			<FieldsetComponent title="Select component" width="33%">
 				<LabeledSelect id="select1" options={options}>Default labeled select</LabeledSelect>
 				<LabeledSelect id="select2" options={options} placeholder="Select one">Default labeled select with placeholder</LabeledSelect>
 				<LabeledSelect id="select3" options={options} placeholder="Select one" hintText="Select an option">Default labeled select with a hint</LabeledSelect>
@@ -214,9 +212,7 @@ const App = () => (
 					Labeled select with custom &quot;no options&quot; text
 				</LabeledSelect>
 			</FieldsetComponent>
-		</StyledDiv>
-		<StyledDiv position="relative" width="500px">
-			<FieldsetComponent title="Text input components">
+			<FieldsetComponent title="Text input components" width="33%">
 				<LabeledTextArea id="basicTextArea">Basic labeled textarea</LabeledTextArea>
 				<LabeledTextArea id="placeholderTextArea" placeholder="Text area">Labeled textarea with placeholder</LabeledTextArea>
 				<LabeledTextArea id="sizedTextArea" placeholder="Text area" rows="5">Labeled textarea with custom size</LabeledTextArea>
@@ -230,7 +226,7 @@ const App = () => (
 					errorText="There is something wrong with the value in this textarea"
 					hasError
 				>
-					Disabled labeled textarea with hint
+					Labeled textarea with validation error
 				</LabeledTextArea>
 				<LabeledTextArea
 					id="disabledErrorTextArea"
@@ -241,7 +237,7 @@ const App = () => (
 					hasError
 					disabled
 				>
-					Disabled labeled textarea with hint
+					Disabled labeled textarea with validation error
 				</LabeledTextArea>
 			</FieldsetComponent>
 		</StyledDiv>
