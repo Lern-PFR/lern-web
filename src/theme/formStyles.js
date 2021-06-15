@@ -120,10 +120,12 @@ const inputStyle = {
 
 	'&:focus': {
 		border: 'none',
+		outline: 'none',
 	},
 
 	'&:focus-visible': {
 		border: `solid 2px ${primary.default}`,
+		outline: 'none',
 
 		'&::placeholder': {
 			color: `${primary.default}`,
