@@ -119,11 +119,13 @@ const inputStyle = {
 	padding: '5px 10px',
 
 	'&:focus': {
+		border: 'none',
 		outline: 'none',
 	},
 
 	'&:focus-visible': {
-		outline: `solid 1px ${primary.default}`,
+		border: `solid 2px ${primary.default}`,
+		outline: 'none',
 
 		'&::placeholder': {
 			color: `${primary.default}`,
@@ -149,6 +151,20 @@ const disabledInputStyle = {
 
 const textareaStyle = {
 	...inputStyle,
+	resize: 'none',
+	'::-webkit-scrollbar': {
+		width: '7px',
+	},
+	'::-webkit-scrollbar-track': {
+		borderRadius: '2px',
+		backgroundColor: `${tuna.lighter1}`,
+	},
+	'::-webkit-scrollbar-thumb': {
+		borderRadius: '2px',
+		backgroundColor: `${peppercorn.darker1}`,
+	},
+	'scrollbar-width': 'thin',
+	'scrollbar-color': `${peppercorn.darker1} ${tuna.lighter1}`,
 };
 
 const hintStyle = {

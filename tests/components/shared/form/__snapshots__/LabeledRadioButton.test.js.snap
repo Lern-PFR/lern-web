@@ -102,6 +102,7 @@ exports[`LabeledRadioButton should match previous snapshot for radio button with
     checked={false}
     disabled={false}
     id="lcb"
+    name="rg"
   />
   <LabelComponent
     color="initial"

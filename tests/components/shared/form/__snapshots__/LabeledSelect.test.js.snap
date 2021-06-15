@@ -200,6 +200,26 @@ exports[`LabeledSelect should match previous snapshot for labeled select with hi
     id="select"
     multiple={false}
     noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
     placeholder=" - "
     required={false}
     selectedOptions={Array []}
@@ -291,6 +311,26 @@ exports[`LabeledSelect should match previous snapshot for labeled select with va
     id="select"
     multiple={false}
     noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
     placeholder=" - "
     required={false}
     selectedOptions={Array []}
@@ -324,6 +364,26 @@ exports[`LabeledSelect should match previous snapshot for labeled select with va
     id="select"
     multiple={false}
     noOptionsMessage="No options"
+    options={
+      Array [
+        Object {
+          "label": "One",
+          "value": 1,
+        },
+        Object {
+          "label": "Two",
+          "value": "2",
+        },
+        Object {
+          "label": "Three",
+          "value": 3,
+        },
+        Object {
+          "label": "Four",
+          "value": "4",
+        },
+      ]
+    }
     placeholder=" - "
     required={false}
     selectedOptions={Array []}
