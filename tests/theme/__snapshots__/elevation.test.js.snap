@@ -2,36 +2,36 @@
 
 exports[`Elevation ElevationFifth should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ inIbcS"
+  className="sc-bdfBwQ bxNJxw"
 />
 `;
 
 exports[`Elevation ElevationFirst should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ juehZy"
+  className="sc-bdfBwQ fKGMcQ"
 />
 `;
 
 exports[`Elevation ElevationFlat should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ ujWeo"
+  className="sc-bdfBwQ bwnuEW"
 />
 `;
 
 exports[`Elevation ElevationFourth should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ huWhBy"
+  className="sc-bdfBwQ rlHCs"
 />
 `;
 
 exports[`Elevation ElevationSecond should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ edAgNy"
+  className="sc-bdfBwQ lbkNoQ"
 />
 `;
 
 exports[`Elevation ElevationThird should match previous snapshot 1`] = `
 <div
-  className="sc-bdfBwQ firkjW"
+  className="sc-bdfBwQ jDCUA"
 />
 `;

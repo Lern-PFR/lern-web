@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import Proptypes from 'prop-types';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
 import conf from 'conf';
-import { clearModuleList, fetchModuleListBySubjectId } from 'redux/actions/modules';
 import routes from 'routes/keys';
+
+import { clearModuleList, fetchModuleListBySubjectId } from 'redux/actions/modules';
+import { getSubjectById } from 'redux/selectors/subjects';
+import { fetchSubject } from 'redux/actions/subjects';
 
 import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
 import { Brevier, Canon, BodyCopy } from 'components/shared/typography';
@@ -15,8 +18,6 @@ import { SubtleLinkButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
 
 import { backToListButton, pageLayout, subjectAuthor, subjectName, subjectDetails, backToListSvg } from 'theme/pages/subjects/subjectDetailsPage';
-
-import { subjectDetailsPageMock } from 'mockedData';
 import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 
 /**
@@ -25,93 +26,57 @@ import { backToParentButtonContentLayout } from 'theme/buttonStyles';
  *
  * @author Timothée Simon-Franza
  *
- * @param {string}	subjectId				The id of the current subject.
- * @param {object}	subject					The current subject's information.
- * @param {array}	modules					The list of modules composing the current subject.
- * @param {func}	t						The translation method provided by the withTranslation HoC.
- * @param {func}	dispatchFetchModuleList Dispatched action creator used to retrieve the current subject's module list.
- * @param {func}	dispatchClearModuleList	Dispatched action creator used to empty the modules state list on unmount.
+ * @param {func} t	The translation method provided by the withTranslation HoC.
  */
-const SubjectDetailsPage = ({ dispatchFetchModuleList, dispatchClearModuleList, subjectId, subject, modules, t }) => {
-	useEffect(() => {
-		dispatchFetchModuleList(subjectId);
+const SubjectDetailsPage = ({ t }) => {
+	const dispatch = useDispatch();
+	const { subjectId } = useParams();
 
-		return () => dispatchClearModuleList();
-	}, [dispatchFetchModuleList, dispatchClearModuleList, subjectId]);
+	const subject = useSelector((state) => getSubjectById(state, subjectId));
+
+	useEffect(() => {
+		dispatch(fetchModuleListBySubjectId(subjectId));
+		dispatch(fetchSubject(subjectId));
+
+		return () => dispatch(clearModuleList());
+	}, [dispatch, subjectId]);
 
 	return (
 		<StyledDiv {...pageLayout}>
-			<StyledDiv>
-				<StyledDiv {...subjectDetails}>
-					<Canon {...subjectName} tag="h1">{subject?.name}</Canon>
-					<Brevier {...subjectAuthor}>
-						{t('subjects.details.author_section', { author: subject?.author, lastUpdate: subject?.lastUpdate })}
-					</Brevier>
-					<BodyCopy>{subject?.description}</BodyCopy>
-					<SubtleLinkButton {...backToListButton}>
-						<Link to={routes.subjects.default}>
-							<StyledDiv {...backToParentButtonContentLayout}>
-								<StyledSvg src={`${conf.svgPath}/chevronLeft.svg`} {...backToListSvg} />
-								{t('subjects.links.back_to_list')}
-							</StyledDiv>
-						</Link>
-					</SubtleLinkButton>
-				</StyledDiv>
-			</StyledDiv>
-			<StyledDiv>
-				<ModuleList modules={modules} />
-			</StyledDiv>
+			{!subject && <></>}
+			{subject && (
+				<>
+					<StyledDiv>
+						<StyledDiv {...subjectDetails}>
+							<Canon {...subjectName} tag="h1">{subject?.title}</Canon>
+							<Brevier {...subjectAuthor}>
+								{t('subjects.details.author_section', { author: subject?.author, lastUpdate: subject?.updatedAt })}
+							</Brevier>
+							<BodyCopy>{subject?.description}</BodyCopy>
+							<SubtleLinkButton {...backToListButton}>
+								<Link to={routes.subjects.list}>
+									<StyledDiv {...backToParentButtonContentLayout}>
+										<StyledSvg src={`${conf.svgPath}/chevronLeft.svg`} {...backToListSvg} />
+										{t('subjects.links.back_to_list')}
+									</StyledDiv>
+								</Link>
+							</SubtleLinkButton>
+						</StyledDiv>
+					</StyledDiv>
+					<StyledDiv>
+						<ModuleList
+							modules={subject?.modules ?? []}
+							noDataText={t('subjects.details.modules.no_data')}
+						/>
+					</StyledDiv>
+				</>
+			)}
 		</StyledDiv>
 	);
 };
 
 SubjectDetailsPage.propTypes = {
-	subjectId: Proptypes.oneOfType([Proptypes.string, Proptypes.number]).isRequired,
-	subject: Proptypes.shape({
-		name: Proptypes.string.isRequired,
-		description: Proptypes.string.isRequired,
-		author: {
-			firstName: Proptypes.string.isRequired,
-			lastName: Proptypes.string.isRequired,
-		}.isRequired,
-		lastUpdate: Proptypes.string.isRequired,
-	}).isRequired,
-	modules: Proptypes.arrayOf(Proptypes.shape({
-		id: Proptypes.string.isRequired,
-		name: Proptypes.string.isRequired,
-		disabled: Proptypes.bool,
-	})).isRequired,
 	t: Proptypes.func.isRequired,
-	dispatchFetchModuleList: Proptypes.func.isRequired,
-	dispatchClearModuleList: Proptypes.func.isRequired,
 };
 
-/**
- *
- * @param {*} state
- */
-const mapStateToProps = (state, ownProps) => {
-	const { match: { params: { subjectId } } } = ownProps;
-
-	// @TODO: uncomment these lines once data can be retrieved from the API.
-	// const {
-	// 	modules: { items: moduleList },
-	// 	subjects: { items: subjectList },
-	// } = state;
-
-	return {
-		subjectId,
-		subject: subjectDetailsPageMock.subjectList[0],
-		modules: subjectDetailsPageMock.moduleList,
-	};
-};
-
-const mapDispatchToProps = {
-	dispatchFetchModuleList: fetchModuleListBySubjectId,
-	dispatchClearModuleList: clearModuleList,
-};
-
-export default compose(
-	withTranslation(),
-	connect(mapStateToProps, mapDispatchToProps)
-)(SubjectDetailsPage);
+export default withTranslation()(SubjectDetailsPage);

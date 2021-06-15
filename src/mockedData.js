@@ -2,6 +2,73 @@
 /* eslint-disable import/prefer-default-export */
 // @TODO: delete this file once the application's backend is linked to the project.
 
+export const subjectListPageMock = {
+	subjects: {
+		items: [
+			{
+				id: '0',
+				name: 'Gestion de projet informatique',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
+				author: {
+					firstName: 'John',
+					lastName: 'Doe',
+				},
+				lastUpdate: '12/04/2021',
+			},
+			{
+				id: '1',
+				name: 'Management d\'équipe',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
+				author: {
+					firstName: 'John',
+					lastName: 'Doe',
+				},
+				lastUpdate: '12/04/2021',
+			},
+			{
+				id: '2',
+				name: 'La programmation orientée objet',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
+				author: {
+					firstName: 'John',
+					lastName: 'Doe',
+				},
+				lastUpdate: '12/04/2021',
+			},
+			{
+				id: '3',
+				name: 'Gestion des coûts d\'un projet',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
+				author: {
+					firstName: 'John',
+					lastName: 'Doe',
+				},
+				lastUpdate: '12/04/2021',
+			},
+			{
+				id: '4',
+				name: 'Introduction aux frameworks PHP avec CodeIgniter.',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
+				author: {
+					firstName: 'John',
+					lastName: 'Doe',
+				},
+				lastUpdate: '12/04/2021',
+			},
+			{
+				id: '5',
+				name: 'Les MVC, UML, MCD et toute la petite famille',
+				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin accumsan nulla, vitae pellentesque magna commodo sed. Nam vel mattis ex, eu rutrum ligula. Curabitur accumsan et nulla id laoreet. Sed et sem vitae lorem iaculis venenatis. Morbi tempus mi vel neque rutrum, sed tempus quam interdum. Suspendisse vehicula eros vel lorem sollicitudin volutpat. Morbi at turpis et turpis pulvinar tristique. Duis dictum mollis justo sed commodo. Fusce finibus est non venenatis vestibulum. Sed ultricies elit eget metus elementum, ac lobortis mi venenatis. Nulla facilisi. Quisque id rhoncus nibh.',
+				author: {
+					firstName: 'John',
+					lastName: 'Doe',
+				},
+				lastUpdate: '12/04/2021',
+			},
+		],
+	},
+};
+
 export const subjectDetailsPageMock = {
 	subjectList: [
 		{

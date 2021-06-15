@@ -33,10 +33,7 @@ exports[`SubjectDetailsPage should match previous snapshot 1`] = `
   }
 >
   <RouterProvider>
-    <Connect(SubjectDetailsPage)
-      dispatchFetchModuleList={[MockFunction]}
-      modules={Array []}
-      subject={Object {}}
+    <SubjectDetailsPage
       subjectId="1"
       t={[Function]}
     />

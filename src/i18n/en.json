@@ -114,12 +114,27 @@
 			}
 		},
 		"subjects": {
+			"list_page": {
+				"hero": "Subjects list",
+				"sections": {
+					"active_subjects": "My currently active subjects",
+					"my_subjects": "Subjects of which I'm the author",
+					"other_available_subjects": "Other available subjects"
+				},
+				"search_input": {
+					"placeholder": "Search a subject by its name or author."
+				},
+				"no_data": "No subject found with the specified criteria."
+			},
 			"links": {
 				"back_to_list": "Back to subject list",
 				"module": "Access module"
 			},
 			"details": {
-				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
+				"author_section": "{{author.firstname}} {{author.lastname}} - last update : {{lastUpdate, L - LT }}",
+				"modules": {
+					"no_data": "This subject doesn't have any modules, yet."
+				}
 			}
 		},
 		"modules": {

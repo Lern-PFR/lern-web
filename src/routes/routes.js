@@ -3,7 +3,7 @@
 import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { NotionDetailsPage } from 'pages/notions';
-import { SubjectDetailsPage } from 'pages/subjects';
+import { SubjectDetailsPage, SubjectListPage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
 
@@ -87,8 +87,15 @@ export default [
 		path: keys.subjects.default,
 		routes: [
 			{
+				path: keys.subjects.list,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: SubjectListPage,
+			},
+			{
 				path: keys.subjects.subjectDetails,
-				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
 				component: SubjectDetailsPage,
@@ -101,7 +108,7 @@ export default [
 		routes: [
 			{
 				path: keys.modules.moduleDetails,
-				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
 				component: ModuleDetailsPage,
@@ -114,14 +121,14 @@ export default [
 		routes: [
 			{
 				path: keys.notions.notionDetails,
-				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
 				component: NotionDetailsPage,
 			},
 			{
 				path: keys.notions.lessonDetails,
-				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
 				component: NotionDetailsPage,
@@ -134,7 +141,7 @@ export default [
 		routes: [
 			{
 				path: keys.lessons.lessonsDetails,
-				allowAnonymous: true, // @TODO: set to false once login is implemented.
+				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
 				component: () => <p>Lesson</p>,

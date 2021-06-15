@@ -300,7 +300,7 @@ export const fetchSubject = (subjectId) => (dispatch) => {
 	dispatch(fetchSubjectRequest());
 
 	return SubjectsApi.fetchSubjectById(subjectId)
-		.then(({ subject }) => dispatch(fetchSubjectSuccess({ subject })))
+		.then((subject) => dispatch(fetchSubjectSuccess({ subject })))
 		.catch((error) => dispatch(fetchSubjectFailure(error)));
 };
 
@@ -315,7 +315,10 @@ export const fetchSubjectList = () => (dispatch) => {
 	dispatch(fetchSubjectListRequest());
 
 	return SubjectsApi.fetchSubjects()
-		.then(({ subjects, totalCount }) => dispatch(fetchSubjectListSuccess({ subjects, totalCount })))
+		.then((subjects) => dispatch(fetchSubjectListSuccess({
+			subjects,
+			totalCount: subjects.length,
+		})))
 		.catch((error) => dispatch(fetchSubjectListFailure(error)));
 };
 

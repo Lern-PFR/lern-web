@@ -115,12 +115,27 @@
 			}
 		},
 		"subjects": {
+			"list_page": {
+				"hero": "Liste des sujets",
+				"sections": {
+					"active_subjects": "Mes sujets actuels",
+					"my_subjects": "Sujets dont je suis l'auteur",
+					"other_available_subjects": "Autres sujets disponibles"
+				},
+				"search_input": {
+					"placeholder": "Rechercher un sujet par son nom ou auteur."
+				},
+				"no_data": "Aucun sujet n'a été trouvé pour les critères spécifiés."
+			},
 			"links": {
 				"back_to_list": "Retourner à la liste des sujets",
 				"module": "Accéder au module"
 			},
 			"details": {
-				"author_section": "{{author.firstName}} {{author.lastName}} - last update : {{lastUpdate}}"
+				"author_section": "{{author.firstname}} {{author.lastname}} - Dernière mise à jour : {{lastUpdate, L - LT }}",
+				"modules": {
+					"no_data": "Ce sujet ne possède actuellement aucun module."
+				}
 			}
 		},
 		"modules": {

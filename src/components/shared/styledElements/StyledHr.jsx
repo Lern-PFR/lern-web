@@ -12,16 +12,15 @@ import {
 } from 'styled-system';
 
 /**
- * @name StyledDiv
- * @description A reusable div component that can be styled using styled-components and styled-system.
+ * @name StyledHr
+ * @description A reusable hr component that can be styled using styled-components and styled-system.
  *
  * @author Timothée Simon-Franza
  */
-const StyledDiv = styled('div')(
+const StyledHr = styled('hr')(
 	{
 		visibility: (({ visibility }) => (visibility || 'initial')),
 		boxSizing: (({ boxSizing }) => (boxSizing || 'border-box')),
-		cursor: (({ cursor }) => (cursor || 'initial')),
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
 	},
 	border,
@@ -35,4 +34,4 @@ const StyledDiv = styled('div')(
 	shadow,
 );
 
-export default StyledDiv;
+export default StyledHr;

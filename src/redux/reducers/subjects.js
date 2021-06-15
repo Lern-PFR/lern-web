@@ -2,7 +2,15 @@ import { ActionTypes } from 'redux/actions/subjects';
 
 const initialState = {
 	isLoading: false,
-	items: [],
+	items: {
+		// Used most of the time
+		all: [], 		// Contains all subjects sent back from the API.
+
+		// Used when we need to separate by category
+		mine: [],		// Contains subjects created by the current user.
+		active: [],		// Contains subjects currently active for the current user.
+		available: [],	// Contains the rest of valid subjects.
+	},
 	totalCount: 0,
 };
 
@@ -37,20 +45,26 @@ export default (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				isLoading: false,
-				items: [payload.subject],
+				items: {
+					...initialState.items,
+					all: [payload.subject],
+				},
 				totalCount: 1,
 			};
 		case ActionTypes.FETCH_SUBJECT_LIST_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
-				items: [...payload.subjects],
+				items: {
+					all: [],
+					...payload.subjects,
+				},
 				totalCount: payload.totalCount,
 			};
 		case ActionTypes.CLEAR_SUBJECT_LIST:
 			return {
 				...state,
-				items: [],
+				items: initialState.items,
 				totalCount: 0,
 			};
 		default:

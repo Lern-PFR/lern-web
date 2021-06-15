@@ -13,7 +13,7 @@ const StyledSvg = styled(ReactSVG)(
 		...((props) => props),
 
 		'& svg, & svg *': {
-			...(({ height }) => (height ? { height } : {})),
+			height: (({ height }) => (height ?? {})),
 			stroke: (({ stroke }) => (stroke || 'inherit')),
 		},
 	},
