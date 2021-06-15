@@ -19,16 +19,7 @@ describe('ModuleDetailsPage', () => {
 		const sut = (
 			<Provider store={store}>
 				<RouterProvider>
-					<ModuleDetailsPage
-						dispatchFetchModuleList={jest.fn()}
-						moduleId="1"
-						module={{
-							name: 'Test module 1',
-							description: 'a test module description',
-							subjectId: '1',
-						}}
-						notions={[]}
-					/>
+					<ModuleDetailsPage />
 				</RouterProvider>
 			</Provider>
 		);
@@ -38,21 +29,10 @@ describe('ModuleDetailsPage', () => {
 	});
 
 	it('should call the fetchNotionListByModuleId action creator on mount', () => {
-		const ownProps = { match: { params: { moduleId: 1 } } };
-
 		mount(
 			<Provider store={store}>
 				<RouterProvider>
-					<ModuleDetailsPage
-						subjectId="1"
-						module={{
-							name: 'Test module 1',
-							description: 'a test module description',
-							subjectId: '1',
-						}}
-						notions={[]}
-						{...ownProps}
-					/>
+					<ModuleDetailsPage />
 				</RouterProvider>
 			</Provider>
 		);
@@ -61,21 +41,10 @@ describe('ModuleDetailsPage', () => {
 	});
 
 	it('should call the clearNotionList action creator on unmount', () => {
-		const ownProps = { match: { params: { moduleId: 1 } } };
-
 		const wrapper = mount(
 			<Provider store={store}>
 				<RouterProvider>
-					<ModuleDetailsPage
-						subjectId="1"
-						module={{
-							name: 'Test module 1',
-							description: 'a test module description',
-							subjectId: '1',
-						}}
-						notions={[]}
-						{...ownProps}
-					/>
+					<ModuleDetailsPage />
 				</RouterProvider>
 			</Provider>
 		);

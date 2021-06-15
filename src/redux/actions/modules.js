@@ -300,7 +300,7 @@ export const fetchModule = (moduleId) => (dispatch) => {
 	dispatch(fetchModuleRequest());
 
 	return ModulesApi.fetchModuleById(moduleId)
-		.then(({ module }) => dispatch(fetchModuleSuccess({ module })))
+		.then((module) => dispatch(fetchModuleSuccess({ module })))
 		.catch((error) => dispatch(fetchModuleFailure(error)));
 };
 

@@ -33,19 +33,7 @@ exports[`ModuleDetailsPage should match previous snapshot 1`] = `
   }
 >
   <RouterProvider>
-    <Connect(ModuleDetailsPage)
-      dispatchFetchModuleList={[MockFunction]}
-      module={
-        Object {
-          "description": "a test module description",
-          "name": "Test module 1",
-          "subjectId": "1",
-        }
-      }
-      moduleId="1"
-      notions={Array []}
-      t={[Function]}
-    />
+    <ModuleDetailsPage />
   </RouterProvider>
 </ContextProvider>
 `;

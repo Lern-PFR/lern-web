@@ -45,12 +45,12 @@ describe('Module-related redux actions', () => {
 			// Arrange
 			const module = {
 				id: 'abcd',
-				name: 'Dummy module',
+				title: 'Dummy module',
 			};
 
 			const httpResponse = {
 				status: 200,
-				body: { module },
+				body: { ...module },
 				headers: { 'content-type': 'application/json' },
 			};
 
@@ -108,12 +108,12 @@ describe('Module-related redux actions', () => {
 			const modules = [
 				{
 					id: '1',
-					name: 'Dummy module 1',
+					title: 'Dummy module 1',
 					subjectId: 'abcd',
 				},
 				{
 					id: '2',
-					name: 'Dummy module 2',
+					title: 'Dummy module 2',
 					subjectId: 'abcd',
 				},
 			];
@@ -176,7 +176,7 @@ describe('Module-related redux actions', () => {
 		it('should create a CREATE_MODULE_SUCCESS action when module creation logic is successful', () => {
 			// Arrange
 			const moduleData = {
-				name: 'Dummy module 7',
+				title: 'Dummy module 7',
 				subjectId: 'abcd',
 			};
 
@@ -204,7 +204,7 @@ describe('Module-related redux actions', () => {
 		it('should create a CREATE_MODULE_FAILURE action when module creation logic has failed', () => {
 			// Arrange
 			const moduleData = {
-				name: 'Dummy module 7',
+				title: 'Dummy module 7',
 				subjectId: 'abcd',
 			};
 
@@ -244,7 +244,7 @@ describe('Module-related redux actions', () => {
 			// Arrange
 			const moduleData = {
 				id: '7',
-				name: 'Dummy module 7',
+				title: 'Dummy module 7',
 				subjectId: 'abcd',
 			};
 
@@ -273,7 +273,7 @@ describe('Module-related redux actions', () => {
 			// Arrange
 			const moduleData = {
 				id: '7',
-				name: 'Dummy module 7',
+				title: 'Dummy module 7',
 				subjectId: 'abcd',
 			};
 
@@ -313,7 +313,7 @@ describe('Module-related redux actions', () => {
 			// Arrange
 			const moduleData = {
 				id: '7',
-				name: 'Dummy module 7',
+				title: 'Dummy module 7',
 				subjectId: 'abcd',
 			};
 
@@ -342,7 +342,7 @@ describe('Module-related redux actions', () => {
 			// Arrange
 			const moduleData = {
 				id: '7',
-				name: 'Dummy module 7',
+				title: 'Dummy module 7',
 				subjectId: 'abcd',
 			};
 
