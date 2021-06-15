@@ -79,7 +79,7 @@ export const handleResponse = (response) => {
 		history.push(routes.auth.logout);
 	}
 
-	if (response.status === 401 || response.status === 403 || response.status === 413 || response.status >= 500) {
+	if (response.status === 401 || response.status === 403 || response.status === 409 || response.status === 413 || response.status >= 500) {
 		return Promise.reject(response);
 	}
 

@@ -105,6 +105,11 @@
 						"action": {
 							"submit": "Sign up"
 						}
+					},
+					"toasts": {
+						"error": {
+							"conflict": "The provided nickname or email address is already linked to an account."
+						}
 					}
 				},
 				"post_signup": {

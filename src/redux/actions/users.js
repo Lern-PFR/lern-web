@@ -1,7 +1,9 @@
+import { toast } from 'react-toastify';
 import * as AuthenticationAPI from 'api/authenticationApi';
 import * as UsersApi from 'api/usersApi';
 import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
 import session from 'lib/shared/session';
+import i18next from 'i18next';
 
 /**
  * @constant
@@ -427,7 +429,13 @@ export const signUp = (params, onSuccessRoute = null) => (dispatch) => {
 			dispatch(signUpSuccess({ user }));
 			redirectOnSuccess(onSuccessRoute);
 		})
-		.catch((error) => dispatch(signUpFailure(error)));
+		.catch((error) => {
+			if (error?.status === 409) {
+				toast.error(i18next.t('authentication.pages.signup.toasts.error.conflict'));
+			}
+
+			dispatch(signUpFailure(error));
+		});
 };
 
 /**
