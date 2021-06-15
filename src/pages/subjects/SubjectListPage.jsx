@@ -74,7 +74,7 @@ const SubjectListPage = ({ t }) => {
 					{subjects?.mine && subjects?.mine.length > 0 && subjects.mine.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
 					{(!subjects?.mine || subjects?.mine.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
-				<PrimaryLinkButton>
+				<PrimaryLinkButton justifySelf="start">
 					<Link to={routes.subjects.subjectCreation}>{t('subjects.links.create')}</Link>
 				</PrimaryLinkButton>
 			</StyledDiv>
