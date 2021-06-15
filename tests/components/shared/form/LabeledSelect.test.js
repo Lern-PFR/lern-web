@@ -48,21 +48,21 @@ describe('LabeledSelect', () => {
 	});
 
 	it('should match previous snapshot for labeled select with hint', () => {
-		const sut = (<LabeledSelect id="select" hintText="User hint">Labeled select</LabeledSelect>);
+		const sut = (<LabeledSelect id="select" hintText="User hint" options={options}>Labeled select</LabeledSelect>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should match previous snapshot for labeled select with validation error and disabled state', () => {
-		const sut = (<LabeledSelect id="select" errorText="Validation error" hasError disabled>Labeled select</LabeledSelect>);
+		const sut = (<LabeledSelect id="select" errorText="Validation error" hasError disabled options={options}>Labeled select</LabeledSelect>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should match previous snapshot for labeled select with validation error', () => {
-		const sut = (<LabeledSelect id="select" errorText="Validation error" hasError>Labeled select</LabeledSelect>);
+		const sut = (<LabeledSelect id="select" errorText="Validation error" hasError options={options}>Labeled select</LabeledSelect>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();

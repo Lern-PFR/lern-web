@@ -54,7 +54,10 @@ TextAreaComponent.displayName = 'TextAreaComponent';
 
 TextAreaComponent.propTypes = {
 	id: PropTypes.string.isRequired,
-	rows: PropTypes.number,
+	rows: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 	placeholder: PropTypes.string,
 	disabled: PropTypes.bool,
 	hasError: PropTypes.bool,

@@ -53,7 +53,10 @@ LabeledTextArea.displayName = 'LabeledTextArea';
 LabeledTextArea.propTypes = {
 	id: PropTypes.string.isRequired,
 	children: PropTypes.string.isRequired,
-	rows: PropTypes.number,
+	rows: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 	hintText: PropTypes.string,
 	errorText: PropTypes.string,
 	disabled: PropTypes.bool,

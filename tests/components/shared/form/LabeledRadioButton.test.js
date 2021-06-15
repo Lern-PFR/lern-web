@@ -37,7 +37,7 @@ describe('LabeledRadioButton', () => {
 	});
 
 	it('should match previous snapshot for radio button with custom label text style', () => {
-		const sut = (<LabeledRadioButton id="lcb" textStyle="bodycopy">Labeled Checkbox</LabeledRadioButton>);
+		const sut = (<LabeledRadioButton id="lcb" textStyle="bodycopy" name="rg">Labeled Checkbox</LabeledRadioButton>);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
