@@ -1,3 +1,4 @@
+import { sortBy } from 'lodash';
 import { createSelector } from 'reselect';
 
 /**
@@ -81,7 +82,18 @@ const getSubjectsByTitleOrAuthor = createSelector(
 const getSubjectById = createSelector(
 	getSubjects,
 	(_, subjectId) => subjectId,
-	({ all: subjects }, subjectId) => subjects.filter(({ id }) => (id === subjectId))?.[0] ?? undefined
+	({ all: subjects }, subjectId) => {
+		const subject = subjects.filter(({ id }) => (id === subjectId))?.[0] ?? undefined;
+
+		if (subject === undefined) {
+			return undefined;
+		}
+
+		return {
+			...subject,
+			modules: sortBy(subject?.modules || [], 'order'),
+		};
+	}
 );
 
 export {

@@ -128,6 +128,26 @@ describe('Subject state selectors', () => {
 				subjects: {
 					items: {
 						all: [
+							{ id: 'abcd', title: 'dummy subject 0', modules: [{ id: 'a', title: 'b', description: 'c' }] },
+							{ id: 'efgh', title: 'dummy subject 1', modules: [{ id: 'd', title: 'e', description: 'f' }] },
+							{ id: 'ijkl', title: 'dummy subject 2', modules: [{ id: 'g', title: 'h', description: 'i' }] },
+							{ id: 'mnop', title: 'dummier subject', modules: [{ id: 'j', title: 'k', description: 'l' }] },
+						],
+					},
+				},
+			};
+
+			const expectedResult = { id: 'efgh', title: 'dummy subject 1', modules: [{ id: 'd', title: 'e', description: 'f' }] };
+
+			const actualResult = getSubjectById(mockedStore, 'efgh');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should return an empty modules array if none is present', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
 							{ id: 'abcd', title: 'dummy subject 0' },
 							{ id: 'efgh', title: 'dummy subject 1' },
 							{ id: 'ijkl', title: 'dummy subject 2' },
@@ -137,7 +157,7 @@ describe('Subject state selectors', () => {
 				},
 			};
 
-			const expectedResult = { id: 'efgh', title: 'dummy subject 1' };
+			const expectedResult = { id: 'efgh', title: 'dummy subject 1', modules: [] };
 
 			const actualResult = getSubjectById(mockedStore, 'efgh');
 			expect(actualResult).toStrictEqual(expectedResult);
