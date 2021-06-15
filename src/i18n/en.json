@@ -124,7 +124,7 @@
 				"search_input": {
 					"placeholder": "Search a subject by its name or author."
 				},
-				"no_data": "No subject found with the specified criterias."
+				"no_data": "No subject found with the specified criteria."
 			},
 			"links": {
 				"back_to_list": "Back to subject list",
@@ -133,7 +133,7 @@
 			"details": {
 				"author_section": "{{author.firstname}} {{author.lastname}} - last update : {{lastUpdate, L - LT }}",
 				"modules": {
-					"no_data": "This subject doesn't have any module, yet."
+					"no_data": "This subject doesn't have any modules, yet."
 				}
 			}
 		},
