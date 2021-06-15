@@ -50,15 +50,21 @@ const SubjectListPage = ({ t }) => {
 
 	return (
 		<StyledDiv {...layout}>
-			<Canon as="h1" {...hero}>{t('subjects.list_page.hero')}</Canon>
+			<StyledDiv display="grid" gridGap="1em">
+				<Canon as="h1" {...hero}>{t('subjects.list_page.hero')}</Canon>
 
-			<InputComponent
-				id="subject-list-search-input"
-				type="text"
-				onChange={handleSearchInputChange}
-				placeholder={t('subjects.list_page.search_input.placeholder')}
-				{...searchInput}
-			/>
+				<InputComponent
+					id="subject-list-search-input"
+					type="text"
+					onChange={handleSearchInputChange}
+					placeholder={t('subjects.list_page.search_input.placeholder')}
+					{...searchInput}
+				/>
+
+				<PrimaryLinkButton justifySelf="start">
+					<Link to={routes.subjects.subjectCreation}>{t('subjects.links.create')}</Link>
+				</PrimaryLinkButton>
+			</StyledDiv>
 
 			<StyledDiv as="section" {...section}>
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.active_subjects')}</SubjectListSectionTitle>

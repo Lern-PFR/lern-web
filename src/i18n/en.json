@@ -163,7 +163,7 @@
 				}
 			},
 			"links": {
-				"create": "Créer un nouveau sujet",
+				"create": "Create a new subject",
 				"back_to_list": "Back to subject list",
 				"module": "Access module"
 			},
