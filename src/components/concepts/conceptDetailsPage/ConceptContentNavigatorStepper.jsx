@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { stepper, stepperCurrent } from 'theme/pages/notions/notionDetailsPage';
+import { stepper, stepperCurrent } from 'theme/pages/concepts/conceptDetailsPage';
 
 const StepperButton = styled('button')(
 	{
@@ -10,8 +10,8 @@ const StepperButton = styled('button')(
 );
 
 /**
- * @name NotionContentNavigatorStepper
- * @description A stepper button used to navigate between a notion's content list.
+ * @name ConceptContentNavigatorStepper
+ * @description A stepper button used to navigate between a concept's content list.
  *
  * @author Timothée Simon-Franza
  *
@@ -19,18 +19,18 @@ const StepperButton = styled('button')(
  * @param {string}	label		The label to display on hover.
  * @param {func}	onClick		Method to trigger when the user clicks the button.
  */
-const NotionContentNavigatorStepper = ({ isCurrent, label, onClick, ...otherProps }) => (
+const ConceptContentNavigatorStepper = ({ isCurrent, label, onClick, ...otherProps }) => (
 	<StepperButton onClick={onClick} label={label} isCurrent={isCurrent} {...otherProps} />
 );
 
-NotionContentNavigatorStepper.propTypes = {
+ConceptContentNavigatorStepper.propTypes = {
 	isCurrent: PropTypes.bool,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
 };
 
-NotionContentNavigatorStepper.defaultProps = {
+ConceptContentNavigatorStepper.defaultProps = {
 	isCurrent: false,
 };
 
-export default NotionContentNavigatorStepper;
+export default ConceptContentNavigatorStepper;

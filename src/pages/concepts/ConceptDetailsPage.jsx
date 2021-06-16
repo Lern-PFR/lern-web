@@ -8,39 +8,40 @@ import _ from 'lodash';
 
 import routes from 'routes/keys';
 import conf from 'conf';
-import { notionDetailsMock } from 'mockedData';
+import { conceptDetailsMock } from 'mockedData';
 
-import { fetchNotion } from 'redux/actions/notions';
+import { fetchConcept } from 'redux/actions/concepts';
 import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
-import { LessonContent, Sidebar } from 'components/notions/NotionDetailsPage';
+import { LessonContent, Sidebar } from 'components/concepts/conceptDetailsPage';
 import { SubtleLinkButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
-import { backToModuleSvg, pageLayout } from 'theme/pages/notions/notionDetailsPage';
+import { backToModuleSvg, pageLayout } from 'theme/pages/concepts/conceptDetailsPage';
 import { backToParentButtonContentLayout } from 'theme/buttonStyles';
+
 /**
- * @name NotionDetailsPage
- * @description A page used to display a the current notion and its composing lessons.
+ * @name ConceptDetailsPage
+ * @description A page used to display a the current concept and its composing lessons.
  *
  * @author Timothée Simon-Franza
  *
- * @param {array}			content				An array of the current notion's lessons and exercises.
- * @param {func}			dispatchFetchNotion	Dispatched action creator used to retrieve the current notion.
- * @param {number|string}	[lessonId]			The current lesson's id.
- * @param {object}			module				The notion's parent module.
- * @param {number|string}	notionId			The current notion's id.
- * @param {object}			notion				The current notion.
- * @param {func}			t					The translation method provided by the withTranslation HoC.
+ * @param {array}			content					An array of the current concept's lessons and exercises.
+ * @param {func}			dispatchFetchConcept	Dispatched action creator used to retrieve the current concept.
+ * @param {number|string}	[lessonId]				The current lesson's id.
+ * @param {object}			module					The concept's parent module.
+ * @param {number|string}	conceptId				The current concept's id.
+ * @param {object}			concept					The current concept.
+ * @param {func}			t						The translation method provided by the withTranslation HoC.
  */
-const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, module, notionId, notion, t }) => {
+const ConceptDetailsPage = ({ content, dispatchFetchConcept, lessonId, module, conceptId, concept, t }) => {
 	useEffect(() => {
-		dispatchFetchNotion(notionId);
-	}, [dispatchFetchNotion, notionId]);
+		dispatchFetchConcept(conceptId);
+	}, [dispatchFetchConcept, conceptId]);
 
 	/**
 	 * @field currentIndex
 	 * @description The index of the current document to display.
 	 *
-	 * This value should match the order attribute of the lessons and exercises of the current notion.
+	 * This value should match the order attribute of the lessons and exercises of the current concept.
 	 */
 	const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -67,7 +68,7 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, module, not
 						<Link to={generatePath(routes.modules.moduleDetails, { moduleId: module.id })}>
 							<StyledDiv {...backToParentButtonContentLayout}>
 								<StyledSvg src={`${conf.svgPath}/chevronLeft.svg`} {...backToModuleSvg} />
-								{t('notions.links.back_to_module', { module })}
+								{t('concepts.links.back_to_module', { module })}
 							</StyledDiv>
 						</Link>
 					</SubtleLinkButton>
@@ -78,8 +79,8 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, module, not
 				</StyledDiv>
 				<Sidebar
 					currentLesson={content[currentIndex]}
-					notionContent={content}
-					notionName={notion.title}
+					conceptContent={content}
+					conceptTitle={concept.title}
 					onQuestionAnswerSubmit={onQuestionAnswerSubmit}
 					onCurrentDocumentRedirect={(index) => setCurrentIndex(index)}
 				/>
@@ -88,10 +89,10 @@ const NotionDetailsPage = ({ content, dispatchFetchNotion, lessonId, module, not
 	);
 };
 
-NotionDetailsPage.propTypes = {
+ConceptDetailsPage.propTypes = {
 	lessonId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	notionId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	notion: PropTypes.shape({
+	conceptId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	concept: PropTypes.shape({
 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 		title: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
@@ -145,10 +146,10 @@ NotionDetailsPage.propTypes = {
 	}).isRequired,
 	t: PropTypes.func.isRequired,
 	// Dispatched redux action creators
-	dispatchFetchNotion: PropTypes.func.isRequired,
+	dispatchFetchConcept: PropTypes.func.isRequired,
 };
 
-NotionDetailsPage.defaultProps = {
+ConceptDetailsPage.defaultProps = {
 	lessonId: undefined,
 };
 
@@ -157,10 +158,10 @@ NotionDetailsPage.defaultProps = {
  * @param {*} state
  */
 const mapStateToProps = (state, ownProps) => {
-	const { match: { params: { notionId, lessonId = undefined } } } = ownProps;
+	const { match: { params: { conceptId, lessonId = undefined } } } = ownProps;
 
 	// @TODO: replace with real information once data can be retrieved from the API.
-	const { exercises, lessons, modules, notion } = notionDetailsMock;
+	const { exercises, lessons, modules, concept } = conceptDetailsMock;
 
 	const content = [
 		...lessons.map((lesson) => ({ ...lesson, contentType: 'lesson' })),
@@ -170,19 +171,19 @@ const mapStateToProps = (state, ownProps) => {
 	_.sortBy(content, 'order');
 
 	return {
-		notionId,
-		notion,
+		conceptId,
+		concept,
 		content,
 		lessonId,
-		module: _.head(_.filter(modules, ({ id }) => _.isEqual(id, notion.moduleId))),
+		module: _.head(_.filter(modules, ({ id }) => _.isEqual(id, concept.moduleId))),
 	};
 };
 
 const mapDispatchToProps = {
-	dispatchFetchNotion: fetchNotion,
+	dispatchFetchConcept: fetchConcept,
 };
 
 export default compose(
 	withTranslation(),
 	connect(mapStateToProps, mapDispatchToProps)
-)(NotionDetailsPage);
+)(ConceptDetailsPage);

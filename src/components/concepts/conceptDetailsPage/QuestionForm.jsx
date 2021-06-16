@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledList } from 'components/shared/styledElements';
-import { answersList, answerListItem, answerFormSubmitButton, validAnswerListItem } from 'theme/pages/notions/notionDetailsPage';
+import { answersList, answerListItem, answerFormSubmitButton, validAnswerListItem } from 'theme/pages/concepts/conceptDetailsPage';
 import { PrimaryButton } from 'components/shared/buttons';
 import { withTranslation } from 'react-i18next';
 import { LabeledCheckbox, LabeledRadioButton } from 'components/shared/form';

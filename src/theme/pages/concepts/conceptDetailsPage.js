@@ -19,7 +19,7 @@ const sidebar = {
 	gridTemplateRows: 'auto auto auto 1fr',
 };
 
-const notionTitle = {
+const conceptTitle = {
 	margin: 0,
 	lineHeight: 'initial',
 	textTransform: 'capitalize',
@@ -148,7 +148,7 @@ export {
 	lessonDescription,
 	lessonContent,
 	navigator,
-	notionTitle,
+	conceptTitle,
 	questionContainer,
 	navigationChevrons,
 	stepperList,

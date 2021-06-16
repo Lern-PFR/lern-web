@@ -89,76 +89,6 @@ describe('Lesson-related redux actions', () => {
 		});
 	});
 
-	describe('Lesson list fetching', () => {
-		it('should create a FETCH_LESSON_LIST_REQUEST action when lesson list fetching logic is initialized', () => {
-			// Arrange
-			const expectedActions = [
-				{ type: lessonsActions.ActionTypes.FETCH_LESSON_LIST_REQUEST },
-			];
-
-			// Act
-			store.dispatch(lessonsActions.fetchLessonListByNotionId('abcd'));
-
-			// Assert
-			return expect(store.getActions()).toEqual(expectedActions);
-		});
-
-		it('should create a FETCH_LESSON_LIST_SUCCESS action when lesson list fetching logic is succesful', () => {
-			// Arrange
-			const lessons = [
-				{
-					id: '1',
-					name: 'Dummy lesson 1',
-					notionId: 'abcd',
-				},
-				{
-					id: '2',
-					name: 'Dummy lesson 2',
-					notionId: 'abcd',
-				},
-			];
-
-			const httpResponse = {
-				status: 200,
-				body: { lessons, totalCount: 2 },
-				headers: { 'content-type': 'application/json' },
-			};
-
-			fetchMock.get(`${baseUrl}/api/lessons/by-notion/abcd`, httpResponse);
-
-			const expectedActions = [
-				{ type: lessonsActions.ActionTypes.FETCH_LESSON_LIST_REQUEST },
-				{ type: lessonsActions.ActionTypes.FETCH_LESSON_LIST_SUCCESS, payload: { lessons, totalCount: 2 } },
-			];
-
-			// Act & assert
-			return store.dispatch(lessonsActions.fetchLessonListByNotionId('abcd'))
-				.then(() => {
-					expect(store.getActions()).toEqual(expectedActions);
-				});
-		});
-
-		it('should create a FETCH_LESSON_LIST_FAILURE action when notion list fetching logic has failed', () => {
-			const httpResponse = { status: 500 };
-
-			fetchMock.get(`${baseUrl}/api/lessons/by-notion/abcd`, httpResponse);
-
-			const expectedActions = [
-				{ type: lessonsActions.ActionTypes.FETCH_LESSON_LIST_REQUEST },
-				{
-					type: lessonsActions.ActionTypes.FETCH_LESSON_LIST_FAILURE,
-					payload: { error: { status: 500, message: 'Internal Server Error' } },
-				},
-			];
-
-			// Act & assert
-			return store.dispatch(lessonsActions.fetchLessonListByNotionId('abcd'))
-				.then(() => {
-					expect(store.getActions()).toEqual(expectedActions);
-				});
-		});
-	});
-
 	describe('Lesson creation', () => {
 		it('should create a CREATE_LESSON_REQUEST action when lesson creation logic is initialized', () => {
 			// Arrange
@@ -177,7 +107,7 @@ describe('Lesson-related redux actions', () => {
 			// Arrange
 			const lessonData = {
 				name: 'Dummy lesson 7',
-				notionId: 'abcd',
+				conceptId: 'abcd',
 			};
 
 			const httpResponse = {
@@ -205,7 +135,7 @@ describe('Lesson-related redux actions', () => {
 			// Arrange
 			const lessonData = {
 				name: 'Dummy lesson 7',
-				notionId: 'abcd',
+				conceptId: 'abcd',
 			};
 
 			const httpResponse = { status: 500 };
@@ -245,7 +175,7 @@ describe('Lesson-related redux actions', () => {
 			const lessonData = {
 				id: '7',
 				name: 'Dummy lesson 7',
-				notionId: 'abcd',
+				conceptId: 'abcd',
 			};
 
 			const httpResponse = {
@@ -274,7 +204,7 @@ describe('Lesson-related redux actions', () => {
 			const lessonData = {
 				id: '7',
 				name: 'Dummy lesson 7',
-				notionId: 'abcd',
+				conceptId: 'abcd',
 			};
 
 			const httpResponse = { status: 500 };
@@ -314,7 +244,7 @@ describe('Lesson-related redux actions', () => {
 			const lessonData = {
 				id: '7',
 				name: 'Dummy lesson 7',
-				notionId: 'abcd',
+				conceptId: 'abcd',
 			};
 
 			const httpResponse = {
@@ -343,7 +273,7 @@ describe('Lesson-related redux actions', () => {
 			const lessonData = {
 				id: '7',
 				name: 'Dummy lesson 7',
-				notionId: 'abcd',
+				conceptId: 'abcd',
 			};
 
 			const httpResponse = { status: 500 };

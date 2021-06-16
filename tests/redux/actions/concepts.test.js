@@ -45,7 +45,7 @@ describe('Concept-related redux actions', () => {
 			// Arrange
 			const concept = {
 				id: 'abcd',
-				name: 'Dummy concept',
+				title: 'Dummy concept',
 			};
 
 			const httpResponse = {
@@ -108,12 +108,12 @@ describe('Concept-related redux actions', () => {
 			const concepts = [
 				{
 					id: '1',
-					name: 'Dummy concept 1',
+					title: 'Dummy concept 1',
 					moduleId: 'abcd',
 				},
 				{
 					id: '2',
-					name: 'Dummy concept 2',
+					title: 'Dummy concept 2',
 					moduleId: 'abcd',
 				},
 			];
@@ -176,7 +176,7 @@ describe('Concept-related redux actions', () => {
 		it('should create a CREATE_CONCEPT_SUCCESS action when the concept creation logic is successful', () => {
 			// Arrange
 			const conceptData = {
-				name: 'Dummy concept 7',
+				title: 'Dummy concept 7',
 				moduleId: 'abcd',
 			};
 
@@ -204,7 +204,7 @@ describe('Concept-related redux actions', () => {
 		it('should create a CREATE_CONCEPT_FAILURE action when the concept creation logic has failed', () => {
 			// Arrange
 			const conceptData = {
-				name: 'Dummy concept 7',
+				title: 'Dummy concept 7',
 				moduleId: 'abcd',
 			};
 
@@ -244,7 +244,7 @@ describe('Concept-related redux actions', () => {
 			// Arrange
 			const conceptData = {
 				id: '7',
-				name: 'Dummy concept 7',
+				title: 'Dummy concept 7',
 				moduleId: 'abcd',
 			};
 
@@ -273,7 +273,7 @@ describe('Concept-related redux actions', () => {
 			// Arrange
 			const conceptData = {
 				id: '7',
-				name: 'Dummy concept 7',
+				title: 'Dummy concept 7',
 				moduleId: 'abcd',
 			};
 
@@ -313,7 +313,7 @@ describe('Concept-related redux actions', () => {
 			// Arrange
 			const conceptData = {
 				id: '7',
-				name: 'Dummy concept 7',
+				title: 'Dummy concept 7',
 				moduleId: 'abcd',
 			};
 
@@ -342,7 +342,7 @@ describe('Concept-related redux actions', () => {
 			// Arrange
 			const conceptData = {
 				id: '7',
-				name: 'Dummy concept 7',
+				title: 'Dummy concept 7',
 				moduleId: 'abcd',
 			};
 
@@ -364,7 +364,7 @@ describe('Concept-related redux actions', () => {
 		});
 	});
 
-	describe('Notion list clearing', () => {
+	describe('Concept list clearing', () => {
 		it('should create a CLEAR_CONCEPT_LIST action when the concept list clearing logic is initialized', () => {
 			// Arrange
 			const expectedActions = [

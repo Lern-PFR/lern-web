@@ -35,7 +35,7 @@ describe('Concepts reducer', () => {
 
 		it('should update the state\'s items field to a single entry array when receiving FETCH_CONCEPT_SUCCESS', () => {
 			// Arrange
-			const fetchedConcept = { id: 'ijkl', name: 'Expected dummy concept' };
+			const fetchedConcept = { id: 'ijkl', title: 'Expected dummy concept' };
 
 			const action = {
 				type: ActionTypes.FETCH_CONCEPT_SUCCESS,
@@ -46,8 +46,8 @@ describe('Concepts reducer', () => {
 				...initialState,
 				isLoading: true,
 				items: [
-					{ id: 'abcd', name: 'First dummy concept' },
-					{ id: 'efgh', name: 'Second dummy concept' },
+					{ id: 'abcd', title: 'First dummy concept' },
+					{ id: 'efgh', title: 'Second dummy concept' },
 				],
 				totalCount: 2,
 			};
@@ -113,17 +113,17 @@ describe('Concepts reducer', () => {
 			const fetchedConcepts = [
 				{
 					id: '3',
-					name: 'Dummy concept 3',
+					title: 'Dummy concept 3',
 					moduleId: 'efgh',
 				},
 				{
 					id: '4',
-					name: 'Dummy concept 4',
+					title: 'Dummy concept 4',
 					moduleId: 'efgh',
 				},
 				{
 					id: '5',
-					name: 'Dummy concept 5',
+					title: 'Dummy concept 5',
 					moduleId: 'efgh',
 				},
 			];
@@ -137,8 +137,8 @@ describe('Concepts reducer', () => {
 				...initialState,
 				isLoading: true,
 				items: [
-					{ id: '1', name: 'Dummy concept 1', moduleId: 'abcd' },
-					{ id: '2', name: 'Dummy concept 2', moduleId: 'abcd' },
+					{ id: '1', title: 'Dummy concept 1', moduleId: 'abcd' },
+					{ id: '2', title: 'Dummy concept 2', moduleId: 'abcd' },
 				],
 				totalCount: 2,
 			};
@@ -203,7 +203,7 @@ describe('Concepts reducer', () => {
 			// Arrange
 			const action = {
 				type: ActionTypes.CREATE_CONCEPT_SUCCESS,
-				payload: { concept: { id: '7', name: 'Dummy concept 7', moduleId: 'abcd' } },
+				payload: { concept: { id: '7', title: 'Dummy concept 7', moduleId: 'abcd' } },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
@@ -255,7 +255,7 @@ describe('Concepts reducer', () => {
 			// Arrange
 			const action = {
 				type: ActionTypes.UPDATE_CONCEPT_SUCCESS,
-				payload: { concept: { id: '7', name: 'Dummy concept 7', moduleId: 'abcd' } },
+				payload: { concept: { id: '7', title: 'Dummy concept 7', moduleId: 'abcd' } },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
@@ -307,7 +307,7 @@ describe('Concepts reducer', () => {
 			// Arrange
 			const action = {
 				type: ActionTypes.DELETE_CONCEPT_SUCCESS,
-				payload: { concept: { id: '7', name: 'Dummy concept 7', moduleId: 'abcd' } },
+				payload: { concept: { id: '7', title: 'Dummy concept 7', moduleId: 'abcd' } },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
@@ -346,8 +346,8 @@ describe('Concepts reducer', () => {
 			const temporaryState = {
 				...initialState,
 				items: [
-					{ id: '1', name: 'Dummy concept 1', moduleId: 'efgh' },
-					{ id: '2', name: 'Dummy concept 2', moduleId: 'efgh' },
+					{ id: '1', title: 'Dummy concept 1', moduleId: 'efgh' },
+					{ id: '2', title: 'Dummy concept 2', moduleId: 'efgh' },
 				],
 				totalCount: 2,
 			};

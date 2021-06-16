@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotionList should match previous snapshot 1`] = `
+exports[`ConceptList should match previous snapshot 1`] = `
 <styled.ul
   display="flex"
   flexDirection="column"

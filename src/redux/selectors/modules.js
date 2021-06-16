@@ -38,7 +38,7 @@ const getModuleById = createSelector(
 
 		return {
 			...module,
-			notions: sortBy(module?.notions || [], 'order'),
+			concepts: sortBy(module?.concepts || [], 'order'),
 		};
 	}
 );

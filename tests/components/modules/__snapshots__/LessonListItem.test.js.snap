@@ -35,7 +35,7 @@ exports[`LessonListItem should match previous disabled-state snapshot 1`] = `
   >
     <Link
       disabled={true}
-      to="/notions/1/lessons/abcd"
+      to="/concepts/1/lessons/abcd"
     >
       lessons.links.access
     </Link>
@@ -78,7 +78,7 @@ exports[`LessonListItem should match previous snapshot 1`] = `
   >
     <Link
       disabled={false}
-      to="/notions/1/lessons/abcd"
+      to="/concepts/1/lessons/abcd"
     >
       lessons.links.access
     </Link>

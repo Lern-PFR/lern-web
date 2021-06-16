@@ -30,10 +30,10 @@ export default Object.freeze({
 		default: '/modules',
 		moduleDetails: '/modules/:moduleId',
 	},
-	notions: {
-		default: '/notions',
-		notionDetails: '/notions/:notionId',
-		lessonDetails: '/notions/:notionId/lessons/:lessonId',
+	concepts: {
+		default: '/concepts',
+		conceptDetails: '/concepts/:conceptId',
+		lessonDetails: '/concepts/:conceptId/lessons/:lessonId',
 	},
 	lessons: {
 		default: '/lessons',

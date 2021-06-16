@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotionListItem should match previous snapshot 1`] = `
+exports[`ConceptListItem should match previous snapshot 1`] = `
 <styled.li
   borderTop="solid 1px #DBD9D2"
   paddingBottom="3em"
@@ -11,9 +11,7 @@ exports[`NotionListItem should match previous snapshot 1`] = `
     margin={0}
     tag="h2"
     textTransform="capitalize"
-  >
-    abcd
-  </Paragon>
+  />
   <BodyCopy
     lineHeight="initial"
     margin={0}
@@ -24,9 +22,9 @@ exports[`NotionListItem should match previous snapshot 1`] = `
     marginTop="1em"
   >
     <Link
-      to="/notions/abcd"
+      to="/concepts/abcd"
     >
-      notions.links.start
+      concepts.links.start
     </Link>
   </OutlinedButton>
   <styled.ul
@@ -41,7 +39,7 @@ exports[`NotionListItem should match previous snapshot 1`] = `
 </styled.li>
 `;
 
-exports[`NotionListItem should match previous snapshot with lessons 1`] = `
+exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
 <styled.li
   borderTop="solid 1px #DBD9D2"
   paddingBottom="3em"
@@ -52,9 +50,7 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
     margin={0}
     tag="h2"
     textTransform="capitalize"
-  >
-    abcd
-  </Paragon>
+  />
   <BodyCopy
     lineHeight="initial"
     margin={0}
@@ -65,9 +61,9 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
     marginTop="1em"
   >
     <Link
-      to="/notions/abcd"
+      to="/concepts/abcd"
     >
-      notions.links.start
+      concepts.links.start
     </Link>
   </OutlinedButton>
   <styled.ul
@@ -80,30 +76,30 @@ exports[`NotionListItem should match previous snapshot with lessons 1`] = `
     padding={0}
   >
     <LessonListItem
+      conceptId="abcd"
       description="Lorem ipsum dolor sit amet."
       disabled={false}
       id="1"
       key="1"
       name="lesson 1"
-      notionId="abcd"
       t={[Function]}
     />
     <LessonListItem
+      conceptId="abcd"
       description="Lorem ipsum dolor sit amet."
       disabled={false}
       id="2"
       key="2"
       name="lesson 2"
-      notionId="abcd"
       t={[Function]}
     />
     <LessonListItem
+      conceptId="abcd"
       description="Lorem ipsum dolor sit amet."
       disabled={false}
       id="3"
       key="3"
       name="lesson 3"
-      notionId="abcd"
       t={[Function]}
     />
   </styled.ul>

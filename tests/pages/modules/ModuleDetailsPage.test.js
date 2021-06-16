@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import { ModuleDetailsPage } from 'pages/modules';
-import { ActionTypes as NotionsActionTypes } from 'redux/actions/notions';
+import { ActionTypes as ConceptsActionTypes } from 'redux/actions/concepts';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import RouterProvider from 'routes/components/RouterProvider';
@@ -28,7 +28,7 @@ describe('ModuleDetailsPage', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should call the fetchNotionListByModuleId action creator on mount', () => {
+	it('should call the fetchConceptListByModuleId action creator on mount', () => {
 		mount(
 			<Provider store={store}>
 				<RouterProvider>
@@ -37,10 +37,10 @@ describe('ModuleDetailsPage', () => {
 			</Provider>
 		);
 
-		expect(store.getActions()).toContainEqual({ type: NotionsActionTypes.FETCH_NOTION_LIST_REQUEST });
+		expect(store.getActions()).toContainEqual({ type: ConceptsActionTypes.FETCH_CONCEPT_LIST_REQUEST });
 	});
 
-	it('should call the clearNotionList action creator on unmount', () => {
+	it('should call the clearConceptList action creator on unmount', () => {
 		const wrapper = mount(
 			<Provider store={store}>
 				<RouterProvider>
@@ -53,6 +53,6 @@ describe('ModuleDetailsPage', () => {
 			wrapper.unmount();
 		});
 
-		expect(store.getActions()).toContainEqual({ type: NotionsActionTypes.CLEAR_NOTION_LIST });
+		expect(store.getActions()).toContainEqual({ type: ConceptsActionTypes.CLEAR_CONCEPT_LIST });
 	});
 });

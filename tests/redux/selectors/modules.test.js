@@ -30,21 +30,21 @@ describe('Module state selectors', () => {
 			const mockedStore = {
 				modules: {
 					items: [
-						{ id: 'abcd', title: 'dummy module 0', notions: [{ id: 'a', title: 'b', description: 'c' }] },
-						{ id: 'efgh', title: 'dummy module 1', notions: [{ id: 'd', title: 'e', description: 'f' }] },
-						{ id: 'ijkl', title: 'dummy module 2', notions: [{ id: 'g', title: 'h', description: 'i' }] },
-						{ id: 'mnop', title: 'dummier module', notions: [{ id: 'j', title: 'k', description: 'l' }] },
+						{ id: 'abcd', title: 'dummy module 0', concepts: [{ id: 'a', title: 'b', description: 'c' }] },
+						{ id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f' }] },
+						{ id: 'ijkl', title: 'dummy module 2', concepts: [{ id: 'g', title: 'h', description: 'i' }] },
+						{ id: 'mnop', title: 'dummier module', concepts: [{ id: 'j', title: 'k', description: 'l' }] },
 					],
 				},
 			};
 
-			const expectedResult = { id: 'efgh', title: 'dummy module 1', notions: [{ id: 'd', title: 'e', description: 'f' }] };
+			const expectedResult = { id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f' }] };
 
 			const actualResult = getModuleById(mockedStore, 'efgh');
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 
-		it('should return an empty notions array if none is present', () => {
+		it('should return an empty concepts array if none is present', () => {
 			const mockedStore = {
 				modules: {
 					items: [
@@ -56,7 +56,7 @@ describe('Module state selectors', () => {
 				},
 			};
 
-			const expectedResult = { id: 'efgh', title: 'dummy module 1', notions: [] };
+			const expectedResult = { id: 'efgh', title: 'dummy module 1', concepts: [] };
 
 			const actualResult = getModuleById(mockedStore, 'efgh');
 			expect(actualResult).toStrictEqual(expectedResult);

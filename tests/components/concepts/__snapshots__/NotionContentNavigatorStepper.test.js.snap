@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotionContentNavigatorStepper should match previous snapshot (with isCurrent prop set to true) 1`] = `
+exports[`ConceptContentNavigatorStepper should match previous snapshot (with isCurrent prop set to true) 1`] = `
 <styled.button
   isCurrent={true}
   label="test"
@@ -8,7 +8,7 @@ exports[`NotionContentNavigatorStepper should match previous snapshot (with isCu
 />
 `;
 
-exports[`NotionContentNavigatorStepper should match previous snapshot 1`] = `
+exports[`ConceptContentNavigatorStepper should match previous snapshot 1`] = `
 <styled.button
   isCurrent={false}
   label="test"

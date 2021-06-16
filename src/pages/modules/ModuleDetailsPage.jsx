@@ -7,12 +7,12 @@ import { useTranslation } from 'react-i18next';
 import conf from 'conf';
 import routes from 'routes/keys';
 
-import { clearNotionList, fetchNotionListByModuleId } from 'redux/actions/notions';
+import { clearConceptList, fetchConceptListByModuleId } from 'redux/actions/concepts';
 import { getModuleById } from 'redux/selectors/modules';
 
 import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
 import { Canon, GreatPrimer } from 'components/shared/typography';
-import NotionList from 'components/modules/NotionList';
+import ConceptList from 'components/modules/ConceptList';
 import { Link } from 'components/shared/navigation';
 import { SubtleLinkButton } from 'components/shared/buttons';
 import { moduleName, moduleDescription, pageLayout, backToSubjectSvg } from 'theme/pages/modules/moduleDetailsPage';
@@ -21,7 +21,7 @@ import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 
 /**
  * @name ModuleDetailsPage
- * @description A page used to display the current module and its composing notions
+ * @description A page used to display the current module and its composing concepts
  *
  * @author Timothée Simon-Franza
  */
@@ -33,9 +33,9 @@ const ModuleDetailsPage = () => {
 
 	useEffect(() => {
 		dispatch(fetchModule(moduleId));
-		dispatch(fetchNotionListByModuleId(moduleId));
+		dispatch(fetchConceptListByModuleId(moduleId));
 
-		return () => dispatch(clearNotionList());
+		return () => dispatch(clearConceptList());
 	}, [dispatch, moduleId]);
 
 	return (
@@ -55,7 +55,7 @@ const ModuleDetailsPage = () => {
 						<Canon tag="h1" {...moduleName}>{module?.title}</Canon>
 					</StyledDiv>
 					<GreatPrimer {...moduleDescription}>{module?.description}</GreatPrimer>
-					<NotionList notions={module?.notions} />
+					<ConceptList concepts={module?.concepts} />
 				</>
 			)}
 		</StyledDiv>

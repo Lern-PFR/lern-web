@@ -15,16 +15,16 @@ export const fetchLessonById = (lessonId) => get(`/api/lessons/${lessonId}`);
 
 /**
  * @function
- * @name fetchLessonsByNotionId
- * @description Retrieves all lessons from a specific notion using their linked notion's id.
+ * @name fetchLessonsByConceptId
+ * @description Retrieves all lessons from a specific concept using their linked concept's id.
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} notionId The id of the notion we want to retrieve lessons from.
+ * @param {string} conceptId The id of the concept we want to retrieve lessons from.
  *
  * @returns {Promise}
  */
-export const fetchLessonsByNotionId = (notionId) => get(`/api/lessons/by-notion/${notionId}`);
+export const fetchLessonsByConceptId = (conceptId) => get(`/api/lessons/by-concept/${conceptId}`);
 
 /**
  * @function

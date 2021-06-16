@@ -1,7 +1,7 @@
 import { mount, shallow } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import QuestionForm from 'components/notions/NotionDetailsPage/QuestionForm';
+import QuestionForm from 'components/concepts/conceptDetailsPage/QuestionForm';
 
 describe('QuestionForm', () => {
 	const answers = [

@@ -180,7 +180,7 @@
 				"back_to_subject": "Retourner à la page du sujet"
 			}
 		},
-		"notions": {
+		"concepts": {
 			"links": {
 				"start": "Débuter la notion",
 				"back_to_module": "Retourner au module '{{module.name}}'"

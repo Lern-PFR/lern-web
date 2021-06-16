@@ -1,18 +1,18 @@
 import { shallow } from 'enzyme';
-import { Sidebar } from 'components/notions/NotionDetailsPage';
+import { Sidebar } from 'components/concepts/conceptDetailsPage';
 
 describe('Sidebar', () => {
 	const props = {
-		notionName: 'test notion',
+		conceptName: 'test concept',
 		currentLesson: {
 			id: 0,
-			name: 'test lesson',
+			title: 'test lesson',
 			content: 'test lesson content',
 			contentType: 'lesson',
 			description: 'test lesson description',
 			order: 0,
 		},
-		notionContent: [
+		conceptContent: [
 			{
 				id: 1,
 				name: 'test lesson',

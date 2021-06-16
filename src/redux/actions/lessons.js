@@ -13,10 +13,6 @@ export const ActionTypes = {
 	FETCH_LESSON_SUCCESS: '@LESSONS/FETCH_SUCCESS',
 	FETCH_LESSON_FAILURE: '@LESSONS/FETCH_FAILURE',
 
-	FETCH_LESSON_LIST_REQUEST: '@LESSONS/FETCH_LIST_REQUEST',
-	FETCH_LESSON_LIST_SUCCESS: '@LESSONS/FETCH_LIST_SUCCESS',
-	FETCH_LESSON_LIST_FAILURE: '@LESSONS/FETCH_LIST_FAILURE',
-
 	CREATE_LESSON_REQUEST: '@LESSONS/CREATE_REQUEST',
 	CREATE_LESSON_SUCCESS: '@LESSONS/CREATE_SUCCESS',
 	CREATE_LESSON_FAILURE: '@LESSONS/CREATE_FAILURE',
@@ -76,54 +72,6 @@ const fetchLessonSuccess = ({ lesson }) => ({
  */
 const fetchLessonFailure = (error) => ({
 	type: ActionTypes.FETCH_LESSON_FAILURE,
-	payload: { error },
-});
-
-// //////////////////////////////////////////////////////// //
-// ////////////// Lesson list fetching actions //////////// //
-// //////////////////////////////////////////////////////// //
-
-/**
- * @function
- * @name fetchLessonListRequest
- * @description Action triggered anytime a lesson list fetching call is made to the API.
- *
- * @author Timothée Simon-Franza
- *
- * @returns {object}
- */
-const fetchLessonListRequest = () => ({ type: ActionTypes.FETCH_LESSON_LIST_REQUEST });
-
-/**
-  * @function
-  * @name fetchLessonListSuccess
-  * @description Action triggered as a result to a successful lesson list fetching API call.
-  *
-  * @author Timothée Simon-Franza
-  *
-  * @param {array}	lessons		: The list of lessons retrieved from the API.
-  * @param {number}	totalCount	: The total amount of lessons available for the notion.
-  *
-  * @returns {object}
-  */
-const fetchLessonListSuccess = ({ lessons, totalCount }) => ({
-	type: ActionTypes.FETCH_LESSON_LIST_SUCCESS,
-	payload: { lessons, totalCount },
-});
-
-/**
- * @function
- * @name fetchLessonListFailure
- * @description Action triggered as a result to a failed lesson list fetching API call.
- *
- * @author Timothée Simon-Franza
- *
- * @param {object} error : The exception sent back from the API.
- *
- * @returns {object}
- */
-const fetchLessonListFailure = (error) => ({
-	type: ActionTypes.FETCH_LESSON_LIST_FAILURE,
 	payload: { error },
 });
 
@@ -302,23 +250,6 @@ export const fetchLesson = (lessonId) => (dispatch) => {
 	return LessonsApi.fetchLessonById(lessonId)
 		.then(({ lesson }) => dispatch(fetchLessonSuccess({ lesson })))
 		.catch((error) => dispatch(fetchLessonFailure(error)));
-};
-
-/**
- * @function
- * @name fetchLessonListByNotionId
- * @description Method used to fetch all lessons from a specific notion, identified by the notionId param.
- *
- * @author Timothée Simon-Franza
- *
- * @param {string} notionId : The id of the notion we want to retrieve lessons from.
- */
-export const fetchLessonListByNotionId = (notionId) => (dispatch) => {
-	dispatch(fetchLessonListRequest());
-
-	return LessonsApi.fetchLessonsByNotionId(notionId)
-		.then(({ lessons, totalCount }) => dispatch(fetchLessonListSuccess({ lessons, totalCount })))
-		.catch((error) => dispatch(fetchLessonListFailure(error)));
 };
 
 /**

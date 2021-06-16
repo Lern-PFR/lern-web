@@ -1,30 +1,30 @@
 import PropTypes from 'prop-types';
 import { StyledDiv } from 'components/shared/styledElements';
 import { Paragon, Pica } from 'components/shared/typography';
-import { lessonTitle, notionTitle, sidebar } from 'theme/pages/notions/notionDetailsPage';
-import NotionContentNavigator from './NotionContentNavigator';
+import { lessonTitle, conceptTitle as conceptTitleStyle, sidebar } from 'theme/pages/concepts/conceptDetailsPage';
+import ConceptContentNavigator from './ConceptContentNavigator';
 import QuestionForm from './QuestionForm';
 
 /**
  * @name Sidebar
- * @description The sidebar to display on the notion details page.
+ * @description The sidebar to display on the concept details page.
  *
  * @author Timothée Simon-Franza
  *
- * @param {string}	notionName					The current notion's name.
+ * @param {string}	conceptTitle				The current concept's title.
  * @param {object}	currentLesson				The current lesson.
- * @param {array}	notionContent				An array of all lessons and exercises composing the current notion.
+ * @param {array}	conceptContent				An array of all lessons and exercises composing the current concept.
  * @param {func}	onQuestionAnswerSubmit		Method to trigger upon submission of the question form.
  * @param {func}	onCurrentDocumentRedirect	Method to trigger when the user clicks on a navigation stepper to redirect him to the desired document.
  */
-const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => (
+const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => (
 	<aside>
 		<StyledDiv {...sidebar}>
-			<Paragon tag="h1" {...notionTitle}>{notionName}</Paragon>
+			<Paragon tag="h1" {...conceptTitleStyle}>{conceptTitle}</Paragon>
 			<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
-			<NotionContentNavigator
+			<ConceptContentNavigator
 				currentDocOrder={currentLesson.order}
-				notionContent={notionContent}
+				conceptContent={conceptContent}
 				redirectTo={onCurrentDocumentRedirect}
 			/>
 			{currentLesson.exercise && (
@@ -39,7 +39,7 @@ const Sidebar = ({ notionName, currentLesson, notionContent, onQuestionAnswerSub
 );
 
 Sidebar.propTypes = {
-	notionName: PropTypes.string.isRequired,
+	conceptTitle: PropTypes.string.isRequired,
 	currentLesson: PropTypes.shape({
 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 		name: PropTypes.string.isRequired,
@@ -60,7 +60,7 @@ Sidebar.propTypes = {
 			}).isRequired,
 		}),
 	}).isRequired,
-	notionContent: PropTypes.arrayOf(
+	conceptContent: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			// Lessons
 			PropTypes.shape({
@@ -107,7 +107,7 @@ Sidebar.propTypes = {
 };
 
 Sidebar.defaultProps = {
-	notionContent: [],
+	conceptContent: [],
 };
 
 export default Sidebar;

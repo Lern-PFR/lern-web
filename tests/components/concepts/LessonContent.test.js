@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { LessonContent } from 'components/notions/NotionDetailsPage';
+import { LessonContent } from 'components/concepts/conceptDetailsPage';
 
 describe('LessonContent', () => {
 	const lessonData = {
