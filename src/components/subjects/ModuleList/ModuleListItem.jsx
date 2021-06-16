@@ -29,14 +29,14 @@ const StyledModuleListItem = styled(StyledListItem)(
  * @author Timothée Simon-Franza
  *
  * @param {string}	id			The current module's id.
- * @param {string}	name		The current module's name.
+ * @param {string}	title		The current module's title.
  * @param {string}	description	A short description of the current module.
  * @param {bool}	[disabled]	Set to true if the current module is not yet unlocked for the current user.
  * @param {func}	t			The translation method provided by the withTranslation HoC.
  */
-const ModuleListItem = ({ id, name, description, disabled, t }) => (
+const ModuleListItem = ({ id, title, description, disabled, t }) => (
 	<StyledModuleListItem {...moduleListItem}>
-		<DoublePica {...moduleName}>{name}</DoublePica>
+		<DoublePica {...moduleName}>{title}</DoublePica>
 		<BodyCopy {...moduleDescription}>{description}</BodyCopy>
 		<PrimaryLinkButton {...moduleAccessLinkButton} disabled={disabled}>
 			<Link to={routes.modules.moduleDetails.replace(':moduleId', id)} disabled={disabled}>{t('subjects.links.module')}</Link>
@@ -46,7 +46,7 @@ const ModuleListItem = ({ id, name, description, disabled, t }) => (
 
 ModuleListItem.propTypes = {
 	id: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
