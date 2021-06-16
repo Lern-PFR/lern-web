@@ -1,7 +1,7 @@
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
-import { SubjectCreationForm } from 'components/subjects/subjectCreationPage';
+import { SubjectCreationForm } from 'components/content';
 import { StaticRouter } from 'react-router';
-import { containInput, checkRequired, matchSnapshot, setupFormWithRouter } from '../../../testUtils/forms';
+import { containInput, checkRequired, matchSnapshot, setupFormWithRouter } from '../../testUtils/forms';
 
 describe('Subject creation form', () => {
 	let sut;

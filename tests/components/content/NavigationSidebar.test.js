@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import { NavigationSidebar } from 'components/subjects/subjectCreationPage';
+import { NavigationSidebar } from 'components/content';
 
 describe('NavigationSidebar', () => {
 	it('should match previous snapshot', () => {

@@ -25,6 +25,7 @@ export default Object.freeze({
 		list: '/subjects',
 		subjectStructure: '/subjects/structure',
 		subjectCreation: '/subjects/create',
+		subjectEdition: '/subjects/edit/:subjectId',
 		subjectDetails: '/subjects/:subjectId',
 	},
 	modules: {
