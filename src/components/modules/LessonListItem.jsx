@@ -18,16 +18,16 @@ import { backToListButton } from 'theme/pages/subjects/subjectDetailsPage';
  * @param {bool}			[disabled]	Whether the access to the current lesson is disabled to the current user.
  * @param {string|number}	id			The current lesson's id.
  * @param {string}			name		The current lesson's name.
- * @param {string|number}	notionId	The lesson's parent notion's id.
+ * @param {string|number}	conceptId	The lesson's parent concept's id.
  * @param {string}			description	The current lesson's description.
  * @param {func}			t			The translation method provided by the withTranslation HoC.
  */
-const LessonListItem = ({ disabled, id, name, notionId, description, t }) => (
+const LessonListItem = ({ disabled, id, name, conceptId, description, t }) => (
 	<StyledListItem key={id} {...lessonListItem}>
 		<GreatPrimer {...lessonTitle}>{name}</GreatPrimer>
 		<BodyCopy {...lessonDescription}>{description}</BodyCopy>
 		<SubtleButton {...backToListButton}>
-			<Link to={generatePath(routes.notions.lessonDetails, { notionId, lessonId: id })} disabled={disabled}>
+			<Link to={generatePath(routes.concepts.lessonDetails, { conceptId, lessonId: id })} disabled={disabled}>
 				{t('lessons.links.access')}
 			</Link>
 		</SubtleButton>
@@ -41,7 +41,7 @@ LessonListItem.propTypes = {
 		PropTypes.number,
 	]).isRequired,
 	name: PropTypes.string.isRequired,
-	notionId: PropTypes.oneOfType([
+	conceptId: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number,
 	]).isRequired,

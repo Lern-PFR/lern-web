@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
-import NotionListItem from 'components/modules/NotionListItem';
+import ConceptListItem from 'components/modules/ConceptListItem';
 
-describe('NotionListItem', () => {
+describe('ConceptListItem', () => {
 	it('should match previous snapshot', () => {
-		const sut = (<NotionListItem id="abcd" name="abcd" description="dummy description" />);
+		const sut = (<ConceptListItem id="abcd" name="abcd" description="dummy description" />);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
@@ -16,7 +16,7 @@ describe('NotionListItem', () => {
 			{ id: '3', name: 'lesson 3', description: 'Lorem ipsum dolor sit amet.' },
 		];
 
-		const sut = (<NotionListItem id="abcd" name="abcd" description="dummy description" lessons={lessons} />);
+		const sut = (<ConceptListItem id="abcd" name="abcd" description="dummy description" lessons={lessons} />);
 		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();

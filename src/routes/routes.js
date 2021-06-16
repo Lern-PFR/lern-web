@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
-import { NotionDetailsPage } from 'pages/notions';
+import { ConceptDetailsPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectListPage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
@@ -122,23 +122,16 @@ export default [
 			},
 		],
 	},
-	// Notions
+	// Concepts
 	{
-		path: keys.notions.default,
+		path: keys.concepts.default,
 		routes: [
 			{
-				path: keys.notions.notionDetails,
+				path: keys.concepts.conceptDetails,
 				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
-				component: NotionDetailsPage,
-			},
-			{
-				path: keys.notions.lessonDetails,
-				allowAnonymous: false,
-				allowAuthenticated: true,
-				exact: true,
-				component: NotionDetailsPage,
+				component: ConceptDetailsPage,
 			},
 		],
 	},

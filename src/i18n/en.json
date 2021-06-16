@@ -179,7 +179,7 @@
 				"back_to_subject": "Return to the parent subject's page"
 			}
 		},
-		"notions": {
+		"concepts": {
 			"links": {
 				"start": "Start notion",
 				"back_to_module": "Return to module '{{module.name}}'"

@@ -16,20 +16,15 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
       margin={0}
       tag="h1"
       textTransform="capitalize"
-    >
-      test notion
-    </Paragon>
+    />
     <Pica
       lineHeight="initial"
       margin={0}
       tag="h2"
       textTransform="capitalize"
-    >
-      test lesson
-    </Pica>
-    <NotionContentNavigator
-      currentDocOrder={0}
-      notionContent={
+    />
+    <ConceptContentNavigator
+      conceptContent={
         Array [
           Object {
             "content": "test lesson content",
@@ -86,6 +81,7 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
           },
         ]
       }
+      currentDocOrder={0}
       redirectTo={[MockFunction]}
     />
     <QuestionForm
@@ -137,20 +133,15 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
       margin={0}
       tag="h1"
       textTransform="capitalize"
-    >
-      test notion
-    </Paragon>
+    />
     <Pica
       lineHeight="initial"
       margin={0}
       tag="h2"
       textTransform="capitalize"
-    >
-      test lesson
-    </Pica>
-    <NotionContentNavigator
-      currentDocOrder={0}
-      notionContent={
+    />
+    <ConceptContentNavigator
+      conceptContent={
         Array [
           Object {
             "content": "test lesson content",
@@ -207,6 +198,7 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
           },
         ]
       }
+      currentDocOrder={0}
       redirectTo={[MockFunction]}
     />
   </styled.div>

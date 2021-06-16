@@ -19,30 +19,30 @@ const moduleDescription = {
 	margin: 0,
 };
 
-const notionList = {
+const conceptList = {
 	listStyle: 'none',
 	display: 'flex',
 	flexDirection: 'column',
 	padding: 0,
 };
 
-const notionDataContainer = {
+const conceptDataContainer = {
 	borderTop: `solid 1px ${basmati.default}`,
 	paddingTop: '2em',
 	paddingBottom: '3em',
 };
 
-const startNotionButton = {
+const startConceptButton = {
 	marginTop: '1em',
 };
 
-const notionName = {
+const conceptName = {
 	lineHeight: 'initial',
 	textTransform: 'capitalize',
 	margin: 0,
 };
 
-const notionDescription = {
+const conceptDescription = {
 	lineHeight: 'initial',
 	margin: 0,
 };
@@ -90,14 +90,14 @@ export {
 	pageLayout,
 	moduleName,
 	moduleDescription,
-	notionList,
-	notionDataContainer,
-	notionName,
-	notionDescription,
+	conceptList,
+	conceptDataContainer,
+	conceptName,
+	conceptDescription,
 	lessonList,
 	lessonListItem,
 	lessonTitle,
 	lessonDescription,
-	startNotionButton,
+	startConceptButton,
 	backToSubjectSvg,
 };

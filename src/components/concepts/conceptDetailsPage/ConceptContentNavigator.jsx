@@ -3,9 +3,9 @@ import _ from 'lodash';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import styled from 'styled-components';
 import { StyledDiv, StyledList } from 'components/shared/styledElements';
-import { navigationChevrons, navigator, stepperList } from 'theme/pages/notions/notionDetailsPage';
+import { navigationChevrons, navigator, stepperList } from 'theme/pages/concepts/conceptDetailsPage';
 
-import NotionContentNavigatorStepper from './NotionContentNavigatorStepper';
+import ConceptContentNavigatorStepper from './ConceptContentNavigatorStepper';
 
 // @TODO: Display the name of the document in a tooltip upon hovering a stepper.
 
@@ -13,16 +13,16 @@ const PreviousButton = styled(ChevronLeft)({ ...navigationChevrons });
 const NextButton = styled(ChevronRight)({ ...navigationChevrons });
 
 /**
- * @name NotionContentNavigator
+ * @name ConceptContentNavigator
  * @description A component used to navigate inside a lesson's pages.
  *
  * @author Timothée Simon-Franza
  *
  * @param {number}	currentDocOrder	The current document's order value.
- * @param {array}	notionContent	An array of the current notion's lessons and exercises.
+ * @param {array}	conceptContent	An array of the current concept's lessons and exercises.
  * @param {func}	redirectTo		Redirection method to trigger when a stepper is clicked.
  */
-const NotionContentNavigator = ({ currentDocOrder, notionContent, redirectTo }) => {
+const ConceptContentNavigator = ({ currentDocOrder, conceptContent, redirectTo }) => {
 	/**
 	 * @name onPreviousClick
 	 * @description onClick handler method for the 'previous' icon button.
@@ -42,33 +42,33 @@ const NotionContentNavigator = ({ currentDocOrder, notionContent, redirectTo }) 
 	 * @author Timothée Simon-Franza
 	 */
 	const onNextClick = () => {
-		if (currentDocOrder < notionContent.length - 1) {
+		if (currentDocOrder < conceptContent.length - 1) {
 			redirectTo(currentDocOrder + 1);
 		}
 	};
 
 	return (
 		<StyledDiv {...navigator}>
-			<PreviousButton role="button" data-testid="notion-navigation-previous" onClick={onPreviousClick} disabled={currentDocOrder === 0} background="white" />
+			<PreviousButton role="button" data-testid="concept-navigation-previous" onClick={onPreviousClick} disabled={currentDocOrder === 0} background="white" />
 			<StyledList {...stepperList}>
-				{notionContent.map(({ id, order, title = '', name = '' }) => (
-					<NotionContentNavigatorStepper
-						isCurrent={_.isEqual(notionContent[currentDocOrder]?.id, id)}
+				{conceptContent.map(({ id, order, title = '', name = '' }) => (
+					<ConceptContentNavigatorStepper
+						isCurrent={_.isEqual(conceptContent[currentDocOrder]?.id, id)}
 						key={id}
-						data-testid={`notion-navigation-stepper-${id}`}
+						data-testid={`concept-navigation-stepper-${id}`}
 						label={title || name}
 						onClick={() => redirectTo(order)}
 					/>
 				))}
 			</StyledList>
-			<NextButton role="button" data-testid="notion-navigation-next" onClick={onNextClick} disabled={currentDocOrder === (notionContent.length - 1)} />
+			<NextButton role="button" data-testid="concept-navigation-next" onClick={onNextClick} disabled={currentDocOrder === (conceptContent.length - 1)} />
 		</StyledDiv>
 	);
 };
 
-NotionContentNavigator.propTypes = {
+ConceptContentNavigator.propTypes = {
 	currentDocOrder: PropTypes.number.isRequired,
-	notionContent: PropTypes.arrayOf(
+	conceptContent: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -86,4 +86,4 @@ NotionContentNavigator.propTypes = {
 	redirectTo: PropTypes.func.isRequired,
 };
 
-export default NotionContentNavigator;
+export default ConceptContentNavigator;
