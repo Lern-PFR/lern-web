@@ -1,4 +1,4 @@
-import { basmati, tuna } from 'theme/colors';
+import { basmati, parsnip, tuna } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
@@ -27,13 +27,15 @@ const conceptList = {
 };
 
 const conceptDataContainer = {
+	display: 'grid',
+	gridGap: '1em',
 	borderTop: `solid 1px ${basmati.default}`,
 	paddingTop: '2em',
-	paddingBottom: '3em',
 };
 
 const startConceptButton = {
-	marginTop: '1em',
+	justifySelf: 'start',
+	hoverBg: parsnip.lighter2,
 };
 
 const conceptName = {
@@ -48,11 +50,11 @@ const conceptDescription = {
 };
 
 const lessonList = {
-	display: 'grid',
-	gridAutoFlow: 'row',
-	gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-	gridGap: '1em',
+	display: 'flex',
+	flexWrap: 'wrap',
+	listStyle: 'none',
 	padding: 0,
+	gridGap: '1em 1.5em',
 	marginTop: '2em',
 };
 
@@ -64,6 +66,7 @@ const lessonListItem = {
 	display: 'grid',
 	gridTemplateRows: 'fit-content 1fr',
 	gridGap: '1em',
+	width: '400px',
 };
 
 const lessonTitle = {

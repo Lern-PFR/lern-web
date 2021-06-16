@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next';
 import routes from 'routes/keys';
 
 import { BodyCopy, Paragon } from 'components/shared/typography';
-import { OutlinedButton } from 'components/shared/buttons';
+import { OutlinedLinkButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
 
 import { lessonList, conceptDataContainer, conceptDescription, conceptName, startConceptButton } from 'theme/pages/modules/moduleDetailsPage';
@@ -27,14 +27,14 @@ const ConceptListItem = ({ id, title, description, lessons, t }) => (
 	<StyledListItem {...conceptDataContainer}>
 		<Paragon tag="h2" {...conceptName}>{title}</Paragon>
 		<BodyCopy {...conceptDescription}>{description}</BodyCopy>
-		<OutlinedButton {...startConceptButton}>
+		<OutlinedLinkButton {...startConceptButton}>
 			<Link to={routes.concepts.conceptDetails.replace(':conceptId', id)}>
 				{t('concepts.links.start')}
 			</Link>
-		</OutlinedButton>
+		</OutlinedLinkButton>
 		<StyledList listStyle="none" {...lessonList}>
-			{lessons && lessons.map(({ id: lessonId, name: lessonName, description: lessonDesc }) => (
-				<LessonListItem key={lessonId} id={lessonId} name={lessonName} conceptId={id} description={lessonDesc} />
+			{lessons && lessons.map(({ id: lessonId, title: lessonTitle, description: lessonDesc }) => (
+				<LessonListItem key={lessonId} id={lessonId} title={lessonTitle} conceptId={id} description={lessonDesc} />
 			))}
 		</StyledList>
 	</StyledListItem>
@@ -48,7 +48,7 @@ ConceptListItem.propTypes = {
 	description: PropTypes.string.isRequired,
 	lessons: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.string.isRequired,
-		name: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 	})),
 	t: PropTypes.func.isRequired,

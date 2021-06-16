@@ -19,8 +19,8 @@ const StyledDynamicLinkButtonComponent = styled('button')(
 		padding: '0',
 		textDecoration: (({ txtDecoration }) => txtDecoration || 'initial'),
 		'&:hover': {
-			color: ((props) => props.color.darker1),
-			background: ((props) => props.bg.darker1),
+			color: ((props) => props.hoverColor ?? props.color.darker1),
+			background: ((props) => props.hoverBg ?? props.bg.darker1),
 		},
 
 		'& *': {
