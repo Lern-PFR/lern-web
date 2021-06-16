@@ -35,7 +35,11 @@ const LabelComponent = ({ children, forId, hasError, disabled, textStyle, ...oth
 };
 
 LabelComponent.propTypes = {
-	children: PropTypes.string.isRequired,
+	children: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+		PropTypes.object,
+	]).isRequired,
 	disabled: PropTypes.bool,
 	hasError: PropTypes.bool,
 	textStyle: PropTypes.string,

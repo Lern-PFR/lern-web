@@ -173,6 +173,53 @@
 				"modules": {
 					"no_data": "Ce sujet ne possède actuellement aucun module."
 				}
+			},
+			"structure": {
+				"title": "Créer mon premier cours.",
+				"subtitle": "Pour faciliter l'apprentissage, les informations sont imbriquées en catégories, à l'instar des poupées russes.",
+				"subject": {
+					"description": "Le plus grand élément, le <1>sujet</1>, contient tous les autres.",
+					"example": "Sujet : Introduction à l'UX Design"
+				},
+				"module": {
+					"description": "Ce sujet est divisé en <strong>modules...</strong>",
+					"examples": [
+						{
+							"example": ""
+						},
+						{
+							"example": ""
+						}
+					]
+				},
+				"notion": {
+					"description": "...lui-même divisé en <strong>notions.</strong>",
+					"examples": [
+						{
+							"example": ""
+						},
+						{
+							"example": ""
+						}
+					]
+				},
+				"course": {
+					"description": "Enfin, chaque notion est composée d&apos;un ou plusieurs <strong>cours</strong> et <strong>exercices.</strong>",
+					"examples": [
+						{
+							"example": ""
+						},
+						{
+							"example": ""
+						},
+						{
+							"example": ""
+						},
+						{
+							"example": ""
+						}
+					]
+				}
 			}
 		},
 		"modules": {
