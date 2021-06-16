@@ -17,6 +17,11 @@ const searchInput = {
 	height: '32px',
 };
 
+const section = {
+	display: 'grid',
+	gridGap: '1em',
+};
+
 const sectionTitleContainer = {
 	display: 'flex',
 	alignItems: 'center',
@@ -84,6 +89,7 @@ export {
 	layout,
 	hero,
 	searchInput,
+	section,
 	sectionTitleContainer,
 	sectionTitle,
 	sectionTitleSeparator,

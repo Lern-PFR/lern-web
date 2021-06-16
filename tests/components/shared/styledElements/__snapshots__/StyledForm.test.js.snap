@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledForm should match previous snapshot 1`] = `
+<form
+  className="sc-jSgupP hUnjnY"
+/>
+`;

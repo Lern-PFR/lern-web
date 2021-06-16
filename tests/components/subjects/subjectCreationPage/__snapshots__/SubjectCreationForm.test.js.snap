@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainLayout should match previous snapshot 1`] = `
+exports[`Subject creation form snapshot testing should match previous snapshot 1`] = `
 <Router
   history={
     Object {
@@ -23,10 +23,8 @@ exports[`MainLayout should match previous snapshot 1`] = `
   }
   staticContext={Object {}}
 >
-  <MainLayout>
-    <p>
-      Hello, world!
-    </p>
-  </MainLayout>
+  <SubjectCreationForm
+    onSubmit={[MockFunction]}
+  />
 </Router>
 `;

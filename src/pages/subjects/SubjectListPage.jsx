@@ -6,9 +6,12 @@ import { StyledDiv, StyledList } from 'components/shared/styledElements';
 import { getSubjectsByTitleOrAuthor } from 'redux/selectors/subjects';
 import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
 import { BodyCopy, Canon } from 'components/shared/typography';
-import { hero, layout, searchInput, sectionList } from 'theme/pages/subjects/subjectListPage';
+import { hero, layout, searchInput, section, sectionList } from 'theme/pages/subjects/subjectListPage';
 import { SubjectCard, SubjectListSectionTitle } from 'components/subjects/subjectListPage';
 import { InputComponent } from 'components/shared/form';
+import { PrimaryLinkButton } from 'components/shared/buttons';
+import { Link } from 'components/shared/navigation';
+import routes from 'routes';
 
 /**
  * @name SubjectListPage
@@ -47,17 +50,23 @@ const SubjectListPage = ({ t }) => {
 
 	return (
 		<StyledDiv {...layout}>
-			<Canon as="h1" {...hero}>{t('subjects.list_page.hero')}</Canon>
+			<StyledDiv display="grid" gridGap="1em">
+				<Canon as="h1" {...hero}>{t('subjects.list_page.hero')}</Canon>
 
-			<InputComponent
-				id="subject-list-search-input"
-				type="text"
-				onChange={handleSearchInputChange}
-				placeholder={t('subjects.list_page.search_input.placeholder')}
-				{...searchInput}
-			/>
+				<InputComponent
+					id="subject-list-search-input"
+					type="text"
+					onChange={handleSearchInputChange}
+					placeholder={t('subjects.list_page.search_input.placeholder')}
+					{...searchInput}
+				/>
 
-			<StyledDiv as="section">
+				<PrimaryLinkButton justifySelf="start">
+					<Link to={routes.subjects.subjectCreation}>{t('subjects.links.create')}</Link>
+				</PrimaryLinkButton>
+			</StyledDiv>
+
+			<StyledDiv as="section" {...section}>
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.active_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
 					{subjects?.active && subjects?.active.length > 0 && subjects.active.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
@@ -65,15 +74,18 @@ const SubjectListPage = ({ t }) => {
 				</StyledList>
 			</StyledDiv>
 
-			<StyledDiv as="section">
+			<StyledDiv as="section" {...section}>
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.my_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
 					{subjects?.mine && subjects?.mine.length > 0 && subjects.mine.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
 					{(!subjects?.mine || subjects?.mine.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
+				<PrimaryLinkButton justifySelf="start">
+					<Link to={routes.subjects.subjectCreation}>{t('subjects.links.create')}</Link>
+				</PrimaryLinkButton>
 			</StyledDiv>
 
-			<StyledDiv as="section">
+			<StyledDiv as="section" {...section}>
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.other_available_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
 					{subjects?.available && subjects?.available.length > 0 && subjects.available.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}

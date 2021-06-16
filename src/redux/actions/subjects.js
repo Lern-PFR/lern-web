@@ -1,4 +1,7 @@
 import * as SubjectsApi from 'api/subjectsApi';
+import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
+import { generatePath } from 'react-router';
+import routes from 'routes';
 
 /**
  * @constant
@@ -329,13 +332,16 @@ export const fetchSubjectList = () => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object} subjectData : The data to create the new subject from.
+ * @param {object}	subjectData				The data to create the new subject from.
  */
 export const createSubject = (subjectData) => (dispatch) => {
 	dispatch(createSubjectRequest());
 
 	return SubjectsApi.createSubject(subjectData)
-		.then(({ subject }) => dispatch(createSubjectSuccess({ subject })))
+		.then((subject) => {
+			dispatch(createSubjectSuccess({ subject }));
+			redirectOnSuccess(generatePath(routes.subjects.subjectDetails, { subjectId: subject.id }));
+		})
 		.catch((error) => dispatch(createSubjectFailure(error)));
 };
 
