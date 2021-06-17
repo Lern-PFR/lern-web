@@ -21,7 +21,7 @@ const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onQuestionAnswer
 	<aside>
 		<StyledDiv {...sidebar}>
 			<Paragon tag="h1" {...conceptTitleStyle}>{conceptTitle}</Paragon>
-			<Pica tag="h2" {...lessonTitle}>{currentLesson.name}</Pica>
+			<Pica tag="h2" {...lessonTitle}>{currentLesson.title}</Pica>
 			<ConceptContentNavigator
 				currentDocOrder={currentLesson.order}
 				conceptContent={conceptContent}
@@ -42,7 +42,7 @@ Sidebar.propTypes = {
 	conceptTitle: PropTypes.string.isRequired,
 	currentLesson: PropTypes.shape({
 		id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-		name: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 		content: PropTypes.string.isRequired,
 		order: PropTypes.number.isRequired,
@@ -65,7 +65,7 @@ Sidebar.propTypes = {
 			// Lessons
 			PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				name: PropTypes.string.isRequired,
+				title: PropTypes.string.isRequired,
 				description: PropTypes.string.isRequired,
 				content: PropTypes.string.isRequired,
 				order: PropTypes.number.isRequired,

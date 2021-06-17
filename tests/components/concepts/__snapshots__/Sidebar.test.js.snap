@@ -16,13 +16,17 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
       margin={0}
       tag="h1"
       textTransform="capitalize"
-    />
+    >
+      test concept
+    </Paragon>
     <Pica
       lineHeight="initial"
       margin={0}
       tag="h2"
       textTransform="capitalize"
-    />
+    >
+      test lesson
+    </Pica>
     <ConceptContentNavigator
       conceptContent={
         Array [
@@ -31,24 +35,24 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
             "contentType": "lesson",
             "description": "test lesson description",
             "id": 1,
-            "name": "test lesson",
             "order": 0,
+            "title": "test lesson",
           },
           Object {
             "content": "lesson 1's content",
             "contentType": "lesson",
             "description": "another lesson description",
             "id": 1,
-            "name": "lesson 1",
             "order": 1,
+            "title": "lesson 1",
           },
           Object {
             "content": "lesson 2's content",
             "contentType": "lesson",
             "description": "another lesson description",
             "id": 2,
-            "name": "lesson 2",
             "order": 2,
+            "title": "lesson 2",
           },
           Object {
             "contentType": "exercise",
@@ -133,13 +137,17 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
       margin={0}
       tag="h1"
       textTransform="capitalize"
-    />
+    >
+      test concept
+    </Paragon>
     <Pica
       lineHeight="initial"
       margin={0}
       tag="h2"
       textTransform="capitalize"
-    />
+    >
+      test lesson
+    </Pica>
     <ConceptContentNavigator
       conceptContent={
         Array [
@@ -148,24 +156,24 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
             "contentType": "lesson",
             "description": "test lesson description",
             "id": 1,
-            "name": "test lesson",
             "order": 0,
+            "title": "test lesson",
           },
           Object {
             "content": "lesson 1's content",
             "contentType": "lesson",
             "description": "another lesson description",
             "id": 1,
-            "name": "lesson 1",
             "order": 1,
+            "title": "lesson 1",
           },
           Object {
             "content": "lesson 2's content",
             "contentType": "lesson",
             "description": "another lesson description",
             "id": 2,
-            "name": "lesson 2",
             "order": 2,
+            "title": "lesson 2",
           },
           Object {
             "contentType": "exercise",

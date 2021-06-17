@@ -3,7 +3,7 @@ import { Sidebar } from 'components/concepts/conceptDetailsPage';
 
 describe('Sidebar', () => {
 	const props = {
-		conceptName: 'test concept',
+		conceptTitle: 'test concept',
 		currentLesson: {
 			id: 0,
 			title: 'test lesson',
@@ -15,7 +15,7 @@ describe('Sidebar', () => {
 		conceptContent: [
 			{
 				id: 1,
-				name: 'test lesson',
+				title: 'test lesson',
 				content: 'test lesson content',
 				contentType: 'lesson',
 				description: 'test lesson description',
@@ -23,7 +23,7 @@ describe('Sidebar', () => {
 			},
 			{
 				id: 1,
-				name: 'lesson 1',
+				title: 'lesson 1',
 				description: 'another lesson description',
 				content: 'lesson 1\'s content',
 				contentType: 'lesson',
@@ -31,7 +31,7 @@ describe('Sidebar', () => {
 			},
 			{
 				id: 2,
-				name: 'lesson 2',
+				title: 'lesson 2',
 				description: 'another lesson description',
 				content: 'lesson 2\'s content',
 				contentType: 'lesson',

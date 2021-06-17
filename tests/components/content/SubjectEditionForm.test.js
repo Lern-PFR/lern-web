@@ -52,7 +52,7 @@ describe('Subject edition form', () => {
 						fireEvent.input(titleInput, { target: { value: '' } });
 						fireEvent.click(submitButton);
 					});
-	
+
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
 					expect(container.textContent).toMatch(new RegExp('subjects.edition.form.fields.title.validation_rules.required'));
 				});
@@ -62,7 +62,7 @@ describe('Subject edition form', () => {
 						fireEvent.input(titleInput, { target: { value: 'a' } });
 						fireEvent.click(submitButton);
 					});
-	
+
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
 					expect(container.textContent).toMatch(new RegExp('subjects.edition.form.fields.title.validation_rules.min_length'));
 				});
@@ -72,7 +72,7 @@ describe('Subject edition form', () => {
 						fireEvent.input(titleInput, { target: { value: 'a'.repeat(51) } });
 						fireEvent.click(submitButton);
 					});
-	
+
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
 					expect(container.textContent).toMatch(new RegExp('subjects.edition.form.fields.title.validation_rules.max_length'));
 				});
