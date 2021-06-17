@@ -120,7 +120,7 @@ describe('Subject edition form', () => {
 					expect(container.textContent).toMatch(new RegExp('subjects.edition.form.fields.description.validation_rules.required'));
 				});
 
-				it('should trigger a "min_length" validation error on the description textarea if it has less than 3 characters on submit', () => {
+				it('should trigger a "min_length" validation error on the description textarea if it has less than 10 characters on submit', () => {
 					act(() => {
 						fireEvent.input(descriptionTextarea, { target: { value: 'a' } });
 						fireEvent.click(submitButton);

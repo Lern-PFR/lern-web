@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidation';
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
-import { LabeledInput } from 'components/shared/form';
+import { LabeledInput, LabeledTextArea } from 'components/shared/form';
 import { PrimaryButton } from 'components/shared/buttons';
 import { StyledForm } from 'components/shared/styledElements';
 
@@ -37,7 +37,7 @@ const validationRules = {
 	},
 	description: {
 		required: isRequired('required'),
-		hasMinLength: hasMinLength(3, 'min_length'),
+		hasMinLength: hasMinLength(10, 'min_length'),
 		hasMaxLength: hasMaxLength(300, 'max_length'),
 	},
 };
@@ -51,7 +51,7 @@ const validationRules = {
  */
 const inputsDefinition = {
 	title: { id: 'title', name: 'title', hasPlaceholder: true },
-	description: { id: 'description', name: 'description', hasPlaceholder: true },
+	description: { id: 'description', name: 'description', inputType: 'textarea', hasPlaceholder: true },
 };
 
 /**
@@ -155,20 +155,41 @@ const SubjectCreationForm = ({ onSubmit }) => {
 	return (
 		<StyledForm onSubmit={handleSubmit} {...form}>
 			{Object.values(inputsDefinition).map(({ id, name, inputType = 'text', hasPlaceholder }) => (
-				<LabeledInput
-					key={id}
-					id={id}
-					name={name}
-					type={inputType}
-					onChange={handleChange}
-					onBlur={handleBlur}
-					hasError={errors[name] && Object.keys(errors[name])?.length > 0}
-					errorText={getErrorMessageByFieldName(name)}
-					placeholder={hasPlaceholder ? t(`subjects.creation.form.fields.${name}.placeholder`) : undefined}
-					ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
-				>
-					{t(`subjects.creation.form.fields.${name}.label`)}
-				</LabeledInput>
+				inputType === 'textarea'
+					? (
+						<LabeledTextArea
+							key={id}
+							id={id}
+							name={name}
+							type={inputType}
+							onChange={handleChange}
+							onBlur={handleBlur}
+							hasError={errors[name] && Object.keys(errors[name])?.length > 0}
+							errorText={getErrorMessageByFieldName(name)}
+							placeholder={hasPlaceholder ? t(`subjects.edition.form.fields.${name}.placeholder`) : undefined}
+							ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
+							defaultValue={formState[name]}
+						>
+							{t(`subjects.edition.form.fields.${name}.label`)}
+						</LabeledTextArea>
+					)
+					: (
+						<LabeledInput
+							key={id}
+							id={id}
+							name={name}
+							type={inputType}
+							onChange={handleChange}
+							onBlur={handleBlur}
+							hasError={errors[name] && Object.keys(errors[name])?.length > 0}
+							errorText={getErrorMessageByFieldName(name)}
+							placeholder={hasPlaceholder ? t(`subjects.edition.form.fields.${name}.placeholder`) : undefined}
+							ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
+							defaultValue={formState[name]}
+						>
+							{t(`subjects.edition.form.fields.${name}.label`)}
+						</LabeledInput>
+					)
 			))}
 			<PrimaryButton type="submit" {...formSubmit}>
 				{t('subjects.creation.form.action.submit')}

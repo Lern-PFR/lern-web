@@ -25,7 +25,7 @@ const validationRules = {
 	},
 	description: {
 		required: isRequired('required'),
-		hasMinLength: hasMinLength(3, 'min_length'),
+		hasMinLength: hasMinLength(10, 'min_length'),
 		hasMaxLength: hasMaxLength(300, 'max_length'),
 	},
 };

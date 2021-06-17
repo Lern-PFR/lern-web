@@ -152,7 +152,7 @@
 							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what make an accessible, user-friendly product.",
 							"validation_rules": {
 								"required": "Please describe your subject.",
-								"min_length": "Please enter at least 3 characters.",
+								"min_length": "Please enter at least 10 characters.",
 								"max_length": "Please enter 300 characters maximum."
 							}
 						}
@@ -183,7 +183,7 @@
 							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what make an accessible, user-friendly product.",
 							"validation_rules": {
 								"required": "Please describe your subject.",
-								"min_length": "Please enter at least 3 characters.",
+								"min_length": "Please enter at least 10 characters.",
 								"max_length": "Please enter 300 characters maximum."
 							}
 						}

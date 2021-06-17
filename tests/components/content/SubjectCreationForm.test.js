@@ -1,92 +1,174 @@
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import { SubjectCreationForm } from 'components/content';
-import { StaticRouter } from 'react-router';
-import { containInput, checkRequired, matchSnapshot, setupFormWithRouter } from '../../testUtils/forms';
+import { act, fireEvent, render } from '@testing-library/react';
 
 describe('Subject creation form', () => {
-	let sut;
-
-	beforeEach(() => {
-		sut = setupFormWithRouter(<SubjectCreationForm onSubmit={jest.fn()} />, 'subjects.creation.form');
-	});
-
 	afterEach(() => {
-		cleanup();
+		jest.clearAllMocks();
 		jest.restoreAllMocks();
 	});
 
-	describe('snapshot testing', () => {
-		it('should match previous snapshot', () => {
-			matchSnapshot(sut);
+	describe('Snapshot testing', () => {
+		const wrapper = shallow(<SubjectCreationForm onSubmit={jest.fn()} />);
+
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	describe('Form inputs', () => {
+		it('should contain a "title" text input.', () => {
+			const { container } = render(<SubjectCreationForm onSubmit={jest.fn()} />);
+			expect(container.querySelector('input[name="title"]')).not.toEqual(null);
+		});
+
+		it('should contain a "description" textarea.', () => {
+			const { container } = render(<SubjectCreationForm onSubmit={jest.fn()} />);
+			expect(container.querySelector('textarea[name="description"]')).not.toEqual(null);
 		});
 	});
 
-	describe('form inputs', () => {
-		it.each([
-			['title', 'text'],
-			['description', 'text'],
-		])('should contain the %s input typed as "%s"', (name, type) => {
-			containInput(name, type, sut);
-		});
-	});
+	describe('Form inputs validation', () => {
+		describe('title input validation', () => {
+			let titleInput;
+			let submitButton;
+			let container;
+			let mockedOnSubmit;
 
-	describe('form inputs validation', () => {
-		it.each([
-			['title', 'title'],
-			['description', 'description'],
-		])('should trigger a "required" validation error if %s input is empty on submit', async (selector, name) => {
-			await checkRequired(selector, name, sut);
-		});
-	});
-
-	describe('onChange form validation', () => {
-		// Note : we only test this on title since all fields have the same handleChange callback.
-
-		it('should trigger validation onChange until form is submitted at least once', async () => {
-			const { container } = render(<StaticRouter><SubjectCreationForm onSubmit={jest.fn((data) => Promise.resolve(data))} /></StaticRouter>);
-			const usernameInput = container.querySelector('input[name="title"]');
-
-			await act(async () => {
-				fireEvent.input(usernameInput, { target: 'abcd' });
-				fireEvent.input(usernameInput, { target: '' });
+			beforeEach(() => {
+				mockedOnSubmit = jest.fn();
+				container = render(<SubjectCreationForm onSubmit={mockedOnSubmit} />).container;
+				titleInput = container.querySelector('input[name="title"]');
+				submitButton = container.querySelector('button[type="submit"]');
 			});
 
-			expect(container.textContent).not.toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
-		});
+			describe('on submit validation', () => {
+				it('should trigger a "required" validation error on the title input if it is empty on submit', () => {
+					act(() => {
+						fireEvent.input(titleInput, { target: { value: '' } });
+						fireEvent.click(submitButton);
+					});
 
-		it('should trigger validation onChange after form has been submitted at least once', async () => {
-			const { container } = render(<StaticRouter><SubjectCreationForm onSubmit={jest.fn((data) => Promise.resolve(data))} /></StaticRouter>);
-			const usernameInput = container.querySelector('input[name="title"]');
+					expect(mockedOnSubmit).not.toHaveBeenCalled();
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
+				});
 
-			await act(async () => {
-				fireEvent.submit(container.querySelector('button[type="submit"]'));
-				fireEvent.input(usernameInput, { target: 'abcd' });
-				// Should not have a "required" validation error since it holds value.
-				expect(container.textContent).not.toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
+				it('should trigger a "min_length" validation error on the title input if it has less than 3 characters on submit', () => {
+					act(() => {
+						fireEvent.input(titleInput, { target: { value: 'a' } });
+						fireEvent.click(submitButton);
+					});
 
-				fireEvent.input(usernameInput, { target: '' });
+					expect(mockedOnSubmit).not.toHaveBeenCalled();
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.min_length'));
+				});
+
+				it('should trigger a "max_length" validation error on the title input if it has more than 50 characters on submit', () => {
+					act(() => {
+						fireEvent.input(titleInput, { target: { value: 'a'.repeat(51) } });
+						fireEvent.click(submitButton);
+					});
+
+					expect(mockedOnSubmit).not.toHaveBeenCalled();
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.max_length'));
+				});
 			});
 
-			expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
+			describe('on change validation', () => {
+				// We only check the requried validation rule since all validation rules are checked.
+				it('should trigger a "required" validation error on the title input on change after the first submit', () => {
+					act(() => {
+						fireEvent.input(titleInput, { target: { value: '' } });
+						expect(container.textContent).not.toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
+						fireEvent.click(submitButton);
+						fireEvent.input(titleInput, { target: { value: 'a'.repeat(10) } });
+						expect(container.textContent).not.toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
+
+						fireEvent.input(titleInput, { target: { value: '' } });
+					});
+
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.title.validation_rules.required'));
+				});
+			});
+		});
+
+		describe('description textarea validation', () => {
+			let descriptionTextarea;
+			let submitButton;
+			let container;
+			let mockedOnSubmit;
+
+			beforeEach(() => {
+				mockedOnSubmit = jest.fn();
+				container = render(<SubjectCreationForm onSubmit={mockedOnSubmit} />).container;
+				descriptionTextarea = container.querySelector('textarea[name="description"]');
+				submitButton = container.querySelector('button[type="submit"]');
+			});
+
+			describe('on submit validation', () => {
+				it('should trigger a "required" validation error on the description textarea if it is empty on submit', () => {
+					act(() => {
+						fireEvent.input(descriptionTextarea, { target: { value: '' } });
+						fireEvent.click(submitButton);
+					});
+
+					expect(mockedOnSubmit).not.toHaveBeenCalled();
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.description.validation_rules.required'));
+				});
+
+				it('should trigger a "min_length" validation error on the description textarea if it has less than 10 characters on submit', () => {
+					act(() => {
+						fireEvent.input(descriptionTextarea, { target: { value: 'a' } });
+						fireEvent.click(submitButton);
+					});
+
+					expect(mockedOnSubmit).not.toHaveBeenCalled();
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.description.validation_rules.min_length'));
+				});
+
+				it('should trigger a "max_length" validation error on the description textarea if it has more than 301 characters on submit', () => {
+					act(() => {
+						fireEvent.input(descriptionTextarea, { target: { value: 'a'.repeat(301) } });
+						fireEvent.click(submitButton);
+					});
+
+					expect(mockedOnSubmit).not.toHaveBeenCalled();
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.description.validation_rules.max_length'));
+				});
+			});
+
+			describe('on change validation', () => {
+				// We only check the requried validation rule since all validation rules are checked.
+				it('should trigger a "required" validation error on the description input on change after the first submit', () => {
+					act(() => {
+						fireEvent.input(descriptionTextarea, { target: { value: '' } });
+						expect(container.textContent).not.toMatch(new RegExp('subjects.creation.form.fields.description.validation_rules.required'));
+						fireEvent.click(submitButton);
+						fireEvent.input(descriptionTextarea, { target: { value: 'a'.repeat(10) } });
+						expect(container.textContent).not.toMatch(new RegExp('subjects.creation.form.fields.description.validation_rules.required'));
+
+						fireEvent.input(descriptionTextarea, { target: { value: '' } });
+					});
+
+					expect(container.textContent).toMatch(new RegExp('subjects.creation.form.fields.description.validation_rules.required'));
+				});
+			});
 		});
 	});
 
 	describe('onSubmit', () => {
 		it('should call the onSubmit prop method with the form\'s inputs\' values.', async () => {
 			const mockedOnSubmit = jest.fn((data) => Promise.resolve(data));
-			const { container } = render(<StaticRouter><SubjectCreationForm onSubmit={mockedOnSubmit} /></StaticRouter>);
+			const { container } = render(<SubjectCreationForm onSubmit={mockedOnSubmit} />);
 
 			const expectedFormData = {
-				title: 'dummy subject title',
-				description: 'dummy subject description',
+				title: 'updated dummy subject title',
+				description: 'updated dummy subject description',
 			};
 
 			await act(async () => {
-				await Object.entries(expectedFormData).forEach(async ([name, value]) => {
-					await fireEvent.input(container.querySelector(`input[name="${name}"]`), { target: { value } });
-				});
+				await fireEvent.input(container.querySelector('input[name="title"]'), { target: { value: expectedFormData.title } });
+				await fireEvent.input(container.querySelector('textarea[name="description"]'), { target: { value: expectedFormData.description } });
 
-				await fireEvent.submit(container.querySelector('button[type="submit"]'));
+				await fireEvent.click(container.querySelector('button[type="submit"]'));
 			});
 
 			expect(mockedOnSubmit).toHaveBeenCalledTimes(1);
