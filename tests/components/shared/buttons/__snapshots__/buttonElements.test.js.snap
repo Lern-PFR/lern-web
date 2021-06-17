@@ -122,6 +122,98 @@ exports[`Exported buttons elements IconButton should match previous snapshot 1`]
 </DynamicButtonComponent>
 `;
 
+exports[`Exported buttons elements OutlinedButton should match previous snapshot 1`] = `
+<DynamicButtonComponent
+  bg={
+    Object {
+      "darker1": "#FFFFFF",
+      "darker2": "#FFFFFF",
+      "default": "#FFFFFF",
+      "lighter1": "#FFFFFF",
+      "lighter2": "#FFFFFF",
+    }
+  }
+  border="solid 1px #403B3B"
+  borderRadius={4}
+  color={
+    Object {
+      "darker1": "#332F2F",
+      "darker2": "#262323",
+      "default": "#403B3B",
+      "lighter1": "#666262",
+      "lighter2": "#8C8989",
+    }
+  }
+  disabled={false}
+  hover={
+    Object {
+      "bg": "#F5F5F2",
+    }
+  }
+  isIconOnly={false}
+  linkStyle={
+    Object {
+      "display": "inline-block",
+      "fontFamily": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+      "fontSize": ".778rem",
+      "fontWeight": 600,
+      "letterSpacing": 0.32,
+      "lineHeight": "1.125em",
+    }
+  }
+  onClick={[Function]}
+  padding="8px 16px"
+  textDecoration="none"
+>
+  Outlined button
+</DynamicButtonComponent>
+`;
+
+exports[`Exported buttons elements OutlinedLinkButton should match previous snapshot 1`] = `
+<DynamicLinkButtonComponent
+  bg={
+    Object {
+      "darker1": "#FFFFFF",
+      "darker2": "#FFFFFF",
+      "default": "#FFFFFF",
+      "lighter1": "#FFFFFF",
+      "lighter2": "#FFFFFF",
+    }
+  }
+  border="solid 1px #403B3B"
+  borderRadius={4}
+  color={
+    Object {
+      "darker1": "#332F2F",
+      "darker2": "#262323",
+      "default": "#403B3B",
+      "lighter1": "#666262",
+      "lighter2": "#8C8989",
+    }
+  }
+  disabled={false}
+  hover={
+    Object {
+      "bg": "#F5F5F2",
+    }
+  }
+  linkStyle={
+    Object {
+      "display": "inline-block",
+      "fontFamily": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+      "fontSize": ".778rem",
+      "fontWeight": 600,
+      "letterSpacing": 0.32,
+      "lineHeight": "1.125em",
+    }
+  }
+  padding="8px 16px"
+  textDecoration="none"
+>
+  Outlined Link button
+</DynamicLinkButtonComponent>
+`;
+
 exports[`Exported buttons elements PrimaryButton should match previous snapshot 1`] = `
 <DynamicButtonComponent
   bg={
