@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { flexbox, color, typography } from 'styled-system';
+import { layout, flexbox, color, typography } from 'styled-system';
 import { disabledStyle, labelStyle } from 'theme/formStyles';
 import { getTypographyStyleByName } from '../typography';
 
@@ -10,6 +10,7 @@ const StyledLabelComponent = styled('label')(
 	flexbox,
 	color,
 	typography,
+	layout,
 );
 
 /**

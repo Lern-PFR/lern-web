@@ -177,48 +177,60 @@
 			"structure": {
 				"title": "Créer mon premier cours.",
 				"subtitle": "Pour faciliter l'apprentissage, les informations sont imbriquées en catégories, à l'instar des poupées russes.",
-				"subject": {
-					"description": "Le plus grand élément, le <1>sujet</1>, contient tous les autres.",
-					"example": "Sujet : Introduction à l'UX Design"
+				"button_right": "Suiv.",
+				"button_left": "Préc.",
+				"subjects": {
+					"description": "Le plus grand élément, le <bold>sujet</bold>, contient tous les autres.",
+					"examples": [
+						{
+							"title": "Sujet : Introduction à l'UX Design"
+						}
+					]
 				},
-				"module": {
+				"modules": {
 					"description": "Ce sujet est divisé en <strong>modules...</strong>",
 					"examples": [
 						{
-							"example": ""
+							"title": "Module 1 : Fondamentaux de l'UX Design"
 						},
 						{
-							"example": ""
+							"title": "Module 2 : Principes de base de l'UX Design"
 						}
 					]
 				},
-				"notion": {
-					"description": "...lui-même divisé en <strong>notions.</strong>",
+				"concepts": {
+					"description": "...eux-mêmes divisés en <strong>notions.</strong>",
 					"examples": [
 						{
-							"example": ""
+							"title": "Notion 1 : Qu'est ce que l'UX Design?"
 						},
 						{
-							"example": ""
+							"title": "Notion 2 : Quel est le rôle de l'UX Design?"
 						}
 					]
 				},
-				"course": {
-					"description": "Enfin, chaque notion est composée d&apos;un ou plusieurs <strong>cours</strong> et <strong>exercices.</strong>",
+				"courses": {
+					"description": "Enfin, chaque notion est composée d'un ou plusieurs <strong>cours</strong> et <strong>exercices.</strong>",
 					"examples": [
 						{
-							"example": ""
+							"title": "Cours 1 : Définir l'UX Design"
 						},
 						{
-							"example": ""
+							"title": "Cours 2 : Différences avec l'UI Design?"
 						},
 						{
-							"example": ""
+							"title": "Cours 3 : La place de la psychologie"
 						},
 						{
-							"example": ""
+							"title": "Exercice 1 : Résumer l'UX Design à un enfant"
 						}
 					]
+				},
+				"completed": {
+					"title": "Félicitations ! Vous avez terminé le tutoriel explicatif sur la manière dont sont structurés les contenus.",
+					"subtitle": "Vous pouvez maintenant créer votre premier cours, ou retourner sur les différentes étapes du tutoriel.",
+					"button_finish": "J'ai compris, je veux créer mon cours !",
+					"button_to_start": "Ramenez-moi au début du tutoriel"
 				}
 			}
 		},

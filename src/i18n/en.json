@@ -174,50 +174,62 @@
 				}
 			},
 			"structure": {
-				"title": "Créer mon premier cours.",
-				"subtitle": "Pour faciliter l'apprentissage, les informations sont imbriquées en catégories, à l'instar des poupées russes.",
-				"subject": {
-					"description": "Le plus grand élément, le <bold>sujet</bold>, contient tous les autres.",
-					"example": "Sujet : Introduction à l'UX Design"
-				},
-				"module": {
-					"description": "Ce sujet est divisé en <strong>modules...</strong>",
+				"title": "Create my first course.",
+				"subtitle": "To ease the learning curve, the information is split into nested categories inspired by Russian nested dolls.",
+				"button_right": "Next",
+				"button_left": "Prev.",
+				"subjects": {
+					"description": "The largest element, the <bold>subject</bold>, contains all the others.",
 					"examples": [
 						{
-							"example": "Module 1 : Fondamentaux de l'UX Design"
-						},
-						{
-							"example": "Module 2 : Principes de base de l'UX Design"
+							"title": "Subject : Introduction to UX Design"
 						}
 					]
 				},
-				"notion": {
-					"description": "...lui-même divisé en <strong>notions.</strong>",
+				"modules": {
+					"description": "This subject is divided into <strong>modules...</strong>",
 					"examples": [
 						{
-							"example": "Notion 1 : Qu'est ce que l'UX Design?"
+							"title": "Module 1 : Fundamentals of UX Design"
 						},
 						{
-							"example": "Notion 2 : Quel est le rôle de l'UX Design?"
+							"title": "Module 2 : Basic principals of UX Design"
 						}
 					]
 				},
-				"course": {
-					"description": "Enfin, chaque notion est composée d&apos;un ou plusieurs <strong>cours</strong> et <strong>exercices.</strong>",
+				"concepts": {
+					"description": "...themselves split into <strong>concepts.</strong>",
 					"examples": [
 						{
-							"example": "Cours 1 : Définir l'UX Design?"
+							"title": "Concept 1 : What is UX Design?"
 						},
 						{
-							"example": "Cours 2 : Différences avec l'UI Design?"
-						},
-						{
-							"example": "Cours 3 : La place de la psychologie"
-						},
-						{
-							"example": "Exercice 1 : Résumer l'UX Design à un enfant"
+							"title": "Concept 2 : What role does UX Design play?"
 						}
 					]
+				},
+				"courses": {
+					"description": "Finally, every concept is made up of one or more <strong>lessons</strong> and <strong>exercises.</strong>",
+					"examples": [
+						{
+							"title": "Cours 1 : Defining UX Design?"
+						},
+						{
+							"title": "Cours 2 : Differences with UI Design?"
+						},
+						{
+							"title": "Cours 3 : Impact of psychology"
+						},
+						{
+							"title": "Exercice 1 : Summarize UX Design to a child"
+						}
+					]
+				},
+				"completed": {
+					"title": "Congratulations ! You have completed the tutorial explaining the content structure.",
+					"subtitle": "You can now create your own course or go back through the tutorial.",
+					"button_finish": "I understand, let's start creating!",
+					"button_to_start": "Take me back to the tutorial"
 				}
 			}
 		},

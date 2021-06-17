@@ -1,33 +1,30 @@
-import { peppercorn, tuna, coconut } from 'theme/colors';
-import { mainLayoutTopPadding, navbarHeight } from 'theme/constants';
+import { peppercorn, tuna, basmati } from 'theme/colors';
 
 const pageLayout = {
 	display: 'grid',
 	gridTemplateColumns: 'minmax(35%, 1fr) minmax(calc(65% - 124px), 2fr)',
 	gridGap: '124px',
 	marginBottom: '3em',
+	minHeight: '28em',
 };
 
-const subjectDetails = {
-	position: 'sticky',
-	top: `${navbarHeight + mainLayoutTopPadding}px`,
-	paddingBottom: '3em',
-	backgroundColor: coconut.default,
+const titleDiv = {
+	minHeight: '8em',
+};
+
+const completedDiv = {
+	minHeight: '36em',
+	marginBottom: '3em',
+};
+
+const completedButton = {
+	border: `solid 1px ${peppercorn.default}`,
+	margin: '2em',
 };
 
 const subjectName = {
 	lineHeight: 'initial',
 	margin: 0,
-};
-
-const subjectAuthor = {
-	fontWeight: 600,
-	color: tuna.default,
-};
-
-const subjectDescription = {
-	fontWeight: 600,
-	color: peppercorn.default,
 };
 
 const list = {
@@ -63,30 +60,6 @@ const activeListItemText = {
 	fontWeight: 600,
 };
 
-const moduleList = {
-	display: 'block',
-};
-
-const notionList = {
-	display: 'block',
-};
-
-const courseList = {
-	display: 'block',
-};
-
-const moduleDescription = {
-	margin: 0,
-	lineHeight: 'initial',
-	textOverflow: 'ellipsis',
-	whiteSpace: 'nowrap',
-	overflow: 'hidden',
-};
-
-const moduleAccessLinkButton = {
-	width: 'max-content',
-};
-
 const backToListButton = {
 	display: 'flex',
 	alignItems: 'center',
@@ -98,8 +71,35 @@ const backToListSvg = {
 	stroke: tuna.default,
 };
 
+const stepper = {
+	backgroundColor: basmati.default,
+	height: '12px',
+	width: '12px',
+	border: 0,
+	borderRadius: '50%',
+	marginLeft: '2px',
+	marginRight: '2px',
+	transition: 'transform .05s ease-out, flex .05s ease-out',
+	cursor: 'pointer',
+
+	'&:hover': {
+		transform: 'scale(1.3)',
+		backgroundColor: peppercorn.default,
+	},
+};
+
+const stepperCurrent = {
+	backgroundColor: peppercorn.default,
+};
+
 export {
+	backToListButton,
 	pageLayout,
+	titleDiv,
+	completedDiv,
+	completedButton,
+	subjectName,
+	backToListSvg,
 	list,
 	listItem,
 	lastListItem,
@@ -107,15 +107,6 @@ export {
 	listItemText,
 	activeListItem,
 	activeListItemText,
-	moduleList,
-	notionList,
-	courseList,
-	moduleDescription,
-	moduleAccessLinkButton,
-	subjectDetails,
-	subjectName,
-	subjectAuthor,
-	subjectDescription,
-	backToListButton,
-	backToListSvg,
+	stepper,
+	stepperCurrent,
 };
