@@ -53,8 +53,8 @@ const ModuleDetailsPage = () => {
 							</Link>
 						</SubtleLinkButton>
 						<Canon tag="h1" {...moduleName}>{module?.title}</Canon>
+						<GreatPrimer {...moduleDescription}>{module?.description}</GreatPrimer>
 					</StyledDiv>
-					<GreatPrimer {...moduleDescription}>{module?.description}</GreatPrimer>
 					<ConceptList concepts={module?.concepts} />
 				</>
 			)}

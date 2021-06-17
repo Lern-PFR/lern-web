@@ -13,8 +13,8 @@ import ConceptListItem from './ConceptListItem';
  */
 const ConceptList = ({ concepts }) => (
 	<StyledList listStyle="none" {...conceptList}>
-		{concepts && concepts.map(({ id, title, description, lessons }) => (
-			<ConceptListItem key={id} id={id} title={title} description={description} lessons={lessons} />
+		{concepts && concepts.map(({ id, title, description, courses }) => (
+			<ConceptListItem key={id} id={id} title={title} description={description} lessons={courses} />
 		))}
 	</StyledList>
 );

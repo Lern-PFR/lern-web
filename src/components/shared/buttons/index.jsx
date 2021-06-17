@@ -59,6 +59,20 @@ const OutlinedButton = ({ children, ...otherProps }) => (
 );
 
 /**
+ * @name OutlinedLinkButton
+ * @description Link button component to use as primary when a CTA is already defined.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {*} children The children to display inside this button.
+ */
+const OutlinedLinkButton = ({ children, ...otherProps }) => (
+	<DynamicLinkButtonComponent linkStyle={primaryLink} {...outlined} {...otherProps}>
+		{children}
+	</DynamicLinkButtonComponent>
+);
+
+/**
  * @name StandardButton
  * @description Standard button component to be used for most use-cases.
  *
@@ -180,6 +194,14 @@ OutlinedButton.propTypes = {
 	]).isRequired,
 };
 
+OutlinedLinkButton.propTypes = {
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.elementType,
+		PropTypes.node,
+	]).isRequired,
+};
+
 StandardButton.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.element,
@@ -239,6 +261,7 @@ FloatingActionButton.propTypes = {
 export {
 	FloatingActionButton,
 	OutlinedButton,
+	OutlinedLinkButton,
 	PrimaryButton,
 	PrimaryLinkButton,
 	StandardButton,
