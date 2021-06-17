@@ -5,9 +5,11 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import routeData from 'react-router';
+import { baseUrl } from 'lib/shared/http';
 
 import RouterProvider from 'routes/components/RouterProvider';
 import { ActionTypes as SubjectsActionTypes } from 'redux/actions/subjects';
+import fetchMock from 'fetch-mock';
 
 const mockStore = configureMockStore([thunk]);
 
@@ -59,19 +61,23 @@ describe('Subject edition page', () => {
 
 	describe('dispatched method calls', () => {
 		it('should call the fetchSubject action creator on mount', () => {
-			try {
-				mount(
-					<Provider store={store}>
-						<RouterProvider>
-							<SubjectEditionPage />
-						</RouterProvider>
-					</Provider>
-				);
-			// eslint-disable-next-line no-empty
-			} catch (e) {
-			} finally {
-				expect(store.getActions()).toContainEqual({ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST });
-			}
+			const httpResponse = {
+				status: 200,
+				body: { id: 1, name: 'subject_name' },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/subjects/1`, httpResponse);
+
+			mount(
+				<Provider store={store}>
+					<RouterProvider>
+						<SubjectEditionPage />
+					</RouterProvider>
+				</Provider>
+			);
+
+			expect(store.getActions()).toContainEqual({ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST });
 		});
 	});
 });
