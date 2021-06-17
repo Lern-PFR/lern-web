@@ -1,7 +1,9 @@
+import { generatePath } from 'react-router';
+import { toast } from 'react-toastify';
 import * as SubjectsApi from 'api/subjectsApi';
 import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
-import { generatePath } from 'react-router';
 import routes from 'routes';
+import i18next from 'i18next';
 
 /**
  * @constant
@@ -359,7 +361,10 @@ export const updateSubject = (subjectData, subjectId) => (dispatch) => {
 	dispatch(updateSubjectRequest());
 
 	return SubjectsApi.updateSubject(subjectData, subjectId)
-		.then(({ subject }) => dispatch(updateSubjectSuccess({ subject })))
+		.then(({ subject }) => {
+			dispatch(updateSubjectSuccess({ subject }));
+			toast.success(i18next.t('subjects.edition.toasts.success'));
+		})
 		.catch((error) => dispatch(updateSubjectFailure(error)));
 };
 

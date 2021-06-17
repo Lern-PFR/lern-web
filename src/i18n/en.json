@@ -196,6 +196,9 @@
 						"delete": "Delete",
 						"edit": "Edit"
 					}
+				},
+				"toasts": {
+					"success": "Your changes have been successfully applied."
 				}
 			},
 			"links": {

@@ -36,7 +36,7 @@ exports[` 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="subjects.edition.form.fields.description.placeholder"
-    rows={2}
+    rows={6}
     type="textarea"
   >
     subjects.edition.form.fields.description.label

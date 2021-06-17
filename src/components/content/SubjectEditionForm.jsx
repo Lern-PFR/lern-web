@@ -166,6 +166,7 @@ const SubjectEditionForm = ({ onSubmit, subject }) => {
 							name={name}
 							type={inputType}
 							onChange={handleChange}
+							rows={6}
 							onBlur={handleBlur}
 							hasError={errors[name] && Object.keys(errors[name])?.length > 0}
 							errorText={getErrorMessageByFieldName(name)}

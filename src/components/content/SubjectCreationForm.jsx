@@ -164,6 +164,7 @@ const SubjectCreationForm = ({ onSubmit }) => {
 							type={inputType}
 							onChange={handleChange}
 							onBlur={handleBlur}
+							rows={6}
 							hasError={errors[name] && Object.keys(errors[name])?.length > 0}
 							errorText={getErrorMessageByFieldName(name)}
 							placeholder={hasPlaceholder ? t(`subjects.edition.form.fields.${name}.placeholder`) : undefined}

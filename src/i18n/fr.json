@@ -197,7 +197,11 @@
 						"delete": "Supprimer",
 						"edit": "Editer"
 					}
+				},
+				"toasts": {
+					"success": "Vos modifications ont bien été enregistrées."
 				}
+
 			},
 			"links": {
 				"create": "Créer un nouveau sujet",
