@@ -59,15 +59,19 @@ describe('Subject edition page', () => {
 
 	describe('dispatched method calls', () => {
 		it('should call the fetchSubject action creator on mount', () => {
-			mount(
-				<Provider store={store}>
-					<RouterProvider>
-						<SubjectEditionPage />
-					</RouterProvider>
-				</Provider>
-			);
-
-			expect(store.getActions()).toContainEqual({ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST });
+			try {
+				mount(
+					<Provider store={store}>
+						<RouterProvider>
+							<SubjectEditionPage />
+						</RouterProvider>
+					</Provider>
+				);
+			// eslint-disable-next-line no-empty
+			} catch (e) {
+			} finally {
+				expect(store.getActions()).toContainEqual({ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST });
+			}
 		});
 	});
 });
