@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import styled from 'styled-components';
@@ -11,7 +11,6 @@ import { Canon, BodyCopy, GreatPrimer } from 'components/shared/typography';
 import { SubtleLinkButton, SubtleButton } from 'components/shared/buttons';
 import { Link } from 'components/shared/navigation';
 import { navigationChevrons } from 'theme/pages/concepts/conceptDetailsPage';
-// import ConceptContentNavigator from 'components/concepts/conceptDetailsPage/ConceptContentNavigator';
 
 import {
 	backToListButton,
@@ -65,11 +64,14 @@ const SubjectStructurePage = () => {
 	 *
 	 * @author Christopher Walker
 	 */
-	const onPreviousClick = () => {
-		if (step > 0) {
-			setStep(step - 1);
-		}
-	};
+	const onPreviousClick = useCallback(
+		() => {
+			if (step > 0) {
+				setStep(step - 1);
+			}
+		},
+		[step],
+	);
 
 	/**
 	 * @name onNextClick
@@ -77,11 +79,14 @@ const SubjectStructurePage = () => {
 	 *
 	 * @author Christopher Walker
 	 */
-	const onNextClick = () => {
-		if (step < 4) {
-			setStep(step + 1);
-		}
-	};
+	const onNextClick = useCallback(
+		() => {
+			if (step < 4) {
+				setStep(step + 1);
+			}
+		},
+		[step],
+	);
 
 	/**
 	 * @name onStepperClick
