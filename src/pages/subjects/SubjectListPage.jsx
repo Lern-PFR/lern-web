@@ -77,7 +77,7 @@ const SubjectListPage = ({ t }) => {
 			<StyledDiv as="section" {...section}>
 				<SubjectListSectionTitle>{t('subjects.list_page.sections.my_subjects')}</SubjectListSectionTitle>
 				<StyledList {...sectionList}>
-					{subjects?.mine && subjects?.mine.length > 0 && subjects.mine.map((subject) => (<SubjectCard key={subject.id} {...subject} />))}
+					{subjects?.mine && subjects?.mine.length > 0 && subjects.mine.map((subject) => (<SubjectCard key={subject.id} isCurrentUserTheAuthor {...subject} />))}
 					{(!subjects?.mine || subjects?.mine.length === 0) && <BodyCopy>{t('subjects.list_page.no_data')}</BodyCopy>}
 				</StyledList>
 				<PrimaryLinkButton justifySelf="start">

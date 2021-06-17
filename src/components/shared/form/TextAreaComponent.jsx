@@ -10,7 +10,10 @@ import { errorInputStyle, disabledInputStyle, textareaStyle } from 'theme/formSt
 import { forwardRef, useRef } from 'react';
 
 const StyledTextAreaComponent = styled('textarea')(
-	{ ...textareaStyle },
+	{
+		...textareaStyle,
+		resize: (({ resize }) => resize ?? 'vertical'),
+	},
 	border,
 	layout,
 	shadow,

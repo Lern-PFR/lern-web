@@ -1,7 +1,9 @@
+import { generatePath } from 'react-router';
+import { toast } from 'react-toastify';
 import * as SubjectsApi from 'api/subjectsApi';
 import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
-import { generatePath } from 'react-router';
 import routes from 'routes';
+import i18next from 'i18next';
 
 /**
  * @constant
@@ -332,7 +334,7 @@ export const fetchSubjectList = () => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object}	subjectData				The data to create the new subject from.
+ * @param {object}	subjectData	The data to create the new subject from.
  */
 export const createSubject = (subjectData) => (dispatch) => {
 	dispatch(createSubjectRequest());
@@ -340,7 +342,7 @@ export const createSubject = (subjectData) => (dispatch) => {
 	return SubjectsApi.createSubject(subjectData)
 		.then((subject) => {
 			dispatch(createSubjectSuccess({ subject }));
-			redirectOnSuccess(generatePath(routes.subjects.subjectDetails, { subjectId: subject.id }));
+			redirectOnSuccess(generatePath(routes.subjects.subjectEdition, { subjectId: subject.id }));
 		})
 		.catch((error) => dispatch(createSubjectFailure(error)));
 };
@@ -359,7 +361,10 @@ export const updateSubject = (subjectData, subjectId) => (dispatch) => {
 	dispatch(updateSubjectRequest());
 
 	return SubjectsApi.updateSubject(subjectData, subjectId)
-		.then(({ subject }) => dispatch(updateSubjectSuccess({ subject })))
+		.then(({ subject }) => {
+			dispatch(updateSubjectSuccess({ subject }));
+			toast.success(i18next.t('subjects.edition.toasts.success'));
+		})
 		.catch((error) => dispatch(updateSubjectFailure(error)));
 };
 

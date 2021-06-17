@@ -4,6 +4,8 @@ import { Home } from 'react-feather';
 import {
 	PrimaryButton,
 	PrimaryLinkButton,
+	OutlinedButton,
+	OutlinedLinkButton,
 	StandardButton,
 	SubtleButton,
 	DropdownButton,
@@ -25,6 +27,24 @@ describe('Exported buttons elements', () => {
 	describe('PrimaryButton', () => {
 		it('should match previous snapshot', () => {
 			const sut = (<PrimaryLinkButton>Primary Link button</PrimaryLinkButton>);
+			const wrapper = shallow(sut);
+
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	describe('OutlinedButton', () => {
+		it('should match previous snapshot', () => {
+			const sut = (<OutlinedButton>Outlined button</OutlinedButton>);
+			const wrapper = shallow(sut);
+
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	describe('OutlinedLinkButton', () => {
+		it('should match previous snapshot', () => {
+			const sut = (<OutlinedLinkButton>Outlined Link button</OutlinedLinkButton>);
 			const wrapper = shallow(sut);
 
 			expect(wrapper).toMatchSnapshot();

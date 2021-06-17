@@ -1,24 +1,14 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidation';
+
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
+import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidation';
+import { StyledForm } from 'components/shared/styledElements';
+import LabeledTextArea from 'components/shared/form/LabeledTextArea';
 import { LabeledInput } from 'components/shared/form';
 import { PrimaryButton } from 'components/shared/buttons';
-import { StyledForm } from 'components/shared/styledElements';
-import { form, formSubmit } from 'theme/pages/subjects/subjectCreationPage';
-
-/**
- * @constant
- * @name initialState
- * @description The form's initial state value.
- *
- * @author Timothée Simon-Franza
- */
-const initialState = {
-	title: '',
-	description: '',
-};
+import { form, formSubmit } from 'theme/contentEditionCommon/genericLayout';
 
 /**
  * @constant
@@ -35,7 +25,7 @@ const validationRules = {
 	},
 	description: {
 		required: isRequired('required'),
-		hasMinLength: hasMinLength(3, 'min_length'),
+		hasMinLength: hasMinLength(10, 'min_length'),
 		hasMaxLength: hasMaxLength(300, 'max_length'),
 	},
 };
@@ -49,18 +39,27 @@ const validationRules = {
  */
 const inputsDefinition = {
 	title: { id: 'title', name: 'title', hasPlaceholder: true },
-	description: { id: 'description', name: 'description', hasPlaceholder: true },
+	description: { id: 'description', name: 'description', inputType: 'textarea', hasPlaceholder: true },
 };
 
 /**
- * @name SubjectCreationForm
- * @description A form component used to create a subject.
+ * @name SubjectEditionForm
+ * @description A form component used to edit a subject.
  *
  * @author Timothée Simon-Franza
  *
- * @param {func} onSubmit The method to trigger on form validation.
+ * @param {func}	onSubmit			The method to trigger on form submission.
+ * @param {object}	subject				The subject element to edit.
+ * @param {string}	subject.id			The subject's id.
+ * @param {string}	subject.title		The subject's title.
+ * @param {string}	subject.description	The subject's description.
  */
-const SubjectCreationForm = ({ onSubmit }) => {
+const SubjectEditionForm = ({ onSubmit, subject }) => {
+	const initialState = useMemo(() => ({
+		title: subject.title,
+		description: subject.description,
+	}), [subject]);
+
 	const { t } = useTranslation();
 	const [formState, setFormState] = useState(initialState);
 	const [errors, setErrors] = useState({});
@@ -74,7 +73,7 @@ const SubjectCreationForm = ({ onSubmit }) => {
 	 *
 	 * @author Timothée Simon-Franza
 	 *
-	 * @param {object} event	The event originating from the form's submission.
+	 * @param {object} event The event originating from the form's submission.
 	 */
 	const handleSubmit = useCallback((event) => {
 		event?.preventDefault();
@@ -138,13 +137,19 @@ const SubjectCreationForm = ({ onSubmit }) => {
 	}, [errors, setErrors]);
 
 	/**
+	 * @function
+	 * @name getErrorMessageByFieldName
+	 * @description Returns the translated validation error message for the provided fieldname if it exists.
 	 *
-	 * @param {*} fieldName
-	 * @returns
+	 * @author Timothée Simon-Franza
+	 *
+	 * @param {string} fieldName The name of the field we want the validation message of.
+	 *
+	 * @returns {string}
 	 */
 	const getErrorMessageByFieldName = (fieldName) => {
 		if (errors[fieldName] && Object.keys(errors[fieldName])?.length > 0) {
-			return t(`subjects.creation.form.fields.${fieldName}.validation_rules.${Object.values(errors[fieldName])?.[0]}`);
+			return t(`subjects.edition.form.fields.${fieldName}.validation_rules.${Object.values(errors[fieldName])?.[0]}`);
 		}
 
 		return '';
@@ -153,30 +158,57 @@ const SubjectCreationForm = ({ onSubmit }) => {
 	return (
 		<StyledForm onSubmit={handleSubmit} {...form}>
 			{Object.values(inputsDefinition).map(({ id, name, inputType = 'text', hasPlaceholder }) => (
-				<LabeledInput
-					key={id}
-					id={id}
-					name={name}
-					type={inputType}
-					onChange={handleChange}
-					onBlur={handleBlur}
-					hasError={errors[name] && Object.keys(errors[name])?.length > 0}
-					errorText={getErrorMessageByFieldName(name)}
-					placeholder={hasPlaceholder ? t(`subjects.creation.form.fields.${name}.placeholder`) : undefined}
-					ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
-				>
-					{t(`subjects.creation.form.fields.${name}.label`)}
-				</LabeledInput>
+				inputType === 'textarea'
+					? (
+						<LabeledTextArea
+							key={id}
+							id={id}
+							name={name}
+							type={inputType}
+							onChange={handleChange}
+							rows={6}
+							onBlur={handleBlur}
+							hasError={errors[name] && Object.keys(errors[name])?.length > 0}
+							errorText={getErrorMessageByFieldName(name)}
+							placeholder={hasPlaceholder ? t(`subjects.edition.form.fields.${name}.placeholder`) : undefined}
+							ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
+							defaultValue={formState[name]}
+						>
+							{t(`subjects.edition.form.fields.${name}.label`)}
+						</LabeledTextArea>
+					)
+					: (
+						<LabeledInput
+							key={id}
+							id={id}
+							name={name}
+							type={inputType}
+							onChange={handleChange}
+							onBlur={handleBlur}
+							hasError={errors[name] && Object.keys(errors[name])?.length > 0}
+							errorText={getErrorMessageByFieldName(name)}
+							placeholder={hasPlaceholder ? t(`subjects.edition.form.fields.${name}.placeholder`) : undefined}
+							ref={(fieldRef) => { fieldsRef.current[name] = fieldRef; }}
+							defaultValue={formState[name]}
+						>
+							{t(`subjects.edition.form.fields.${name}.label`)}
+						</LabeledInput>
+					)
 			))}
 			<PrimaryButton type="submit" {...formSubmit}>
-				{t('subjects.creation.form.action.submit')}
+				{t('subjects.edition.form.action.submit')}
 			</PrimaryButton>
 		</StyledForm>
 	);
 };
 
-SubjectCreationForm.propTypes = {
+SubjectEditionForm.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
+	subject: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+	}).isRequired,
 };
 
-export default SubjectCreationForm;
+export default SubjectEditionForm;

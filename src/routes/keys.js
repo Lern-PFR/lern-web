@@ -25,10 +25,13 @@ export default Object.freeze({
 		list: '/subjects',
 		subjectStructure: '/subjects/structure',
 		subjectCreation: '/subjects/create',
+		subjectEdition: '/subjects/edit/:subjectId',
 		subjectDetails: '/subjects/:subjectId',
 	},
 	modules: {
 		default: '/modules',
+		moduleCreation: '/modules/create',
+		moduleEdition: '/modules/edit/:moduleId',
 		moduleDetails: '/modules/:moduleId',
 	},
 	concepts: {

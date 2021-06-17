@@ -12,7 +12,9 @@ exports[`ConceptListItem should match previous snapshot 1`] = `
     margin={0}
     tag="h2"
     textTransform="capitalize"
-  />
+  >
+    abcd
+  </Paragon>
   <BodyCopy
     lineHeight="initial"
     margin={0}
@@ -52,7 +54,9 @@ exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
     margin={0}
     tag="h2"
     textTransform="capitalize"
-  />
+  >
+    abcd
+  </Paragon>
   <BodyCopy
     lineHeight="initial"
     margin={0}
@@ -84,6 +88,7 @@ exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
       id="1"
       key="1"
       t={[Function]}
+      title="lesson 1"
     />
     <LessonListItem
       conceptId="abcd"
@@ -92,6 +97,7 @@ exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
       id="2"
       key="2"
       t={[Function]}
+      title="lesson 2"
     />
     <LessonListItem
       conceptId="abcd"
@@ -100,6 +106,7 @@ exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
       id="3"
       key="3"
       t={[Function]}
+      title="lesson 3"
     />
   </styled.ul>
 </styled.li>

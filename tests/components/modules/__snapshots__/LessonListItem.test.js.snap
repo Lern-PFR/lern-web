@@ -15,7 +15,9 @@ exports[`LessonListItem should match previous disabled-state snapshot 1`] = `
   <GreatPrimer
     margin={0}
     textTransform="capitalize"
-  />
+  >
+    abcd
+  </GreatPrimer>
   <BodyCopy
     display="inline-block"
     lineHeight="initial"
@@ -57,7 +59,9 @@ exports[`LessonListItem should match previous snapshot 1`] = `
   <GreatPrimer
     margin={0}
     textTransform="capitalize"
-  />
+  >
+    abcd
+  </GreatPrimer>
   <BodyCopy
     display="inline-block"
     lineHeight="initial"

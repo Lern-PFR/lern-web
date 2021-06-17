@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subject edition page - module list snapshots should match previous snapshot with a non-empty moduleList prop 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <SubjectModuleList
+    moduleList={
+      Array [
+        Object {
+          "description": "dummy_module_desc_1",
+          "id": "dummy_module_id_1",
+          "title": "dummy_module_title_1",
+        },
+        Object {
+          "description": "dummy_module_desc_2",
+          "id": "dummy_module_id_2",
+          "title": "dummy_module_title_2",
+        },
+        Object {
+          "description": "dummy_module_desc_3",
+          "id": "dummy_module_id_3",
+          "title": "dummy_module_title_3",
+        },
+      ]
+    }
+  />
+</ContextProvider>
+`;
+
+exports[`Subject edition page - module list snapshots should match previous snapshot with an empty moduleList prop 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <SubjectModuleList
+    moduleList={Array []}
+  />
+</ContextProvider>
+`;

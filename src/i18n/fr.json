@@ -153,7 +153,7 @@
 							"placeholder": "Qu'est-ce que l'UX ? Quelle différence avec l'UI ? Quel est son lien avec la psychologie ? Découvrez comment rendre un produit agréable.",
 							"validation_rules": {
 								"required": "Veuillez décrire votre sujet.",
-								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
 								"max_length": "Veuillez saisir 300 caractères maximum."
 							}
 						}
@@ -162,6 +162,46 @@
 				"sidebar": {
 					"new_subject": "Nouveau sujet"
 				}
+			},
+			"edition": {
+				"title": "Editer mon sujet",
+				"form": {
+					"action": {
+						"submit": "Enregistrer mes modifications"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Introduction à l'UX Design",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "Qu'est-ce que l'UX ? Quelle différence avec l'UI ? Quel est son lien avec la psychologie ? Découvrez comment rendre un produit agréable.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre sujet.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						}
+					}
+				},
+				"modules_list": {
+					"title": "Modules de ce sujet",
+					"links": {
+						"add": "Ajouter un module",
+						"delete": "Supprimer",
+						"edit": "Editer"
+					}
+				},
+				"toasts": {
+					"success": "Vos modifications ont bien été enregistrées."
+				}
+
 			},
 			"links": {
 				"create": "Créer un nouveau sujet",

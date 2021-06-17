@@ -3,7 +3,7 @@
 import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { ConceptDetailsPage } from 'pages/concepts';
-import { SubjectCreationPage, SubjectDetailsPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
+import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
 import { ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
 
@@ -106,6 +106,13 @@ export default [
 				allowAuthenticated: true,
 				exact: true,
 				component: SubjectCreationPage,
+			},
+			{
+				path: keys.subjects.subjectEdition,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: SubjectEditionPage,
 			},
 			{
 				path: keys.subjects.subjectDetails,

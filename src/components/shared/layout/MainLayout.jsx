@@ -17,7 +17,18 @@ import routes from 'routes';
 const MainLayout = ({ children }) => {
 	const location = useLocation();
 
-	const shouldRemovePadding = useMemo(() => location.pathname === routes.subjects.subjectCreation, [location.pathname]);
+	const shouldRemovePadding = useMemo(() => {
+		if (location.pathname === routes.subjects.subjectCreation) {
+			return true;
+		}
+
+		const slicedPathname = location.pathname.slice(0, location.pathname.lastIndexOf('/') + 1);
+		if (slicedPathname === routes.subjects.subjectEdition.slice(0, routes.subjects.subjectEdition.lastIndexOf('/') + 1)) {
+			return true;
+		}
+
+		return false;
+	}, [location.pathname]);
 
 	return (
 		<StyledDiv {...mainContainerLayout}>

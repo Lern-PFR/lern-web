@@ -152,7 +152,7 @@
 							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what make an accessible, user-friendly product.",
 							"validation_rules": {
 								"required": "Please describe your subject.",
-								"min_length": "Please enter at least 3 characters.",
+								"min_length": "Please enter at least 10 characters.",
 								"max_length": "Please enter 300 characters maximum."
 							}
 						}
@@ -160,6 +160,45 @@
 				},
 				"sidebar": {
 					"new_subject": "New subject"
+				}
+			},
+			"edition": {
+				"title": "Edit my subject",
+				"form": {
+					"action": {
+						"submit": "Save my changes"
+					},
+					"fields": {
+						"title": {
+							"label": "Title",
+							"placeholder": "Introduction to UX Design",
+							"validation_rules": {
+								"required": "Please provide a title.",
+								"min_length": "Please enter at least 3 characters.",
+								"max_length": "Please enter 50 characters maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what make an accessible, user-friendly product.",
+							"validation_rules": {
+								"required": "Please describe your subject.",
+								"min_length": "Please enter at least 10 characters.",
+								"max_length": "Please enter 300 characters maximum."
+							}
+						}
+					}
+				},
+				"modules_list": {
+					"title": "This subject's modules",
+					"links": {
+						"add": "Add a new module",
+						"delete": "Delete",
+						"edit": "Edit"
+					}
+				},
+				"toasts": {
+					"success": "Your changes have been successfully applied."
 				}
 			},
 			"links": {
