@@ -1,4 +1,4 @@
-import { getSubjectById, getSubjects, getSubjectsByTitleOrAuthor } from 'redux/selectors/subjects';
+import { getSubjectById, getSubjects, getSubjectsByTitleOrAuthor, getContentManipulationSidebarData } from 'redux/selectors/subjects';
 
 describe('Subject state selectors', () => {
 	describe('getSubjects', () => {
@@ -199,5 +199,222 @@ describe('Subject state selectors', () => {
 		});
 	});
 
-	// @TODO: test the getContentManipulationSidebarData method.
+	describe('getContentManipulationSidebarData', () => {
+		it('should return undefined if no subject is present in the redux store', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [],
+						available: [],
+						active: [],
+						mine: [],
+					},
+				},
+			};
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, null);
+			expect(actualResult).toStrictEqual(undefined);
+		});
+
+		it('should return only the subject if it doesn\'t have any modules', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{ id: 'abcd', title: 'dummy subject 0', modules: [] },
+						],
+					},
+				},
+			};
+
+			const expectedResult = [{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' }];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should prefix a module\'s name with its order when setting the "label" field', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy subject 0',
+								modules: [
+									{
+										id: 'abcd',
+										title: 'dummy module 0',
+										order: 0,
+									},
+								],
+							},
+						],
+					},
+				},
+			};
+
+			const expectedResult = [
+				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
+				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
+			];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should not return a "concept" element if none is present', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy subject 0',
+								modules: [
+									{
+										id: 'abcd',
+										title: 'dummy module 0',
+										order: 0,
+										concepts: [],
+									},
+								],
+							},
+						],
+					},
+				},
+			};
+
+			const expectedResult = [
+				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
+				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
+			];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should prefix a concept\'s name with its parent module and own order when setting the "label" field', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy subject 0',
+								modules: [
+									{
+										id: 'abcd',
+										title: 'dummy module 0',
+										order: 0,
+										concepts: [
+											{
+												id: 'abcd',
+												title: 'dummy concept 0',
+												order: 0,
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				},
+			};
+
+			const expectedResult = [
+				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
+				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
+				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
+			];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should not return a "course" element if none is present', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy subject 0',
+								modules: [
+									{
+										id: 'abcd',
+										title: 'dummy module 0',
+										order: 0,
+										concepts: [
+											{
+												id: 'abcd',
+												title: 'dummy concept 0',
+												order: 0,
+												courses: [],
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				},
+			};
+
+			const expectedResult = [
+				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
+				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
+				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
+			];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should prefix a course\'s name with its parent module, parent concept and own order when setting the "label" field', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy subject 0',
+								modules: [
+									{
+										id: 'abcd',
+										title: 'dummy module 0',
+										order: 0,
+										concepts: [
+											{
+												id: 'abcd',
+												title: 'dummy concept 0',
+												order: 0,
+												courses: [
+													{
+														id: 'abcd',
+														title: 'dummy course 0',
+														order: 0,
+													},
+												],
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				},
+			};
+
+			const expectedResult = [
+				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
+				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
+				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
+				{ label: '0.0.0. dummy course 0', id: 'abcd', order: 0, contentType: 'course' },
+			];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+	});
 });

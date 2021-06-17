@@ -113,20 +113,17 @@ const getContentManipulationSidebarData = createSelector(
 		}
 
 		let data = [
-			{ label: subject.title, id: subject.id, contentType: 'subject', fontSize: '20px' },
+			{ label: subject.title, id: subject.id, contentType: 'subject' },
 		];
 
 		sortBy(subject.modules, 'order').forEach(({ id: moduleId, title: moduleTitle, order: moduleOrder, concepts = [] }) => {
-			data = [...data, { id: moduleId, label: `${moduleOrder}. ${moduleTitle}`, order: moduleOrder, contentType: 'module', fontSize: '18px' }];
+			data = [...data, { id: moduleId, label: `${moduleOrder}. ${moduleTitle}`, order: moduleOrder, contentType: 'module' }];
 
 			sortBy(concepts, 'order').forEach(({ id: conceptId, title: conceptTitle, order: conceptOrder, courses = [] }) => {
-				data = [...data, { id: conceptId, label: `${moduleOrder}.${conceptOrder}. ${conceptTitle}`, order: conceptOrder, contentType: 'concept', fontSize: '16px' }];
+				data = [...data, { id: conceptId, label: `${moduleOrder}.${conceptOrder}. ${conceptTitle}`, order: conceptOrder, contentType: 'concept' }];
 
 				sortBy(courses, 'order').forEach(({ id: courseId, title: courseTitle, order: courseOrder }) => {
-					data = [
-						...data,
-						{ id: courseId, label: `${moduleOrder}.${conceptOrder}.${courseOrder}. ${courseTitle}`, order: courseOrder, contentType: 'course', fontSize: '14px' },
-					];
+					data = [...data, { id: courseId, label: `${moduleOrder}.${conceptOrder}.${courseOrder}. ${courseTitle}`, order: courseOrder, contentType: 'course' }];
 				});
 			});
 		});
