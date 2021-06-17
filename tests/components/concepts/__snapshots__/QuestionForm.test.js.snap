@@ -120,7 +120,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI bWavKb"
+                    className="sc-crrsfI gZjszf"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -210,7 +210,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI bWavKb"
+                    className="sc-crrsfI gZjszf"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -300,7 +300,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI bWavKb"
+                    className="sc-crrsfI gZjszf"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -390,7 +390,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI bWavKb"
+                    className="sc-crrsfI gZjszf"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"

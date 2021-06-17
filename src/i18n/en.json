@@ -172,6 +172,65 @@
 				"modules": {
 					"no_data": "This subject doesn't have any modules, yet."
 				}
+			},
+			"structure": {
+				"title": "Create my first course.",
+				"subtitle": "To ease the learning curve, the information is split into nested categories inspired by Russian nested dolls.",
+				"button_right": "Next",
+				"button_left": "Prev.",
+				"subjects": {
+					"description": "The largest element, the <bold>subject</bold>, contains all the others.",
+					"examples": [
+						{
+							"title": "Subject : Introduction to UX Design"
+						}
+					]
+				},
+				"modules": {
+					"description": "This subject is divided into <strong>modules...</strong>",
+					"examples": [
+						{
+							"title": "Module 1 : Fundamentals of UX Design"
+						},
+						{
+							"title": "Module 2 : Basic principals of UX Design"
+						}
+					]
+				},
+				"concepts": {
+					"description": "...themselves split into <strong>concepts.</strong>",
+					"examples": [
+						{
+							"title": "Concept 1 : What is UX Design?"
+						},
+						{
+							"title": "Concept 2 : What role does UX Design play?"
+						}
+					]
+				},
+				"courses": {
+					"description": "Finally, every concept is made up of one or more <strong>lessons</strong> and <strong>exercises.</strong>",
+					"examples": [
+						{
+							"title": "Cours 1 : Defining UX Design?"
+						},
+						{
+							"title": "Cours 2 : Differences with UI Design?"
+						},
+						{
+							"title": "Cours 3 : Impact of psychology"
+						},
+						{
+							"title": "Exercice 1 : Summarize UX Design to a child"
+						}
+					]
+				},
+				"completed": {
+					"title": "Congratulations ! You have completed the tutorial explaining the content structure.",
+					"subtitle": "You can now create your own course or go back through the tutorial.",
+					"button_finish": "I understand, let's start creating!",
+					"button_to_start": "Take me back to the tutorial"
+				}
 			}
 		},
 		"modules": {
