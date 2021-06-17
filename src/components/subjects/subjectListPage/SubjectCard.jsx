@@ -21,8 +21,9 @@ import { history } from 'routes/components/RouterProvider';
  * @param {id}		subject.id					The subject's id. Used for redirection on click.
  * @param {string}	subject.title				The subject's title.
  * @param {string}	subject.description			The subject's description.
+ * @param {bool}	[isCurrentUserTheAuthor]	Whether the current user is the author of the subject.
  */
-const SubjectCard = ({ author, id, title, description }) => {
+const SubjectCard = ({ author, id, title, description, isCurrentUserTheAuthor }) => {
 	/**
 	 * @function
 	 * @name handleClick
@@ -31,8 +32,9 @@ const SubjectCard = ({ author, id, title, description }) => {
 	 * @author Timothée Simon-Franza
 	 */
 	const handleClick = useCallback(() => {
-		history.push(generatePath(routes.subjects.subjectDetails, { subjectId: id }));
-	}, [id]);
+		const destinationUrl = isCurrentUserTheAuthor ? routes.subjects.subjectEdition : routes.subjects.subjectDetails;
+		history.push(generatePath(destinationUrl, { subjectId: id }));
+	}, [id, isCurrentUserTheAuthor]);
 
 	return (
 		<StyledListItem {...subjectCard} onClick={handleClick}>
@@ -51,6 +53,11 @@ SubjectCard.propTypes = {
 	id: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
+	isCurrentUserTheAuthor: PropTypes.bool,
+};
+
+SubjectCard.defaultProps = {
+	isCurrentUserTheAuthor: false,
 };
 
 export default SubjectCard;

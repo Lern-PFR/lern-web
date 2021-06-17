@@ -30,6 +30,8 @@ export default Object.freeze({
 	},
 	modules: {
 		default: '/modules',
+		moduleCreation: '/modules/create',
+		moduleEdition: '/modules/edit/:moduleId',
 		moduleDetails: '/modules/:moduleId',
 	},
 	concepts: {

@@ -1,12 +1,14 @@
 import { useCallback, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+
 import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidation';
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
 import { LabeledInput } from 'components/shared/form';
 import { PrimaryButton } from 'components/shared/buttons';
 import { StyledForm } from 'components/shared/styledElements';
-import { form, formSubmit } from 'theme/pages/subjects/subjectCreationPage';
+
+import { form, formSubmit } from 'theme/contentEditionCommon/genericLayout';
 
 /**
  * @constant

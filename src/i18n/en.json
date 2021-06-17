@@ -188,6 +188,14 @@
 							}
 						}
 					}
+				},
+				"modules_list": {
+					"title": "This subject's modules",
+					"links": {
+						"add": "Add a new module",
+						"delete": "Delete",
+						"edit": "Edit"
+					}
 				}
 			},
 			"links": {

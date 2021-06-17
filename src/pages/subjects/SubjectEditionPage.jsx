@@ -8,8 +8,9 @@ import { fetchSubject, updateSubject } from 'redux/actions/subjects';
 
 import { StyledDiv } from 'components/shared/styledElements';
 import { DoublePica } from 'components/shared/typography';
-import { NavigationSidebar, SubjectEditionForm } from 'components/content';
-import { contentSection, layout, title } from 'theme/pages/subjects/subjectCreationPage';
+import { NavigationSidebar, SubjectEditionForm, SubjectModuleList } from 'components/content';
+
+import { contentSection, layout, title } from 'theme/contentEditionCommon/genericLayout';
 
 /**
  * @name SubjectEditionPage
@@ -34,11 +35,16 @@ const SubjectEditionPage = () => {
 
 	return (
 		<StyledDiv {...layout}>
-			<NavigationSidebar />
+			<NavigationSidebar currentlyUpdatingSubjectId={subjectId} />
 			<StyledDiv {...contentSection}>
 				<DoublePica as="h1" {...title}>{t('subjects.edition.title')}</DoublePica>
 				{!subject && <></>}
-				{subject && <SubjectEditionForm onSubmit={onSubmit} subject={subject} />}
+				{subject && (
+					<>
+						<SubjectEditionForm onSubmit={onSubmit} subject={subject} />
+						<SubjectModuleList moduleList={subject.modules ?? []} />
+					</>
+				)}
 			</StyledDiv>
 		</StyledDiv>
 	);

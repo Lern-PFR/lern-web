@@ -8,7 +8,7 @@ import { StyledForm } from 'components/shared/styledElements';
 import LabeledTextArea from 'components/shared/form/LabeledTextArea';
 import { LabeledInput } from 'components/shared/form';
 import { PrimaryButton } from 'components/shared/buttons';
-import { form, formSubmit } from 'theme/pages/subjects/subjectEditionPage';
+import { form, formSubmit } from 'theme/contentEditionCommon/genericLayout';
 
 /**
  * @constant

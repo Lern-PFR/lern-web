@@ -198,4 +198,6 @@ describe('Subject state selectors', () => {
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 	});
+
+	// @TODO: test the getContentManipulationSidebarData method.
 });

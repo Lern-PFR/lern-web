@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { createSubject } from 'redux/actions/subjects';
 import { DoublePica } from 'components/shared/typography';
 import { NavigationSidebar, SubjectCreationForm } from 'components/content';
-import { contentSection, layout, title } from 'theme/pages/subjects/subjectCreationPage';
+import { contentSection, layout, title } from 'theme/contentEditionCommon/genericLayout';
 
 /**
  * @name SubjectCreationPage

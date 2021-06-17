@@ -1,18 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavigationSidebar should match previous snapshot 1`] = `
-<styled.ul
-  backgroundColor="#FBFCFD"
-  boxShadow="0 2px 4px #241C1529"
-  listStyle="none"
-  margin={0}
-  padding={0}
-  paddingTop={64}
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
 >
-  <styled.li
-    isCurrent={true}
-  >
-    subjects.creation.sidebar.new_subject
-  </styled.li>
-</styled.ul>
+  <NavigationSidebar />
+</ContextProvider>
 `;

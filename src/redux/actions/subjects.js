@@ -332,7 +332,7 @@ export const fetchSubjectList = () => (dispatch) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {object}	subjectData				The data to create the new subject from.
+ * @param {object}	subjectData	The data to create the new subject from.
  */
 export const createSubject = (subjectData) => (dispatch) => {
 	dispatch(createSubjectRequest());
@@ -340,7 +340,7 @@ export const createSubject = (subjectData) => (dispatch) => {
 	return SubjectsApi.createSubject(subjectData)
 		.then((subject) => {
 			dispatch(createSubjectSuccess({ subject }));
-			redirectOnSuccess(generatePath(routes.subjects.subjectDetails, { subjectId: subject.id }));
+			redirectOnSuccess(generatePath(routes.subjects.subjectEdition, { subjectId: subject.id }));
 		})
 		.catch((error) => dispatch(createSubjectFailure(error)));
 };

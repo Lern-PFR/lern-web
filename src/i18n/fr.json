@@ -189,6 +189,14 @@
 							}
 						}
 					}
+				},
+				"modules_list": {
+					"title": "Modules de ce sujet",
+					"links": {
+						"add": "Ajouter un module",
+						"delete": "Supprimer",
+						"edit": "Editer"
+					}
 				}
 			},
 			"links": {

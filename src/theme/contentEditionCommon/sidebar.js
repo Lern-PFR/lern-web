@@ -1,14 +1,6 @@
 import { coconut, lightgrey, oyster, peppercorn, tuna } from 'theme/colors';
-import { mainLayoutTopPadding } from 'theme/constants';
 import { doublePica } from 'theme/textStyles';
-
-const layout = {
-	display: 'grid',
-	gridTemplateColumns: '25% 1fr',
-	gridGap: '2em',
-	paddingRight: mainLayoutTopPadding,
-	height: '100%',
-};
+import { mainLayoutTopPadding } from 'theme/constants';
 
 const sidebar = {
 	backgroundColor: lightgrey,
@@ -21,6 +13,7 @@ const sidebar = {
 
 const sidebarElement = {
 	...doublePica,
+	fontSize: 'initial',
 	color: tuna.default,
 	padding: '.3em 1em',
 	cursor: 'pointer',
@@ -42,33 +35,8 @@ const sidebarCurrentElement = {
 	},
 };
 
-const contentSection = {
-	paddingTop: mainLayoutTopPadding,
-};
-
-const title = {
-	lineHeight: 'auto',
-	margin: 0,
-	paddingBottom: '24px',
-};
-
-const form = {
-	display: 'grid',
-	gridGap: '1em',
-	height: 'max-content',
-};
-
-const formSubmit = {
-	justifySelf: 'start',
-};
-
 export {
-	layout,
 	sidebar,
 	sidebarElement,
 	sidebarCurrentElement,
-	contentSection,
-	title,
-	form,
-	formSubmit,
 };
