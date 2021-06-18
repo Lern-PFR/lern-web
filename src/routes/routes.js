@@ -4,7 +4,7 @@ import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { ConceptDetailsPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
-import { ModuleCreationPage, ModuleDetailsPage } from 'pages/modules';
+import { ModuleCreationPage, ModuleDetailsPage, ModuleEditionPage } from 'pages/modules';
 import keys from './keys';
 
 /**
@@ -139,7 +139,7 @@ export default [
 				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
-				component: ModuleDetailsPage,
+				component: ModuleEditionPage,
 			},
 			{
 				path: keys.modules.moduleDetails,

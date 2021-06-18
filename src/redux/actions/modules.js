@@ -361,7 +361,11 @@ export const updateModule = (moduleData, moduleId) => (dispatch) => {
 	dispatch(updateModuleRequest());
 
 	return ModulesApi.updateModule(moduleData, moduleId)
-		.then(({ module }) => dispatch(updateModuleSuccess({ module })))
+		.then(({ module }) => {
+			dispatch(updateModuleSuccess({ module }));
+			toast.success(i18next.t('modules.edition.toasts.success'));
+			dispatch(fetchSubject(module.subjectId)); // Needed to refresh the layout.
+		})
 		.catch((error) => dispatch(updateModuleFailure(error)));
 };
 

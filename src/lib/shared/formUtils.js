@@ -33,8 +33,12 @@ const validateField = (value, rules = []) => {
 const validateForm = (fieldsRefs = {}, validationRules = {}) => {
 	const formValidationResult = {};
 
-	Object.entries(fieldsRefs).forEach(([name, { value }]) => {
-		formValidationResult[name] = validateField(value, validationRules[name]);
+	Object.entries(fieldsRefs).forEach(([name, { value, select }]) => {
+		if (select?.getValue) {
+			formValidationResult[name] = validateField(select?.getValue()?.[0]?.value?.toString() || '', validationRules[name]);
+		} else {
+			formValidationResult[name] = validateField(value, validationRules[name]);
+		}
 	});
 
 	return formValidationResult;

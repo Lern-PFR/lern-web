@@ -1,27 +1,42 @@
 import { shallow } from 'enzyme';
-import { ModuleCreationForm } from 'components/content';
+import { ModuleEditionForm } from 'components/content';
 import { act, fireEvent, render } from '@testing-library/react';
 
-describe('Module creation form', () => {
+describe('Module edition form', () => {
+	const mockedModuleOrderOptions = [
+		{ label: 0, value: 0 },
+		{ label: 1, value: 1 },
+		{ label: 2, value: 2 },
+	];
+
+	const mockedModule = {
+		id: 'dummy_module_id',
+		title: 'dummy_module_title',
+		description: 'dummy_module_description',
+		subjectId: 'dummy_subject_id',
+		order: 0,
+	};
+
 	afterEach(() => {
 		jest.resetAllMocks();
 		jest.restoreAllMocks();
 	});
 
 	describe('Snapshot testing', () => {
-		const wrapper = shallow(<ModuleCreationForm onSubmit={jest.fn()} />);
+		const wrapper = shallow(<ModuleEditionForm onSubmit={jest.fn()} module={mockedModule} moduleOrderOptions={mockedModuleOrderOptions} />);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	// @TODO: implement test for the "order" select input.
 	describe('Form inputs', () => {
 		it('should contain a "title" text input.', () => {
-			const { container } = render(<ModuleCreationForm onSubmit={jest.fn()} />);
+			const { container } = render(<ModuleEditionForm onSubmit={jest.fn()} module={mockedModule} moduleOrderOptions={mockedModuleOrderOptions} />);
 			expect(container.querySelector('input[name="title"]')).not.toEqual(null);
 		});
 
 		it('should contain a "description" textarea.', () => {
-			const { container } = render(<ModuleCreationForm onSubmit={jest.fn()} />);
+			const { container } = render(<ModuleEditionForm onSubmit={jest.fn()} module={mockedModule} moduleOrderOptions={mockedModuleOrderOptions} />);
 			expect(container.querySelector('textarea[name="description"]')).not.toEqual(null);
 		});
 	});
@@ -35,7 +50,7 @@ describe('Module creation form', () => {
 
 			beforeEach(() => {
 				mockedOnSubmit = jest.fn();
-				container = render(<ModuleCreationForm onSubmit={mockedOnSubmit} />).container;
+				container = render(<ModuleEditionForm onSubmit={mockedOnSubmit} module={mockedModule} moduleOrderOptions={mockedModuleOrderOptions} />).container;
 				titleInput = container.querySelector('input[name="title"]');
 				submitButton = container.querySelector('button[type="submit"]');
 			});
@@ -48,7 +63,7 @@ describe('Module creation form', () => {
 					});
 
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.title.validation_rules.required'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.title.validation_rules.required'));
 				});
 
 				it('should trigger a "min_length" validation error on the title input if it has less than 3 characters on submit', () => {
@@ -58,7 +73,7 @@ describe('Module creation form', () => {
 					});
 
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.title.validation_rules.min_length'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.title.validation_rules.min_length'));
 				});
 
 				it('should trigger a "max_length" validation error on the title input if it has more than 50 characters on submit', () => {
@@ -68,7 +83,7 @@ describe('Module creation form', () => {
 					});
 
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.title.validation_rules.max_length'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.title.validation_rules.max_length'));
 				});
 			});
 
@@ -77,15 +92,15 @@ describe('Module creation form', () => {
 				it('should trigger a "required" validation error on the title input on change after the first submit', () => {
 					act(() => {
 						fireEvent.input(titleInput, { target: { value: '' } });
-						expect(container.textContent).not.toMatch(new RegExp('modules.creation.form.fields.title.validation_rules.required'));
+						expect(container.textContent).not.toMatch(new RegExp('modules.edition.form.fields.title.validation_rules.required'));
 						fireEvent.click(submitButton);
 						fireEvent.input(titleInput, { target: { value: 'a'.repeat(10) } });
-						expect(container.textContent).not.toMatch(new RegExp('modules.creation.form.fields.title.validation_rules.required'));
+						expect(container.textContent).not.toMatch(new RegExp('modules.edition.form.fields.title.validation_rules.required'));
 
 						fireEvent.input(titleInput, { target: { value: '' } });
 					});
 
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.title.validation_rules.required'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.title.validation_rules.required'));
 				});
 			});
 		});
@@ -98,7 +113,7 @@ describe('Module creation form', () => {
 
 			beforeEach(() => {
 				mockedOnSubmit = jest.fn();
-				container = render(<ModuleCreationForm onSubmit={mockedOnSubmit} />).container;
+				container = render(<ModuleEditionForm onSubmit={mockedOnSubmit} module={mockedModule} moduleOrderOptions={mockedModuleOrderOptions} />).container;
 				descriptionTextarea = container.querySelector('textarea[name="description"]');
 				submitButton = container.querySelector('button[type="submit"]');
 			});
@@ -111,7 +126,7 @@ describe('Module creation form', () => {
 					});
 
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.description.validation_rules.required'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.description.validation_rules.required'));
 				});
 
 				it('should trigger a "min_length" validation error on the description textarea if it has less than 10 characters on submit', () => {
@@ -121,7 +136,7 @@ describe('Module creation form', () => {
 					});
 
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.description.validation_rules.min_length'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.description.validation_rules.min_length'));
 				});
 
 				it('should trigger a "max_length" validation error on the description textarea if it has more than 301 characters on submit', () => {
@@ -131,7 +146,7 @@ describe('Module creation form', () => {
 					});
 
 					expect(mockedOnSubmit).not.toHaveBeenCalled();
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.description.validation_rules.max_length'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.description.validation_rules.max_length'));
 				});
 			});
 
@@ -140,15 +155,15 @@ describe('Module creation form', () => {
 				it('should trigger a "required" validation error on the description input on change after the first submit', () => {
 					act(() => {
 						fireEvent.input(descriptionTextarea, { target: { value: '' } });
-						expect(container.textContent).not.toMatch(new RegExp('modules.creation.form.fields.description.validation_rules.required'));
+						expect(container.textContent).not.toMatch(new RegExp('modules.edition.form.fields.description.validation_rules.required'));
 						fireEvent.click(submitButton);
 						fireEvent.input(descriptionTextarea, { target: { value: 'a'.repeat(10) } });
-						expect(container.textContent).not.toMatch(new RegExp('modules.creation.form.fields.description.validation_rules.required'));
+						expect(container.textContent).not.toMatch(new RegExp('modules.edition.form.fields.description.validation_rules.required'));
 
 						fireEvent.input(descriptionTextarea, { target: { value: '' } });
 					});
 
-					expect(container.textContent).toMatch(new RegExp('modules.creation.form.fields.description.validation_rules.required'));
+					expect(container.textContent).toMatch(new RegExp('modules.edition.form.fields.description.validation_rules.required'));
 				});
 			});
 		});
@@ -157,11 +172,12 @@ describe('Module creation form', () => {
 	describe('onSubmit', () => {
 		it('should call the onSubmit prop method with the form\'s inputs\' values.', async () => {
 			const mockedOnSubmit = jest.fn((data) => Promise.resolve(data));
-			const { container } = render(<ModuleCreationForm onSubmit={mockedOnSubmit} />);
+			const { container } = render(<ModuleEditionForm onSubmit={mockedOnSubmit} module={mockedModule} moduleOrderOptions={mockedModuleOrderOptions} />);
 
 			const expectedFormData = {
 				title: 'updated dummy module title',
 				description: 'updated dummy module description',
+				order: 0,
 			};
 
 			await act(async () => {

@@ -10,7 +10,7 @@
  *
  * @returns {string} The translation key for the validation message.
  */
-const isRequired = (messageKey = 'required') => (value) => ((value ?? '').trim().length === 0 ? messageKey : '');
+const isRequired = (messageKey = 'required') => (value) => ((value?.toString() ?? '').trim().length === 0 ? messageKey : '');
 
 /**
  * @function

@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -43,6 +43,10 @@ const getRouteFromContentTypeAndAction = (action, contentType, id = null) => {
 		return action === 'creation' ? keys.subjects.subjectCreation : generatePath(keys.subjects.subjectEdition, { subjectId: id });
 	}
 
+	if (contentType === 'module') {
+		return action === 'creation' ? keys.subjects.moduleCreation : generatePath(keys.modules.moduleEdition, { moduleId: id });
+	}
+
 	return keys.home.default;
 };
 
@@ -53,21 +57,21 @@ const getRouteFromContentTypeAndAction = (action, contentType, id = null) => {
  * @author Timothée Simon-Franza
  *
  * @param {string}	[currentlyUpdatingSubjectId]		The id of the subject we're updating the content of.
+ * @param {string}	[currentlyUpdatingElementId]		The id of the element we're updating.
  * @param {object}	[contentCreationOptions]			If we are on a content creation page, holds data to add a "create ..." item.
  * @param {string}	contentCreationOptions.contentType	The currently created content type.
  * @param {string}	contentCreationOptions.parentId		The parent of the content we're creating.
  */
-const NavigationSidebar = ({ currentlyUpdatingSubjectId, contentCreationOptions }) => {
+const NavigationSidebar = ({ currentlyUpdatingSubjectId, currentlyUpdatingElementId, contentCreationOptions }) => {
 	const { t } = useTranslation();
 	const sidebarItemsList = useSelector((state) => getContentManipulationSidebarData(state, currentlyUpdatingSubjectId));
-	const [currentlyUpdatingElement] = useState({ contentType: 'subject', id: currentlyUpdatingSubjectId });
 
 	return (
 		<StyledList {...sidebar}>
 			{!sidebarItemsList && <SidebarElement isCurrent>{t('subjects.creation.sidebar.new_subject')}</SidebarElement>}
 			{sidebarItemsList && sidebarItemsList.map(({ label, id, contentType }) => (
 				<Fragment key={id}>
-					<SidebarElement isCurrent={!contentCreationOptions && isEqual(currentlyUpdatingElement.id, id)}>
+					<SidebarElement isCurrent={!contentCreationOptions && isEqual(currentlyUpdatingElementId, id)}>
 						<Link to={getRouteFromContentTypeAndAction('edition', contentType, id)}>{label}</Link>
 					</SidebarElement>
 					{contentCreationOptions && isEqual(contentCreationOptions.parentId, id) && (
@@ -81,6 +85,7 @@ const NavigationSidebar = ({ currentlyUpdatingSubjectId, contentCreationOptions 
 
 NavigationSidebar.propTypes = {
 	currentlyUpdatingSubjectId: PropTypes.string,
+	currentlyUpdatingElementId: PropTypes.string,
 	contentCreationOptions: PropTypes.shape({
 		contentType: PropTypes.string.isRequired,
 		parentId: PropTypes.string.isRequired,
@@ -89,6 +94,7 @@ NavigationSidebar.propTypes = {
 
 NavigationSidebar.defaultProps = {
 	currentlyUpdatingSubjectId: undefined,
+	currentlyUpdatingElementId: undefined,
 	contentCreationOptions: undefined,
 };
 
