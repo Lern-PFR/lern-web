@@ -42,7 +42,7 @@ const SubjectEditionPage = () => {
 				{subject && (
 					<>
 						<SubjectEditionForm onSubmit={onSubmit} subject={subject} />
-						<SubjectModuleList moduleList={subject.modules ?? []} />
+						<SubjectModuleList moduleList={subject.modules ?? []} subjectId={subject.id} />
 					</>
 				)}
 			</StyledDiv>

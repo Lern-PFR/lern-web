@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import * as modulesActions from 'redux/actions/modules';
+import { ActionTypes as SubjectsActionTypes } from 'redux/actions/subjects';
 import { baseUrl } from 'lib/shared/http';
 
 const middlewares = [thunk];
@@ -182,7 +183,7 @@ describe('Module-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { module: { ...moduleData, id: '7' } },
+				body: { ...moduleData, id: '7' },
 				headers: { 'content-type': 'application/json' },
 			};
 
@@ -309,7 +310,7 @@ describe('Module-related redux actions', () => {
 			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		it('should create an DELETE_MODULE_SUCCESS action when module edition logic is successful', () => {
+		it('should create an DELETE_MODULE_SUCCESS action and a FETCH_MODULE_REQUEST when module edition logic is successful', () => {
 			// Arrange
 			const moduleData = {
 				id: '7',
@@ -319,11 +320,18 @@ describe('Module-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { module: moduleData },
+				body: { ...moduleData },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			const subjectFetchHttpResponse = {
+				status: 200,
+				body: { id: 'abcd', title: 'abcd', description: 'abcd', modules: [] },
 				headers: { 'content-type': 'application/json' },
 			};
 
 			fetchMock.delete(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
+			fetchMock.get(`${baseUrl}/api/subjects/${moduleData.subjectId}`, subjectFetchHttpResponse);
 
 			const expectedActions = [
 				{ type: modulesActions.ActionTypes.DELETE_MODULE_REQUEST },
@@ -331,6 +339,7 @@ describe('Module-related redux actions', () => {
 					type: modulesActions.ActionTypes.DELETE_MODULE_SUCCESS,
 					payload: { module: moduleData },
 				},
+				{ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST },
 			];
 
 			// Act & assert

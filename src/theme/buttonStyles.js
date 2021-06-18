@@ -31,9 +31,7 @@ const outlined = {
 	bg: coconut,
 	border: `solid 1px ${oyster.default}`,
 	color: oyster,
-	hover: {
-		bg: parsnip.lighter2,
-	},
+	hoverBg: parsnip.lighter2,
 };
 
 const standard = {

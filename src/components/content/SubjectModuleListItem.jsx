@@ -1,8 +1,9 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { generatePath } from 'react-router';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import routes from 'routes';
 import { deleteModule } from 'redux/actions/modules';
@@ -12,11 +13,14 @@ import { OutlinedButton, OutlinedLinkButton } from 'components/shared/buttons';
 import Link from 'components/shared/navigation/Link';
 
 import { innerContentListItem, innerContentListItemActionsRow, moduleCard } from 'theme/contentEditionCommon/innerContentListTheme';
-import { useTranslation } from 'react-i18next';
+import { history } from 'routes/components/RouterProvider';
 
 const ListCard = styled(StyledListItem)(
 	{
 		...innerContentListItem,
+		'&, & *': {
+			cursor: 'pointer',
+		},
 	}
 );
 
@@ -31,17 +35,23 @@ const SubjectModuleListItem = ({ description, id, title }) => {
 	const dispatch = useDispatch();
 	const { t } = useTranslation();
 
+	const editPageRedirectionLink = useMemo(() => generatePath(routes.modules.moduleEdition, { moduleId: id }), [id]);
+
+	const onCardClick = useCallback(() => {
+		history.push(editPageRedirectionLink);
+	}, [editPageRedirectionLink]);
+
 	const onDeleteModuleBtnClick = useCallback(() => {
 		dispatch(deleteModule(id));
 	}, [dispatch, id]);
 
 	return (
-		<ListCard key={id} {...moduleCard}>
+		<ListCard key={id} onClick={onCardClick} {...moduleCard}>
 			<BodyCopy margin="0">{title}</BodyCopy>
 			<Brevier margin="0">{description}</Brevier>
 			<StyledDiv {...innerContentListItemActionsRow}>
 				<OutlinedLinkButton>
-					<Link to={generatePath(routes.modules.moduleEdition, { moduleId: id })}>{t('subjects.edition.modules_list.links.edit')}</Link>
+					<Link to={editPageRedirectionLink}>{t('subjects.edition.modules_list.links.edit')}</Link>
 				</OutlinedLinkButton>
 				<OutlinedButton onClick={onDeleteModuleBtnClick}>
 					{t('subjects.edition.modules_list.links.delete')}

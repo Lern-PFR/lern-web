@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -52,9 +52,12 @@ const getRouteFromContentTypeAndAction = (action, contentType, id = null) => {
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} [currentlyUpdatingSubjectId] The id of the subject we're updating the content of.
+ * @param {string}	[currentlyUpdatingSubjectId]		The id of the subject we're updating the content of.
+ * @param {object}	[contentCreationOptions]			If we are on a content creation page, holds data to add a "create ..." item.
+ * @param {string}	contentCreationOptions.contentType	The currently created content type.
+ * @param {string}	contentCreationOptions.parentId		The parent of the content we're creating.
  */
-const NavigationSidebar = ({ currentlyUpdatingSubjectId }) => {
+const NavigationSidebar = ({ currentlyUpdatingSubjectId, contentCreationOptions }) => {
 	const { t } = useTranslation();
 	const sidebarItemsList = useSelector((state) => getContentManipulationSidebarData(state, currentlyUpdatingSubjectId));
 	const [currentlyUpdatingElement] = useState({ contentType: 'subject', id: currentlyUpdatingSubjectId });
@@ -63,9 +66,14 @@ const NavigationSidebar = ({ currentlyUpdatingSubjectId }) => {
 		<StyledList {...sidebar}>
 			{!sidebarItemsList && <SidebarElement isCurrent>{t('subjects.creation.sidebar.new_subject')}</SidebarElement>}
 			{sidebarItemsList && sidebarItemsList.map(({ label, id, contentType }) => (
-				<SidebarElement key={id} isCurrent={isEqual(currentlyUpdatingElement.id, id)}>
-					<Link to={getRouteFromContentTypeAndAction('edition', contentType, id)}>{label}</Link>
-				</SidebarElement>
+				<Fragment key={id}>
+					<SidebarElement isCurrent={!contentCreationOptions && isEqual(currentlyUpdatingElement.id, id)}>
+						<Link to={getRouteFromContentTypeAndAction('edition', contentType, id)}>{label}</Link>
+					</SidebarElement>
+					{contentCreationOptions && isEqual(contentCreationOptions.parentId, id) && (
+						<SidebarElement isCurrent>{t(`subjects.creation.sidebar.new_${contentCreationOptions.contentType}`)}</SidebarElement>
+					)}
+				</Fragment>
 			))}
 		</StyledList>
 	);
@@ -73,10 +81,15 @@ const NavigationSidebar = ({ currentlyUpdatingSubjectId }) => {
 
 NavigationSidebar.propTypes = {
 	currentlyUpdatingSubjectId: PropTypes.string,
+	contentCreationOptions: PropTypes.shape({
+		contentType: PropTypes.string.isRequired,
+		parentId: PropTypes.string.isRequired,
+	}),
 };
 
 NavigationSidebar.defaultProps = {
 	currentlyUpdatingSubjectId: undefined,
+	contentCreationOptions: undefined,
 };
 
 export default NavigationSidebar;

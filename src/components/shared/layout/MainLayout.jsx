@@ -27,6 +27,10 @@ const MainLayout = ({ children }) => {
 			return true;
 		}
 
+		if (location.pathname.includes('/modules/create')) {
+			return true;
+		}
+
 		return false;
 	}, [location.pathname]);
 

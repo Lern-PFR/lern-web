@@ -145,11 +145,7 @@ exports[`Exported buttons elements OutlinedButton should match previous snapshot
     }
   }
   disabled={false}
-  hover={
-    Object {
-      "bg": "#F5F5F2",
-    }
-  }
+  hoverBg="#F5F5F2"
   isIconOnly={false}
   linkStyle={
     Object {
@@ -192,11 +188,7 @@ exports[`Exported buttons elements OutlinedLinkButton should match previous snap
     }
   }
   disabled={false}
-  hover={
-    Object {
-      "bg": "#F5F5F2",
-    }
-  }
+  hoverBg="#F5F5F2"
   linkStyle={
     Object {
       "display": "inline-block",

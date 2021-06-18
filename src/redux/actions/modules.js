@@ -1,4 +1,10 @@
 import * as ModulesApi from 'api/modulesApi';
+import i18next from 'i18next';
+import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
+import { generatePath } from 'react-router';
+import { toast } from 'react-toastify';
+import routes from 'routes';
+import { fetchSubject } from './subjects';
 
 /**
  * @constant
@@ -334,7 +340,10 @@ export const createModule = (moduleData) => (dispatch) => {
 	dispatch(createModuleRequest());
 
 	return ModulesApi.createModule(moduleData)
-		.then(({ module }) => dispatch(createModuleSuccess({ module })))
+		.then((module) => {
+			dispatch(createModuleSuccess({ module }));
+			redirectOnSuccess(generatePath(routes.modules.moduleEdition, { moduleId: module.id }));
+		})
 		.catch((error) => dispatch(createModuleFailure(error)));
 };
 
@@ -369,7 +378,11 @@ export const deleteModule = (moduleId) => (dispatch) => {
 	dispatch(deleteModuleRequest());
 
 	return ModulesApi.deleteModule(moduleId)
-		.then(({ module }) => dispatch(deleteModuleSuccess({ module })))
+		.then((module) => {
+			dispatch(deleteModuleSuccess({ module }));
+			toast.success(i18next.t('modules.deletion.toasts.success', { name: module.title }));
+			dispatch(fetchSubject(module.subjectId)); // Needed to refresh the layout.
+		})
 		.catch((error) => dispatch(deleteModuleFailure(error)));
 };
 

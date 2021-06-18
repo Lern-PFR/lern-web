@@ -159,7 +159,8 @@
 					}
 				},
 				"sidebar": {
-					"new_subject": "New subject"
+					"new_subject": "New subject",
+					"new_module": "New module"
 				}
 			},
 			"edition": {
@@ -275,6 +276,39 @@
 		"modules": {
 			"links": {
 				"back_to_subject": "Return to the parent subject's page"
+			},
+			"creation": {
+				"title": "Create a new module",
+				"form": {
+					"action": {
+						"submit": "Create my module"
+					},
+					"fields": {
+						"title": {
+							"label": "Title",
+							"placeholder": "UX Design fundamentals",
+							"validation_rules": {
+								"required": "Please provide a title.",
+								"min_length": "Please enter at least 3 characters.",
+								"max_length": "Please enter 50 characters maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "UX Design in its simplest form. You will learn all the basics and vocabulary to get a first grasp on experience design.",
+							"validation_rules": {
+								"required": "Please describe your module.",
+								"min_length": "Please enter at least 10 characters.",
+								"max_length": "Please enter 300 characters maximum."
+							}
+						}
+					}
+				}
+			},
+			"deletion": {
+				"toasts": {
+					"success": "Module {{name}} has been successfully removed."
+				}
 			}
 		},
 		"concepts": {

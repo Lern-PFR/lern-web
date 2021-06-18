@@ -71,3 +71,46 @@ exports[`NavigationSidebar should match previous snapshot with no item returned 
   <NavigationSidebar />
 </ContextProvider>
 `;
+
+exports[`NavigationSidebar should match previous snapshot with the contentCreationOptions param 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <NavigationSidebar
+    contentCreationOptions={
+      Object {
+        "contentType": "module",
+        "parentId": "dummy_subject_id",
+      }
+    }
+  />
+</ContextProvider>
+`;
