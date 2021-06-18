@@ -43,4 +43,36 @@ describe('NavigationSidebar', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should match previous snapshot with the contentCreationOptions param', () => {
+		store = mockStore({
+			subjects: {
+				id: 'dummy_subject_id',
+				title: 'dummy_subject_title',
+				description: 'dummy_subject_description',
+				modules: [
+					{
+						id: 'dummy_module_id',
+						subjectId: 'dummy_subject_id',
+						title: 'dummy_module_title',
+						description: 'dummy_module_description',
+					},
+				],
+			},
+		});
+
+		const contentCreationOptions = {
+			contentType: 'module',
+			parentId: 'dummy_subject_id',
+		};
+
+		const sut = (
+			<Provider store={store}>
+				<NavigationSidebar contentCreationOptions={contentCreationOptions} />
+			</Provider>
+		);
+		const wrapper = shallow(sut);
+
+		expect(wrapper).toMatchSnapshot();
+	});
 });

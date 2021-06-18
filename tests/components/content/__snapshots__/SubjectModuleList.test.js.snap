@@ -52,6 +52,7 @@ exports[`Subject edition page - module list snapshots should match previous snap
         },
       ]
     }
+    subjectId="1"
   />
 </ContextProvider>
 `;
@@ -90,6 +91,7 @@ exports[`Subject edition page - module list snapshots should match previous snap
 >
   <SubjectModuleList
     moduleList={Array []}
+    subjectId="1"
   />
 </ContextProvider>
 `;

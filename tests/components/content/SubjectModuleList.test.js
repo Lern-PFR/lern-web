@@ -22,7 +22,7 @@ describe('Subject edition page - module list', () => {
 		it('should match previous snapshot with an empty moduleList prop', () => {
 			const sut = (
 				<Provider store={store}>
-					<SubjectModuleList moduleList={[]} />
+					<SubjectModuleList moduleList={[]} subjectId="1" />
 				</Provider>
 			);
 			const wrapper = shallow(sut);
@@ -39,7 +39,7 @@ describe('Subject edition page - module list', () => {
 
 			const sut = (
 				<Provider store={store}>
-					<SubjectModuleList moduleList={mockedModuleList} />
+					<SubjectModuleList moduleList={mockedModuleList} subjectId="1" />
 				</Provider>
 			);
 			const wrapper = shallow(sut);
@@ -53,7 +53,7 @@ describe('Subject edition page - module list', () => {
 			const historyPushSpy = jest.spyOn(history, 'push');
 			render(
 				<Provider store={store}>
-					<SubjectModuleList moduleList={[]} />
+					<SubjectModuleList moduleList={[]} subjectId="1" />
 				</Provider>
 			);
 
@@ -62,7 +62,7 @@ describe('Subject edition page - module list', () => {
 			});
 
 			expect(historyPushSpy).toHaveBeenCalledTimes(1);
-			expect(historyPushSpy).toBeCalledWith(routes.modules.moduleCreation);
+			expect(historyPushSpy).toBeCalledWith(routes.subjects.moduleCreation.replace(':subjectId', '1'));
 		});
 	});
 });

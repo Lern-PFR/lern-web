@@ -26,11 +26,11 @@ export default Object.freeze({
 		subjectStructure: '/subjects/structure',
 		subjectCreation: '/subjects/create',
 		subjectEdition: '/subjects/edit/:subjectId',
-		subjectDetails: '/subjects/:subjectId',
+		moduleCreation: '/subjects/:subjectId/modules/create',
+		subjectDetails: '/subjects/details/:subjectId',
 	},
 	modules: {
 		default: '/modules',
-		moduleCreation: '/modules/create',
 		moduleEdition: '/modules/edit/:moduleId',
 		moduleDetails: '/modules/:moduleId',
 	},

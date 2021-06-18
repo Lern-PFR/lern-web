@@ -160,7 +160,8 @@
 					}
 				},
 				"sidebar": {
-					"new_subject": "Nouveau sujet"
+					"new_subject": "Nouveau sujet",
+					"new_module": "Nouveau module"
 				}
 			},
 			"edition": {
@@ -277,6 +278,39 @@
 		"modules": {
 			"links": {
 				"back_to_subject": "Retourner à la page du sujet"
+			},
+			"creation": {
+				"title": "Nouveau module",
+				"form": {
+					"action": {
+						"submit": "Créer mon module"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Fondamentaux de l'UX Design",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "L'UX Design sous sa forme la plus basique. Vous apprendrez ici toutes les bases et le vocabulaire nécessaires à la compréhension de l'expérience utilisateur.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre module.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						}
+					}
+				}
+			},
+			"deletion": {
+				"toasts": {
+					"success": "Le module {{name}} a bien été supprimé."
+				}
 			}
 		},
 		"concepts": {

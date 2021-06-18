@@ -4,7 +4,7 @@ import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { ConceptDetailsPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
-import { ModuleDetailsPage } from 'pages/modules';
+import { ModuleCreationPage, ModuleDetailsPage } from 'pages/modules';
 import keys from './keys';
 
 /**
@@ -115,6 +115,13 @@ export default [
 				component: SubjectEditionPage,
 			},
 			{
+				path: keys.subjects.moduleCreation,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ModuleCreationPage,
+			},
+			{
 				path: keys.subjects.subjectDetails,
 				allowAnonymous: false,
 				allowAuthenticated: true,
@@ -127,6 +134,13 @@ export default [
 	{
 		path: keys.modules.default,
 		routes: [
+			{
+				path: keys.modules.moduleEdition,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ModuleDetailsPage,
+			},
 			{
 				path: keys.modules.moduleDetails,
 				allowAnonymous: false,
