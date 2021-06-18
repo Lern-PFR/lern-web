@@ -142,6 +142,13 @@ export default [
 				component: ModuleEditionPage,
 			},
 			{
+				path: keys.modules.conceptCreation,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ConceptDetailsPage,
+			},
+			{
 				path: keys.modules.moduleDetails,
 				allowAnonymous: false,
 				allowAuthenticated: true,
@@ -154,6 +161,13 @@ export default [
 	{
 		path: keys.concepts.default,
 		routes: [
+			{
+				path: keys.concepts.conceptEdition,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ConceptDetailsPage,
+			},
 			{
 				path: keys.concepts.conceptDetails,
 				allowAnonymous: false,

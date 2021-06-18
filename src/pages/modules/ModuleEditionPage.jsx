@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 
 import { fetchModule, updateModule } from 'redux/actions/modules';
 import { getModuleById, getModuleOrderOptions } from 'redux/selectors/modules';
-import { ModuleEditionForm, NavigationSidebar } from 'components/content';
+import { ModuleConceptList, ModuleEditionForm, NavigationSidebar } from 'components/content';
 import { StyledDiv } from 'components/shared/styledElements';
 import { DoublePica } from 'components/shared/typography';
 
@@ -54,7 +54,10 @@ const ModuleEditionPage = () => {
 				<DoublePica as="h1" {...title}>{t('modules.edition.title')}</DoublePica>
 				{!module && <></>}
 				{module && (
-					<ModuleEditionForm onSubmit={onSubmit} module={module} moduleOrderOptions={moduleOrderOptions} />
+					<>
+						<ModuleEditionForm onSubmit={onSubmit} module={module} moduleOrderOptions={moduleOrderOptions} />
+						<ModuleConceptList conceptList={module.concepts ?? []} moduleId={module.id} subjectId={module.subjectId} />
+					</>
 				)}
 			</StyledDiv>
 		</StyledDiv>

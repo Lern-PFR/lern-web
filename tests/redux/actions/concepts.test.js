@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import * as conceptsActions from 'redux/actions/concepts';
+import { ActionTypes as subjectsActionTypes } from 'redux/actions/subjects';
 import { baseUrl } from 'lib/shared/http';
 
 const middlewares = [thunk];
@@ -303,7 +304,7 @@ describe('Concept-related redux actions', () => {
 			];
 
 			// Act
-			store.dispatch(conceptsActions.deleteConcept('7'));
+			store.dispatch(conceptsActions.deleteConcept('7', 'dummy_subject'));
 
 			// Assert
 			expect(store.getActions()).toEqual(expectedActions);
@@ -319,10 +320,17 @@ describe('Concept-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { concept: conceptData },
+				body: { ...conceptData },
 				headers: { 'content-type': 'application/json' },
 			};
 
+			const subjectFetchHttpResponse = {
+				status: 200,
+				body: { id: 'abcd', title: 'abcd', description: 'abcd', modules: [] },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/subjects/dummy_subject`, subjectFetchHttpResponse);
 			fetchMock.delete(`${baseUrl}/api/concepts/${conceptData.id}`, httpResponse);
 
 			const expectedActions = [
@@ -331,10 +339,11 @@ describe('Concept-related redux actions', () => {
 					type: conceptsActions.ActionTypes.DELETE_CONCEPT_SUCCESS,
 					payload: { concept: conceptData },
 				},
+				{ type: subjectsActionTypes.FETCH_SUBJECT_REQUEST },
 			];
 
 			// Act & assert
-			store.dispatch(conceptsActions.deleteConcept(conceptData.id))
+			store.dispatch(conceptsActions.deleteConcept(conceptData.id, 'dummy_subject'))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 
@@ -359,7 +368,7 @@ describe('Concept-related redux actions', () => {
 			];
 
 			// Act & assert
-			store.dispatch(conceptsActions.deleteConcept(conceptData.id))
+			store.dispatch(conceptsActions.deleteConcept(conceptData.id, 'dummy_subject'))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});

@@ -363,6 +363,11 @@
 			"links": {
 				"start": "Débuter la notion",
 				"back_to_module": "Retourner au module '{{module.name}}'"
+			},
+			"deletion": {
+				"toasts": {
+					"success": "La notion {{name}} a bien été supprimée."
+				}
 			}
 		},
 		"lessons": {

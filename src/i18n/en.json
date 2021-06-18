@@ -361,6 +361,11 @@
 			"links": {
 				"start": "Start notion",
 				"back_to_module": "Return to module '{{module.name}}'"
+			},
+			"deletion": {
+				"toasts": {
+					"success": "Notion {{name}} has been successfully removed."
+				}
 			}
 		},
 		"lessons": {
