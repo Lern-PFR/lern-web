@@ -1,17 +1,27 @@
-import { PrimaryButton } from 'components/shared/buttons';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getSubjects } from 'redux/selectors/subjects';
+import { getProgression } from 'redux/selectors/progression';
+import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
+import { clearProgressionList, fetchProgressionList } from 'redux/actions/progression';
+
+import { PrimaryButton, OutlinedLinkButton } from 'components/shared/buttons';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { StyledDiv, StyledSvg } from 'components/shared/styledElements';
+import { StyledDiv } from 'components/shared/styledElements';
 import { BodyCopy, Canon } from 'components/shared/typography';
 import {
 	layout,
 	hero,
 	subtitle,
-	illustrationSvg,
-} from 'theme/pages/home/homepageAnon';
+	mainContainer,
+	lernButton,
+} from 'theme/pages/home/homepageAuth';
 import { Link } from 'components/shared/navigation';
-import conf from 'conf';
 import routes from 'routes';
+import LatestCourses from './LatestCourses';
+import Sidebar from './Sidebar';
 
 /**
  * @name HomepageAuth
@@ -21,22 +31,45 @@ import routes from 'routes';
  *
  * @param {func} t	The translation method provided by the withTranslation HoC.
  */
-const HomepageAuth = ({ t }) => (
-	<StyledDiv {...layout}>
-		<StyledDiv>
-			<Canon {...hero} tag="h1">{t('home.pages.anon.hero')}</Canon>
-			<BodyCopy {...subtitle}>{t('home.pages.anon.subtitle')}</BodyCopy>
-			<PrimaryButton>
-				<Link to={routes.subjects.subjectCreation}>{t('home.pages.anon.links.discover')}</Link>
-			</PrimaryButton>
+const HomepageAuth = ({ t, user }) => {
+	const dispatch = useDispatch();
+
+	const latestCourses = useSelector((state) => getSubjects(state));
+	const progression = useSelector((state) => getProgression(state));
+
+	useEffect(() => {
+		dispatch(fetchSubjectList());
+		dispatch(fetchProgressionList());
+
+		return () => {
+			dispatch(clearSubjectList());
+			dispatch(clearProgressionList());
+		};
+	}, [dispatch]);
+
+	return (
+		<StyledDiv {...layout}>
+			<StyledDiv display="flex" flexDirection="column" {...mainContainer}>
+				<StyledDiv>
+					<Canon {...hero} tag="h1">{t('home.pages.auth.hero', { user })}</Canon>
+					<BodyCopy {...subtitle}>{t('home.pages.auth.subtitle')}</BodyCopy>
+					<PrimaryButton>
+						<Link to={routes.subjects.subjectCreation}>{t('home.pages.auth.links.create')}</Link>
+					</PrimaryButton>
+					<OutlinedLinkButton {...lernButton}>
+						<Link to={routes.subjects.default}>{t('home.pages.auth.links.subjects')}</Link>
+					</OutlinedLinkButton>
+				</StyledDiv>
+				<LatestCourses latestCourses={latestCourses} />
+			</StyledDiv>
+			<Sidebar progressionList={progression ?? []} />
 		</StyledDiv>
-		<StyledSvg src={`${conf.svgIllustrationsPath}/homepage_anon.svg`} {...illustrationSvg} />
-	</StyledDiv>
-);
+	);
+};
 
 HomepageAuth.propTypes = {
 	t: PropTypes.func.isRequired,
-	current: PropTypes.object.isRequired,
+	user: PropTypes.object.isRequired,
 };
 
 export default withTranslation()(HomepageAuth);

@@ -25,13 +25,16 @@
 					}
 				},
 				"auth": {
-					"hero": "Lorem ipsum dolor sit amet",
-					"subtitle": "Laboris ad irure eiusmod fugiat amet est mollit incididunt ullamco incididunt ullamco ad qui. Ipsum veniam qui aute pariatur minim consectetur excepteur incididunt ad non dolore est. Veniam fugiat deserunt aute enim mollit aliqua consequat elit ullamco qui. Sint magna eu anim incididunt laboris sunt eiusmod et ex nulla. Nostrud laborum sit sit ipsum consectetur.",
-					"recent_courses": "Dernières leçons",
-					"reading_list": "Liste de lecture",
+					"hero": "Bienvenue {{user.nickname}}",
+					"subtitle": "Tu es expert dans ton domaine et souhaterais partager tes connaissances avec autrui? Tu est enseignant et tu cherches à élargir le choix des supports de cours? Ou alors tu veux simplement apprendre toi-même quelque chose de nouveau!",
+					"reading_list": "Listes de lecture",
 					"timeline": "Chronologie",
+					"latest": "Dernières leçons",
+					"no_active": "Mince ! On dirait que tu n'as pas encore débuté de leçon !",
 					"links": {
-						"unfinished": ""
+						"create": "Commencer à créer !",
+						"subjects": "Commencer à apprndre!",
+						"continue": "Continuer à apprndre"
 					}
 				}
 			}

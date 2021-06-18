@@ -27,7 +27,7 @@ const HomepageAnon = ({ t }) => (
 			<Canon {...hero} tag="h1">{t('home.pages.anon.hero')}</Canon>
 			<BodyCopy {...subtitle}>{t('home.pages.anon.subtitle')}</BodyCopy>
 			<PrimaryButton>
-				<Link to={routes.subjects.subjectCreation}>{t('home.pages.anon.links.discover')}</Link>
+				<Link to={routes.subjects.subjectStructure}>{t('home.pages.anon.links.discover')}</Link>
 			</PrimaryButton>
 		</StyledDiv>
 		<StyledSvg src={`${conf.svgIllustrationsPath}/homepage_anon.svg`} {...illustrationSvg} />

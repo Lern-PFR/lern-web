@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
 import { StyledDiv } from 'components/shared/styledElements';
+import { HomepageAnon, HomepageAuth } from 'components/home';
 
 import { getCurrentUser } from 'redux/selectors/users';
-import { HomepageAnon, HomepageAuth } from 'components/home';
 
 /**
  * @name Homepage
@@ -18,7 +18,7 @@ const Homepage = () => {
 
 	return (
 		<StyledDiv>
-			{currentUser && <HomepageAuth />}
+			{currentUser && <HomepageAuth user={currentUser} />}
 			{!currentUser && <HomepageAnon />}
 		</StyledDiv>
 	);

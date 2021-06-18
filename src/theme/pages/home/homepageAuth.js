@@ -1,12 +1,12 @@
-import { basmati } from 'theme/colors';
+import { basmati, peppercorn } from 'theme/colors';
 
 const layout = {
 	display: 'grid',
-	gridTemplateColumns: `minmax(700px, 1fr) ${window.innerWidth >= 1000 ? '1fr' : ''}`, // makeshift media query.
-	gridGap: '3em',
-	alignItems: 'center',
-	maxWidth: '1450px',
-	marginX: 'auto',
+	gridTemplateColumns: '1fr 20%',
+	gridGap: '32px',
+	height: '100%',
+	paddingTop: '40px',
+	paddingBottom: '64px',
 };
 
 const hero = {
@@ -37,6 +37,55 @@ const timelineTitle = {
 	textTransform: 'capitalize',
 };
 
+const mainContainer = {
+	display: 'grid',
+	gridTemplateRows: 'auto 1fr',
+	gridGap: '5em',
+};
+
+const latestContainer = {
+	display: 'grid',
+	gridTemplateRows: 'auto 1fr',
+	gridGap: '1em',
+	overflow: 'hidden',
+};
+
+const latestList = {
+	display: 'flex',
+	flexWrap: 'wrap',
+	listStyle: 'none',
+	padding: 0,
+	gridGap: '2em 2.5em',
+	marginTop: '1em',
+	maxHeight: '30vh',
+	overflowY: 'scroll',
+	paddingRight: '20px',
+	boxSizing: 'content-box',
+	width: '100%',
+};
+
+const lernButton = {
+	marginLeft: '5px',
+};
+
+const continueButton = {
+	marginTop: '7px',
+};
+
+const progressionList = {
+	display: 'flex',
+	flexDirection: 'column',
+	listStyle: 'none',
+	padding: 0,
+	gridGap: '2em 2.5em',
+	marginTop: '1em',
+};
+
+const progressionListItem = {
+	borderLeft: `1px solid ${peppercorn.default}`,
+	cursor: 'pointer',
+};
+
 export {
 	layout,
 	hero,
@@ -44,4 +93,11 @@ export {
 	illustrationSvg,
 	sidebar,
 	timelineTitle,
+	mainContainer,
+	latestContainer,
+	latestList,
+	lernButton,
+	continueButton,
+	progressionList,
+	progressionListItem,
 };

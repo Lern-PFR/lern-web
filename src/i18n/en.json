@@ -25,13 +25,16 @@
 					}
 				},
 				"auth": {
-					"hero": "Lorem ipsum dolor sit amet",
-					"subtitle": "Laboris ad irure eiusmod fugiat amet est mollit incididunt ullamco incididunt ullamco ad qui. Ipsum veniam qui aute pariatur minim consectetur excepteur incididunt ad non dolore est. Veniam fugiat deserunt aute enim mollit aliqua consequat elit ullamco qui. Sint magna eu anim incididunt laboris sunt eiusmod et ex nulla. Nostrud laborum sit sit ipsum consectetur.",
-					"recent_courses": "Latest courses",
+					"hero": "Welcome back {{user.nickname}}",
+					"subtitle": "Are you an expert in your field and want to share your knowledge with others? Are you a teacher looking to bring online learning into the classroom? Or maybe you're more interested in learning something new yourself!",
 					"reading_list": "Reading list",
 					"timeline": "Timeline",
+					"latest": "Latest courses",
+					"no_active": "Oops ! It looks like you haven't started any courses yet !",
 					"links": {
-						"unfinished": ""
+						"create": "Get started creating !",
+						"subjects": "Start Lern-ing now!",
+						"continue": "Continue Lern-ing"
 					}
 				}
 			}
@@ -208,7 +211,7 @@
 						},
 						"description": {
 							"label": "Description",
-							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what make an accessible, user-friendly product.",
+							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what makes an accessible, user-friendly product.",
 							"validation_rules": {
 								"required": "Please describe your subject.",
 								"min_length": "Please enter at least 10 characters.",
