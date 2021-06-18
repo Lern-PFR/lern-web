@@ -15,6 +15,27 @@
 				"sign_in": "Sign in"
 			}
 		},
+		"home": {
+			"pages": {
+				"anon": {
+					"hero": "Lern wherever you want ! But do it right !",
+					"subtitle": "Welcome to Lern, the online learning platform for anyone, anywhere ! Our unique content structure provides a linear and intuitive learning experience across a variety of subjects for any and all age groups.",
+					"links": {
+						"discover": "Lern more"
+					}
+				},
+				"auth": {
+					"hero": "Lorem ipsum dolor sit amet",
+					"subtitle": "Laboris ad irure eiusmod fugiat amet est mollit incididunt ullamco incididunt ullamco ad qui. Ipsum veniam qui aute pariatur minim consectetur excepteur incididunt ad non dolore est. Veniam fugiat deserunt aute enim mollit aliqua consequat elit ullamco qui. Sint magna eu anim incididunt laboris sunt eiusmod et ex nulla. Nostrud laborum sit sit ipsum consectetur.",
+					"recent_courses": "Latest courses",
+					"reading_list": "Reading list",
+					"timeline": "Timeline",
+					"links": {
+						"unfinished": ""
+					}
+				}
+			}
+		},
 		"authentication": {
 			"pages": {
 				"signin": {
@@ -211,7 +232,8 @@
 			"links": {
 				"create": "Create a new subject",
 				"back_to_list": "Back to subject list",
-				"module": "Access module"
+				"module": "Access module",
+				"show": "Access subject"
 			},
 			"details": {
 				"author_section": "{{author.firstname}} {{author.lastname}} - last update : {{lastUpdate, L - LT }}",

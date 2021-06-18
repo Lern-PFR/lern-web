@@ -4,6 +4,7 @@ import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { ConceptCreationPage, ConceptDetailsPage, ConceptEditionPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
 import { ModuleCreationPage, ModuleDetailsPage, ModuleEditionPage } from 'pages/modules';
+import { Homepage } from 'pages/home';
 import keys from './keys';
 
 /**
@@ -40,7 +41,7 @@ export default [
 		exact: true,
 		allowAnonymous: true,
 		allowAuthenticated: true,
-		component: () => <p>Home</p>,
+		component: Homepage,
 	},
 	// Auth
 	{
