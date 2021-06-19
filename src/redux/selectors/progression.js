@@ -1,5 +1,5 @@
 import { sortBy } from 'lodash';
-import { createSelectorHook } from 'react-redux';
+import { createSelector } from 'reselect';
 
 /**
  * @function
@@ -25,11 +25,11 @@ const getProgression = (state) => sortBy(state?.progression?.items, 'createdAt')
  *
  * @returns {object|undefined}
  */
-const getProgressionBySubject = createSelectorHook(
+const getProgressionBySubject = createSelector(
 	getProgression,
 	(_, subjectId) => subjectId,
 	(progressionList, subjectId) => {
-		const progression = progressionList.filter(({ id }) => (id === subjectId))?.[0] ?? undefined;
+		const progression = progressionList.filter(({ id }) => (id === subjectId))?.[0] ?? undefined; // progressionList existe?
 
 		if (progression === undefined) {
 			return progression;

@@ -31,6 +31,8 @@ const ProgressionListItem = ({ updatedAt, subject, concept, completion }) => {
 	let nextModule;
 
 	if (conceptIndex === module?.concepts.length - 1) {
+		console.log(module?.concepts.length);
+		console.log(conceptIndex);
 		nextModule = subject?.modules[subject?.modules.indexOf(module) + 1] ?? {};
 		console.log(nextModule);
 		if (nextModule !== undefined) {

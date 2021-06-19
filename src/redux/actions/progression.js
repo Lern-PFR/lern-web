@@ -198,7 +198,7 @@ export const fetchProgression = (subjectId) => (dispatch) => {
 	dispatch(fetchProgressionRequest());
 
 	return ProgressionApi.fetchProgressionBySubjectId(subjectId)
-		.then(({ progression }) => dispatch(fetchProgressionSuccess({ progression })))
+		.then((progression) => dispatch(fetchProgressionSuccess({ progression })))
 		.catch((error) => dispatch(fetchProgressionFailure(error)));
 };
 
@@ -230,7 +230,7 @@ export const updateProgression = (progressionData) => (dispatch) => {
 	dispatch(updateProgressionRequest());
 
 	return ProgressionApi.updateProgression(progressionData)
-		.then(({ progression }) => dispatch(updateProgressionSuccess({ progression })))
+		.then((progression) => dispatch(updateProgressionSuccess({ progression })))
 		.catch((error) => dispatch(updateProgressionFailure(error)));
 };
 

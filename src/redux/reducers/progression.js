@@ -23,10 +23,6 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 			};
 		case ActionTypes.UPDATE_PROGRESSION_SUCCESS:
-			return {
-				...state,
-				isLoading: false,
-			};
 		case ActionTypes.FETCH_PROGRESSION_SUCCESS:
 			return {
 				...state,

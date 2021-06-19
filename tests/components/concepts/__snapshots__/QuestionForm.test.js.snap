@@ -42,7 +42,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
       padding={0}
     >
       <ul
-        className="sc-dlfnbm cHULag"
+        className="sc-dlfnbm eIzvJi"
         display="grid"
       >
         <LabeledCheckbox

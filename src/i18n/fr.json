@@ -32,7 +32,7 @@
 					"latest": "Dernières leçons",
 					"no_active": "Mince ! On dirait que tu n'as pas encore débuté de leçon !",
 					"date": "{{lastUpdate, L - LT }}",
-					"subject_sompletion": "{{subject}} ({{completion}}%)",
+					"subject_completion": "{{subject}} ({{completion}}%)",
 					"links": {
 						"create": "Commencer à créer !",
 						"subjects": "Commencer à apprndre!",

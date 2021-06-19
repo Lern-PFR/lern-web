@@ -27,6 +27,7 @@ const sidebar = {
 	height: '90vh',
 	display: 'grid',
 	padding: '24px 64px',
+	paddingRight: 0,
 	borderLeft: `solid 1px ${basmati.default}`,
 	gridTemplateRows: 'auto auto auto 1fr',
 };
@@ -40,6 +41,7 @@ const timelineTitle = {
 const timelineHeader = {
 	marginLeft: '1em',
 	cursor: 'pointer',
+	width: '266px',
 };
 
 const timelineDate = {
@@ -59,6 +61,7 @@ const timelineModule = {
 	margin: 0,
 	marginLeft: '2em',
 	cursor: 'pointer',
+	width: '250px',
 };
 
 const timelineConcept = {
@@ -66,6 +69,7 @@ const timelineConcept = {
 	margin: 0,
 	marginLeft: '3em',
 	cursor: 'pointer',
+	width: '234px',
 };
 
 const mainContainer = {

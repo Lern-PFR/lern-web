@@ -2,7 +2,7 @@
 
 exports[`StyledList should match previous snapshot 1`] = `
 <ul
-  className="sc-dlfnbm bvZFKK"
+  className="sc-dlfnbm bXKA-DI"
 >
   <li>
     Hello, world!
