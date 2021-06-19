@@ -37,9 +37,7 @@ const getModuleById = createSelector(
 		}
 
 		const concepts = (module.concepts ?? []).map((concept) => {
-			const { courses, ...result } = concept; // @TODO: remove this line once the API has been updated.
-
-			const lessons = Object.values((concept.courses || []).reduce((acc, currentLesson) => {
+			const lessons = Object.values((concept.lessons || []).reduce((acc, currentLesson) => {
 				const currentlyStoredLesson = acc[currentLesson.id];
 				if (currentlyStoredLesson) {
 					acc[currentLesson.id] = currentlyStoredLesson.version < currentLesson.version ? currentLesson : currentlyStoredLesson;
@@ -51,7 +49,7 @@ const getModuleById = createSelector(
 			}, {}));
 
 			return {
-				...result,
+				...concept,
 				lessons: sortBy(lessons, 'order'),
 			};
 		});

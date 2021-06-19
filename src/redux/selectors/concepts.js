@@ -35,9 +35,8 @@ const getConceptById = createSelector(
 			return concept;
 		}
 
-		// @TODO: replace concept.courses with courses.lessons once the API has been updated.
 		// Removes older versions of each lesson from the list.
-		const lessons = Object.values((concept.courses || []).reduce((acc, currentLesson) => {
+		const lessons = Object.values((concept.lessons || []).reduce((acc, currentLesson) => {
 			const currentlyStoredLesson = acc[currentLesson.id];
 			if (currentlyStoredLesson) {
 				acc[currentLesson.id] = currentlyStoredLesson.version < currentLesson.version ? currentLesson : currentlyStoredLesson;
@@ -48,18 +47,10 @@ const getConceptById = createSelector(
 			return acc;
 		}, {}));
 
-		// @TODO: remove following snippet with the commented "return" snippet once the API has been updated.
-		const { courses, ...result } = concept;
-
 		return {
-			...result,
+			...concept,
 			lessons: sortBy(lessons, 'order'),
 		};
-
-		// return {
-		// 	...concept,
-		//	lessons: sortBy(lessons),
-		// };
 	}
 );
 

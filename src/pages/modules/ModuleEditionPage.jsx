@@ -45,8 +45,6 @@ const ModuleEditionPage = () => {
 		dispatch(updateModule(moduleEditionData, module.id));
 	}, [dispatch, module]);
 
-	// @TODO: add concept list.
-
 	return (
 		<StyledDiv {...layout}>
 			<NavigationSidebar currentlyUpdatingSubjectId={module?.subjectId} currentlyUpdatingElementId={moduleId} />

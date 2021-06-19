@@ -67,7 +67,18 @@ describe('Module state selectors', () => {
 				},
 			};
 
-			const expectedResult = { id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f', lessons: [] }] };
+			const expectedResult = {
+				id: 'efgh',
+				title: 'dummy module 1',
+				concepts: [
+					{
+						id: 'd',
+						title: 'e',
+						description: 'f',
+						lessons: [{ id: 'abcd', title: 'dummy course 0 updated', order: 0, version: 1 }],
+					},
+				],
+			};
 
 			const actualResult = getModuleById(mockedStore, 'efgh');
 			expect(actualResult).toStrictEqual(expectedResult);
