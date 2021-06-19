@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/display-name */
-import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
 import { ConceptCreationPage, ConceptDetailsPage, ConceptEditionPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
@@ -19,7 +18,7 @@ export default [
 		path: keys.app.default,
 		exact: true,
 		allowAnonymous: true,
-		component: App,
+		component: () => <p>Home</p>, // @TODO: use the "Home" page component once it has been implemented.
 	},
 	{
 		path: keys.about.default,
