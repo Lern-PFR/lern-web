@@ -146,13 +146,6 @@ export default [
 				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
-				component: ConceptDetailsPage,
-			},
-			{
-				path: keys.modules.conceptCreation,
-				allowAnonymous: false,
-				allowAuthenticated: true,
-				exact: true,
 				component: ConceptCreationPage,
 			},
 			{
