@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
 import { clearProgressionList, fetchProgressionList } from 'redux/actions/progression';
 
-import { PrimaryButton, OutlinedLinkButton } from 'components/shared/buttons';
+import { PrimaryButton, SubtleButton } from 'components/shared/buttons';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { StyledDiv } from 'components/shared/styledElements';
@@ -49,11 +49,11 @@ const HomepageAuth = ({ t, user }) => {
 					<Canon {...hero} tag="h1">{t('home.pages.auth.hero', { user })}</Canon>
 					<BodyCopy {...subtitle}>{t('home.pages.auth.subtitle')}</BodyCopy>
 					<PrimaryButton>
-						<Link to={routes.subjects.subjectCreation}>{t('home.pages.auth.links.create')}</Link>
-					</PrimaryButton>
-					<OutlinedLinkButton {...lernButton}>
 						<Link to={routes.subjects.default}>{t('home.pages.auth.links.subjects')}</Link>
-					</OutlinedLinkButton>
+					</PrimaryButton>
+					<SubtleButton {...lernButton}>
+						<Link to={routes.subjects.subjectStructure}>{t('home.pages.auth.links.structure')}</Link>
+					</SubtleButton>
 				</StyledDiv>
 				<LatestCourses />
 			</StyledDiv>

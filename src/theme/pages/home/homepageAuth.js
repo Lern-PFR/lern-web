@@ -1,4 +1,4 @@
-import { basmati, peppercorn } from 'theme/colors';
+import { basmati, peppercorn, coconut } from 'theme/colors';
 
 const layout = {
 	display: 'grid',
@@ -35,6 +35,37 @@ const timelineTitle = {
 	margin: 0,
 	lineHeight: 'initial',
 	textTransform: 'capitalize',
+};
+
+const timelineHeader = {
+	marginLeft: '1em',
+	cursor: 'pointer',
+};
+
+const timelineDate = {
+	lineHeight: 'initial',
+	margin: 0,
+	cursor: 'pointer',
+};
+
+const timelineSubject = {
+	lineHeight: 'initial',
+	margin: 0,
+	cursor: 'pointer',
+};
+
+const timelineModule = {
+	lineHeight: 'initial',
+	margin: 0,
+	marginLeft: '2em',
+	cursor: 'pointer',
+};
+
+const timelineConcept = {
+	lineHeight: 'initial',
+	margin: 0,
+	marginLeft: '3em',
+	cursor: 'pointer',
 };
 
 const mainContainer = {
@@ -82,7 +113,30 @@ const progressionList = {
 };
 
 const progressionListItem = {
+	cursor: 'pointer',
 	borderLeft: `1px solid ${peppercorn.default}`,
+	paddingLeft: '1.5em',
+};
+
+const progressionListItemContent = {
+	display: 'flex',
+	flexDirection: 'row',
+	alignItems: 'center',
+	cursor: 'pointer',
+};
+
+const progressionPill = {
+	border: `1px solid ${peppercorn.default}`,
+	borderRadius: '50%',
+	height: '13px',
+	width: '13px',
+	bg: coconut.default,
+	marginLeft: '-31px',
+	cursor: 'pointer',
+};
+
+const progressionPillFilled = {
+	bg: peppercorn.default,
 	cursor: 'pointer',
 };
 
@@ -93,6 +147,11 @@ export {
 	illustrationSvg,
 	sidebar,
 	timelineTitle,
+	timelineHeader,
+	timelineDate,
+	timelineSubject,
+	timelineModule,
+	timelineConcept,
 	mainContainer,
 	latestContainer,
 	latestList,
@@ -100,4 +159,7 @@ export {
 	continueButton,
 	progressionList,
 	progressionListItem,
+	progressionListItemContent,
+	progressionPill,
+	progressionPillFilled,
 };

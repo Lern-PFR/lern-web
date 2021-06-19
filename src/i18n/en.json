@@ -31,10 +31,13 @@
 					"timeline": "Timeline",
 					"latest": "Latest courses",
 					"no_active": "Oops ! It looks like you haven't started any courses yet !",
+					"date": "{{lastUpdate, L - LT }}",
+					"subject_completion": "{{subject}} ({{completion}}%)",
 					"links": {
 						"create": "Get started creating !",
 						"subjects": "Start Lern-ing now!",
-						"continue": "Continue Lern-ing"
+						"continue": "Continue Lern-ing",
+						"structure": "Lern to create"
 					}
 				}
 			}
