@@ -26,7 +26,7 @@ exports[`ConceptListItem should match previous snapshot 1`] = `
     justifySelf="start"
   >
     <Link
-      to="/concepts/abcd"
+      to="/concepts/details/abcd"
     >
       concepts.links.start
     </Link>
@@ -68,7 +68,7 @@ exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
     justifySelf="start"
   >
     <Link
-      to="/concepts/abcd"
+      to="/concepts/details/abcd"
     >
       concepts.links.start
     </Link>
