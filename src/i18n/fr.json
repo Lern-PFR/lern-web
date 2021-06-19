@@ -161,7 +161,8 @@
 				},
 				"sidebar": {
 					"new_subject": "Nouveau sujet",
-					"new_module": "Nouveau module"
+					"new_module": "Nouveau module",
+					"new_concept": "Nouvelle notion"
 				}
 			},
 			"edition": {
@@ -367,6 +368,34 @@
 			"deletion": {
 				"toasts": {
 					"success": "La notion {{name}} a bien été supprimée."
+				}
+			},
+			"creation": {
+				"title": "Nouvelle notion",
+				"form": {
+					"action": {
+						"submit": "Créer ma notion"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Qu'est-ce que l'UX Design ?",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "Un point de vocabulaire sur l'UX Design et ses composantes.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre notion.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						}
+					}
 				}
 			}
 		},

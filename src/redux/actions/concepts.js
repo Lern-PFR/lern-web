@@ -1,6 +1,9 @@
-import * as ConceptsApi from 'api/conceptsApi';
 import i18next from 'i18next';
+import { generatePath } from 'react-router';
 import { toast } from 'react-toastify';
+import routes from 'routes';
+import * as ConceptsApi from 'api/conceptsApi';
+import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
 import { fetchSubject } from './subjects';
 
 /**
@@ -337,7 +340,10 @@ export const createConcept = (conceptData) => (dispatch) => {
 	dispatch(createConceptRequest());
 
 	return ConceptsApi.createConcept(conceptData)
-		.then(({ concept }) => dispatch(createConceptSuccess({ concept })))
+		.then((concept) => {
+			dispatch(createConceptSuccess({ concept }));
+			redirectOnSuccess(generatePath(routes.concepts.conceptEdition, { conceptId: concept.id }));
+		})
 		.catch((error) => dispatch(createConceptFailure(error)));
 };
 

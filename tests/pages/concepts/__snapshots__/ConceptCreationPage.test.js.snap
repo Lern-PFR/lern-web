@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Module creation page Snapshot testing should match previous snapshot 1`] = `
+exports[`Concept creation page Snapshot testing should match previous snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -33,7 +33,7 @@ exports[`Module creation page Snapshot testing should match previous snapshot 1`
   }
 >
   <RouterProvider>
-    <ModuleCreationPage />
+    <ConceptCreationPage />
   </RouterProvider>
 </ContextProvider>
 `;

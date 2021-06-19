@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
-import { ConceptDetailsPage } from 'pages/concepts';
+import { ConceptCreationPage, ConceptDetailsPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
 import { ModuleCreationPage, ModuleDetailsPage, ModuleEditionPage } from 'pages/modules';
 import keys from './keys';
@@ -147,6 +147,13 @@ export default [
 				allowAuthenticated: true,
 				exact: true,
 				component: ConceptDetailsPage,
+			},
+			{
+				path: keys.modules.conceptCreation,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ConceptCreationPage,
 			},
 			{
 				path: keys.modules.moduleDetails,

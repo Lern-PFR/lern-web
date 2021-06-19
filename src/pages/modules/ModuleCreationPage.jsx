@@ -43,7 +43,7 @@ const ModuleCreationPage = () => {
 			<NavigationSidebar currentlyUpdatingSubjectId={subjectId} contentCreationOptions={{ contentType: 'module', parentId: subjectId }} />
 			<StyledDiv {...contentSection}>
 				<DoublePica as="h1" {...title}>{t('modules.creation.title')}</DoublePica>
-				<ModuleCreationForm onSubmit={onSubmit} subjectId={subjectId} />
+				<ModuleCreationForm onSubmit={onSubmit} />
 			</StyledDiv>
 		</StyledDiv>
 	);

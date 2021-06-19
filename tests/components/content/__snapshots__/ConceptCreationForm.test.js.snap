@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<styled.form
+  display="grid"
+  gridGap="1em"
+  height="max-content"
+  onSubmit={[Function]}
+>
+  <LabeledInput
+    defaultValue=""
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="title"
+    key="title"
+    name="title"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="concepts.creation.form.fields.title.placeholder"
+    textStyle="brevier"
+    type="text"
+  >
+    concepts.creation.form.fields.title.label
+  </LabeledInput>
+  <LabeledTextArea
+    defaultValue=""
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="description"
+    key="description"
+    name="description"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="concepts.creation.form.fields.description.placeholder"
+    rows={6}
+    type="textarea"
+  >
+    concepts.creation.form.fields.description.label
+  </LabeledTextArea>
+  <PrimaryButton
+    justifySelf="start"
+    type="submit"
+  >
+    concepts.creation.form.action.submit
+  </PrimaryButton>
+</styled.form>
+`;
