@@ -175,6 +175,13 @@ export default [
 				exact: true,
 				component: ConceptDetailsPage,
 			},
+			{
+				path: keys.concepts.lessonDetails,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ConceptDetailsPage,
+			},
 		],
 	},
 	// Lessons

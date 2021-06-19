@@ -30,15 +30,44 @@ describe('Module state selectors', () => {
 			const mockedStore = {
 				modules: {
 					items: [
-						{ id: 'abcd', title: 'dummy module 0', concepts: [{ id: 'a', title: 'b', description: 'c' }] },
-						{ id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f' }] },
-						{ id: 'ijkl', title: 'dummy module 2', concepts: [{ id: 'g', title: 'h', description: 'i' }] },
-						{ id: 'mnop', title: 'dummier module', concepts: [{ id: 'j', title: 'k', description: 'l' }] },
+						{ id: 'abcd', title: 'dummy module 0', concepts: [{ id: 'a', title: 'b', description: 'c', lessons: [] }] },
+						{ id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f', lessons: [] }] },
+						{ id: 'ijkl', title: 'dummy module 2', concepts: [{ id: 'g', title: 'h', description: 'i', lessons: [] }] },
+						{ id: 'mnop', title: 'dummier module', concepts: [{ id: 'j', title: 'k', description: 'l', lessons: [] }] },
 					],
 				},
 			};
 
-			const expectedResult = { id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f' }] };
+			const expectedResult = { id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f', lessons: [] }] };
+
+			const actualResult = getModuleById(mockedStore, 'efgh');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should ignore a lesson if it has a duplicate with a higher "version" than itself.', () => {
+			const mockedStore = {
+				modules: {
+					items: [
+						{
+							id: 'efgh',
+							title: 'dummy module 1',
+							concepts: [
+								{
+									id: 'd',
+									title: 'e',
+									description: 'f',
+									lessons: [
+										{ id: 'abcd', title: 'dummy course 0', order: 0, version: 0 },
+										{ id: 'abcd', title: 'dummy course 0 updated', order: 0, version: 1 },
+									],
+								},
+							],
+						},
+					],
+				},
+			};
+
+			const expectedResult = { id: 'efgh', title: 'dummy module 1', concepts: [{ id: 'd', title: 'e', description: 'f', lessons: [] }] };
 
 			const actualResult = getModuleById(mockedStore, 'efgh');
 			expect(actualResult).toStrictEqual(expectedResult);

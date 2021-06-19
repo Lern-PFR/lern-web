@@ -3,7 +3,7 @@ import { LessonContent } from 'components/concepts/conceptDetailsPage';
 
 describe('LessonContent', () => {
 	const lessonData = {
-		name: 'test lesson',
+		title: 'test lesson',
 		content: 'test lesson content',
 		description: 'test lesson description',
 	};

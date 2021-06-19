@@ -303,7 +303,7 @@ export const fetchConcept = (conceptId) => (dispatch) => {
 	dispatch(fetchConceptRequest());
 
 	return ConceptsApi.fetchConceptById(conceptId)
-		.then(({ concept }) => dispatch(fetchConceptSuccess({ concept })))
+		.then((concept) => dispatch(fetchConceptSuccess({ concept })))
 		.catch((error) => dispatch(fetchConceptFailure(error)));
 };
 

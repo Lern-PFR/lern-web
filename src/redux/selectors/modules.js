@@ -1,7 +1,6 @@
 import { sortBy } from 'lodash';
+import { createSelector } from 'reselect';
 import { getSubjectById } from './subjects';
-
-const { createSelector } = require('reselect');
 
 /**
  * @function
@@ -37,9 +36,29 @@ const getModuleById = createSelector(
 			return module;
 		}
 
+		const concepts = (module.concepts ?? []).map((concept) => {
+			const { courses, ...result } = concept; // @TODO: remove this line once the API has been updated.
+
+			const lessons = Object.values((concept.courses || []).reduce((acc, currentLesson) => {
+				const currentlyStoredLesson = acc[currentLesson.id];
+				if (currentlyStoredLesson) {
+					acc[currentLesson.id] = currentlyStoredLesson.version < currentLesson.version ? currentLesson : currentlyStoredLesson;
+				} else {
+					acc[currentLesson.id] = currentLesson;
+				}
+
+				return acc;
+			}, {}));
+
+			return {
+				...result,
+				lessons: sortBy(lessons, 'order'),
+			};
+		});
+
 		return {
 			...module,
-			concepts: sortBy(module?.concepts || [], 'order'),
+			concepts: sortBy(concepts || [], 'order'),
 		};
 	}
 );
