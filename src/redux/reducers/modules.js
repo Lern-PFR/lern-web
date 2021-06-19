@@ -27,13 +27,13 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_MODULE_SUCCESS:
-		case ActionTypes.UPDATE_MODULE_SUCCESS:
 		case ActionTypes.DELETE_MODULE_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 			};
 		case ActionTypes.FETCH_MODULE_SUCCESS:
+		case ActionTypes.UPDATE_MODULE_SUCCESS:
 			return {
 				...state,
 				isLoading: false,

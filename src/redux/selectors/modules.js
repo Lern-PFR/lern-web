@@ -56,10 +56,11 @@ const getModuleById = createSelector(
 const getModuleOrderOptions = createSelector(
 	getSubjectById,
 	(subject) => {
-		const result = Array.from({ length: subject?.modules?.length || 0 }, (_, i) => ({ label: i, value: i }));
-		result.push({ label: result.length, value: result.length });
+		if (!subject?.modules?.length || subject?.modules?.length < 1) {
+			return [{ label: 0, value: 0 }];
+		}
 
-		return result;
+		return Array.from({ length: subject?.modules?.length || 0 }, (_, i) => ({ label: i, value: i }));
 	}
 );
 

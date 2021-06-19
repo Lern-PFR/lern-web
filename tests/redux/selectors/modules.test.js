@@ -110,7 +110,7 @@ describe('Module state selectors', () => {
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 
-		it('should return a an array of length n+1 from the current subject\'s module list.', () => {
+		it('should return a an array of length n from the current subject\'s module list.', () => {
 			const mockedStore = {
 				subjects: {
 					items: {
@@ -135,7 +135,6 @@ describe('Module state selectors', () => {
 				{ label: 1, value: 1 },
 				{ label: 2, value: 2 },
 				{ label: 3, value: 3 },
-				{ label: 4, value: 4 },
 			];
 
 			const actualResult = getModuleOrderOptions(mockedStore, 'abcd');
