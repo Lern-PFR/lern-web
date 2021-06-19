@@ -9,15 +9,15 @@ import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle, 
  *
  * @author Timothée Simon-Franza
  *
- * @param {string} name			The current lesson's title.
+ * @param {string} title		The current lesson's title.
  * @param {string} content		The current lesson's content.
  * @param {string} description	A short description of the current lesson.
  * @param {string} [question]	The question's statement, if any.
  */
-const LessonContent = ({ name, content, description, question }) => (
+const LessonContent = ({ title, content, description, question }) => (
 	<StyledDiv {...lessonContentContainer}>
 		<StyledDiv {...lessonTitleContainer}>
-			<Trafalgar {...lessonTitle} tag="h2">{name}</Trafalgar>
+			<Trafalgar {...lessonTitle} tag="h2">{title}</Trafalgar>
 			<LongPrimer {...lessonDescription}>{description}</LongPrimer>
 		</StyledDiv>
 		<StyledDiv>
@@ -33,7 +33,7 @@ const LessonContent = ({ name, content, description, question }) => (
 );
 
 LessonContent.propTypes = {
-	name: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 	content: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	question: PropTypes.string,

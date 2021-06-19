@@ -32,7 +32,6 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
         Array [
           Object {
             "content": "test lesson content",
-            "contentType": "lesson",
             "description": "test lesson description",
             "id": 1,
             "order": 0,
@@ -40,7 +39,6 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
           },
           Object {
             "content": "lesson 1's content",
-            "contentType": "lesson",
             "description": "another lesson description",
             "id": 1,
             "order": 1,
@@ -48,40 +46,10 @@ exports[`Sidebar should match previous snapshot (with question) 1`] = `
           },
           Object {
             "content": "lesson 2's content",
-            "contentType": "lesson",
             "description": "another lesson description",
             "id": 2,
             "order": 2,
             "title": "lesson 2",
-          },
-          Object {
-            "contentType": "exercise",
-            "id": 3,
-            "order": 3,
-            "question": Object {
-              "answers": Array [
-                Object {
-                  "id": "answer-2-0",
-                  "text": "Yes",
-                  "valid": false,
-                },
-                Object {
-                  "id": "answer-2-1",
-                  "text": "I've never tried it",
-                  "valid": false,
-                },
-                Object {
-                  "id": "answer-2-2",
-                  "text": "Hell no",
-                  "valid": true,
-                },
-              ],
-              "explanation": "It's only a taste preference, really.",
-              "id": "question-2",
-              "singleChoice": true,
-              "statement": "Do you like angular ?",
-            },
-            "title": "exercise-2",
           },
         ]
       }
@@ -153,7 +121,6 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
         Array [
           Object {
             "content": "test lesson content",
-            "contentType": "lesson",
             "description": "test lesson description",
             "id": 1,
             "order": 0,
@@ -161,7 +128,6 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
           },
           Object {
             "content": "lesson 1's content",
-            "contentType": "lesson",
             "description": "another lesson description",
             "id": 1,
             "order": 1,
@@ -169,40 +135,10 @@ exports[`Sidebar should match previous snapshot (without question) 1`] = `
           },
           Object {
             "content": "lesson 2's content",
-            "contentType": "lesson",
             "description": "another lesson description",
             "id": 2,
             "order": 2,
             "title": "lesson 2",
-          },
-          Object {
-            "contentType": "exercise",
-            "id": 3,
-            "order": 3,
-            "question": Object {
-              "answers": Array [
-                Object {
-                  "id": "answer-2-0",
-                  "text": "Yes",
-                  "valid": false,
-                },
-                Object {
-                  "id": "answer-2-1",
-                  "text": "I've never tried it",
-                  "valid": false,
-                },
-                Object {
-                  "id": "answer-2-2",
-                  "text": "Hell no",
-                  "valid": true,
-                },
-              ],
-              "explanation": "It's only a taste preference, really.",
-              "id": "question-2",
-              "singleChoice": true,
-              "statement": "Do you like angular ?",
-            },
-            "title": "exercise-2",
           },
         ]
       }

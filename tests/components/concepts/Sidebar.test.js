@@ -8,7 +8,6 @@ describe('Sidebar', () => {
 			id: 0,
 			title: 'test lesson',
 			content: 'test lesson content',
-			contentType: 'lesson',
 			description: 'test lesson description',
 			order: 0,
 		},
@@ -17,7 +16,6 @@ describe('Sidebar', () => {
 				id: 1,
 				title: 'test lesson',
 				content: 'test lesson content',
-				contentType: 'lesson',
 				description: 'test lesson description',
 				order: 0,
 			},
@@ -26,7 +24,6 @@ describe('Sidebar', () => {
 				title: 'lesson 1',
 				description: 'another lesson description',
 				content: 'lesson 1\'s content',
-				contentType: 'lesson',
 				order: 1,
 			},
 			{
@@ -34,29 +31,11 @@ describe('Sidebar', () => {
 				title: 'lesson 2',
 				description: 'another lesson description',
 				content: 'lesson 2\'s content',
-				contentType: 'lesson',
 				order: 2,
-			},
-			{
-				id: 3,
-				title: 'exercise-2',
-				contentType: 'exercise',
-				order: 3,
-				question: {
-					id: 'question-2',
-					singleChoice: true,
-					statement: 'Do you like angular ?',
-					explanation: 'It\'s only a taste preference, really.',
-					answers: [
-						{ id: 'answer-2-0', text: 'Yes', valid: false },
-						{ id: 'answer-2-1', text: 'I\'ve never tried it', valid: false },
-						{ id: 'answer-2-2', text: 'Hell no', valid: true },
-					],
-				},
 			},
 		],
 		onQuestionAnswerSubmit: jest.fn(),
-		onCurrentDocumentRedirect: jest.fn(),
+		onContentStepperClick: jest.fn(),
 	};
 
 	const propsWithQuestion = {

@@ -1,7 +1,6 @@
 import { sortBy } from 'lodash';
+import { createSelector } from 'reselect';
 import { getSubjectById } from './subjects';
-
-const { createSelector } = require('reselect');
 
 /**
  * @function

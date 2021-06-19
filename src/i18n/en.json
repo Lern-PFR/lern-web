@@ -360,7 +360,7 @@
 		"concepts": {
 			"links": {
 				"start": "Start notion",
-				"back_to_module": "Return to module '{{module.name}}'"
+				"back_to_module": "Return to module"
 			},
 			"deletion": {
 				"toasts": {

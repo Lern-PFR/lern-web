@@ -17,7 +17,7 @@ import QuestionForm from './QuestionForm';
  * @param {func}	onQuestionAnswerSubmit		Method to trigger upon submission of the question form.
  * @param {func}	onCurrentDocumentRedirect	Method to trigger when the user clicks on a navigation stepper to redirect him to the desired document.
  */
-const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onQuestionAnswerSubmit, onCurrentDocumentRedirect }) => (
+const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onQuestionAnswerSubmit, onContentStepperClick }) => (
 	<aside>
 		<StyledDiv {...sidebar}>
 			<Paragon tag="h1" {...conceptTitleStyle}>{conceptTitle}</Paragon>
@@ -25,7 +25,7 @@ const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onQuestionAnswer
 			<ConceptContentNavigator
 				currentDocOrder={currentLesson.order}
 				conceptContent={conceptContent}
-				redirectTo={onCurrentDocumentRedirect}
+				redirectTo={onContentStepperClick}
 			/>
 			{currentLesson.exercise && (
 				<QuestionForm
@@ -61,34 +61,14 @@ Sidebar.propTypes = {
 		}),
 	}).isRequired,
 	conceptContent: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			// Lessons
-			PropTypes.shape({
+		PropTypes.shape({
+			id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+			title: PropTypes.string.isRequired,
+			description: PropTypes.string.isRequired,
+			content: PropTypes.string.isRequired,
+			order: PropTypes.number.isRequired,
+			exercise: PropTypes.shape({
 				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				title: PropTypes.string.isRequired,
-				description: PropTypes.string.isRequired,
-				content: PropTypes.string.isRequired,
-				order: PropTypes.number.isRequired,
-				contentType: PropTypes.oneOf(['lesson']).isRequired,
-				exercise: PropTypes.shape({
-					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-					question: PropTypes.shape({
-						id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-						singleChoice: PropTypes.bool.isRequired,
-						statement: PropTypes.string.isRequired,
-						explanation: PropTypes.string,
-						answers: PropTypes.arrayOf(PropTypes.shape({
-							text: PropTypes.string.isRequired,
-							valid: PropTypes.bool.isRequired,
-						})).isRequired,
-					}).isRequired,
-				}),
-			}),
-			// Exercises
-			PropTypes.shape({
-				id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-				order: PropTypes.number.isRequired,
-				contentType: PropTypes.oneOf(['exercise']).isRequired,
 				question: PropTypes.shape({
 					id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 					singleChoice: PropTypes.bool.isRequired,
@@ -100,10 +80,10 @@ Sidebar.propTypes = {
 					})).isRequired,
 				}).isRequired,
 			}),
-		])
+		}),
 	),
 	onQuestionAnswerSubmit: PropTypes.func.isRequired,
-	onCurrentDocumentRedirect: PropTypes.func.isRequired,
+	onContentStepperClick: PropTypes.func.isRequired,
 };
 
 Sidebar.defaultProps = {

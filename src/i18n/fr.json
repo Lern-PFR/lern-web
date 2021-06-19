@@ -362,7 +362,7 @@
 		"concepts": {
 			"links": {
 				"start": "Débuter la notion",
-				"back_to_module": "Retourner au module '{{module.name}}'"
+				"back_to_module": "Retourner au module"
 			},
 			"deletion": {
 				"toasts": {
