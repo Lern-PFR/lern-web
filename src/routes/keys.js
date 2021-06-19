@@ -32,10 +32,12 @@ export default Object.freeze({
 	modules: {
 		default: '/modules',
 		moduleEdition: '/modules/edit/:moduleId',
+		conceptCreation: '/modules/:moduleId/concepts/create',
 		moduleDetails: '/modules/:moduleId',
 	},
 	concepts: {
 		default: '/concepts',
+		conceptEdition: '/concepts/edit/:conceptId',
 		conceptDetails: '/concepts/:conceptId',
 		lessonDetails: '/concepts/:conceptId/lessons/:lessonId',
 	},

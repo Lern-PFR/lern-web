@@ -251,10 +251,17 @@ describe('Module-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { module: moduleData },
+				body: { ...moduleData },
 				headers: { 'content-type': 'application/json' },
 			};
 
+			const subjectFetchHttpResponse = {
+				status: 200,
+				body: { id: 'abcd', title: 'abcd', description: 'abcd', modules: [] },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/subjects/${moduleData.subjectId}`, subjectFetchHttpResponse);
 			fetchMock.put(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
 
 			const expectedActions = [
@@ -263,6 +270,7 @@ describe('Module-related redux actions', () => {
 					type: modulesActions.ActionTypes.UPDATE_MODULE_SUCCESS,
 					payload: { module: moduleData },
 				},
+				{ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST },
 			];
 
 			// Act & assert
@@ -324,14 +332,7 @@ describe('Module-related redux actions', () => {
 				headers: { 'content-type': 'application/json' },
 			};
 
-			const subjectFetchHttpResponse = {
-				status: 200,
-				body: { id: 'abcd', title: 'abcd', description: 'abcd', modules: [] },
-				headers: { 'content-type': 'application/json' },
-			};
-
 			fetchMock.delete(`${baseUrl}/api/modules/${moduleData.id}`, httpResponse);
-			fetchMock.get(`${baseUrl}/api/subjects/${moduleData.subjectId}`, subjectFetchHttpResponse);
 
 			const expectedActions = [
 				{ type: modulesActions.ActionTypes.DELETE_MODULE_REQUEST },
@@ -339,7 +340,6 @@ describe('Module-related redux actions', () => {
 					type: modulesActions.ActionTypes.DELETE_MODULE_SUCCESS,
 					payload: { module: moduleData },
 				},
-				{ type: SubjectsActionTypes.FETCH_SUBJECT_REQUEST },
 			];
 
 			// Act & assert

@@ -307,6 +307,52 @@
 					}
 				}
 			},
+			"edition": {
+				"title": "Editer mon module",
+				"form": {
+					"action": {
+						"submit": "Enregistrer mes modifications"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Fondamentaux de l'UX Design",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "L'UX Design sous sa forme la plus basique. Vous apprendrez ici toutes les bases et le vocabulaire nécessaires à la compréhension de l'expérience utilisateur.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre module.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						},
+						"order": {
+							"label": "Position au sein du sujet",
+							"hint": "Ordre d'apparition du module au sein du sujet.",
+							"validation_rules": {
+								"required": "Veuillez renseigner un ordre."
+							}
+						}
+					}
+				},
+				"concepts_list": {
+					"title": "Notions de ce module",
+					"links": {
+						"add": "Ajouter une notion",
+						"delete": "Supprimer",
+						"edit": "Editer"
+					}
+				},
+				"toasts": {
+					"success": "Vos modifications ont bien été enregistrées."
+				}
+			},
 			"deletion": {
 				"toasts": {
 					"success": "Le module {{name}} a bien été supprimé."
@@ -317,6 +363,11 @@
 			"links": {
 				"start": "Débuter la notion",
 				"back_to_module": "Retourner au module '{{module.name}}'"
+			},
+			"deletion": {
+				"toasts": {
+					"success": "La notion {{name}} a bien été supprimée."
+				}
 			}
 		},
 		"lessons": {

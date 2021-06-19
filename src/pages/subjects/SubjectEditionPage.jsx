@@ -35,7 +35,7 @@ const SubjectEditionPage = () => {
 
 	return (
 		<StyledDiv {...layout}>
-			<NavigationSidebar currentlyUpdatingSubjectId={subjectId} />
+			<NavigationSidebar currentlyUpdatingSubjectId={subjectId} currentlyUpdatingElementId={subjectId} />
 			<StyledDiv {...contentSection}>
 				<DoublePica as="h1" {...title}>{t('subjects.edition.title')}</DoublePica>
 				{!subject && <></>}

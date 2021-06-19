@@ -1,4 +1,4 @@
-import { getModuleById, getModules } from 'redux/selectors/modules';
+import { getModuleById, getModules, getModuleOrderOptions } from 'redux/selectors/modules';
 
 describe('Module state selectors', () => {
 	describe('getModules', () => {
@@ -90,6 +90,54 @@ describe('Module state selectors', () => {
 			const expectedResult = undefined;
 
 			const actualResult = getModuleById(mockedStore, 'qrst');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+	});
+
+	describe('getModuleOrderOptions', () => {
+		it('should return a single entry array if the current subject has no modules', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{ id: 'abcd', title: 'dummy_subject_title', description: 'dummy_subject_description' },
+						],
+					},
+				},
+			};
+			const expectedResult = [{ label: 0, value: 0 }];
+			const actualResult = getModuleOrderOptions(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should return a an array of length n from the current subject\'s module list.', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy_subject_title',
+								description: 'dummy_subject_description',
+								modules: [
+									{ id: 'abcd', title: 'dummy module 0' },
+									{ id: 'efgh', title: 'dummy module 1' },
+									{ id: 'ijkl', title: 'dummy module 2' },
+									{ id: 'mnop', title: 'dummier module' },
+								],
+							},
+						],
+					},
+				},
+			};
+			const expectedResult = [
+				{ label: 0, value: 0 },
+				{ label: 1, value: 1 },
+				{ label: 2, value: 2 },
+				{ label: 3, value: 3 },
+			];
+
+			const actualResult = getModuleOrderOptions(mockedStore, 'abcd');
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 	});

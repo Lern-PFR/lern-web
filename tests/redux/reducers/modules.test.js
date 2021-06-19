@@ -253,13 +253,15 @@ describe('Modules reducer', () => {
 
 		it('should update the state\'s isLoading field to false when receiving of UPDATE_MODULE_SUCCESS', () => {
 			// Arrange
+			const udpatedModule = { id: 'dummy_module_id', title: 'Dummy_module_title', subjectId: 'dummy_subject_id' };
+
 			const action = {
 				type: ActionTypes.UPDATE_MODULE_SUCCESS,
-				payload: { module: { id: '7', name: 'Dummy module 7', subjectId: 'abcd' } },
+				payload: { module: udpatedModule },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
-			const expectedState = { ...initialState, isLoading: false };
+			const expectedState = { ...initialState, isLoading: false, items: [udpatedModule], totalCount: 1 };
 
 			// Act
 			const result = modulesReducer(temporaryState, action);

@@ -1,4 +1,5 @@
 import { sortBy } from 'lodash';
+import { getSubjectById } from './subjects';
 
 const { createSelector } = require('reselect');
 
@@ -43,7 +44,28 @@ const getModuleById = createSelector(
 	}
 );
 
+/**
+ * @function
+ * @name getModuleOrderOptions
+ * @description A selector callback which returns an array of "order" values for the module edition form's order select field.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {Array}
+ */
+const getModuleOrderOptions = createSelector(
+	getSubjectById,
+	(subject) => {
+		if (!subject?.modules?.length || subject?.modules?.length < 1) {
+			return [{ label: 0, value: 0 }];
+		}
+
+		return Array.from({ length: subject?.modules?.length || 0 }, (_, i) => ({ label: i, value: i }));
+	}
+);
+
 export {
 	getModules,
 	getModuleById,
+	getModuleOrderOptions,
 };

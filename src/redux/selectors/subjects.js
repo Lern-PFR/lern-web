@@ -122,8 +122,19 @@ const getContentManipulationSidebarData = createSelector(
 			sortBy(concepts, 'order').forEach(({ id: conceptId, title: conceptTitle, order: conceptOrder, courses = [] }) => {
 				data = [...data, { id: conceptId, label: `${moduleOrder}.${conceptOrder}. ${conceptTitle}`, order: conceptOrder, contentType: 'concept' }];
 
-				sortBy(courses, 'order').forEach(({ id: courseId, title: courseTitle, order: courseOrder }) => {
-					data = [...data, { id: courseId, label: `${moduleOrder}.${conceptOrder}.${courseOrder}. ${courseTitle}`, order: courseOrder, contentType: 'course' }];
+				// Removes older versions of each lesson from the list.
+				const lessons = Object.values(courses.reduce((acc, currentLesson) => {
+					const currentlyStoredLesson = acc[currentLesson.id];
+					if (currentlyStoredLesson) {
+						acc[currentLesson.id] = currentlyStoredLesson.version < currentLesson.version ? currentLesson : currentlyStoredLesson;
+					} else {
+						acc[currentLesson.id] = currentLesson;
+					}
+
+					return acc;
+				}, {}));
+				sortBy(lessons, 'order').forEach(({ id: courseId, title: courseTitle, order: courseOrder, version }) => {
+					data = [...data, { id: courseId, label: `${moduleOrder}.${conceptOrder}.${courseOrder}. ${courseTitle}`, order: courseOrder, contentType: 'course', version }];
 				});
 			});
 		});

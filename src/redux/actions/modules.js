@@ -361,7 +361,11 @@ export const updateModule = (moduleData, moduleId) => (dispatch) => {
 	dispatch(updateModuleRequest());
 
 	return ModulesApi.updateModule(moduleData, moduleId)
-		.then(({ module }) => dispatch(updateModuleSuccess({ module })))
+		.then((module) => {
+			dispatch(updateModuleSuccess({ module }));
+			toast.success(i18next.t('modules.edition.toasts.success'));
+			dispatch(fetchSubject(module.subjectId)); // Needed to refresh the layout.
+		})
 		.catch((error) => dispatch(updateModuleFailure(error)));
 };
 
@@ -381,7 +385,7 @@ export const deleteModule = (moduleId) => (dispatch) => {
 		.then((module) => {
 			dispatch(deleteModuleSuccess({ module }));
 			toast.success(i18next.t('modules.deletion.toasts.success', { name: module.title }));
-			dispatch(fetchSubject(module.subjectId)); // Needed to refresh the layout.
+			redirectOnSuccess(generatePath(routes.subjects.subjectEdition, { subjectId: module.subjectId }));
 		})
 		.catch((error) => dispatch(deleteModuleFailure(error)));
 };

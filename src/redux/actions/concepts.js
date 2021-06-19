@@ -1,4 +1,7 @@
 import * as ConceptsApi from 'api/conceptsApi';
+import i18next from 'i18next';
+import { toast } from 'react-toastify';
+import { fetchSubject } from './subjects';
 
 /**
  * @constant
@@ -364,12 +367,17 @@ export const updateConcept = (conceptData, conceptId) => (dispatch) => {
  * @author Timothée Simon-Franza
  *
  * @param {string} conceptId	The id identifying the concept to remove.
+ * @param {string} subjectId	The id identifying the concept's parent subject.
  */
-export const deleteConcept = (conceptId) => (dispatch) => {
+export const deleteConcept = (conceptId, subjectId) => (dispatch) => {
 	dispatch(deleteConceptRequest());
 
 	return ConceptsApi.deleteConcept(conceptId)
-		.then(({ concept }) => dispatch(deleteConceptSuccess({ concept })))
+		.then((concept) => {
+			dispatch(deleteConceptSuccess({ concept }));
+			toast.success(i18next.t('concepts.deletion.toasts.success', { name: concept.title }));
+			dispatch(fetchSubject(subjectId));
+		})
 		.catch((error) => dispatch(deleteConceptFailure(error)));
 };
 
