@@ -362,6 +362,7 @@ const logoutSuccess = () => ({ type: ActionTypes.LOGOUT_SUCCESS });
  * @description Method used to login the user and retrieve its data along an authentication token.
  *
  * @author Timothée Simon-Franza
+ * @author Yann Hodiesne
  *
  * @param {string} username	: The username to send to the api call.
  * @param {string} password	: The password to send to the api call.
@@ -378,7 +379,10 @@ export const login = (credentials, onSuccessRoute = null) => (dispatch) => {
 			dispatch(loginSuccess({ token, user }));
 			redirectOnSuccess(onSuccessRoute);
 		})
-		.catch((error) => dispatch(loginFailure(error)));
+		.catch((error) => {
+			toast.error(i18next.t('authentication.pages.signin.toasts.error.default'));
+			dispatch(loginFailure(error));
+		});
 };
 
 /**

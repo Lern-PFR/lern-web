@@ -42,6 +42,11 @@
 						"action": {
 							"submit": "Se connecter"
 						}
+					},
+					"toasts": {
+						"error": {
+							"default": "Nous n'avons pas pu vous reconnaître, veillez réessayer"
+						}
 					}
 				},
 				"signup": {
