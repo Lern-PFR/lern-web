@@ -35,6 +35,10 @@ const MainLayout = ({ children }) => {
 			return true;
 		}
 
+		if (slicedPathname === routes.concepts.conceptEdition.slice(0, routes.concepts.conceptEdition.lastIndexOf('/') + 1)) {
+			return true;
+		}
+
 		if (location.pathname.includes('/concepts/create')) {
 			return true;
 		}

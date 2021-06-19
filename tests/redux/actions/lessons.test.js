@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import * as lessonsActions from 'redux/actions/lessons';
+import { ActionTypes as conceptActionTypes } from 'redux/actions/concepts';
 import { baseUrl } from 'lib/shared/http';
 
 const middlewares = [thunk];
@@ -249,7 +250,7 @@ describe('Lesson-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { lesson: lessonData },
+				body: { ...lessonData },
 				headers: { 'content-type': 'application/json' },
 			};
 
@@ -261,6 +262,7 @@ describe('Lesson-related redux actions', () => {
 					type: lessonsActions.ActionTypes.DELETE_LESSON_SUCCESS,
 					payload: { lesson: lessonData },
 				},
+				{ type: conceptActionTypes.FETCH_CONCEPT_REQUEST },
 			];
 
 			// Act & assert

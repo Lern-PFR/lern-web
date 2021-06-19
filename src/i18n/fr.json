@@ -402,11 +402,62 @@
 						}
 					}
 				}
+			},
+			"edition": {
+				"title": "Editer ma notion",
+				"form": {
+					"action": {
+						"submit": "Enregistrer mes modifications"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Qu'est-ce que l'UX Design ?",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "Un point de vocabulaire sur l'UX Design et ses composantes.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre module.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						},
+						"order": {
+							"label": "Position au sein du module",
+							"hint": "Ordre d'apparition de la notion au sein du module.",
+							"validation_rules": {
+								"required": "Veuillez renseigner un ordre."
+							}
+						}
+					}
+				},
+				"lessons_list": {
+					"title": "Leçons de cette notion",
+					"links": {
+						"add": "Ajouter une leçon",
+						"delete": "Supprimer",
+						"edit": "Editer"
+					}
+				},
+				"toasts": {
+					"success": "Vos modifications ont bien été enregistrées."
+				}
 			}
 		},
 		"lessons": {
 			"links": {
 				"access": "Accéder à la leçon"
+			},
+			"deletion": {
+				"toasts": {
+					"success": "La leçon {{name}} a bien été supprimée."
+				}
 			}
 		},
 		"exercises": {

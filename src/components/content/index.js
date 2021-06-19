@@ -1,4 +1,6 @@
 import ConceptCreationForm from './ConceptCreationForm';
+import ConceptEditionForm from './ConceptEditionForm';
+import ConceptLessonList from './ConceptLessonList';
 import ModuleCreationForm from './ModuleCreationForm';
 import ModuleEditionForm from './ModuleEditionForm';
 import ModuleConceptList from './ModuleConceptList';
@@ -9,6 +11,8 @@ import SubjectModuleList from './SubjectModuleList';
 
 export {
 	ConceptCreationForm,
+	ConceptEditionForm,
+	ConceptLessonList,
 	ModuleCreationForm,
 	ModuleEditionForm,
 	ModuleConceptList,

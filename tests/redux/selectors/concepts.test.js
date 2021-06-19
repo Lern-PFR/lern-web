@@ -1,4 +1,4 @@
-import { getConceptById, getConcepts } from 'redux/selectors/concepts';
+import { getConceptById, getConcepts, getConceptOrderOptions } from 'redux/selectors/concepts';
 
 describe('Concept state selectors', () => {
 	describe('getConcepts', () => {
@@ -115,6 +115,50 @@ describe('Concept state selectors', () => {
 			const expectedResult = undefined;
 
 			const actualResult = getConceptById(mockedStore, 'qrst');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+	});
+
+	describe('getConceptOrderOptions', () => {
+		it('should return a single entry array if the current module has no concepts', () => {
+			const mockedStore = {
+				modules: {
+					items: [
+						{ id: 'abcd', title: 'dummy_module_title', description: 'dummy_module_description' },
+					],
+				},
+			};
+			const expectedResult = [{ label: 0, value: 0 }];
+			const actualResult = getConceptOrderOptions(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should return a an array of length n from the current modules\'s concept list.', () => {
+			const mockedStore = {
+				modules: {
+					items: [
+						{
+							id: 'abcd',
+							title: 'dummy_module_title',
+							description: 'dummy_module_description',
+							concepts: [
+								{ id: 'dummy_concept_id_0', title: 'dummy_concept_title_0', description: 'dummy_concept_desc_0' },
+								{ id: 'dummy_concept_id_1', title: 'dummy_concept_title_1', description: 'dummy_concept_desc_1' },
+								{ id: 'dummy_concept_id_2', title: 'dummy_concept_title_2', description: 'dummy_concept_desc_2' },
+								{ id: 'dummy_concept_id_3', title: 'dummy_concept_title_3', description: 'dummy_concept_desc_3' },
+							],
+						},
+					],
+				},
+			};
+			const expectedResult = [
+				{ label: 0, value: 0 },
+				{ label: 1, value: 1 },
+				{ label: 2, value: 2 },
+				{ label: 3, value: 3 },
+			];
+
+			const actualResult = getConceptOrderOptions(mockedStore, 'abcd');
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 	});

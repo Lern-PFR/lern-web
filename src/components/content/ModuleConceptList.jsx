@@ -40,8 +40,8 @@ const ModuleConceptList = ({ conceptList, moduleId, subjectId }) => {
 		<StyledDiv marginTop="64px">
 			<DoublePica as="h3">{t('modules.edition.concepts_list.title')}</DoublePica>
 			<StyledList {...innerContentList}>
-				{conceptList.map((module) => (
-					<ModuleConceptListItem key={module.id} subjectId={subjectId} {...module} />
+				{conceptList.map((concept) => (
+					<ModuleConceptListItem key={concept.id} subjectId={subjectId} {...concept} />
 				))}
 				<ListCard {...addInnerContentCard} onClick={onAddModuleCardClick}>
 					<PlusCircle />

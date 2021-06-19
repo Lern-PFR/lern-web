@@ -356,12 +356,17 @@ export const createConcept = (conceptData) => (dispatch) => {
  *
  * @param {object} conceptData	The data to update the concept with.
  * @param {string} conceptId	The id to identify the concept to update.
+ * @param {string} subjectId	The id of the parent subject. Used to update the sidebar.
  */
-export const updateConcept = (conceptData, conceptId) => (dispatch) => {
+export const updateConcept = (conceptData, conceptId, subjectId) => (dispatch) => {
 	dispatch(updateConceptRequest());
 
 	return ConceptsApi.updateConcept(conceptData, conceptId)
-		.then(({ concept }) => dispatch(updateConceptSuccess({ concept })))
+		.then((concept) => {
+			dispatch(updateConceptSuccess({ concept }));
+			toast.success(i18next.t('concepts.edition.toasts.success'));
+			dispatch(fetchSubject(subjectId)); // Needed to refresh the layout.
+		})
 		.catch((error) => dispatch(updateConceptFailure(error)));
 };
 
