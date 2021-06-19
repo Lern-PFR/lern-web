@@ -13,9 +13,9 @@ export const ActionTypes = {
 	FETCH_PROGRESSION_SUCCESS: '@PROGRESSION/FETCH_SUCCESS',
 	FETCH_PROGRESSION_FAILURE: '@PROGRESSION/FETCH_FAILURE',
 
-	FETCH_PROGRESSION_LIST_REQUEST: '@PROGRESSION/FETCH_SUBJECT_REQUEST',
-	FETCH_PROGRESSION_LIST_SUCCESS: '@PROGRESSION/FETCH_SUBJECT_SUCCESS',
-	FETCH_PROGRESSION_LIST_FAILURE: '@PROGRESSION/FETCH_SUBJECT_FAILURE',
+	FETCH_PROGRESSION_LIST_REQUEST: '@PROGRESSION/FETCH_LIST_REQUEST',
+	FETCH_PROGRESSION_LIST_SUCCESS: '@PROGRESSION/FETCH_LIST_SUCCESS',
+	FETCH_PROGRESSION_LIST_FAILURE: '@PROGRESSION/FETCH_LIST_FAILURE',
 
 	UPDATE_PROGRESSION_REQUEST: '@PROGRESSION/UPDATE_REQUEST',
 	UPDATE_PROGRESSION_SUCCESS: '@PROGRESSION/UPDATE_SUCCESS',
@@ -213,7 +213,7 @@ export const fetchProgressionList = () => (dispatch) => {
 	dispatch(fetchProgressionListRequest());
 
 	return ProgressionApi.fetchProgression()
-		.then(({ progressionList, totalCount }) => dispatch(fetchProgressionListSuccess({ progressionList, totalCount })))
+		.then((progressionList) => dispatch(fetchProgressionListSuccess({ progressionList, totalCount: progressionList.length })))
 		.catch((error) => dispatch(fetchProgressionListFailure(error)));
 };
 

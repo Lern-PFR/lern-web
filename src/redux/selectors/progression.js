@@ -12,7 +12,7 @@ import { createSelectorHook } from 'react-redux';
  *
  * @returns {Array}
  */
-const getProgression = (state) => sortBy(state?.progressionList?.items, 'createdAt') ?? [];
+const getProgression = (state) => sortBy(state?.progression?.items, 'createdAt') ?? [];
 
 /**
  * @function

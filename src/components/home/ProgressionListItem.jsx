@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { StyledListItem } from 'components/shared/styledElements';
 import { BodyCopy, GreatPrimer } from 'components/shared/typography';
 import { progressionListItem } from 'theme/pages/home/homepageAuth';
 import { getModuleById } from 'redux/selectors/modules';
+import { fetchModule } from 'redux/actions/modules';
 
 /**
  * @name ProgressionListItem
@@ -12,11 +15,16 @@ import { getModuleById } from 'redux/selectors/modules';
  *
  * @param {string} updatedAt		The last time this progression was updated - the last time the user advanced in this subject.
  * @param {object} subject			An instance of the subject that progression is being shown for.
- * @param {object} latestConcept	An instance of the last concept that the user completed in this subject.
+ * @param {object} concept	An instance of the last concept that the user completed in this subject.
  * @param {number} completion		The percentage of the subject that the user has completed.
  */
-const ProgressionListItem = ({ updatedAt, subject, latestConcept, completion }) => {
-	const module = getModuleById(latestConcept.moduleId);
+const ProgressionListItem = ({ updatedAt, subject, concept, completion }) => {
+	const module = useSelector((state) => getModuleById(state, concept.moduleId));
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchModule(concept.moduleId));
+	}, [dispatch, concept]);
 
 	return (
 		<StyledListItem {...progressionListItem}>
@@ -27,8 +35,8 @@ const ProgressionListItem = ({ updatedAt, subject, latestConcept, completion }) 
 				{completion}
 				)
 			</BodyCopy>
-			<BodyCopy margin="1px">{module.title}</BodyCopy>
-			<BodyCopy margin="2px">{latestConcept.title}</BodyCopy>
+			<BodyCopy margin="1px">{module?.title}</BodyCopy>
+			<BodyCopy margin="2px">{concept.title}</BodyCopy>
 		</StyledListItem>
 	);
 };
@@ -42,7 +50,7 @@ ProgressionListItem.propTypes = {
 		]).isRequired,
 		title: PropTypes.string.isRequired,
 	}).isRequired,
-	latestConcept: PropTypes.shape({
+	concept: PropTypes.shape({
 		id: PropTypes.oneOfType([
 			PropTypes.string,
 			PropTypes.number,

@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { getSubjects } from 'redux/selectors/subjects';
-import { getProgression } from 'redux/selectors/progression';
 import { clearSubjectList, fetchSubjectList } from 'redux/actions/subjects';
 import { clearProgressionList, fetchProgressionList } from 'redux/actions/progression';
 
@@ -34,9 +32,6 @@ import Sidebar from './Sidebar';
 const HomepageAuth = ({ t, user }) => {
 	const dispatch = useDispatch();
 
-	const latestCourses = useSelector((state) => getSubjects(state));
-	const progression = useSelector((state) => getProgression(state));
-
 	useEffect(() => {
 		dispatch(fetchSubjectList());
 		dispatch(fetchProgressionList());
@@ -60,9 +55,9 @@ const HomepageAuth = ({ t, user }) => {
 						<Link to={routes.subjects.default}>{t('home.pages.auth.links.subjects')}</Link>
 					</OutlinedLinkButton>
 				</StyledDiv>
-				<LatestCourses latestCourses={latestCourses} />
+				<LatestCourses />
 			</StyledDiv>
-			<Sidebar progressionList={progression ?? []} />
+			<Sidebar />
 		</StyledDiv>
 	);
 };

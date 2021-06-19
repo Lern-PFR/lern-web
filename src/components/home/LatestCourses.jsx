@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getSubjects } from 'redux/selectors/subjects';
 import { useTranslation } from 'react-i18next';
 import { StyledDiv, StyledList, StyledSvg } from 'components/shared/styledElements';
 import { Paragon, GreatPrimer } from 'components/shared/typography';
@@ -14,12 +15,10 @@ import SubjectListItem from './SubjectListItem';
  * @description The list of latest courses this user has accessed
  *
  * @author Christopher Walker
- *
- * @param {object} latestCourses	The list of latest courses accessed by this user.
- * @param {func} t					The translation method provided by the withTranslation HoC.
  */
-const LatestCourses = ({ latestCourses }) => {
+const LatestCourses = () => {
 	const { t } = useTranslation();
+	const latestCourses = useSelector((state) => getSubjects(state));
 
 	return (
 		<StyledDiv {...latestContainer}>
@@ -44,31 +43,6 @@ const LatestCourses = ({ latestCourses }) => {
 			)}
 		</StyledDiv>
 	);
-};
-
-LatestCourses.propTypes = {
-	latestCourses: PropTypes.shape({
-		all: PropTypes.arrayOf(PropTypes.shape({
-			id: PropTypes.string.isRequired,
-			description: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-		})).isRequired,
-		active: PropTypes.arrayOf(PropTypes.shape({
-			id: PropTypes.string.isRequired,
-			description: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-		})).isRequired,
-		mine: PropTypes.arrayOf(PropTypes.shape({
-			id: PropTypes.string.isRequired,
-			description: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-		})).isRequired,
-		available: PropTypes.arrayOf(PropTypes.shape({
-			id: PropTypes.string.isRequired,
-			description: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-		})).isRequired,
-	}).isRequired,
 };
 
 export default LatestCourses;
