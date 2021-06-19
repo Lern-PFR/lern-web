@@ -394,6 +394,7 @@ describe('Subject state selectors', () => {
 														id: 'abcd',
 														title: 'dummy course 0',
 														order: 0,
+														version: 0,
 													},
 												],
 											},
@@ -410,7 +411,60 @@ describe('Subject state selectors', () => {
 				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
 				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
 				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
-				{ label: '0.0.0. dummy course 0', id: 'abcd', order: 0, contentType: 'course' },
+				{ label: '0.0.0. dummy course 0', id: 'abcd', order: 0, contentType: 'course', version: 0 },
+			];
+
+			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should ignore a course if it has a duplicate with a higher "version" than itself', () => {
+			const mockedStore = {
+				subjects: {
+					items: {
+						all: [
+							{
+								id: 'abcd',
+								title: 'dummy subject 0',
+								modules: [
+									{
+										id: 'abcd',
+										title: 'dummy module 0',
+										order: 0,
+										concepts: [
+											{
+												id: 'abcd',
+												title: 'dummy concept 0',
+												order: 0,
+												courses: [
+													{
+														id: 'abcd',
+														title: 'dummy course 0',
+														order: 0,
+														version: 0,
+													},
+													{
+														id: 'abcd',
+														title: 'dummy course 0 updated',
+														order: 0,
+														version: 1,
+													},
+												],
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				},
+			};
+
+			const expectedResult = [
+				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
+				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
+				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
+				{ label: '0.0.0. dummy course 0 updated', id: 'abcd', order: 0, contentType: 'course', version: 1 },
 			];
 
 			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
