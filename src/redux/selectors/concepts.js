@@ -35,17 +35,30 @@ const getConceptById = createSelector(
 			return concept;
 		}
 
+		// @TODO: replace concept.courses with courses.lessons once the API has been updated.
+		// Removes older versions of each lesson from the list.
+		const lessons = Object.values((concept.courses || []).reduce((acc, currentLesson) => {
+			const currentlyStoredLesson = acc[currentLesson.id];
+			if (currentlyStoredLesson) {
+				acc[currentLesson.id] = currentlyStoredLesson.version < currentLesson.version ? currentLesson : currentlyStoredLesson;
+			} else {
+				acc[currentLesson.id] = currentLesson;
+			}
+
+			return acc;
+		}, {}));
+
 		// @TODO: remove following snippet with the commented "return" snippet once the API has been updated.
 		const { courses, ...result } = concept;
 
 		return {
 			...result,
-			lessons: sortBy(concept?.courses || [], 'order'),
+			lessons: sortBy(lessons),
 		};
 
 		// return {
 		// 	...concept,
-		// 	lessons: sortBy(concept?.lessons || [], 'order'),
+		//	lessons: sortBy(lessons),
 		// };
 	}
 );

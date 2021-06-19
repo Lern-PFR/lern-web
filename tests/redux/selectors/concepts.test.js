@@ -30,15 +30,40 @@ describe('Concept state selectors', () => {
 			const mockedStore = {
 				concepts: {
 					items: [
-						{ id: 'abcd', title: 'dummy concept 0', courses: [{ id: 'a', title: 'b', description: 'c' }] },
-						{ id: 'efgh', title: 'dummy concept 1', courses: [{ id: 'd', title: 'e', description: 'f' }] },
-						{ id: 'ijkl', title: 'dummy concept 2', courses: [{ id: 'g', title: 'h', description: 'i' }] },
-						{ id: 'mnop', title: 'dummier concept', courses: [{ id: 'j', title: 'k', description: 'l' }] },
+						{ id: 'abcd', title: 'dummy concept 0', courses: [{ id: 'a', title: 'b', description: 'c', version: 0 }] },
+						{ id: 'efgh', title: 'dummy concept 1', courses: [{ id: 'd', title: 'e', description: 'f', version: 0 }] },
+						{ id: 'ijkl', title: 'dummy concept 2', courses: [{ id: 'g', title: 'h', description: 'i', version: 0 }] },
+						{ id: 'mnop', title: 'dummier concept', courses: [{ id: 'j', title: 'k', description: 'l', version: 0 }] },
 					],
 				},
 			};
 
-			const expectedResult = { id: 'efgh', title: 'dummy concept 1', lessons: [{ id: 'd', title: 'e', description: 'f' }] };
+			const expectedResult = { id: 'efgh', title: 'dummy concept 1', lessons: [{ id: 'd', title: 'e', description: 'f', version: 0 }] };
+
+			const actualResult = getConceptById(mockedStore, 'efgh');
+			expect(actualResult).toStrictEqual(expectedResult);
+		});
+
+		it('should remove lessons which have a duplicate with a higher "version" field value.', () => {
+			const mockedStore = {
+				concepts: {
+					items: [
+						{ id: 'abcd', title: 'dummy concept 0', courses: [{ id: 'a', title: 'b', description: 'c', version: 0 }] },
+						{
+							id: 'efgh',
+							title: 'dummy concept 1',
+							courses: [
+								{ id: 'd', title: 'e', description: 'f', version: 0 },
+								{ id: 'd', title: 'e', description: 'updated f', version: 1 },
+							],
+						},
+						{ id: 'ijkl', title: 'dummy concept 2', courses: [{ id: 'g', title: 'h', description: 'i', version: 0 }] },
+						{ id: 'mnop', title: 'dummier concept', courses: [{ id: 'j', title: 'k', description: 'l', version: 0 }] },
+					],
+				},
+			};
+
+			const expectedResult = { id: 'efgh', title: 'dummy concept 1', lessons: [{ id: 'd', title: 'e', description: 'updated f', version: 1 }] };
 
 			const actualResult = getConceptById(mockedStore, 'efgh');
 			expect(actualResult).toStrictEqual(expectedResult);
