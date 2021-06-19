@@ -39,6 +39,8 @@ const ConceptDetailsPage = () => {
 	 */
 	const concept = useSelector((state) => getConceptById(state, conceptId));
 
+	const conceptLessons = useMemo(() => ((concept?.lessons ?? []).map((lesson, index) => ({ ...lesson, order: index }))), [concept]);
+
 	/**
 	 * @var
 	 * @name currentContentIndex
@@ -70,11 +72,11 @@ const ConceptDetailsPage = () => {
 	 * @description useEffect if the url contains a lessonId param. Used to automatically display the lesson it identifies.
 	 */
 	useEffect(() => {
-		if (concept?.lessons && lessonId) {
-			const newIndex = findIndex(concept.lessons, (({ id }) => id === lessonId));
+		if (conceptLessons && lessonId) {
+			const newIndex = findIndex(conceptLessons, (({ id }) => id === lessonId));
 			setCurrentContentIndex(newIndex || 0);
 		}
-	}, [concept?.lessons, lessonId]);
+	}, [conceptLessons, lessonId]);
 
 	/**
 	 * @constant
@@ -82,7 +84,7 @@ const ConceptDetailsPage = () => {
 	 * @description The lesson to display, determined by the currentContentIndex local state variable.
 	 * @type {object}
 	 */
-	const currentLesson = useMemo(() => (concept?.lessons?.[currentContentIndex]), [concept?.lessons, currentContentIndex]);
+	const currentLesson = useMemo(() => (conceptLessons[currentContentIndex]), [conceptLessons, currentContentIndex]);
 
 	/**
 	 * @function
@@ -108,7 +110,7 @@ const ConceptDetailsPage = () => {
 					</StyledDiv>
 					<Sidebar
 						currentLesson={currentLesson}
-						conceptContent={concept?.lessons}
+						conceptContent={conceptLessons}
 						conceptTitle={concept?.title}
 						onQuestionAnswerSubmit={onQuestionAnswerSubmit}
 						onContentStepperClick={setCurrentContentIndex}

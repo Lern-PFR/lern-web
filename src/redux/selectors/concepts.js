@@ -53,7 +53,7 @@ const getConceptById = createSelector(
 
 		return {
 			...result,
-			lessons: sortBy(lessons),
+			lessons: sortBy(lessons, 'order'),
 		};
 
 		// return {
