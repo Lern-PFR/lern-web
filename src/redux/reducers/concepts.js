@@ -27,13 +27,13 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_CONCEPT_SUCCESS:
-		case ActionTypes.UPDATE_CONCEPT_SUCCESS:
 		case ActionTypes.DELETE_CONCEPT_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 			};
 		case ActionTypes.FETCH_CONCEPT_SUCCESS:
+		case ActionTypes.UPDATE_CONCEPT_SUCCESS:
 			return {
 				...state,
 				isLoading: false,

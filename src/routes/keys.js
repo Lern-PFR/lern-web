@@ -33,16 +33,18 @@ export default Object.freeze({
 		default: '/modules',
 		moduleEdition: '/modules/edit/:moduleId',
 		conceptCreation: '/modules/:moduleId/concepts/create',
-		moduleDetails: '/modules/:moduleId',
+		moduleDetails: '/modules/details/:moduleId',
 	},
 	concepts: {
 		default: '/concepts',
 		conceptEdition: '/concepts/edit/:conceptId',
-		conceptDetails: '/concepts/:conceptId',
+		lessonCreation: '/concepts/:conceptId/lessons/create',
+		conceptDetails: '/concepts/details/:conceptId',
 		lessonDetails: '/concepts/:conceptId/lessons/:lessonId',
 	},
 	lessons: {
 		default: '/lessons',
+		lessonEdition: '/lessons/edit/:lessonId',
 		lessonDetails: '/lessons/:id',
 	},
 });

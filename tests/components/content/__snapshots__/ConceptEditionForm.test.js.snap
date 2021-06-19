@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<styled.form
+  display="grid"
+  gridGap="1em"
+  height="max-content"
+  onSubmit={[Function]}
+>
+  <LabeledInput
+    defaultValue="dummy_concept_title"
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="title"
+    key="title"
+    name="title"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="concepts.edition.form.fields.title.placeholder"
+    textStyle="brevier"
+    type="text"
+  >
+    concepts.edition.form.fields.title.label
+  </LabeledInput>
+  <LabeledTextArea
+    defaultValue="dummy_concept_description"
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="description"
+    key="description"
+    name="description"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="concepts.edition.form.fields.description.placeholder"
+    rows={6}
+    type="textarea"
+  >
+    concepts.edition.form.fields.description.label
+  </LabeledTextArea>
+  <LabeledSelect
+    defaultValue={
+      Object {
+        "label": 0,
+        "value": 0,
+      }
+    }
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="order"
+    key="order"
+    multiple={false}
+    name="order"
+    onBlur={[Function]}
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "label": 0,
+          "value": 0,
+        },
+        Object {
+          "label": 1,
+          "value": 1,
+        },
+        Object {
+          "label": 2,
+          "value": 2,
+        },
+      ]
+    }
+    required={true}
+    textStyle="brevier"
+    type="select"
+  >
+    concepts.edition.form.fields.order.label
+  </LabeledSelect>
+  <PrimaryButton
+    justifySelf="start"
+    type="submit"
+  >
+    concepts.edition.form.action.submit
+  </PrimaryButton>
+</styled.form>
+`;

@@ -235,7 +235,7 @@ describe('Concept-related redux actions', () => {
 			];
 
 			// Act
-			store.dispatch(conceptsActions.updateConcept({}, '7'));
+			store.dispatch(conceptsActions.updateConcept({}, '7', 'dummy_subject_id'));
 
 			// Assert
 			expect(store.getActions()).toEqual(expectedActions);
@@ -251,10 +251,16 @@ describe('Concept-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { concept: conceptData },
+				body: { ...conceptData },
+				headers: { 'content-type': 'application/json' },
+			};
+			const subjectFetchHttpResponse = {
+				status: 200,
+				body: { id: 'dummy_subject_id', title: 'dummy_subject_title', description: 'dummy_subject_desc', modules: [] },
 				headers: { 'content-type': 'application/json' },
 			};
 
+			fetchMock.get(`${baseUrl}/api/subjects/dummy_subject_id`, subjectFetchHttpResponse);
 			fetchMock.put(`${baseUrl}/api/concepts/${conceptData.id}`, httpResponse);
 
 			const expectedActions = [
@@ -263,10 +269,11 @@ describe('Concept-related redux actions', () => {
 					type: conceptsActions.ActionTypes.UPDATE_CONCEPT_SUCCESS,
 					payload: { concept: conceptData },
 				},
+				{ type: subjectsActionTypes.FETCH_SUBJECT_REQUEST },
 			];
 
 			// Act & assert
-			store.dispatch(conceptsActions.updateConcept(conceptData, conceptData.id))
+			store.dispatch(conceptsActions.updateConcept(conceptData, conceptData.id, 'dummy_subject_id'))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 
@@ -291,7 +298,7 @@ describe('Concept-related redux actions', () => {
 			];
 
 			// Act & assert
-			store.dispatch(conceptsActions.updateConcept(conceptData, conceptData.id))
+			store.dispatch(conceptsActions.updateConcept(conceptData, conceptData.id, 'dummy_subject_id'))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});

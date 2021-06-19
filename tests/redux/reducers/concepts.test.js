@@ -252,14 +252,15 @@ describe('Concepts reducer', () => {
 		});
 
 		it('should update the state\'s isLoading field to false when receiving of UPDATE_CONCEPT_SUCCESS', () => {
+			const updatedConcept = { id: '7', title: 'Dummy concept 7', moduleId: 'abcd' };
 			// Arrange
 			const action = {
 				type: ActionTypes.UPDATE_CONCEPT_SUCCESS,
-				payload: { concept: { id: '7', title: 'Dummy concept 7', moduleId: 'abcd' } },
+				payload: { concept: updatedConcept },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
-			const expectedState = { ...initialState, isLoading: false };
+			const expectedState = { ...initialState, isLoading: false, items: [updatedConcept], totalCount: 1 };
 
 			// Act
 			const result = conceptsReducer(temporaryState, action);

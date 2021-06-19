@@ -1,5 +1,6 @@
 import { sortBy } from 'lodash';
 import { createSelector } from 'reselect';
+import { getModuleById } from './modules';
 
 /**
  * @function
@@ -54,7 +55,28 @@ const getConceptById = createSelector(
 	}
 );
 
+/**
+ * @function
+ * @name getConceptOrderOptions
+ * @description A selector callback which returns an array of "order" values for the concept edition form's order select field.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {Array}
+ */
+const getConceptOrderOptions = createSelector(
+	getModuleById,
+	(module) => {
+		if (!module?.concepts?.length || module?.concepts?.length < 1) {
+			return [{ label: 0, value: 0 }];
+		}
+
+		return Array.from({ length: module?.concepts?.length || 0 }, (_, i) => ({ label: i, value: i }));
+	}
+);
+
 export {
 	getConcepts,
 	getConceptById,
+	getConceptOrderOptions,
 };

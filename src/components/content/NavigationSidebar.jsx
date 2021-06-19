@@ -47,6 +47,10 @@ const getRouteFromContentTypeAndAction = (action, contentType, id = null) => {
 		return action === 'creation' ? keys.subjects.moduleCreation : generatePath(keys.modules.moduleEdition, { moduleId: id });
 	}
 
+	if (contentType === 'concept') {
+		return action === 'creation' ? keys.modules.conceptCreation : generatePath(keys.concepts.conceptEdition, { conceptId: id });
+	}
+
 	return keys.home.default;
 };
 

@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 import App from 'components/App';
 import { PostSignupPage, SignInPage, SignupPage } from 'pages/auth';
-import { ConceptCreationPage, ConceptDetailsPage } from 'pages/concepts';
+import { ConceptCreationPage, ConceptDetailsPage, ConceptEditionPage } from 'pages/concepts';
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
 import { ModuleCreationPage, ModuleDetailsPage, ModuleEditionPage } from 'pages/modules';
 import keys from './keys';
@@ -166,10 +166,17 @@ export default [
 				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
-				component: ConceptDetailsPage,
+				component: ConceptEditionPage,
 			},
 			{
 				path: keys.concepts.conceptDetails,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ConceptDetailsPage,
+			},
+			{
+				path: keys.concepts.lessonCreation,
 				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
@@ -188,6 +195,13 @@ export default [
 	{
 		path: keys.lessons.default,
 		routes: [
+			{
+				path: keys.lessons.lessonEdition,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: () => <p>Lesson edition</p>,
+			},
 			{
 				path: keys.lessons.lessonsDetails,
 				allowAnonymous: false,

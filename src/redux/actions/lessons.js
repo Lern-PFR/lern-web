@@ -1,4 +1,7 @@
 import * as LessonsApi from 'api/lessonsApi';
+import i18next from 'i18next';
+import { toast } from 'react-toastify';
+import { fetchConcept } from './concepts';
 
 /**
  * @constant
@@ -300,7 +303,11 @@ export const deleteLesson = (lessonId) => (dispatch) => {
 	dispatch(deleteLessonRequest());
 
 	return LessonsApi.deleteLesson(lessonId)
-		.then(({ lesson }) => dispatch(deleteLessonSuccess({ lesson })))
+		.then((lesson) => {
+			dispatch(deleteLessonSuccess({ lesson }));
+			toast.success(i18next.t('lessons.deletion.toasts.success', { name: lesson.title }));
+			dispatch(fetchConcept(lesson.conceptId));
+		})
 		.catch((error) => dispatch(deleteLessonFailure(error)));
 };
 
