@@ -39,7 +39,7 @@ export default Object.freeze({
 		default: '/concepts',
 		conceptEdition: '/concepts/edit/:conceptId',
 		lessonCreation: '/concepts/:conceptId/lessons/create',
-		conceptDetails: '/concepts/:conceptId',
+		conceptDetails: '/concepts/details/:conceptId',
 		lessonDetails: '/concepts/:conceptId/lessons/:lessonId',
 	},
 	lessons: {
