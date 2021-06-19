@@ -22,7 +22,7 @@ const SubjectListItem = ({ id, description, title }) => {
 	const { t } = useTranslation();
 
 	return (
-		<StyledListItem key={id}>
+		<StyledListItem>
 			<GreatPrimer margin="0">{title}</GreatPrimer>
 			<BodyCopy margin="0">{description}</BodyCopy>
 			<OutlinedLinkButton {...continueButton}>

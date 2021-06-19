@@ -19,7 +19,7 @@ const ProgressionListItem = ({ updatedAt, subject, latestConcept, completion }) 
 	const module = getModuleById(latestConcept.moduleId);
 
 	return (
-		<StyledListItem key={updatedAt} {...progressionListItem}>
+		<StyledListItem {...progressionListItem}>
 			<GreatPrimer margin="0">{updatedAt}</GreatPrimer>
 			<BodyCopy margin="0">
 				{subject.title}
