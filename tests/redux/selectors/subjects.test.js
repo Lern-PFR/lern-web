@@ -350,7 +350,7 @@ describe('Subject state selectors', () => {
 												id: 'abcd',
 												title: 'dummy concept 0',
 												order: 0,
-												courses: [],
+												lessons: [],
 											},
 										],
 									},
@@ -389,7 +389,7 @@ describe('Subject state selectors', () => {
 												id: 'abcd',
 												title: 'dummy concept 0',
 												order: 0,
-												courses: [
+												lessons: [
 													{
 														id: 'abcd',
 														title: 'dummy course 0',
@@ -436,7 +436,7 @@ describe('Subject state selectors', () => {
 												id: 'abcd',
 												title: 'dummy concept 0',
 												order: 0,
-												courses: [
+												lessons: [
 													{
 														id: 'abcd',
 														title: 'dummy course 0',

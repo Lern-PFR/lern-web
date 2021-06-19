@@ -17,7 +17,6 @@ describe('Concept details page', () => {
 
 	beforeEach(() => {
 		jest.spyOn(routeData, 'useParams').mockReturnValue({ conceptId: 'dummy_concept_id' });
-		// @TODO: change "courses" to "lessons" once API has been updated
 		store = mockStore({
 			concepts: {
 				items: [
@@ -26,7 +25,7 @@ describe('Concept details page', () => {
 						title: 'dummy concept title',
 						description: 'dummy concept desc',
 						moduleId: 'dummy_module_id',
-						courses: [
+						lessons: [
 							{
 								id: 'dummy_lesson_id',
 								title: 'dummy_lesson_title',

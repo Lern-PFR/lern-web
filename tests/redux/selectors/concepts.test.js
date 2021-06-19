@@ -30,10 +30,10 @@ describe('Concept state selectors', () => {
 			const mockedStore = {
 				concepts: {
 					items: [
-						{ id: 'abcd', title: 'dummy concept 0', courses: [{ id: 'a', title: 'b', description: 'c', version: 0 }] },
-						{ id: 'efgh', title: 'dummy concept 1', courses: [{ id: 'd', title: 'e', description: 'f', version: 0 }] },
-						{ id: 'ijkl', title: 'dummy concept 2', courses: [{ id: 'g', title: 'h', description: 'i', version: 0 }] },
-						{ id: 'mnop', title: 'dummier concept', courses: [{ id: 'j', title: 'k', description: 'l', version: 0 }] },
+						{ id: 'abcd', title: 'dummy concept 0', lessons: [{ id: 'a', title: 'b', description: 'c', version: 0 }] },
+						{ id: 'efgh', title: 'dummy concept 1', lessons: [{ id: 'd', title: 'e', description: 'f', version: 0 }] },
+						{ id: 'ijkl', title: 'dummy concept 2', lessons: [{ id: 'g', title: 'h', description: 'i', version: 0 }] },
+						{ id: 'mnop', title: 'dummier concept', lessons: [{ id: 'j', title: 'k', description: 'l', version: 0 }] },
 					],
 				},
 			};
@@ -48,17 +48,17 @@ describe('Concept state selectors', () => {
 			const mockedStore = {
 				concepts: {
 					items: [
-						{ id: 'abcd', title: 'dummy concept 0', courses: [{ id: 'a', title: 'b', description: 'c', version: 0 }] },
+						{ id: 'abcd', title: 'dummy concept 0', lessons: [{ id: 'a', title: 'b', description: 'c', version: 0 }] },
 						{
 							id: 'efgh',
 							title: 'dummy concept 1',
-							courses: [
+							lessons: [
 								{ id: 'd', title: 'e', description: 'f', version: 0 },
 								{ id: 'd', title: 'e', description: 'updated f', version: 1 },
 							],
 						},
-						{ id: 'ijkl', title: 'dummy concept 2', courses: [{ id: 'g', title: 'h', description: 'i', version: 0 }] },
-						{ id: 'mnop', title: 'dummier concept', courses: [{ id: 'j', title: 'k', description: 'l', version: 0 }] },
+						{ id: 'ijkl', title: 'dummy concept 2', lessons: [{ id: 'g', title: 'h', description: 'i', version: 0 }] },
+						{ id: 'mnop', title: 'dummier concept', lessons: [{ id: 'j', title: 'k', description: 'l', version: 0 }] },
 					],
 				},
 			};
