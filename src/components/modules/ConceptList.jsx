@@ -13,8 +13,8 @@ import ConceptListItem from './ConceptListItem';
  */
 const ConceptList = ({ concepts }) => (
 	<StyledList listStyle="none" {...conceptList}>
-		{concepts && concepts.map(({ id, title, description, courses }) => (
-			<ConceptListItem key={id} id={id} title={title} description={description} lessons={courses} />
+		{concepts && concepts.map(({ id, title, description, lessons }) => (
+			<ConceptListItem key={id} id={id} title={title} description={description} lessons={lessons} />
 		))}
 	</StyledList>
 );
@@ -26,7 +26,7 @@ ConceptList.propTypes = {
 		description: PropTypes.string.isRequired,
 		lessons: PropTypes.arrayOf(PropTypes.shape({
 			id: PropTypes.string.isRequired,
-			name: PropTypes.string.isRequired,
+			title: PropTypes.string.isRequired,
 			description: PropTypes.string.isRequired,
 		})),
 	})).isRequired,
