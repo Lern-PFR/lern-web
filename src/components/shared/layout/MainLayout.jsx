@@ -35,6 +35,10 @@ const MainLayout = ({ children }) => {
 			return true;
 		}
 
+		if (location.pathname.includes('/concepts/create')) {
+			return true;
+		}
+
 		return false;
 	}, [location.pathname]);
 

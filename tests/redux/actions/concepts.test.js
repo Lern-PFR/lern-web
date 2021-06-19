@@ -183,7 +183,7 @@ describe('Concept-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { concept: { ...conceptData, id: '7' } },
+				body: { ...conceptData, id: '7' },
 				headers: { 'content-type': 'application/json' },
 			};
 

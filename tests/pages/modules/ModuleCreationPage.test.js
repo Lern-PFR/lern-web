@@ -13,7 +13,7 @@ import fetchMock from 'fetch-mock';
 
 const mockStore = configureMockStore([thunk]);
 
-describe('Module edition page', () => {
+describe('Module creation page', () => {
 	let store;
 
 	beforeEach(() => {
@@ -27,7 +27,7 @@ describe('Module edition page', () => {
 
 	describe('Snapshot testing', () => {
 		it('should match previous snapshot', () => {
-			store = mockStore({ subjects: { all: [{ id: '1', title: 'dummy subject title', description: 'dummy subject desc' }] } });
+			store = mockStore({ subjects: { items: { all: [{ id: '1', title: 'dummy subject title', description: 'dummy subject desc' }] } } });
 
 			const sut = (
 				<Provider store={store}>
@@ -47,7 +47,7 @@ describe('Module edition page', () => {
 		it('should call the fetchSubject action creator on mount', () => {
 			const httpResponse = {
 				status: 200,
-				body: { id: 1, name: 'subject_name' },
+				body: { id: 1, title: 'subject_title' },
 				headers: { 'content-type': 'application/json' },
 			};
 
