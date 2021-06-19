@@ -42,6 +42,11 @@
 						"action": {
 							"submit": "Sign in"
 						}
+					},
+					"toasts": {
+						"error": {
+							"default": "We could not recognize you, please try again"
+						}
 					}
 				},
 				"signup": {
