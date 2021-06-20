@@ -45,5 +45,6 @@ export default Object.freeze({
 	lessons: {
 		default: '/lessons',
 		lessonEdition: '/lessons/edit/:lessonId',
+		exerciseCreation: '/lessons/:lessonId/exercises/create',
 	},
 });

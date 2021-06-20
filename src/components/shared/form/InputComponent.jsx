@@ -5,6 +5,7 @@ import {
 	layout,
 	shadow,
 	color,
+	margin,
 } from 'styled-system';
 import PropTypes from 'prop-types';
 import { inputStyle, errorInputStyle, disabledInputStyle } from 'theme/formStyles';
@@ -16,6 +17,7 @@ const StyledInputComponent = styled('input')(
 	layout,
 	shadow,
 	color,
+	margin,
 );
 
 /**

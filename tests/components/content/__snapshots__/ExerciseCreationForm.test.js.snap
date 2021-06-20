@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<styled.form
+  display="grid"
+  gridGap="1em"
+  height="max-content"
+  onSubmit={[Function]}
+>
+  <LabeledTextArea
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="instructions"
+    key="instructions"
+    name="instructions"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="exercises.creation.form.fields.instructions.placeholder"
+    rows={6}
+    type="textarea"
+  >
+    exercises.creation.form.fields.instructions.label
+  </LabeledTextArea>
+  <LabeledTextArea
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="explanation"
+    key="explanation"
+    name="explanation"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="exercises.creation.form.fields.explanation.placeholder"
+    rows={6}
+    type="textarea"
+  >
+    exercises.creation.form.fields.explanation.label
+  </LabeledTextArea>
+  <styled.div
+    borderY="solid 1px #DBD9D2"
+    display="flex"
+    flexDirection="column"
+    paddingY="1em"
+  >
+    <GreatPrimer>
+      exercises.creation.responses
+    </GreatPrimer>
+    <ResponseItem
+      checked={true}
+      errorText=""
+      handleBlur={[Function]}
+      handleChange={[Function]}
+      handleCheckedChanged={[Function]}
+      hasError={false}
+      hasPlaceholder={true}
+      id="answer1"
+      key="answer1"
+      name="answer1"
+    />
+    <ResponseItem
+      checked={false}
+      errorText=""
+      handleBlur={[Function]}
+      handleChange={[Function]}
+      handleCheckedChanged={[Function]}
+      hasError={false}
+      hasPlaceholder={true}
+      id="answer2"
+      key="answer2"
+      name="answer2"
+    />
+    <ResponseItem
+      checked={false}
+      errorText=""
+      handleBlur={[Function]}
+      handleChange={[Function]}
+      handleCheckedChanged={[Function]}
+      hasError={false}
+      hasPlaceholder={true}
+      id="answer3"
+      key="answer3"
+      name="answer3"
+    />
+  </styled.div>
+  <PrimaryButton
+    justifySelf="start"
+    type="submit"
+  >
+    exercises.creation.form.action.submit
+  </PrimaryButton>
+</styled.form>
+`;

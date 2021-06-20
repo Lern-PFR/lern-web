@@ -45,7 +45,7 @@ const validationRules = {
 const inputsDefinition = {
 	title: { id: 'title', name: 'title', hasPlaceholder: true },
 	description: { id: 'description', name: 'description', inputType: 'textarea', hasPlaceholder: true },
-	content: { id: 'content', name: 'content', inputType: 'textarea', hasPlaceholder: false },
+	content: { id: 'content', name: 'content', inputType: 'textarea', hasPlaceholder: true },
 	order: { id: 'order', name: 'order', inputType: 'select', hasPlaceholder: false },
 };
 

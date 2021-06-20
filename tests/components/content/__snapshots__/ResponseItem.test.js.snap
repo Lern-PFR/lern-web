@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResponseItem should match previous snapshot 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+  flexDirection="row"
+  padding="1em"
+>
+  <RadioButtonComponent
+    checked={true}
+    disabled={false}
+    id="rb-1"
+    name="responses"
+    onChange={[Function]}
+  />
+  <InputComponent
+    disabled={false}
+    errorText=""
+    hasError={false}
+    id="1"
+    marginLeft="1em"
+    name="abcd"
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    placeholder="exercises.creation.form.fields.abcd.placeholder"
+    textStyle="brevier"
+    type="text"
+  />
+</styled.div>
+`;

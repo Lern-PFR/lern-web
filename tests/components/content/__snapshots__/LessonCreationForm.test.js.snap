@@ -52,6 +52,7 @@ exports[` 1`] = `
     name="content"
     onBlur={[Function]}
     onChange={[Function]}
+    placeholder="lessons.creation.form.fields.content.placeholder"
     rows={6}
     type="textarea"
   >

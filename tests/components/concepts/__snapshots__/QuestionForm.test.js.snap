@@ -95,7 +95,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iqHYGH iiuWMj"
+                    className="sc-crrsfI fHLfii"
                     defaultChecked={false}
                     disabled={false}
                     id={1}
@@ -121,7 +121,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI gZjszf"
+                    className="sc-dQppl fNnBUx"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -185,7 +185,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iqHYGH iiuWMj"
+                    className="sc-crrsfI fHLfii"
                     defaultChecked={false}
                     disabled={false}
                     id={2}
@@ -211,7 +211,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI gZjszf"
+                    className="sc-dQppl fNnBUx"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -275,7 +275,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iqHYGH iiuWMj"
+                    className="sc-crrsfI fHLfii"
                     defaultChecked={false}
                     disabled={false}
                     id={3}
@@ -301,7 +301,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI gZjszf"
+                    className="sc-dQppl fNnBUx"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"
@@ -365,7 +365,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   type="checkbox"
                 >
                   <input
-                    className="sc-iqHYGH iiuWMj"
+                    className="sc-crrsfI fHLfii"
                     defaultChecked={false}
                     disabled={false}
                     id={4}
@@ -391,7 +391,7 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
                   lineHeight="1.5em"
                 >
                   <label
-                    className="sc-crrsfI gZjszf"
+                    className="sc-dQppl fNnBUx"
                     color="initial"
                     fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
                     fontSize="1rem"

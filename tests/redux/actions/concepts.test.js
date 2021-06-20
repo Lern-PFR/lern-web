@@ -317,7 +317,7 @@ describe('Concept-related redux actions', () => {
 			expect(store.getActions()).toEqual(expectedActions);
 		});
 
-		it('should create an DELETE_CONCEPT_SUCCESS action when the concept edition logic is successful', () => {
+		it('should create an DELETE_CONCEPT_SUCCESS action when the concept deletion logic is successful', () => {
 			// Arrange
 			const conceptData = {
 				id: '7',

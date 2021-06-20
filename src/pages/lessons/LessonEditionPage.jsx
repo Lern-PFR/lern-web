@@ -11,7 +11,7 @@ import { getConceptById } from 'redux/selectors/concepts';
 import { getLessonById, getLessonOrderOptions } from 'redux/selectors/lessons';
 
 import { getModuleById } from 'redux/selectors/modules';
-import { LessonEditionForm, NavigationSidebar } from 'components/content';
+import { LessonEditionForm, NavigationSidebar, LessonQuestionList } from 'components/content';
 import { StyledDiv } from 'components/shared/styledElements';
 import { DoublePica } from 'components/shared/typography';
 
@@ -73,6 +73,7 @@ const LessonEditionPage = () => {
 				{lesson && (
 					<>
 						<LessonEditionForm onSubmit={onSubmit} lesson={lesson} lessonOrderOptions={lessonOrderOptions} />
+						<LessonQuestionList exerciseList={lesson.exercises ?? []} lessonId={lesson.id} />
 					</>
 				)}
 			</StyledDiv>

@@ -133,8 +133,21 @@ const getContentManipulationSidebarData = createSelector(
 
 					return acc;
 				}, {}));
-				sortBy(prunedLessonList, 'order').forEach(({ id: lessonId, title: courseTitle, order: lessonOrder, version }) => {
-					data = [...data, { id: lessonId, label: `${moduleOrder}.${conceptOrder}.${lessonOrder}. ${courseTitle}`, order: lessonOrder, contentType: 'lesson', version }];
+
+				sortBy(prunedLessonList, 'order').forEach(({ id: lessonId, title: lessonTitle, order: lessonOrder, version, exercises = [] }) => {
+					data = [...data, { id: lessonId, label: `${moduleOrder}.${conceptOrder}.${lessonOrder}. ${lessonTitle}`, order: lessonOrder, contentType: 'lesson', version }];
+
+					sortBy(exercises, 'order').forEach(({ id: exerciseId, title: exerciseTitle, order: exerciseOrder }) => {
+						data = [
+							...data,
+							{
+								id: exerciseId,
+								label: `${moduleOrder}.${conceptOrder}.${lessonOrder}.${exerciseOrder} ${exerciseTitle}`,
+								order: conceptOrder,
+								contentType: 'exercise',
+							},
+						];
+					});
 				});
 			});
 		});
