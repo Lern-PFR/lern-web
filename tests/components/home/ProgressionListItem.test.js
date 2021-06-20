@@ -1,11 +1,9 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { baseUrl } from 'lib/shared/http';
 
 import ProgressionListItem from 'components/home/ProgressionListItem';
-import fetchMock from 'fetch-mock';
 
 describe('ProgressionListItem', () => {
 	const mockStore = configureMockStore([thunk]);
@@ -13,7 +11,6 @@ describe('ProgressionListItem', () => {
 	afterEach(() => {
 		jest.restoreAllMocks();
 		jest.resetAllMocks();
-		fetchMock.restore();
 	});
 
 	it('should match previous snapshot for progression within a single module', () => {
@@ -83,35 +80,7 @@ describe('ProgressionListItem', () => {
 				<ProgressionListItem {...progression} />
 			</Provider>
 		);
-
-		const httpResponse = {
-			status: 200,
-			body: {
-				id: 'abcd',
-				title: 'dummy module',
-				description: 'dummy description',
-				subjectId: 'zxcv',
-				concepts: [
-					{
-						id: 'qwer',
-						title: 'dummy concept',
-						moduleId: 'abcd',
-						order: 0,
-					},
-					{
-						id: 'asdf',
-						title: 'dummy concept',
-						moduleId: 'abcd',
-						order: 1,
-					},
-				],
-			},
-			headers: { 'content-type': 'application/json' },
-		};
-
-		fetchMock.get(`${baseUrl}/api/modules/abcd`, httpResponse);
-
-		const wrapper = mount(sut);
+		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -224,34 +193,7 @@ describe('ProgressionListItem', () => {
 			</Provider>
 		);
 
-		const httpResponse = {
-			status: 200,
-			body: {
-				id: 'abcd',
-				title: 'dummy module',
-				description: 'dummy description',
-				subjectId: 'zxcv',
-				concepts: [
-					{
-						id: 'qwer',
-						title: 'dummy concept',
-						moduleId: 'abcd',
-						order: 0,
-					},
-					{
-						id: 'asdf',
-						title: 'dummy concept',
-						moduleId: 'abcd',
-						order: 1,
-					},
-				],
-			},
-			headers: { 'content-type': 'application/json' },
-		};
-
-		fetchMock.get(`${baseUrl}/api/modules/abcd`, httpResponse);
-
-		const wrapper = mount(sut);
+		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -324,34 +266,7 @@ describe('ProgressionListItem', () => {
 			</Provider>
 		);
 
-		const httpResponse = {
-			status: 200,
-			body: {
-				id: 'abcd',
-				title: 'dummy module',
-				description: 'dummy description',
-				subjectId: 'zxcv',
-				concepts: [
-					{
-						id: 'qwer',
-						title: 'dummy concept',
-						moduleId: 'abcd',
-						order: 0,
-					},
-					{
-						id: 'asdf',
-						title: 'dummy concept',
-						moduleId: 'abcd',
-						order: 1,
-					},
-				],
-			},
-			headers: { 'content-type': 'application/json' },
-		};
-
-		fetchMock.get(`${baseUrl}/api/modules/abcd`, httpResponse);
-
-		const wrapper = mount(sut);
+		const wrapper = shallow(sut);
 
 		expect(wrapper).toMatchSnapshot();
 	});
