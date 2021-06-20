@@ -19,14 +19,14 @@
 			"pages": {
 				"anon": {
 					"hero": "Apprendre où on veut, mais pas n'importe comment.",
-					"subtitle": "Bienvenue sur Lern, la plateforme d'apprentissage en-ligne pour tous, partout. Notre structuration originale des cours permet un apprentissage linéaire et intuitif d'une variété de sujets pour tous les âges.",
+					"subtitle": "Bienvenue sur Lern, la plateforme d'apprentissage en ligne pour tous, partout. Notre structuration originale des cours permet un apprentissage linéaire et intuitif d'une variété de sujets pour tous les âges.",
 					"links": {
 						"discover": "Découvrir Lern."
 					}
 				},
 				"auth": {
-					"hero": "Bienvenue {{user.nickname}}",
-					"subtitle": "Tu es expert dans ton domaine et souhaterais partager tes connaissances avec autrui? Tu est enseignant et tu cherches à élargir le choix des supports de cours? Ou alors tu veux simplement apprendre toi-même quelque chose de nouveau!",
+					"hero": "Bienvenue {{user.firstname}}",
+					"subtitle": "Tu es expert dans ton domaine et souhaiterais partager tes connaissances avec autrui ? Tu es enseignant et tu cherches à élargir le choix des supports de cours ? Ou alors tu veux simplement apprendre toi-même quelque chose de nouveau !",
 					"reading_list": "Listes de lecture",
 					"timeline": "Chronologie",
 					"latest": "Dernières leçons",
