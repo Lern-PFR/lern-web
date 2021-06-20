@@ -40,7 +40,7 @@ const ProgressionListItem = ({ updatedAt, subject, concept, completion }) => {
 	const conceptIndex = moduleConcepts.indexOf(moduleConcepts.filter((c) => c.id === concept.id)[0]);
 	const nextModule = useMemo(() => {
 		if (module && subject) {
-			return subject?.modules[subject?.modules.indexOf(subject?.modules.filter((m) => m.id === module.id)[0]) + 1] ?? {};
+			return subject?.modules[subject?.modules.indexOf(subject?.modules.filter((m) => m.id === module.id)[0]) + 1] ?? undefined;
 		}
 
 		return undefined;
