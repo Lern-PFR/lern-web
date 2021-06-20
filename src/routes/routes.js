@@ -19,7 +19,7 @@ export default [
 		path: keys.app.default,
 		exact: true,
 		allowAnonymous: true,
-		component: () => <p>Home</p>, // @TODO: use the "Home" page component once it has been implemented.
+		component: Homepage,
 	},
 	{
 		path: keys.about.default,
