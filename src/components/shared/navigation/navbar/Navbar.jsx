@@ -46,8 +46,6 @@ const Navbar = ({ t }) => {
 			<StyledList {...navbarLinkList}>
 				<NavbarLink targetUrl={routes.home.default}>{t('navigation.menu.home')}</NavbarLink>
 				{currentUser && <NavbarLink targetUrl={routes.subjects.default}>{t('navigation.menu.my_courses')}</NavbarLink> }
-				<NavbarLink targetUrl={routes.about.default}>{t('navigation.menu.about')}</NavbarLink>
-				<NavbarLink targetUrl={routes.contactUs.default}>{t('navigation.menu.contact_us')}</NavbarLink>
 			</StyledList>
 			{currentUser && (
 				<StyledDiv display="flex" gridGap="1em">
