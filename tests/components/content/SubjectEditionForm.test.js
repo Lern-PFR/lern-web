@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import { SubjectEditionForm } from 'components/content';
 import { act, fireEvent, render } from '@testing-library/react';
+import { StaticRouter } from 'react-router';
 
 describe('Subject edition form', () => {
 	const mockedSubject = {
@@ -15,19 +16,19 @@ describe('Subject edition form', () => {
 	});
 
 	describe('Snapshot testing', () => {
-		const wrapper = shallow(<SubjectEditionForm onSubmit={jest.fn()} subject={mockedSubject} />);
+		const wrapper = shallow(<StaticRouter><SubjectEditionForm onSubmit={jest.fn()} subject={mockedSubject} /></StaticRouter>);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	describe('Form inputs', () => {
 		it('should contain a "title" text input.', () => {
-			const { container } = render(<SubjectEditionForm onSubmit={jest.fn()} subject={mockedSubject} />);
+			const { container } = render(<StaticRouter><SubjectEditionForm onSubmit={jest.fn()} subject={mockedSubject} /></StaticRouter>);
 			expect(container.querySelector('input[name="title"]')).not.toEqual(null);
 		});
 
 		it('should contain a "description" textarea.', () => {
-			const { container } = render(<SubjectEditionForm onSubmit={jest.fn()} subject={mockedSubject} />);
+			const { container } = render(<StaticRouter><SubjectEditionForm onSubmit={jest.fn()} subject={mockedSubject} /></StaticRouter>);
 			expect(container.querySelector('textarea[name="description"]')).not.toEqual(null);
 		});
 	});
@@ -41,7 +42,7 @@ describe('Subject edition form', () => {
 
 			beforeEach(() => {
 				mockedOnSubmit = jest.fn();
-				container = render(<SubjectEditionForm onSubmit={mockedOnSubmit} subject={mockedSubject} />).container;
+				container = render(<StaticRouter><SubjectEditionForm onSubmit={mockedOnSubmit} subject={mockedSubject} /></StaticRouter>).container;
 				titleInput = container.querySelector('input[name="title"]');
 				submitButton = container.querySelector('button[type="submit"]');
 			});
@@ -104,7 +105,7 @@ describe('Subject edition form', () => {
 
 			beforeEach(() => {
 				mockedOnSubmit = jest.fn();
-				container = render(<SubjectEditionForm onSubmit={mockedOnSubmit} subject={mockedSubject} />).container;
+				container = render(<StaticRouter><SubjectEditionForm onSubmit={mockedOnSubmit} subject={mockedSubject} /></StaticRouter>).container;
 				descriptionTextarea = container.querySelector('textarea[name="description"]');
 				submitButton = container.querySelector('button[type="submit"]');
 			});
@@ -163,7 +164,7 @@ describe('Subject edition form', () => {
 	describe('onSubmit', () => {
 		it('should call the onSubmit prop method with the form\'s inputs\' values.', async () => {
 			const mockedOnSubmit = jest.fn((data) => Promise.resolve(data));
-			const { container } = render(<SubjectEditionForm onSubmit={mockedOnSubmit} subject={mockedSubject} />);
+			const { container } = render(<StaticRouter><SubjectEditionForm onSubmit={mockedOnSubmit} subject={mockedSubject} /></StaticRouter>);
 
 			const expectedFormData = {
 				title: 'updated dummy subject title',

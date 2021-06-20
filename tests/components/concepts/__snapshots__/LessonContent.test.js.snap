@@ -30,6 +30,7 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
       margin={0}
     >
       test lesson content
+      <br />
     </BodyCopy>
   </styled.div>
 </styled.div>
@@ -65,6 +66,7 @@ exports[`LessonContent should match previous snapshot (with question provided) 1
       margin={0}
     >
       test lesson content
+      <br />
     </BodyCopy>
     <BodyCopy>
       <strong>

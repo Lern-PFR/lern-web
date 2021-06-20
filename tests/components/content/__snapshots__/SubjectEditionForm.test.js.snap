@@ -1,51 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<styled.form
-  display="grid"
-  gridGap="1em"
-  height="max-content"
-  onSubmit={[Function]}
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  staticContext={Object {}}
 >
-  <LabeledInput
-    defaultValue="dummy_subject_title"
-    disabled={false}
-    errorText=""
-    hasError={false}
-    hintText=""
-    id="title"
-    key="title"
-    name="title"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="subjects.edition.form.fields.title.placeholder"
-    textStyle="brevier"
-    type="text"
-  >
-    subjects.edition.form.fields.title.label
-  </LabeledInput>
-  <LabeledTextArea
-    defaultValue="dummy_subject_description"
-    disabled={false}
-    errorText=""
-    hasError={false}
-    hintText=""
-    id="description"
-    key="description"
-    name="description"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="subjects.edition.form.fields.description.placeholder"
-    rows={6}
-    type="textarea"
-  >
-    subjects.edition.form.fields.description.label
-  </LabeledTextArea>
-  <PrimaryButton
-    justifySelf="start"
-    type="submit"
-  >
-    subjects.edition.form.action.submit
-  </PrimaryButton>
-</styled.form>
+  <SubjectEditionForm
+    onSubmit={[MockFunction]}
+    subject={
+      Object {
+        "description": "dummy_subject_description",
+        "id": "dummy_subject_id",
+        "title": "dummy_subject_title",
+      }
+    }
+  />
+</Router>
 `;

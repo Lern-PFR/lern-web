@@ -1,14 +1,17 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { generatePath } from 'react-router';
 
+import routes from 'routes/keys';
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
 import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidation';
-import { StyledForm } from 'components/shared/styledElements';
+import { StyledDiv, StyledForm } from 'components/shared/styledElements';
 import LabeledTextArea from 'components/shared/form/LabeledTextArea';
 import { LabeledInput } from 'components/shared/form';
-import { PrimaryButton } from 'components/shared/buttons';
+import { PrimaryButton, SubtleLinkButton } from 'components/shared/buttons';
 import { form, formSubmit } from 'theme/contentEditionCommon/genericLayout';
+import { Link } from 'components/shared/navigation';
 
 /**
  * @constant
@@ -195,9 +198,16 @@ const SubjectEditionForm = ({ onSubmit, subject }) => {
 						</LabeledInput>
 					)
 			))}
-			<PrimaryButton type="submit" {...formSubmit}>
-				{t('subjects.edition.form.action.submit')}
-			</PrimaryButton>
+			<StyledDiv>
+				<PrimaryButton type="submit" {...formSubmit}>
+					{t('subjects.edition.form.action.submit')}
+				</PrimaryButton>
+				<SubtleLinkButton type="button">
+					<Link to={generatePath(routes.subjects.subjectDetails, { subjectId: subject.id })}>
+						{t('Visualiser le sujet')}
+					</Link>
+				</SubtleLinkButton>
+			</StyledDiv>
 		</StyledForm>
 	);
 };

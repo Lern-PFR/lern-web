@@ -1,6 +1,7 @@
 import { StyledDiv } from 'components/shared/styledElements';
 import { BodyCopy, LongPrimer, Trafalgar } from 'components/shared/typography';
 import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle, lessonTitleContainer } from 'theme/pages/concepts/conceptDetailsPage';
 
 /**
@@ -21,7 +22,14 @@ const LessonContent = ({ title, content, description, question }) => (
 			<LongPrimer {...lessonDescription}>{description}</LongPrimer>
 		</StyledDiv>
 		<StyledDiv>
-			<BodyCopy {...lessonContent}>{content}</BodyCopy>
+			<BodyCopy {...lessonContent}>
+				{content.split('\n').map((str) => (
+					<Fragment key={str}>
+						{str}
+						<br />
+					</Fragment>
+				))}
+			</BodyCopy>
 			{question && (
 				<BodyCopy>
 					<strong>Question : </strong>
