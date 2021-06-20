@@ -9,14 +9,34 @@ describe('ResponseItem', () => {
 	});
 
 	it('should match previous snapshot', () => {
-		const wrapper = shallow(<ResponseItem />);
+		const wrapper = shallow(<ResponseItem
+			id="1"
+			name="abcd"
+			handleCheckedChanged={jest.fn()}
+			handleChange={jest.fn()}
+			handleBlur={jest.fn()}
+			checked
+			errorText=""
+			hasPlaceholder
+		/>);
 
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should call hendleCheckedChanged with input name when onChange is called', async () => {
 		const mockedOnChange = jest.fn(() => {});
-		const sut = (<ResponseItem handleCheckedChanged={mockedOnChange} id="cb" name="rg" />);
+		const sut = (
+			<ResponseItem
+				id="1"
+				name="rg"
+				handleCheckedChanged={mockedOnChange}
+				handleChange={jest.fn()}
+				handleBlur={jest.fn()}
+				errorText=""
+				hasPlaceholder={false}
+				checked={false}
+			/>
+		);
 		render(sut);
 
 		await act(async () => {

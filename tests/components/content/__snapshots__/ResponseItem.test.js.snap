@@ -8,17 +8,22 @@ exports[`ResponseItem should match previous snapshot 1`] = `
   padding="1em"
 >
   <RadioButtonComponent
-    checked={false}
+    checked={true}
     disabled={false}
-    id="rb-undefined"
+    id="rb-1"
     name="responses"
     onChange={[Function]}
   />
   <InputComponent
     disabled={false}
+    errorText=""
     hasError={false}
+    id="1"
     marginLeft="1em"
-    placeholder=""
+    name="abcd"
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    placeholder="exercises.creation.form.fields.abcd.placeholder"
     textStyle="brevier"
     type="text"
   />
