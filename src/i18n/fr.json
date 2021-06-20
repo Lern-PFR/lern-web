@@ -15,6 +15,33 @@
 				"sign_in": "Se connecter"
 			}
 		},
+		"home": {
+			"pages": {
+				"anon": {
+					"hero": "Apprendre où on veut, mais pas n'importe comment.",
+					"subtitle": "Bienvenue sur Lern, la plateforme d'apprentissage en-ligne pour tous, partout. Notre structuration originale des cours permet un apprentissage linéaire et intuitif d'une variété de sujets pour tous les ages.",
+					"links": {
+						"discover": "Découvrir Lern."
+					}
+				},
+				"auth": {
+					"hero": "Bienvenue {{user.nickname}}",
+					"subtitle": "Tu es expert dans ton domaine et souhaterais partager tes connaissances avec autrui? Tu est enseignant et tu cherches à élargir le choix des supports de cours? Ou alors tu veux simplement apprendre toi-même quelque chose de nouveau!",
+					"reading_list": "Listes de lecture",
+					"timeline": "Chronologie",
+					"latest": "Dernières leçons",
+					"no_active": "Mince ! On dirait que tu n'as pas encore débuté de leçon !",
+					"date": "{{lastUpdate, L - LT }}",
+					"subject_completion": "{{subject}} ({{completion}}%)",
+					"links": {
+						"create": "Commencer à créer !",
+						"subjects": "Commencer à apprndre!",
+						"continue": "Continuer à apprndre",
+						"structure": "Apprnds à créer"
+					}
+				}
+			}
+		},
 		"authentication": {
 			"pages": {
 				"signin": {
@@ -213,7 +240,8 @@
 			"links": {
 				"create": "Créer un nouveau sujet",
 				"back_to_list": "Retourner à la liste des sujets",
-				"module": "Accéder au module"
+				"module": "Accéder au module",
+				"show": "Accéder au suject"
 			},
 			"details": {
 				"author_section": "{{author.firstname}} {{author.lastname}} - Dernière mise à jour : {{lastUpdate, L - LT }}",

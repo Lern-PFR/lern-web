@@ -15,6 +15,33 @@
 				"sign_in": "Sign in"
 			}
 		},
+		"home": {
+			"pages": {
+				"anon": {
+					"hero": "Lern wherever you want ! But do it right !",
+					"subtitle": "Welcome to Lern, the online learning platform for anyone, anywhere ! Our unique content structure provides a linear and intuitive learning experience across a variety of subjects for any and all age groups.",
+					"links": {
+						"discover": "Lern more"
+					}
+				},
+				"auth": {
+					"hero": "Welcome back {{user.nickname}}",
+					"subtitle": "Are you an expert in your field and want to share your knowledge with others? Are you a teacher looking to bring online learning into the classroom? Or maybe you're more interested in learning something new yourself!",
+					"reading_list": "Reading list",
+					"timeline": "Timeline",
+					"latest": "Latest courses",
+					"no_active": "Oops ! It looks like you haven't started any courses yet !",
+					"date": "{{lastUpdate, L - LT }}",
+					"subject_completion": "{{subject}} ({{completion}}%)",
+					"links": {
+						"create": "Get started creating !",
+						"subjects": "Start Lern-ing now!",
+						"continue": "Continue Lern-ing",
+						"structure": "Lern to create"
+					}
+				}
+			}
+		},
 		"authentication": {
 			"pages": {
 				"signin": {
@@ -187,7 +214,7 @@
 						},
 						"description": {
 							"label": "Description",
-							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what make an accessible, user-friendly product.",
+							"placeholder": "What is UX Design ? How is it different from UI Design ? What's the link with psychology ? Learn what makes an accessible, user-friendly product.",
 							"validation_rules": {
 								"required": "Please describe your subject.",
 								"min_length": "Please enter at least 10 characters.",
@@ -211,7 +238,8 @@
 			"links": {
 				"create": "Create a new subject",
 				"back_to_list": "Back to subject list",
-				"module": "Access module"
+				"module": "Access module",
+				"show": "Access subject"
 			},
 			"details": {
 				"author_section": "{{author.firstname}} {{author.lastname}} - last update : {{lastUpdate, L - LT }}",

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+	border,
 	color,
 	flexbox,
 	grid,
@@ -23,6 +24,7 @@ const StyledList = styled('ul')(
 		zIndex: (({ zIndex }) => (zIndex || 'initial')),
 		listStyle: (({ listStyle }) => (listStyle || 'initial')),
 	},
+	border,
 	color,
 	flexbox,
 	grid,

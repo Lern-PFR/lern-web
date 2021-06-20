@@ -1,0 +1,577 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LatestCourses should match previous snapshot for empty latestCourses.active list 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <StaticRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      staticContext={Object {}}
+    >
+      <LatestCourses>
+        <styled.div
+          display="grid"
+          gridGap="1em"
+          gridTemplateRows="auto 1fr"
+          overflow="hidden"
+        >
+          <div
+            className="sc-bdfBwQ eGPnaA"
+            display="grid"
+            overflow="hidden"
+          >
+            <Paragon
+              lineHeight="initial"
+              margin={0}
+              tag="h1"
+              textTransform="capitalize"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1.778rem"
+                fontWeight={400}
+                letterSpacing={0}
+                lineHeight="initial"
+                margin={0}
+                tag="h1"
+                textTransform="capitalize"
+              >
+                <styled.p
+                  as="h1"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1.778rem"
+                  fontWeight={400}
+                  letterSpacing={0}
+                  lineHeight="initial"
+                  margin={0}
+                  textTransform="capitalize"
+                >
+                  <h1
+                    className="sc-gKsewC hvWqSp"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.778rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                  >
+                    home.pages.auth.latest
+                  </h1>
+                </styled.p>
+              </DynamicTextComponent>
+            </Paragon>
+            <styled.div>
+              <div
+                className="sc-bdfBwQ dKXXvR"
+              >
+                <GreatPrimer>
+                  <DynamicTextComponent
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.222rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="1.635em"
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1.222rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="1.635em"
+                    >
+                      <p
+                        className="sc-gKsewC ekwjMb"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1.222rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.no_active
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </GreatPrimer>
+                <Styled(ReactSVG)
+                  src="/assets/svg/illustrations/homepage_auth_no_active.svg"
+                >
+                  <ReactSVG
+                    afterInjection={[Function]}
+                    beforeInjection={[Function]}
+                    className="sc-eCssSg jJHCkI"
+                    evalScripts="never"
+                    fallback={null}
+                    loading={null}
+                    renumerateIRIElements={true}
+                    src="/assets/svg/illustrations/homepage_auth_no_active.svg"
+                    useRequestCache={true}
+                    wrapper="div"
+                  >
+                    <div
+                      className="sc-eCssSg jJHCkI"
+                    />
+                  </ReactSVG>
+                </Styled(ReactSVG)>
+                <OutlinedLinkButton
+                  marginTop="7px"
+                >
+                  <DynamicLinkButtonComponent
+                    bg={
+                      Object {
+                        "darker1": "#FFFFFF",
+                        "darker2": "#FFFFFF",
+                        "default": "#FFFFFF",
+                        "lighter1": "#FFFFFF",
+                        "lighter2": "#FFFFFF",
+                      }
+                    }
+                    border="solid 1px #403B3B"
+                    borderRadius={4}
+                    color={
+                      Object {
+                        "darker1": "#332F2F",
+                        "darker2": "#262323",
+                        "default": "#403B3B",
+                        "lighter1": "#666262",
+                        "lighter2": "#8C8989",
+                      }
+                    }
+                    disabled={false}
+                    hoverBg="#F5F5F2"
+                    linkStyle={
+                      Object {
+                        "display": "inline-block",
+                        "fontFamily": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+                        "fontSize": ".778rem",
+                        "fontWeight": 600,
+                        "letterSpacing": 0.32,
+                        "lineHeight": "1.125em",
+                      }
+                    }
+                    marginTop="7px"
+                    padding="8px 16px"
+                    textDecoration="none"
+                  >
+                    <styled.button
+                      bg={
+                        Object {
+                          "darker1": "#FFFFFF",
+                          "darker2": "#FFFFFF",
+                          "default": "#FFFFFF",
+                          "lighter1": "#FFFFFF",
+                          "lighter2": "#FFFFFF",
+                        }
+                      }
+                      border="solid 1px #403B3B"
+                      borderRadius={4}
+                      color={
+                        Object {
+                          "darker1": "#332F2F",
+                          "darker2": "#262323",
+                          "default": "#403B3B",
+                          "lighter1": "#666262",
+                          "lighter2": "#8C8989",
+                        }
+                      }
+                      hoverBg="#F5F5F2"
+                      marginTop="7px"
+                      textDecoration="none"
+                    >
+                      <button
+                        className="sc-fubCfw IXkCk"
+                        color={
+                          Object {
+                            "darker1": "#332F2F",
+                            "darker2": "#262323",
+                            "default": "#403B3B",
+                            "lighter1": "#666262",
+                            "lighter2": "#8C8989",
+                          }
+                        }
+                        textDecoration="none"
+                      >
+                        <Link
+                          disabled={false}
+                          display="inline-block"
+                          fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                          fontSize=".778rem"
+                          fontWeight={600}
+                          letterSpacing={0.32}
+                          padding="8px 16px"
+                          to="/subjects"
+                        >
+                          <Styled(Link)
+                            display="inline-block"
+                            fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                            fontSize=".778rem"
+                            fontWeight={600}
+                            letterSpacing={0.32}
+                            padding="8px 16px"
+                            to="/subjects"
+                          >
+                            <Link
+                              className="sc-pFZIQ bqCOs"
+                              display="inline-block"
+                              fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                              fontSize=".778rem"
+                              fontWeight={600}
+                              letterSpacing={0.32}
+                              padding="8px 16px"
+                              to="/subjects"
+                            >
+                              <LinkAnchor
+                                className="sc-pFZIQ bqCOs"
+                                display="inline-block"
+                                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                                fontSize=".778rem"
+                                fontWeight={600}
+                                href="/subjects"
+                                letterSpacing={0.32}
+                                navigate={[Function]}
+                                padding="8px 16px"
+                              >
+                                <a
+                                  className="sc-pFZIQ bqCOs"
+                                  display="inline-block"
+                                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                                  fontSize=".778rem"
+                                  fontWeight={600}
+                                  href="/subjects"
+                                  letterSpacing={0.32}
+                                  onClick={[Function]}
+                                  padding="8px 16px"
+                                >
+                                  home.pages.auth.links.subjects
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                          </Styled(Link)>
+                        </Link>
+                      </button>
+                    </styled.button>
+                  </DynamicLinkButtonComponent>
+                </OutlinedLinkButton>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </LatestCourses>
+    </Router>
+  </StaticRouter>
+</Provider>
+`;
+
+exports[`LatestCourses should match previous snapshot for non-empty latestCourses.active list 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <StaticRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      staticContext={Object {}}
+    >
+      <LatestCourses>
+        <styled.div
+          display="grid"
+          gridGap="1em"
+          gridTemplateRows="auto 1fr"
+          overflow="hidden"
+        >
+          <div
+            className="sc-bdfBwQ eGPnaA"
+            display="grid"
+            overflow="hidden"
+          >
+            <Paragon
+              lineHeight="initial"
+              margin={0}
+              tag="h1"
+              textTransform="capitalize"
+            >
+              <DynamicTextComponent
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1.778rem"
+                fontWeight={400}
+                letterSpacing={0}
+                lineHeight="initial"
+                margin={0}
+                tag="h1"
+                textTransform="capitalize"
+              >
+                <styled.p
+                  as="h1"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1.778rem"
+                  fontWeight={400}
+                  letterSpacing={0}
+                  lineHeight="initial"
+                  margin={0}
+                  textTransform="capitalize"
+                >
+                  <h1
+                    className="sc-gKsewC hvWqSp"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.778rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                  >
+                    home.pages.auth.latest
+                  </h1>
+                </styled.p>
+              </DynamicTextComponent>
+            </Paragon>
+            <styled.div>
+              <div
+                className="sc-bdfBwQ dKXXvR"
+              >
+                <GreatPrimer>
+                  <DynamicTextComponent
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.222rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="1.635em"
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1.222rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="1.635em"
+                    >
+                      <p
+                        className="sc-gKsewC ekwjMb"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1.222rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.no_active
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </GreatPrimer>
+                <Styled(ReactSVG)
+                  src="/assets/svg/illustrations/homepage_auth_no_active.svg"
+                >
+                  <ReactSVG
+                    afterInjection={[Function]}
+                    beforeInjection={[Function]}
+                    className="sc-eCssSg jJHCkI"
+                    evalScripts="never"
+                    fallback={null}
+                    loading={null}
+                    renumerateIRIElements={true}
+                    src="/assets/svg/illustrations/homepage_auth_no_active.svg"
+                    useRequestCache={true}
+                    wrapper="div"
+                  >
+                    <div
+                      className="sc-eCssSg jJHCkI"
+                    />
+                  </ReactSVG>
+                </Styled(ReactSVG)>
+                <OutlinedLinkButton
+                  marginTop="7px"
+                >
+                  <DynamicLinkButtonComponent
+                    bg={
+                      Object {
+                        "darker1": "#FFFFFF",
+                        "darker2": "#FFFFFF",
+                        "default": "#FFFFFF",
+                        "lighter1": "#FFFFFF",
+                        "lighter2": "#FFFFFF",
+                      }
+                    }
+                    border="solid 1px #403B3B"
+                    borderRadius={4}
+                    color={
+                      Object {
+                        "darker1": "#332F2F",
+                        "darker2": "#262323",
+                        "default": "#403B3B",
+                        "lighter1": "#666262",
+                        "lighter2": "#8C8989",
+                      }
+                    }
+                    disabled={false}
+                    hoverBg="#F5F5F2"
+                    linkStyle={
+                      Object {
+                        "display": "inline-block",
+                        "fontFamily": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+                        "fontSize": ".778rem",
+                        "fontWeight": 600,
+                        "letterSpacing": 0.32,
+                        "lineHeight": "1.125em",
+                      }
+                    }
+                    marginTop="7px"
+                    padding="8px 16px"
+                    textDecoration="none"
+                  >
+                    <styled.button
+                      bg={
+                        Object {
+                          "darker1": "#FFFFFF",
+                          "darker2": "#FFFFFF",
+                          "default": "#FFFFFF",
+                          "lighter1": "#FFFFFF",
+                          "lighter2": "#FFFFFF",
+                        }
+                      }
+                      border="solid 1px #403B3B"
+                      borderRadius={4}
+                      color={
+                        Object {
+                          "darker1": "#332F2F",
+                          "darker2": "#262323",
+                          "default": "#403B3B",
+                          "lighter1": "#666262",
+                          "lighter2": "#8C8989",
+                        }
+                      }
+                      hoverBg="#F5F5F2"
+                      marginTop="7px"
+                      textDecoration="none"
+                    >
+                      <button
+                        className="sc-fubCfw IXkCk"
+                        color={
+                          Object {
+                            "darker1": "#332F2F",
+                            "darker2": "#262323",
+                            "default": "#403B3B",
+                            "lighter1": "#666262",
+                            "lighter2": "#8C8989",
+                          }
+                        }
+                        textDecoration="none"
+                      >
+                        <Link
+                          disabled={false}
+                          display="inline-block"
+                          fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                          fontSize=".778rem"
+                          fontWeight={600}
+                          letterSpacing={0.32}
+                          padding="8px 16px"
+                          to="/subjects"
+                        >
+                          <Styled(Link)
+                            display="inline-block"
+                            fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                            fontSize=".778rem"
+                            fontWeight={600}
+                            letterSpacing={0.32}
+                            padding="8px 16px"
+                            to="/subjects"
+                          >
+                            <Link
+                              className="sc-pFZIQ bqCOs"
+                              display="inline-block"
+                              fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                              fontSize=".778rem"
+                              fontWeight={600}
+                              letterSpacing={0.32}
+                              padding="8px 16px"
+                              to="/subjects"
+                            >
+                              <LinkAnchor
+                                className="sc-pFZIQ bqCOs"
+                                display="inline-block"
+                                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                                fontSize=".778rem"
+                                fontWeight={600}
+                                href="/subjects"
+                                letterSpacing={0.32}
+                                navigate={[Function]}
+                                padding="8px 16px"
+                              >
+                                <a
+                                  className="sc-pFZIQ bqCOs"
+                                  display="inline-block"
+                                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                                  fontSize=".778rem"
+                                  fontWeight={600}
+                                  href="/subjects"
+                                  letterSpacing={0.32}
+                                  onClick={[Function]}
+                                  padding="8px 16px"
+                                >
+                                  home.pages.auth.links.subjects
+                                </a>
+                              </LinkAnchor>
+                            </Link>
+                          </Styled(Link)>
+                        </Link>
+                      </button>
+                    </styled.button>
+                  </DynamicLinkButtonComponent>
+                </OutlinedLinkButton>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </LatestCourses>
+    </Router>
+  </StaticRouter>
+</Provider>
+`;
