@@ -213,7 +213,7 @@ export const fetchProgressionList = () => (dispatch) => {
 	dispatch(fetchProgressionListRequest());
 
 	return ProgressionApi.fetchProgression()
-		.then((progressionList) => dispatch(fetchProgressionListSuccess({ progressionList, totalCount: progressionList.length })))
+		.then((progressionList) => dispatch(fetchProgressionListSuccess({ progressionList, totalCount: progressionList?.length ?? 0 })))
 		.catch((error) => dispatch(fetchProgressionListFailure(error)));
 };
 
