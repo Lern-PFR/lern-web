@@ -5,6 +5,7 @@ import { generatePath } from 'react-router';
 import { toast } from 'react-toastify';
 import routes from 'routes';
 import { fetchConcept } from './concepts';
+import { fetchLesson } from './lessons';
 import { createQuestion } from './questions';
 
 /**
@@ -255,7 +256,7 @@ export const fetchExercise = (exerciseId) => (dispatch) => {
 	dispatch(fetchExerciseRequest());
 
 	return ExercisesApi.fetchExerciseById(exerciseId)
-		.then(({ exercise }) => dispatch(fetchExerciseSuccess({ exercise })))
+		.then((exercise) => dispatch(fetchExerciseSuccess({ exercise })))
 		.catch((error) => dispatch(fetchExerciseFailure(error)));
 };
 
@@ -275,7 +276,7 @@ export const createExercise = (exerciseData) => (dispatch) => {
 		.then((exercise) => {
 			dispatch(createQuestion({ ...exerciseData.question, exerciseId: exercise.id }));
 			dispatch(createExerciseSuccess({ exercise }));
-			redirectOnSuccess(generatePath(routes.exercises.exerciseEdition, { exerciseId: exercise.id }));
+			redirectOnSuccess(generatePath(routes.lessons.lessonEdition, { lessonId: exercise.lessonId }));
 		})
 		.catch((error) => dispatch(createExerciseFailure(error)));
 };
@@ -294,7 +295,7 @@ export const updateExercise = (exerciseData, exerciseId) => (dispatch) => {
 	dispatch(updateExerciseRequest());
 
 	return ExercisesApi.updateExercise(exerciseData, exerciseId)
-		.then(({ exercise }) => dispatch(updateExerciseSuccess({ exercise })))
+		.then((exercise) => dispatch(updateExerciseSuccess({ exercise })))
 		.catch((error) => dispatch(updateExerciseFailure(error)));
 };
 
@@ -314,7 +315,11 @@ export const deleteExercise = (exerciseId) => (dispatch) => {
 		.then((exercise) => {
 			dispatch(deleteExerciseSuccess({ exercise }));
 			toast.success(i18next.t('exercises.deletion.toasts.success'));
-			dispatch(fetchConcept(exercise.conceptId));
+			if (exercise.lessonId !== undefined && exercise.lessonId !== null) {
+				dispatch(fetchLesson(exercise.lessonId));
+			} else if (exercise.conceptId !== undefined && exercise.conceptId !== null) {
+				dispatch(fetchConcept(exercise.conceptId));
+			}
 		})
 		.catch((error) => dispatch(deleteExerciseFailure(error)));
 };
