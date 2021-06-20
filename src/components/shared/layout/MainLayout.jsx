@@ -47,6 +47,10 @@ const MainLayout = ({ children }) => {
 			return true;
 		}
 
+		if (slicedPathname === routes.lessons.lessonEdition.slice(0, routes.lessons.lessonEdition.lastIndexOf('/') + 1)) {
+			return true;
+		}
+
 		return false;
 	}, [location.pathname]);
 

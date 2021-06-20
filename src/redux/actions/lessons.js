@@ -5,6 +5,7 @@ import { generatePath } from 'react-router';
 import { toast } from 'react-toastify';
 import routes from 'routes';
 import { fetchConcept } from './concepts';
+import { fetchSubject } from './subjects';
 
 /**
  * @constant
@@ -254,7 +255,7 @@ export const fetchLesson = (lessonId) => (dispatch) => {
 	dispatch(fetchLessonRequest());
 
 	return LessonsApi.fetchLessonById(lessonId)
-		.then(({ lesson }) => dispatch(fetchLessonSuccess({ lesson })))
+		.then((lesson) => dispatch(fetchLessonSuccess({ lesson })))
 		.catch((error) => dispatch(fetchLessonFailure(error)));
 };
 
@@ -287,12 +288,17 @@ export const createLesson = (lessonData) => (dispatch) => {
  *
  * @param {object} lessonData	: The data to update the lesson with.
  * @param {string} lessonId		: The id to identify the lesson to update.
+ * @param {string} subjectId	The id of the parent subject. Used to update the sidebar.
  */
-export const updateLesson = (lessonData, lessonId) => (dispatch) => {
+export const updateLesson = (lessonData, lessonId, subjectId) => (dispatch) => {
 	dispatch(updateLessonRequest());
 
 	return LessonsApi.updateLesson(lessonData, lessonId)
-		.then(({ lesson }) => dispatch(updateLessonSuccess({ lesson })))
+		.then((lesson) => {
+			dispatch(updateLessonSuccess({ lesson }));
+			toast.success(i18next.t('lessons.edition.toasts.success'));
+			dispatch(fetchSubject(subjectId)); // Needed to refresh the layout.
+		})
 		.catch((error) => dispatch(updateLessonFailure(error)));
 };
 

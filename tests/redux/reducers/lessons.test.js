@@ -162,13 +162,14 @@ describe('Lessons reducer', () => {
 
 		it('should update the state\'s isLoading field to false when receiving of UPDATE_LESSON_SUCCESS', () => {
 			// Arrange
+			const updatedLesson = { id: '7', name: 'Dummy lesson 7', conceptId: 'abcd' };
 			const action = {
 				type: ActionTypes.UPDATE_LESSON_SUCCESS,
-				payload: { lesson: { id: '7', name: 'Dummy lesson 7', conceptId: 'abcd' } },
+				payload: { lesson: updatedLesson },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
-			const expectedState = { ...initialState, isLoading: false };
+			const expectedState = { ...initialState, isLoading: false, items: [updatedLesson], totalCount: 1 };
 
 			// Act
 			const result = lessonsReducer(temporaryState, action);

@@ -332,7 +332,7 @@ describe('Subject state selectors', () => {
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 
-		it('should not return a "course" element if none is present', () => {
+		it('should not return a "lesson" element if none is present', () => {
 			const mockedStore = {
 				subjects: {
 					items: {
@@ -411,7 +411,7 @@ describe('Subject state selectors', () => {
 				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
 				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
 				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
-				{ label: '0.0.0. dummy course 0', id: 'abcd', order: 0, contentType: 'course', version: 0 },
+				{ label: '0.0.0. dummy course 0', id: 'abcd', order: 0, contentType: 'lesson', version: 0 },
 			];
 
 			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');
@@ -464,7 +464,7 @@ describe('Subject state selectors', () => {
 				{ label: 'dummy subject 0', id: 'abcd', contentType: 'subject' },
 				{ label: '0. dummy module 0', id: 'abcd', order: 0, contentType: 'module' },
 				{ label: '0.0. dummy concept 0', id: 'abcd', order: 0, contentType: 'concept' },
-				{ label: '0.0.0. dummy course 0 updated', id: 'abcd', order: 0, contentType: 'course', version: 1 },
+				{ label: '0.0.0. dummy course 0 updated', id: 'abcd', order: 0, contentType: 'lesson', version: 1 },
 			];
 
 			const actualResult = getContentManipulationSidebarData(mockedStore, 'abcd');

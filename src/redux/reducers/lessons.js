@@ -25,12 +25,12 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_LESSON_SUCCESS:
-		case ActionTypes.UPDATE_LESSON_SUCCESS:
 		case ActionTypes.DELETE_LESSON_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 			};
+		case ActionTypes.UPDATE_LESSON_SUCCESS:
 		case ActionTypes.FETCH_LESSON_SUCCESS:
 			return {
 				...state,

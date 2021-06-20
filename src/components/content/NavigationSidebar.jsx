@@ -52,7 +52,7 @@ const getRouteFromContentTypeAndAction = (action, contentType, id = null) => {
 	}
 
 	if (contentType === 'lesson') {
-		return action === 'creation' ? keys.concepts.lessonCreation : generatePath(keys.concepts.lessonEdition, { lessonId: id });
+		return action === 'creation' ? keys.concepts.lessonCreation : generatePath(keys.lessons.lessonEdition, { lessonId: id });
 	}
 
 	return keys.home.default;
