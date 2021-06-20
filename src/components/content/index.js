@@ -3,6 +3,7 @@ import ConceptEditionForm from './ConceptEditionForm';
 import ConceptLessonList from './ConceptLessonList';
 import LessonCreationForm from './LessonCreationForm';
 import ModuleCreationForm from './ModuleCreationForm';
+import LessonEditionForm from './LessonEditionForm';
 import ModuleEditionForm from './ModuleEditionForm';
 import ModuleConceptList from './ModuleConceptList';
 import NavigationSidebar from './NavigationSidebar';
@@ -15,6 +16,7 @@ export {
 	ConceptEditionForm,
 	ConceptLessonList,
 	LessonCreationForm,
+	LessonEditionForm,
 	ModuleCreationForm,
 	ModuleEditionForm,
 	ModuleConceptList,

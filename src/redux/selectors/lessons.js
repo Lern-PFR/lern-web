@@ -1,6 +1,7 @@
 import { sortBy } from 'lodash';
 import { createSelector } from 'reselect';
 import { getUserAnswer } from './userAnswers';
+import { getConceptById } from './concepts';
 
 /**
  * @function
@@ -35,7 +36,27 @@ const extractFirstQuestionFromLesson = createSelector(
 	}
 );
 
+/**
+ * @function
+ * @name getLessonOrderOptions
+ * @description A selector callback which returns an array of "order" values for the lesson edition form's order select field.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @returns {Array}
+ */
+const getLessonOrderOptions = createSelector(
+	getConceptById,
+	(concept) => {
+		if (!concept?.lessons?.length || concept?.lessons?.length < 1) {
+			return [{ label: 0, value: 0 }];
+		}
+
+		return Array.from({ length: concept?.lessons?.length || 0 }, (_, i) => ({ label: i, value: i }));
+	}
+);
+
 export {
-	// eslint-disable-next-line import/prefer-default-export
 	extractFirstQuestionFromLesson,
+	getLessonOrderOptions,
 };
