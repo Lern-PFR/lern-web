@@ -32,7 +32,7 @@ const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onContentStepper
 		if (question?.id) {
 			dispatch(retrieveAnswerByQuestionId(question.id));
 		}
-	}, [dispatch, question]);
+	}, [dispatch, question?.id]);
 
 	/**
 	 * @function
