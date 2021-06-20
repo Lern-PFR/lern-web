@@ -2,6 +2,7 @@
 
 exports[`QuestionForm snapshot testing should match previous snapshot (answer selected) 1`] = `
 <QuestionForm
+  answerHasBeenSubmitted={false}
   answers={
     Array [
       Object {
@@ -535,6 +536,109 @@ exports[`QuestionForm snapshot testing should match previous snapshot (answer se
 </QuestionForm>
 `;
 
+exports[`QuestionForm snapshot testing should match previous snapshot (with answerHasBeenSubmitted prop) 1`] = `
+<form
+  data-testid="question-form"
+  onSubmit={[Function]}
+>
+  <styled.ul
+    display="grid"
+    gridAutoRows="1fr"
+    listStyle="none"
+    margin={0}
+    padding={0}
+  >
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={true}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={1}
+      key="1"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={1}
+    >
+      answer 1
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={true}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={2}
+      key="2"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={2}
+    >
+      answer 2
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      backgroundColor="#D8EACC"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={true}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={3}
+      key="3"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={3}
+    >
+      answer 3
+    </LabeledCheckbox>
+    <LabeledCheckbox
+      alignItems="center"
+      borderRadius=".2em"
+      checked={false}
+      cursor="pointer"
+      disabled={true}
+      display="grid"
+      gridGap="1em"
+      gridTemplateColumns="min-content 1fr"
+      id={4}
+      key="4"
+      labelTextStyle="bodyCopy"
+      name="answer"
+      onChange={[Function]}
+      padding="1em"
+      value={4}
+    >
+      answer 4
+    </LabeledCheckbox>
+  </styled.ul>
+  <PrimaryButton
+    data-testid="question-form-submit-btn"
+    disabled={true}
+    display="block"
+    marginTop="3em"
+    marginX="auto"
+    type="submit"
+  >
+    exercises.validate-answer
+  </PrimaryButton>
+</form>
+`;
+
 exports[`QuestionForm snapshot testing should match previous snapshot (with singleChoice prop set to true) 1`] = `
 <form
   data-testid="question-form"
@@ -623,113 +727,6 @@ exports[`QuestionForm snapshot testing should match previous snapshot (with sing
     >
       answer 4
     </LabeledRadioButton>
-  </styled.ul>
-  <PrimaryButton
-    data-testid="question-form-submit-btn"
-    disabled={true}
-    display="block"
-    marginTop="3em"
-    marginX="auto"
-    type="submit"
-  >
-    exercises.validate-answer
-  </PrimaryButton>
-</form>
-`;
-
-exports[`QuestionForm snapshot testing should match previous snapshot (with submittedAnswer prop) 1`] = `
-<form
-  data-testid="question-form"
-  onSubmit={[Function]}
->
-  <styled.ul
-    display="grid"
-    gridAutoRows="1fr"
-    listStyle="none"
-    margin={0}
-    padding={0}
-  >
-    <LabeledCheckbox
-      alignItems="center"
-      borderRadius=".2em"
-      checked={false}
-      cursor="pointer"
-      defaultChecked={true}
-      disabled={false}
-      display="grid"
-      gridGap="1em"
-      gridTemplateColumns="min-content 1fr"
-      id={1}
-      key="1"
-      labelTextStyle="bodyCopy"
-      name="answer"
-      onChange={[Function]}
-      padding="1em"
-      value={1}
-    >
-      answer 1
-    </LabeledCheckbox>
-    <LabeledCheckbox
-      alignItems="center"
-      borderRadius=".2em"
-      checked={false}
-      cursor="pointer"
-      defaultChecked={false}
-      disabled={false}
-      display="grid"
-      gridGap="1em"
-      gridTemplateColumns="min-content 1fr"
-      id={2}
-      key="2"
-      labelTextStyle="bodyCopy"
-      name="answer"
-      onChange={[Function]}
-      padding="1em"
-      value={2}
-    >
-      answer 2
-    </LabeledCheckbox>
-    <LabeledCheckbox
-      alignItems="center"
-      backgroundColor="#D8EACC"
-      borderRadius=".2em"
-      checked={false}
-      cursor="pointer"
-      defaultChecked={false}
-      disabled={false}
-      display="grid"
-      gridGap="1em"
-      gridTemplateColumns="min-content 1fr"
-      id={3}
-      key="3"
-      labelTextStyle="bodyCopy"
-      name="answer"
-      onChange={[Function]}
-      padding="1em"
-      value={3}
-    >
-      answer 3
-    </LabeledCheckbox>
-    <LabeledCheckbox
-      alignItems="center"
-      borderRadius=".2em"
-      checked={false}
-      cursor="pointer"
-      defaultChecked={false}
-      disabled={false}
-      display="grid"
-      gridGap="1em"
-      gridTemplateColumns="min-content 1fr"
-      id={4}
-      key="4"
-      labelTextStyle="bodyCopy"
-      name="answer"
-      onChange={[Function]}
-      padding="1em"
-      value={4}
-    >
-      answer 4
-    </LabeledCheckbox>
   </styled.ul>
   <PrimaryButton
     data-testid="question-form-submit-btn"

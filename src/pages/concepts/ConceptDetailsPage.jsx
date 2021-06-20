@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { generatePath, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
@@ -86,13 +86,6 @@ const ConceptDetailsPage = () => {
 	 */
 	const currentLesson = useMemo(() => (conceptLessons[currentContentIndex]), [conceptLessons, currentContentIndex]);
 
-	/**
-	 * @function
-	 * @name onQuestionAnswerSubmit
-	 * @description Callback method to pass to the sidebar element to call the API on question form submit.
-	 */
-	const onQuestionAnswerSubmit = useCallback(() => {}, []);
-
 	return (
 		<StyledDiv {...pageLayout}>
 			{concept && currentLesson && (
@@ -112,7 +105,6 @@ const ConceptDetailsPage = () => {
 						currentLesson={currentLesson}
 						conceptContent={conceptLessons}
 						conceptTitle={concept?.title}
-						onQuestionAnswerSubmit={onQuestionAnswerSubmit}
 						onContentStepperClick={setCurrentContentIndex}
 					/>
 				</>

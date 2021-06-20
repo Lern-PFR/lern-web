@@ -1,4 +1,5 @@
 import {
+	basmati,
 	peppercorn,
 	parsnip,
 	tuna,
@@ -81,7 +82,7 @@ const radioButtonStyle = {
 	WebkitAppearance: 'none',
 	position: 'relative',
 	borderColor: (({ disabled }) => (disabled ? tuna.default : peppercorn.default)),
-	backgroundColor: (({ disabled }) => (disabled ? jasmine.darker1 : coconut.default)),
+	backgroundColor: (({ disabled }) => (disabled ? basmati.default : coconut.default)),
 	'&::before': {
 		position: 'absolute',
 		top: 0,

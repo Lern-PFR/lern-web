@@ -37,16 +37,32 @@ const RadioButtonComponent = forwardRef(
 		const resolvedRef = ref || defaultRef;
 
 		return (
-			<StyledRadioButtonComponent
-				{...(disabled ? disabledStyle : {})}
-				type="radio"
-				disabled={disabled}
-				defaultChecked={checked}
-				id={id}
-				name={name}
-				ref={resolvedRef}
-				{...otherProps}
-			/>
+			<>
+				{ checked
+					? (
+						<StyledRadioButtonComponent
+							{...(disabled ? disabledStyle : {})}
+							type="radio"
+							disabled={disabled}
+							defaultChecked
+							id={id}
+							name={name}
+							ref={resolvedRef}
+							{...otherProps}
+						/>
+					)
+					: (
+						<StyledRadioButtonComponent
+							{...(disabled ? disabledStyle : {})}
+							type="radio"
+							disabled={disabled}
+							id={id}
+							name={name}
+							ref={resolvedRef}
+							{...otherProps}
+						/>
+					)}
+			</>
 		);
 	}
 );

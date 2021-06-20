@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledList } from 'components/shared/styledElements';
@@ -15,21 +15,13 @@ import { LabeledCheckbox, LabeledRadioButton } from 'components/shared/form';
  *
  * @author Timothée Simon-Franza
  *
- * @param {array}	answers				The list of possible answers to the current questions.
- * @param {func}	onSubmit			The method to trigger upon submission of the form.
- * @param {bool}	[singleChoice]		Whether the question has multiple valid answers.
- * @param {array}	[submittedAnswer]	Optional submitted answer object. Set if the user has already submitted an answer.
+ * @param {array}	answers						The list of possible answers to the current questions.
+ * @param {func}	onSubmit					The method to trigger upon submission of the form.
+ * @param {bool}	[singleChoice]				Whether the question has multiple valid answers.
+ * @param {bool}	[answerHasBeenSubmitted]	Optional submitted answer object. Set if the user has already submitted an answer.
  */
-const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) => {
-	const [formData, setFormData] = useState(submittedAnswer || []);
-
-	/**
-	 * @author Timothée Simon-Franza
-	 * @description Ensures the formData state value is properly reset whenever the form's answers props change.
-	 */
-	useEffect(() => {
-		setFormData(submittedAnswer || []);
-	}, [answers, submittedAnswer]);
+const QuestionForm = ({ answers, onSubmit, singleChoice, answerHasBeenSubmitted, t }) => {
+	const [formData, setFormData] = useState([]);
 
 	/**
 	 * @function
@@ -43,10 +35,10 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		if (submittedAnswer || formData.length === 0) {
+		if (answerHasBeenSubmitted || formData.length === 0) {
 			return;
 		}
-		onSubmit(formData);
+		onSubmit(singleChoice ? formData[0] : formData);
 	};
 
 	/**
@@ -74,17 +66,18 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 		<form data-testid="question-form" onSubmit={handleSubmit}>
 			<StyledList {...answersList}>
 				{singleChoice && (
-					answers.map(({ id, valid, text }) => (
+					answers.map(({ id, valid, text, isUserAnswer }) => (
 						<LabeledRadioButton
 							key={id}
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
-							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
+							checked={answerHasBeenSubmitted && isUserAnswer}
 							value={id}
+							disabled={answerHasBeenSubmitted}
 							labelTextStyle="bodyCopy"
 							{...answerListItem}
-							{...(submittedAnswer && valid ? validAnswerListItem : {})}
+							{...(answerHasBeenSubmitted && valid ? validAnswerListItem : {})}
 						>
 							{text}
 						</LabeledRadioButton>
@@ -92,17 +85,18 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 				)}
 
 				{!singleChoice && (
-					answers.map(({ id, valid, text }) => (
+					answers.map(({ id, valid, text, isUserAnswer }) => (
 						<LabeledCheckbox
 							key={id}
 							id={id}
 							onChange={() => onAnswerSelectionChange(id)}
 							name="answer"
-							defaultChecked={submittedAnswer && submittedAnswer.includes(id)}
+							checked={answerHasBeenSubmitted && isUserAnswer}
 							value={id}
+							disabled={answerHasBeenSubmitted}
 							labelTextStyle="bodyCopy"
 							{...answerListItem}
-							{...(submittedAnswer && valid ? validAnswerListItem : {})}
+							{...(answerHasBeenSubmitted && valid ? validAnswerListItem : {})}
 						>
 							{text}
 						</LabeledCheckbox>
@@ -113,7 +107,7 @@ const QuestionForm = ({ answers, onSubmit, singleChoice, submittedAnswer, t }) =
 				data-testid="question-form-submit-btn"
 				type="submit"
 				{...answerFormSubmitButton}
-				disabled={(submittedAnswer && submittedAnswer !== []) || formData.length === 0}
+				disabled={(answerHasBeenSubmitted) || formData.length === 0}
 			>
 				{t('exercises.validate-answer')}
 			</PrimaryButton>
@@ -129,18 +123,13 @@ QuestionForm.propTypes = {
 	})).isRequired,
 	onSubmit: PropTypes.func.isRequired,
 	singleChoice: PropTypes.bool,
-	submittedAnswer: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number,
-		]),
-	),
+	answerHasBeenSubmitted: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 
 QuestionForm.defaultProps = {
+	answerHasBeenSubmitted: false,
 	singleChoice: false,
-	submittedAnswer: undefined,
 };
 
 export default withTranslation()(QuestionForm);
