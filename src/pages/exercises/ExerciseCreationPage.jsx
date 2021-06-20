@@ -54,7 +54,6 @@ const ExerciseCreationPage = () => {
 	}, [dispatch, module?.subjectId]);
 
 	const onSubmit = useCallback((formData) => {
-		console.log(formData);
 		const exerciseCreationData = {
 			title: 'string',
 			description: 'stringstri',
@@ -63,7 +62,6 @@ const ExerciseCreationPage = () => {
 			lessonVersion: lesson.version,
 			question: { ...formData },
 		};
-		console.log(exerciseCreationData);
 
 		dispatch(createExercise(exerciseCreationData));
 	}, [lesson?.id, lesson?.version, dispatch]);
