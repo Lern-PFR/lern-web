@@ -196,7 +196,8 @@
 					"new_module": "Nouveau module",
 					"new_concept": "Nouvelle notion",
 					"new_lesson": "Nouvelle leçon",
-					"new_exercise": "Nouvel exercice"
+					"new_exercise": "Nouvel exercice",
+					"exercise": "Exercice"
 				}
 			},
 			"edition": {

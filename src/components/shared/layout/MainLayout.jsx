@@ -34,6 +34,10 @@ const MainLayout = ({ children }) => {
 			return true;
 		}
 
+		if (location.pathname.includes('/exercises/create')) {
+			return true;
+		}
+
 		const slicedPathname = location.pathname.slice(0, location.pathname.lastIndexOf('/') + 1);
 		if (slicedPathname === routes.subjects.subjectEdition.slice(0, routes.subjects.subjectEdition.lastIndexOf('/') + 1)) {
 			return true;
