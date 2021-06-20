@@ -193,7 +193,8 @@
 				"sidebar": {
 					"new_subject": "New subject",
 					"new_module": "New module",
-					"new_concept": "New notion"
+					"new_concept": "New notion",
+					"new_lesson": "New lesson"
 				}
 			},
 			"edition": {
@@ -483,6 +484,41 @@
 			"deletion": {
 				"toasts": {
 					"success": "Lesson {{name}} has been successfully removed."
+				}
+			},
+			"creation": {
+				"title": "New lesson",
+				"form": {
+					"action": {
+						"submit": "Create my lesson"
+					},
+					"fields": {
+						"title": {
+							"label": "Title",
+							"placeholder": "Defining UX Design",
+							"validation_rules": {
+								"required": "Please provide a title.",
+								"min_length": "Please enter at least 3 characters.",
+								"max_length": "Please enter 50 characters maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "A vocabulary summary about UX Design and its components.",
+							"validation_rules": {
+								"required": "Please describe your lesson.",
+								"min_length": "Please enter at least 10 characters.",
+								"max_length": "Please enter 300 characters maximum."
+							}
+						},
+						"content": {
+							"label": "Content",
+							"hint": "This is where your lesson's content should be.",
+							"validation_rules": {
+								"required": "Please provide some content."
+							}
+						}
+					}
 				}
 			}
 		},

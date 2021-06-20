@@ -1,6 +1,9 @@
 import * as LessonsApi from 'api/lessonsApi';
 import i18next from 'i18next';
+import { redirectOnSuccess } from 'lib/shared/redirectionHelper';
+import { generatePath } from 'react-router';
 import { toast } from 'react-toastify';
+import routes from 'routes';
 import { fetchConcept } from './concepts';
 
 /**
@@ -268,7 +271,10 @@ export const createLesson = (lessonData) => (dispatch) => {
 	dispatch(createLessonRequest());
 
 	return LessonsApi.createLesson(lessonData)
-		.then(({ lesson }) => dispatch(createLessonSuccess({ lesson })))
+		.then((lesson) => {
+			dispatch(createLessonSuccess({ lesson }));
+			redirectOnSuccess(generatePath(routes.lessons.lessonEdition, { lessonId: lesson.id }));
+		})
 		.catch((error) => dispatch(createLessonFailure(error)));
 };
 

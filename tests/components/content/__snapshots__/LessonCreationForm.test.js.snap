@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<styled.form
+  display="grid"
+  gridGap="1em"
+  height="max-content"
+  onSubmit={[Function]}
+>
+  <LabeledInput
+    defaultValue=""
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="title"
+    key="title"
+    name="title"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="lessons.creation.form.fields.title.placeholder"
+    textStyle="brevier"
+    type="text"
+  >
+    lessons.creation.form.fields.title.label
+  </LabeledInput>
+  <LabeledTextArea
+    defaultValue=""
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="description"
+    key="description"
+    name="description"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="lessons.creation.form.fields.description.placeholder"
+    rows={6}
+    type="textarea"
+  >
+    lessons.creation.form.fields.description.label
+  </LabeledTextArea>
+  <LabeledTextArea
+    defaultValue=""
+    disabled={false}
+    errorText=""
+    hasError={false}
+    hintText=""
+    id="content"
+    key="content"
+    name="content"
+    onBlur={[Function]}
+    onChange={[Function]}
+    rows={6}
+    type="textarea"
+  >
+    lessons.creation.form.fields.content.label
+  </LabeledTextArea>
+  <PrimaryButton
+    justifySelf="start"
+    type="submit"
+  >
+    lessons.creation.form.action.submit
+  </PrimaryButton>
+</styled.form>
+`;

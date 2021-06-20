@@ -113,7 +113,7 @@ describe('Lesson-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { lesson: { ...lessonData, id: '7' } },
+				body: { ...lessonData, id: '7' },
 				headers: { 'content-type': 'application/json' },
 			};
 
