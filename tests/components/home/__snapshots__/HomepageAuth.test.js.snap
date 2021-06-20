@@ -34,6 +34,12 @@ exports[`HomepageAuth should match previous snapshot 1`] = `
 >
   <HomepageAuth
     t={[Function]}
+    user={
+      Object {
+        "id": "abcd",
+        "nickname": "dummy user",
+      }
+    }
   />
 </ContextProvider>
 `;

@@ -11,7 +11,7 @@ describe('HomepageAuth', () => {
 	it('should match previous snapshot', () => {
 		const sut = (
 			<Provider store={store}>
-				<HomepageAuth />
+				<HomepageAuth user={{id: 'abcd', nickname: 'dummy user'}} />
 			</Provider>
 		);
 		const wrapper = shallow(sut);
