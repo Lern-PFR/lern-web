@@ -18,6 +18,7 @@ import { backToModuleSvg, pageLayout } from 'theme/pages/concepts/conceptDetails
 import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 import { Link } from 'components/shared/navigation';
 import { findIndex } from 'lodash';
+import { extractFirstQuestionFromLesson } from 'redux/selectors/lessons';
 
 /**
  * @name ConceptDetailsPage
@@ -85,6 +86,7 @@ const ConceptDetailsPage = () => {
 	 * @type {object}
 	 */
 	const currentLesson = useMemo(() => (conceptLessons[currentContentIndex]), [conceptLessons, currentContentIndex]);
+	const question = useSelector((state) => extractFirstQuestionFromLesson(state, currentLesson));
 
 	return (
 		<StyledDiv {...pageLayout}>
@@ -99,7 +101,7 @@ const ConceptDetailsPage = () => {
 								</StyledDiv>
 							</Link>
 						</SubtleLinkButton>
-						<LessonContent {...currentLesson} />
+						<LessonContent {...currentLesson} question={question?.statement} />
 					</StyledDiv>
 					<Sidebar
 						currentLesson={currentLesson}

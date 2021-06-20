@@ -2,8 +2,6 @@ import { sortBy } from 'lodash';
 import { createSelector } from 'reselect';
 import { getUserAnswer } from './userAnswers';
 
-// const extractFirstQuestionFromLesson = (lesson) => (lesson?.exercises?.[0]?.questions?.[0]);
-
 /**
  * @function
  * @name extractFirstQuestionFromLesson

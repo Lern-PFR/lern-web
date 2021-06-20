@@ -25,6 +25,7 @@ import QuestionForm from './QuestionForm';
  */
 const Sidebar = ({ conceptTitle, currentLesson, conceptContent, onContentStepperClick }) => {
 	const question = useSelector((state) => extractFirstQuestionFromLesson(state, currentLesson));
+
 	const userAnswer = useSelector(getUserAnswer);
 	const dispatch = useDispatch();
 
