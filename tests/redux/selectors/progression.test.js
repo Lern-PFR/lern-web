@@ -6,10 +6,36 @@ describe('Progression state selectors', () => {
 			const mockedStore = {
 				progression: {
 					items: [
-						{ subjectId: 'abcd', conceptId: 'tyui' },
-						{ subjectId: 'efgh', conceptId: 'qwer' },
-						{ subjectId: 'ijkl', conceptId: 'asdf' },
-						{ subjectId: 'mnop', conceptId: 'zxcv' },
+						{
+							subject: {
+								id: 'abcd',
+								title: 'titre',
+							},
+							concept: {
+								id: 'dcba',
+								title: 'titre',
+							},
+						},
+						{
+							subject: {
+								id: 'asdf',
+								title: 'titre',
+							},
+							concept: {
+								id: 'qwer',
+								title: 'titre',
+							},
+						},
+						{
+							subject: {
+								id: 'zxcv',
+								title: 'titre',
+							},
+							concept: {
+								id: 'asdf',
+								title: 'titre',
+							},
+						},
 					],
 				},
 			};
@@ -30,17 +56,52 @@ describe('Progression state selectors', () => {
 			const mockedStore = {
 				progression: {
 					items: [
-						{ subjectId: 'abcd', conceptId: 'tyui' },
-						{ subjectId: 'efgh', conceptId: 'qwer' },
-						{ subjectId: 'ijkl', conceptId: 'asdf' },
-						{ subjectId: 'mnop', conceptId: 'zxcv' },
+						{
+							subject: {
+								id: 'abcd',
+								title: 'titre',
+							},
+							concept: {
+								id: 'dcba',
+								title: 'titre',
+							},
+						},
+						{
+							subject: {
+								id: 'asdf',
+								title: 'titre',
+							},
+							concept: {
+								id: 'qwer',
+								title: 'titre',
+							},
+						},
+						{
+							subject: {
+								id: 'zxcv',
+								title: 'titre',
+							},
+							concept: {
+								id: 'asdf',
+								title: 'titre',
+							},
+						},
 					],
 				},
 			};
 
-			const expectedResult = { subjectId: 'efgh', conceptId: 'qwer' };
+			const expectedResult = {
+				subject: {
+					id: 'asdf',
+					title: 'titre',
+				},
+				concept: {
+					id: 'qwer',
+					title: 'titre',
+				},
+			};
 
-			const actualResult = getProgressionBySubject(mockedStore, 'efgh');
+			const actualResult = getProgressionBySubject(mockedStore, 'asdf');
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 
@@ -48,17 +109,43 @@ describe('Progression state selectors', () => {
 			const mockedStore = {
 				progression: {
 					items: [
-						{ subjectId: 'abcd', conceptId: 'tyui' },
-						{ subjectId: 'efgh', conceptId: 'qwer' },
-						{ subjectId: 'ijkl', conceptId: 'asdf' },
-						{ subjectId: 'mnop', conceptId: 'zxcv' },
+						{
+							subject: {
+								id: 'abcd',
+								title: 'titre',
+							},
+							concept: {
+								id: 'dcba',
+								title: 'titre',
+							},
+						},
+						{
+							subject: {
+								id: 'asdf',
+								title: 'titre',
+							},
+							concept: {
+								id: 'qwer',
+								title: 'titre',
+							},
+						},
+						{
+							subject: {
+								id: 'zxcv',
+								title: 'titre',
+							},
+							concept: {
+								id: 'asdf',
+								title: 'titre',
+							},
+						},
 					],
 				},
 			};
 
 			const expectedResult = undefined;
 
-			const actualResult = getProgressionBySubject(mockedStore, 'qrst');
+			const actualResult = getProgressionBySubject(mockedStore, 'fghj');
 			expect(actualResult).toStrictEqual(expectedResult);
 		});
 

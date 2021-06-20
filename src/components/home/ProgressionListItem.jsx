@@ -5,7 +5,17 @@ import { generatePath } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { StyledDiv, StyledListItem } from 'components/shared/styledElements';
 import { BodyCopy, GreatPrimer } from 'components/shared/typography';
-import { progressionListItem, progressionListItemContent, progressionPill, progressionPillFilled, timelineConcept, timelineDate, timelineHeader, timelineModule, timelineSubject } from 'theme/pages/home/homepageAuth';
+import {
+	progressionListItem,
+	progressionListItemContent,
+	progressionPill,
+	progressionPillFilled,
+	timelineConcept,
+	timelineDate,
+	timelineHeader,
+	timelineModule,
+	timelineSubject,
+} from 'theme/pages/home/homepageAuth';
 import { getModuleById } from 'redux/selectors/modules';
 import { fetchModule } from 'redux/actions/modules';
 import routes from 'routes';
@@ -26,30 +36,40 @@ const ProgressionListItem = ({ updatedAt, subject, concept, completion }) => {
 	const { t } = useTranslation();
 	const module = useSelector((state) => getModuleById(state, concept.moduleId));
 	const dispatch = useDispatch();
-	const conceptIndex = module?.concepts.indexOf(module?.concepts.filter((c) => c.id === concept.id)[0]);
+	const moduleConcepts = useMemo(() => ((module?.concepts ?? []).map((conceptInstance, index) => ({ ...conceptInstance, order: index }))), [module]);
+	const conceptIndex = moduleConcepts.indexOf(moduleConcepts.filter((c) => c.id === concept.id)[0]);
+	const nextModule = useMemo(() => {
+		if (module && subject) {
+			return subject?.modules[subject?.modules.indexOf(subject?.modules.filter((m) => m.id === module.id)[0]) + 1] ?? {};
+		}
+
+		return undefined;
+	}, [subject, module]);
+	const nextModuleConcepts = useMemo(() => ((nextModule?.concepts ?? []).map((conceptInstance, index) => ({ ...conceptInstance, order: index }))), [nextModule]);
 	let nextConcept;
-	let nextModule;
 
 	if (conceptIndex === module?.concepts.length - 1) {
-		console.log(module?.concepts.length);
-		console.log(conceptIndex);
-		nextModule = subject?.modules[subject?.modules.indexOf(module) + 1] ?? {};
-		console.log(nextModule);
 		if (nextModule !== undefined) {
-			nextConcept = nextModule?.concepts[0];
+			[nextConcept] = nextModuleConcepts;
 		}
 	} else {
 		nextConcept = module?.concepts[conceptIndex + 1];
 	}
 
-	const detailsPageRedirectionLink = useMemo(() => generatePath(routes.concepts.conceptDetails, { conceptId: concept.id }), [concept]);
+	const detailsPageRedirectionLink = useMemo(() => {
+		if (nextConcept) {
+			generatePath(routes.concepts.conceptDetails, { conceptId: nextConcept.id });
+		}
+	}, [nextConcept]);
 
 	const onCardClick = useCallback(() => {
 		history.push(detailsPageRedirectionLink);
 	}, [detailsPageRedirectionLink]);
 
 	useEffect(() => {
-		dispatch(fetchModule(concept.moduleId));
+		if (concept?.moduleId) {
+			dispatch(fetchModule(concept.moduleId));
+		}
 	}, [dispatch, concept]);
 
 	return (
@@ -61,10 +81,12 @@ const ProgressionListItem = ({ updatedAt, subject, concept, completion }) => {
 					<BodyCopy {...timelineSubject}>{t('home.pages.auth.subject_completion', { subject: subject.title, completion })}</BodyCopy>
 				</StyledDiv>
 			</StyledDiv>
+			{module && (
 			<StyledDiv {...progressionListItemContent}>
 				<StyledDiv {...progressionPill} {...progressionPillFilled} />
 				<BodyCopy {...timelineModule}>{module?.title}</BodyCopy>
 			</StyledDiv>
+			)}
 			<StyledDiv {...progressionListItemContent}>
 				<StyledDiv {...progressionPill} {...progressionPillFilled} />
 				<BodyCopy {...timelineConcept}>{concept.title}</BodyCopy>

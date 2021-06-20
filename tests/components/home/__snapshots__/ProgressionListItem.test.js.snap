@@ -1,0 +1,804 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressionListItem should match previous snapshot for progression spanning two modules 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ProgressionListItem
+    completion={67}
+    concept={
+      Object {
+        "id": "asdf",
+        "moduleId": "abcd",
+        "title": "dummy concept",
+      }
+    }
+    subject={
+      Object {
+        "description": "dummy description",
+        "id": "zxcv",
+        "modules": Array [
+          Object {
+            "concepts": Array [
+              Object {
+                "id": "qwer",
+                "moduleId": "abcd",
+                "order": 0,
+                "title": "dummy concept",
+              },
+              Object {
+                "id": "asdf",
+                "moduleId": "abcd",
+                "order": 1,
+                "title": "dummy concept",
+              },
+            ],
+            "description": "dummy description",
+            "id": "abcd",
+            "subjectId": "zxcv",
+            "title": "dummy module",
+          },
+          Object {
+            "concepts": Array [
+              Object {
+                "id": "ghjk",
+                "moduleId": "efgh",
+                "order": 0,
+                "title": "dummy concept",
+              },
+              Object {
+                "id": "yuio",
+                "moduleId": "efgh",
+                "order": 1,
+                "title": "dummy concept",
+              },
+            ],
+            "description": "dummy description",
+            "id": "efgh",
+            "subjectId": "zxcv",
+            "title": "dummy module",
+          },
+        ],
+        "title": "dummy subject",
+      }
+    }
+    updatedAt="2021-06-20T09:33:20.626274"
+  >
+    <styled.li
+      borderLeft="1px solid #241C15"
+      cursor="pointer"
+      onClick={[Function]}
+      paddingLeft="1.5em"
+    >
+      <li
+        className="sc-hKgILt hnwkoi"
+        cursor="pointer"
+        onClick={[Function]}
+      >
+        <styled.div
+          alignItems="center"
+          cursor="pointer"
+          display="flex"
+          flexDirection="row"
+        >
+          <div
+            className="sc-bdfBwQ gAYIqo"
+            cursor="pointer"
+            display="flex"
+          >
+            <styled.div
+              bg="#241C15"
+              border="1px solid #241C15"
+              borderRadius="50%"
+              cursor="pointer"
+              height="13px"
+              marginLeft="-31px"
+              width="13px"
+            >
+              <div
+                className="sc-bdfBwQ iTpKPV"
+                cursor="pointer"
+                height="13px"
+                width="13px"
+              />
+            </styled.div>
+            <styled.div
+              cursor="pointer"
+              marginLeft="1em"
+              width="266px"
+            >
+              <div
+                className="sc-bdfBwQ jSOydB"
+                cursor="pointer"
+                width="266px"
+              >
+                <GreatPrimer
+                  cursor="pointer"
+                  lineHeight="initial"
+                  margin={0}
+                >
+                  <DynamicTextComponent
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.222rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="initial"
+                    margin={0}
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      cursor="pointer"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1.222rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="initial"
+                      margin={0}
+                    >
+                      <p
+                        className="sc-gKsewC ebSZFE"
+                        cursor="pointer"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1.222rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.date
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </GreatPrimer>
+                <BodyCopy
+                  cursor="pointer"
+                  lineHeight="initial"
+                  margin={0}
+                >
+                  <DynamicTextComponent
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="initial"
+                    margin={0}
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      cursor="pointer"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="initial"
+                      margin={0}
+                    >
+                      <p
+                        className="sc-gKsewC cIUUkE"
+                        cursor="pointer"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.subject_completion
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </BodyCopy>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+        <styled.div
+          alignItems="center"
+          cursor="pointer"
+          display="flex"
+          flexDirection="row"
+        >
+          <div
+            className="sc-bdfBwQ gAYIqo"
+            cursor="pointer"
+            display="flex"
+          >
+            <styled.div
+              bg="#241C15"
+              border="1px solid #241C15"
+              borderRadius="50%"
+              cursor="pointer"
+              height="13px"
+              marginLeft="-31px"
+              width="13px"
+            >
+              <div
+                className="sc-bdfBwQ iTpKPV"
+                cursor="pointer"
+                height="13px"
+                width="13px"
+              />
+            </styled.div>
+            <BodyCopy
+              cursor="pointer"
+              lineHeight="initial"
+              margin={0}
+              marginLeft="3em"
+              width="234px"
+            >
+              <DynamicTextComponent
+                cursor="pointer"
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                letterSpacing={0}
+                lineHeight="initial"
+                margin={0}
+                marginLeft="3em"
+                tag="p"
+                width="234px"
+              >
+                <styled.p
+                  as="p"
+                  cursor="pointer"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  letterSpacing={0}
+                  lineHeight="initial"
+                  margin={0}
+                  marginLeft="3em"
+                  width="234px"
+                >
+                  <p
+                    className="sc-gKsewC hBsiQg"
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    width="234px"
+                  >
+                    dummy concept
+                  </p>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </div>
+        </styled.div>
+      </li>
+    </styled.li>
+  </ProgressionListItem>
+</Provider>
+`;
+
+exports[`ProgressionListItem should match previous snapshot for progression within a single module 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ProgressionListItem
+    completion={67}
+    concept={
+      Object {
+        "id": "qwer",
+        "moduleId": "abcd",
+        "title": "dummy concept",
+      }
+    }
+    subject={
+      Object {
+        "description": "dummy description",
+        "id": "zxcv",
+        "modules": Array [
+          Object {
+            "concepts": Array [
+              Object {
+                "id": "qwer",
+                "moduleId": "abcd",
+                "order": 0,
+                "title": "dummy concept",
+              },
+              Object {
+                "id": "asdf",
+                "moduleId": "abcd",
+                "order": 1,
+                "title": "dummy concept",
+              },
+            ],
+            "description": "dummy description",
+            "id": "abcd",
+            "subjectId": "zxcv",
+            "title": "dummy module",
+          },
+        ],
+        "title": "dummy subject",
+      }
+    }
+    updatedAt="2021-06-20T09:33:20.626274"
+  >
+    <styled.li
+      borderLeft="1px solid #241C15"
+      cursor="pointer"
+      onClick={[Function]}
+      paddingLeft="1.5em"
+    >
+      <li
+        className="sc-hKgILt hnwkoi"
+        cursor="pointer"
+        onClick={[Function]}
+      >
+        <styled.div
+          alignItems="center"
+          cursor="pointer"
+          display="flex"
+          flexDirection="row"
+        >
+          <div
+            className="sc-bdfBwQ gAYIqo"
+            cursor="pointer"
+            display="flex"
+          >
+            <styled.div
+              bg="#241C15"
+              border="1px solid #241C15"
+              borderRadius="50%"
+              cursor="pointer"
+              height="13px"
+              marginLeft="-31px"
+              width="13px"
+            >
+              <div
+                className="sc-bdfBwQ iTpKPV"
+                cursor="pointer"
+                height="13px"
+                width="13px"
+              />
+            </styled.div>
+            <styled.div
+              cursor="pointer"
+              marginLeft="1em"
+              width="266px"
+            >
+              <div
+                className="sc-bdfBwQ jSOydB"
+                cursor="pointer"
+                width="266px"
+              >
+                <GreatPrimer
+                  cursor="pointer"
+                  lineHeight="initial"
+                  margin={0}
+                >
+                  <DynamicTextComponent
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.222rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="initial"
+                    margin={0}
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      cursor="pointer"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1.222rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="initial"
+                      margin={0}
+                    >
+                      <p
+                        className="sc-gKsewC ebSZFE"
+                        cursor="pointer"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1.222rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.date
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </GreatPrimer>
+                <BodyCopy
+                  cursor="pointer"
+                  lineHeight="initial"
+                  margin={0}
+                >
+                  <DynamicTextComponent
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="initial"
+                    margin={0}
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      cursor="pointer"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="initial"
+                      margin={0}
+                    >
+                      <p
+                        className="sc-gKsewC cIUUkE"
+                        cursor="pointer"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.subject_completion
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </BodyCopy>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+        <styled.div
+          alignItems="center"
+          cursor="pointer"
+          display="flex"
+          flexDirection="row"
+        >
+          <div
+            className="sc-bdfBwQ gAYIqo"
+            cursor="pointer"
+            display="flex"
+          >
+            <styled.div
+              bg="#241C15"
+              border="1px solid #241C15"
+              borderRadius="50%"
+              cursor="pointer"
+              height="13px"
+              marginLeft="-31px"
+              width="13px"
+            >
+              <div
+                className="sc-bdfBwQ iTpKPV"
+                cursor="pointer"
+                height="13px"
+                width="13px"
+              />
+            </styled.div>
+            <BodyCopy
+              cursor="pointer"
+              lineHeight="initial"
+              margin={0}
+              marginLeft="3em"
+              width="234px"
+            >
+              <DynamicTextComponent
+                cursor="pointer"
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                letterSpacing={0}
+                lineHeight="initial"
+                margin={0}
+                marginLeft="3em"
+                tag="p"
+                width="234px"
+              >
+                <styled.p
+                  as="p"
+                  cursor="pointer"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  letterSpacing={0}
+                  lineHeight="initial"
+                  margin={0}
+                  marginLeft="3em"
+                  width="234px"
+                >
+                  <p
+                    className="sc-gKsewC hBsiQg"
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    width="234px"
+                  >
+                    dummy concept
+                  </p>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </div>
+        </styled.div>
+      </li>
+    </styled.li>
+  </ProgressionListItem>
+</Provider>
+`;
+
+exports[`ProgressionListItem should match previous snapshot for progression within the last concept of the last module 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ProgressionListItem
+    completion={67}
+    concept={
+      Object {
+        "id": "asdf",
+        "moduleId": "abcd",
+        "title": "dummy concept",
+      }
+    }
+    subject={
+      Object {
+        "description": "dummy description",
+        "id": "zxcv",
+        "modules": Array [
+          Object {
+            "concepts": Array [
+              Object {
+                "id": "qwer",
+                "moduleId": "abcd",
+                "order": 0,
+                "title": "dummy concept",
+              },
+              Object {
+                "id": "asdf",
+                "moduleId": "abcd",
+                "order": 1,
+                "title": "dummy concept",
+              },
+            ],
+            "description": "dummy description",
+            "id": "abcd",
+            "subjectId": "zxcv",
+            "title": "dummy module",
+          },
+        ],
+        "title": "dummy subject",
+      }
+    }
+    updatedAt="2021-06-20T09:33:20.626274"
+  >
+    <styled.li
+      borderLeft="1px solid #241C15"
+      cursor="pointer"
+      onClick={[Function]}
+      paddingLeft="1.5em"
+    >
+      <li
+        className="sc-hKgILt hnwkoi"
+        cursor="pointer"
+        onClick={[Function]}
+      >
+        <styled.div
+          alignItems="center"
+          cursor="pointer"
+          display="flex"
+          flexDirection="row"
+        >
+          <div
+            className="sc-bdfBwQ gAYIqo"
+            cursor="pointer"
+            display="flex"
+          >
+            <styled.div
+              bg="#241C15"
+              border="1px solid #241C15"
+              borderRadius="50%"
+              cursor="pointer"
+              height="13px"
+              marginLeft="-31px"
+              width="13px"
+            >
+              <div
+                className="sc-bdfBwQ iTpKPV"
+                cursor="pointer"
+                height="13px"
+                width="13px"
+              />
+            </styled.div>
+            <styled.div
+              cursor="pointer"
+              marginLeft="1em"
+              width="266px"
+            >
+              <div
+                className="sc-bdfBwQ jSOydB"
+                cursor="pointer"
+                width="266px"
+              >
+                <GreatPrimer
+                  cursor="pointer"
+                  lineHeight="initial"
+                  margin={0}
+                >
+                  <DynamicTextComponent
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1.222rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="initial"
+                    margin={0}
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      cursor="pointer"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1.222rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="initial"
+                      margin={0}
+                    >
+                      <p
+                        className="sc-gKsewC ebSZFE"
+                        cursor="pointer"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1.222rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.date
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </GreatPrimer>
+                <BodyCopy
+                  cursor="pointer"
+                  lineHeight="initial"
+                  margin={0}
+                >
+                  <DynamicTextComponent
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    lineHeight="initial"
+                    margin={0}
+                    tag="p"
+                  >
+                    <styled.p
+                      as="p"
+                      cursor="pointer"
+                      fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                      fontSize="1rem"
+                      fontWeight={400}
+                      letterSpacing={0}
+                      lineHeight="initial"
+                      margin={0}
+                    >
+                      <p
+                        className="sc-gKsewC cIUUkE"
+                        cursor="pointer"
+                        fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                        fontSize="1rem"
+                        fontWeight={400}
+                        letterSpacing={0}
+                      >
+                        home.pages.auth.subject_completion
+                      </p>
+                    </styled.p>
+                  </DynamicTextComponent>
+                </BodyCopy>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+        <styled.div
+          alignItems="center"
+          cursor="pointer"
+          display="flex"
+          flexDirection="row"
+        >
+          <div
+            className="sc-bdfBwQ gAYIqo"
+            cursor="pointer"
+            display="flex"
+          >
+            <styled.div
+              bg="#241C15"
+              border="1px solid #241C15"
+              borderRadius="50%"
+              cursor="pointer"
+              height="13px"
+              marginLeft="-31px"
+              width="13px"
+            >
+              <div
+                className="sc-bdfBwQ iTpKPV"
+                cursor="pointer"
+                height="13px"
+                width="13px"
+              />
+            </styled.div>
+            <BodyCopy
+              cursor="pointer"
+              lineHeight="initial"
+              margin={0}
+              marginLeft="3em"
+              width="234px"
+            >
+              <DynamicTextComponent
+                cursor="pointer"
+                fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                fontSize="1rem"
+                fontWeight={400}
+                letterSpacing={0}
+                lineHeight="initial"
+                margin={0}
+                marginLeft="3em"
+                tag="p"
+                width="234px"
+              >
+                <styled.p
+                  as="p"
+                  cursor="pointer"
+                  fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                  fontSize="1rem"
+                  fontWeight={400}
+                  letterSpacing={0}
+                  lineHeight="initial"
+                  margin={0}
+                  marginLeft="3em"
+                  width="234px"
+                >
+                  <p
+                    className="sc-gKsewC hBsiQg"
+                    cursor="pointer"
+                    fontFamily="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+                    fontSize="1rem"
+                    fontWeight={400}
+                    letterSpacing={0}
+                    width="234px"
+                  >
+                    dummy concept
+                  </p>
+                </styled.p>
+              </DynamicTextComponent>
+            </BodyCopy>
+          </div>
+        </styled.div>
+      </li>
+    </styled.li>
+  </ProgressionListItem>
+</Provider>
+`;

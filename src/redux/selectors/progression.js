@@ -29,7 +29,7 @@ const getProgressionBySubject = createSelector(
 	getProgression,
 	(_, subjectId) => subjectId,
 	(progressionList, subjectId) => {
-		const progression = progressionList.filter(({ id }) => (id === subjectId))?.[0] ?? undefined; // progressionList existe?
+		const progression = progressionList.filter(({ subject: { id } }) => (id === subjectId))?.[0] ?? undefined;
 
 		if (progression === undefined) {
 			return progression;

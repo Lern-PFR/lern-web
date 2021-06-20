@@ -182,11 +182,11 @@ describe('Progression-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { progression: progressionData },
+				body: { ...progressionData },
 				headers: { 'content-type': 'application/json' },
 			};
 
-			fetchMock.put(`${baseUrl}/api/progression/${progressionData.subjectId}`, httpResponse);
+			fetchMock.put(`${baseUrl}/api/progression`, httpResponse);
 
 			const expectedActions = [
 				{ type: progressionActions.ActionTypes.UPDATE_PROGRESSION_REQUEST },
