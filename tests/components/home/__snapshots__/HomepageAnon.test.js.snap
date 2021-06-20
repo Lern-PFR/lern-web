@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomepageAnon should match previous snapshot 1`] = `
+<styled.div
+  alignItems="center"
+  display="grid"
+  gridGap="3em"
+  gridTemplateColumns="minmax(700px, 1fr) 1fr"
+  marginX="auto"
+  maxWidth="1450px"
+>
+  <styled.div>
+    <Canon
+      lineHeight="initial"
+      tag="h1"
+    >
+      home.pages.anon.hero
+    </Canon>
+    <BodyCopy
+      lineHeight="initial"
+    >
+      home.pages.anon.subtitle
+    </BodyCopy>
+    <PrimaryButton>
+      <Link
+        to="/subjects/structure"
+      >
+        home.pages.anon.links.discover
+      </Link>
+    </PrimaryButton>
+  </styled.div>
+  <Styled(ReactSVG)
+    display="inline-block"
+    src="/assets/svg/illustrations/homepage_anon.svg"
+  />
+</styled.div>
+`;
