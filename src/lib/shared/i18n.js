@@ -3,6 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import translations from 'i18n';
 import moment from 'moment';
+import 'moment/locale/fr';
 
 i18n
 	.use(LanguageDetector)
@@ -13,8 +14,10 @@ i18n
 		fallbackLng: 'en',
 
 		interpolation: {
-			format: (value, format) => {
+			format: (value, format, lng) => {
 				if (moment(value, true).isValid()) {
+					moment.locale(lng);
+
 					return moment(value).format(format);
 				}
 
