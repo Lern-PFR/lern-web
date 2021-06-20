@@ -55,6 +55,10 @@ const getRouteFromContentTypeAndAction = (action, contentType, id = null) => {
 		return action === 'creation' ? keys.concepts.lessonCreation : generatePath(keys.lessons.lessonEdition, { lessonId: id });
 	}
 
+	if (contentType === 'exercise') {
+		return action === 'creation' ? keys.lessons.exerciseCreation : generatePath(keys.lessons.lessonEdition, { lessonId: id });
+	}
+
 	return keys.home.default;
 };
 

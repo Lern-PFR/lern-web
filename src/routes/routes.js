@@ -6,6 +6,7 @@ import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectLis
 import { ModuleCreationPage, ModuleDetailsPage, ModuleEditionPage } from 'pages/modules';
 import { Homepage } from 'pages/home';
 import { LessonCreationPage, LessonEditionPage } from 'pages/lessons';
+import { ExerciseCreationPage } from 'pages/exercises';
 import keys from './keys';
 
 /**
@@ -203,6 +204,17 @@ export default [
 				exact: true,
 				component: LessonEditionPage,
 			},
+			{
+				path: keys.lessons.exerciseCreation,
+				allowAnonymous: false,
+				allowAuthenticated: true,
+				exact: true,
+				component: ExerciseCreationPage,
+			},
 		],
+	},
+	// Exercises
+	{
+
 	},
 ];
