@@ -11,7 +11,7 @@ import { del, get, post, put } from 'lib/shared/http';
  *
  * @returns {Promise}
  */
-export const fetchQuestionById = (questionId) => get(`/api/question/${questionId}`);
+export const fetchQuestionById = (questionId) => get(`/api/questions/${questionId}`);
 
 /**
  * @function

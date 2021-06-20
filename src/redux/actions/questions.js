@@ -1,7 +1,6 @@
 import * as QuestionsApi from 'api/questionsApi';
 import i18next from 'i18next';
 import { toast } from 'react-toastify';
-import { fetchConcept } from './concepts';
 
 /**
  * @constant
@@ -251,7 +250,7 @@ export const fetchQuestion = (questionId) => (dispatch) => {
 	dispatch(fetchQuestionRequest());
 
 	return QuestionsApi.fetchQuestionById(questionId)
-		.then(({ question }) => dispatch(fetchQuestionSuccess({ question })))
+		.then((question) => dispatch(fetchQuestionSuccess({ question })))
 		.catch((error) => dispatch(fetchQuestionFailure(error)));
 };
 
@@ -288,7 +287,7 @@ export const updateQuestion = (questionData, questionId) => (dispatch) => {
 	dispatch(updateQuestionRequest());
 
 	return QuestionsApi.updateQuestion(questionData, questionId)
-		.then(({ question }) => dispatch(updateQuestionSuccess({ question })))
+		.then((question) => dispatch(updateQuestionSuccess({ question })))
 		.catch((error) => dispatch(updateQuestionFailure(error)));
 };
 
@@ -308,7 +307,6 @@ export const deleteQuestion = (questionId) => (dispatch) => {
 		.then((question) => {
 			dispatch(deleteQuestionSuccess({ question }));
 			toast.success(i18next.t('questions.deletion.toasts.success'));
-			dispatch(fetchConcept(question.conceptId));
 		})
 		.catch((error) => dispatch(deleteQuestionFailure(error)));
 };
