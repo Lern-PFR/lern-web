@@ -1,4 +1,4 @@
-import { ActionTypes } from 'redux/actions/exercises';
+import { ActionTypes } from 'redux/actions/questions';
 
 const initialState = {
 	isLoading: false,
@@ -25,12 +25,12 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_QUESTION_SUCCESS:
-		case ActionTypes.UPDATE_QUESTION_SUCCESS:
 		case ActionTypes.DELETE_QUESTION_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 			};
+		case ActionTypes.UPDATE_QUESTION_SUCCESS:
 		case ActionTypes.FETCH_QUESTION_SUCCESS:
 			return {
 				...state,
