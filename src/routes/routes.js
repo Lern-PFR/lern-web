@@ -5,6 +5,7 @@ import { ConceptCreationPage, ConceptDetailsPage, ConceptEditionPage } from 'pag
 import { SubjectCreationPage, SubjectDetailsPage, SubjectEditionPage, SubjectListPage, SubjectStructurePage } from 'pages/subjects';
 import { ModuleCreationPage, ModuleDetailsPage, ModuleEditionPage } from 'pages/modules';
 import { Homepage } from 'pages/home';
+import { LessonCreationPage } from 'pages/lessons';
 import keys from './keys';
 
 /**
@@ -180,7 +181,7 @@ export default [
 				allowAnonymous: false,
 				allowAuthenticated: true,
 				exact: true,
-				component: ConceptDetailsPage,
+				component: LessonCreationPage,
 			},
 			{
 				path: keys.concepts.lessonDetails,
@@ -201,13 +202,6 @@ export default [
 				allowAuthenticated: true,
 				exact: true,
 				component: () => <p>Lesson edition</p>,
-			},
-			{
-				path: keys.lessons.lessonsDetails,
-				allowAnonymous: false,
-				allowAuthenticated: true,
-				exact: true,
-				component: () => <p>Lesson</p>,
 			},
 		],
 	},

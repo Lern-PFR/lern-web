@@ -40,11 +40,10 @@ export default Object.freeze({
 		conceptEdition: '/concepts/edit/:conceptId',
 		lessonCreation: '/concepts/:conceptId/lessons/create',
 		conceptDetails: '/concepts/details/:conceptId',
-		lessonDetails: '/concepts/:conceptId/lessons/:lessonId',
+		lessonDetails: '/concepts/details/:conceptId/lessons/:lessonId',
 	},
 	lessons: {
 		default: '/lessons',
 		lessonEdition: '/lessons/edit/:lessonId',
-		lessonDetails: '/lessons/:id',
 	},
 });

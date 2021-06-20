@@ -26,6 +26,14 @@ const MainLayout = ({ children }) => {
 			return true;
 		}
 
+		if (location.pathname.includes('/concepts/create')) {
+			return true;
+		}
+
+		if (location.pathname.includes('/lessons/create')) {
+			return true;
+		}
+
 		const slicedPathname = location.pathname.slice(0, location.pathname.lastIndexOf('/') + 1);
 		if (slicedPathname === routes.subjects.subjectEdition.slice(0, routes.subjects.subjectEdition.lastIndexOf('/') + 1)) {
 			return true;
@@ -36,10 +44,6 @@ const MainLayout = ({ children }) => {
 		}
 
 		if (slicedPathname === routes.concepts.conceptEdition.slice(0, routes.concepts.conceptEdition.lastIndexOf('/') + 1)) {
-			return true;
-		}
-
-		if (location.pathname.includes('/concepts/create')) {
 			return true;
 		}
 
