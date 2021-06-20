@@ -1,6 +1,7 @@
 import LessonCreationPage from './LessonCreationPage';
+import LessonEditionPage from './LessonEditionPage';
 
 export {
-	// eslint-disable-next-line import/prefer-default-export
 	LessonCreationPage,
+	LessonEditionPage,
 };

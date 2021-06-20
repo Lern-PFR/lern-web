@@ -37,6 +37,54 @@ const extractFirstQuestionFromLesson = createSelector(
 );
 
 /**
+ * @name getLessons
+ * @description A selector callback which returns all lessons from the Redux state.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {object} state The redux state at the time of call.
+ *
+ * @returns {Array}
+ */
+const getLessons = (state) => state?.lessons?.items ?? [];
+
+/**
+ * @function
+ * @name getLessonById
+ * @description A selector callback which returns the lesson whose id matches the lessonId parameter.
+ *
+ * @author Timothée Simon-Franza
+ *
+ * @param {string} lessonId The id of the lesson we want to retrieve.
+ *
+ * @returns {object|undefined}
+ */
+const getLessonById = createSelector(
+	getLessons,
+	(_, lessonId) => lessonId,
+	(lessons, lessonId) => {
+		const filteredLessons = lessons.filter(({ id }) => (id === lessonId));
+		if (filteredLessons.length === 0) {
+			return undefined;
+		}
+
+		// retrieves the latest version of the lessons which id matches the lessonId param.
+		const lesson = Object.values((filteredLessons || []).reduce((acc, currentLesson) => {
+			const currentlyStoredLesson = acc[currentLesson.id];
+			if (currentlyStoredLesson) {
+				acc[currentLesson.id] = currentlyStoredLesson.version < currentLesson.version ? currentLesson : currentlyStoredLesson;
+			} else {
+				acc[currentLesson.id] = currentLesson;
+			}
+
+			return acc;
+		}, {}))?.[0] ?? undefined;
+
+		return lesson;
+	}
+);
+
+/**
  * @function
  * @name getLessonOrderOptions
  * @description A selector callback which returns an array of "order" values for the lesson edition form's order select field.
@@ -58,5 +106,7 @@ const getLessonOrderOptions = createSelector(
 
 export {
 	extractFirstQuestionFromLesson,
+	getLessons,
+	getLessonById,
 	getLessonOrderOptions,
 };

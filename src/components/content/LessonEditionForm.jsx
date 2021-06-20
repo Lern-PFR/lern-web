@@ -59,7 +59,7 @@ const inputsDefinition = {
  * @param {array}	lessonOrderOptions	Options to provide the order select input.
  * @param {func}	onSubmit			The method to trigger on form submission.
  */
-const LessonEditionForm = ({ lesson, conceptOrderOptions, onSubmit }) => {
+const LessonEditionForm = ({ lesson, lessonOrderOptions, onSubmit }) => {
 	const initialState = useMemo(() => ({
 		title: lesson.title,
 		description: lesson.description,
@@ -210,7 +210,7 @@ const LessonEditionForm = ({ lesson, conceptOrderOptions, onSubmit }) => {
 								type={inputType}
 								onChange={handleOrderSelectChange}
 								onBlur={handleBlur}
-								options={conceptOrderOptions}
+								options={lessonOrderOptions}
 								hasError={errors[name] && Object.keys(errors[name])?.length > 0}
 								errorText={getErrorMessageByFieldName(name)}
 								placeholder={hasPlaceholder ? t(`lessons.edition.form.fields.${name}.placeholder`) : undefined}

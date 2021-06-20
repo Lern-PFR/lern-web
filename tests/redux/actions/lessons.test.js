@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from 'redux-thunk';
 import * as lessonsActions from 'redux/actions/lessons';
+import { ActionTypes as subjectsActionTypes } from 'redux/actions/subjects';
 import { ActionTypes as conceptActionTypes } from 'redux/actions/concepts';
 import { baseUrl } from 'lib/shared/http';
 
@@ -51,7 +52,7 @@ describe('Lesson-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { lesson },
+				body: { ...lesson },
 				headers: { 'content-type': 'application/json' },
 			};
 
@@ -165,7 +166,7 @@ describe('Lesson-related redux actions', () => {
 			];
 
 			// Act
-			store.dispatch(lessonsActions.updateLesson({}, '7'));
+			store.dispatch(lessonsActions.updateLesson({}, '7', 'dummy_subject_id'));
 
 			// Assert
 			expect(store.getActions()).toEqual(expectedActions);
@@ -181,10 +182,17 @@ describe('Lesson-related redux actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { lesson: lessonData },
+				body: { ...lessonData },
 				headers: { 'content-type': 'application/json' },
 			};
 
+			const subjectFetchHttpResponse = {
+				status: 200,
+				body: { id: 'dummy_subject_id', title: 'dummy_subject_title', description: 'dummy_subject_desc', modules: [] },
+				headers: { 'content-type': 'application/json' },
+			};
+
+			fetchMock.get(`${baseUrl}/api/subjects/dummy_subject_id`, subjectFetchHttpResponse);
 			fetchMock.put(`${baseUrl}/api/lessons/${lessonData.id}`, httpResponse);
 
 			const expectedActions = [
@@ -193,10 +201,11 @@ describe('Lesson-related redux actions', () => {
 					type: lessonsActions.ActionTypes.UPDATE_LESSON_SUCCESS,
 					payload: { lesson: lessonData },
 				},
+				{ type: subjectsActionTypes.FETCH_SUBJECT_REQUEST },
 			];
 
 			// Act & assert
-			store.dispatch(lessonsActions.updateLesson(lessonData, lessonData.id))
+			store.dispatch(lessonsActions.updateLesson(lessonData, lessonData.id, 'dummy_subject_id'))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 
@@ -221,7 +230,7 @@ describe('Lesson-related redux actions', () => {
 			];
 
 			// Act & assert
-			store.dispatch(lessonsActions.updateLesson(lessonData, lessonData.id))
+			store.dispatch(lessonsActions.updateLesson(lessonData, lessonData.id, 'dummy_subject_id'))
 				.then(() => expect(store.getActions()).toEqual(expectedActions));
 		});
 	});

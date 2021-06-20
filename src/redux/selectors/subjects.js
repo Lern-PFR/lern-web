@@ -133,8 +133,8 @@ const getContentManipulationSidebarData = createSelector(
 
 					return acc;
 				}, {}));
-				sortBy(prunedLessonList, 'order').forEach(({ id: courseId, title: courseTitle, order: courseOrder, version }) => {
-					data = [...data, { id: courseId, label: `${moduleOrder}.${conceptOrder}.${courseOrder}. ${courseTitle}`, order: courseOrder, contentType: 'course', version }];
+				sortBy(prunedLessonList, 'order').forEach(({ id: lessonId, title: courseTitle, order: lessonOrder, version }) => {
+					data = [...data, { id: lessonId, label: `${moduleOrder}.${conceptOrder}.${lessonOrder}. ${courseTitle}`, order: lessonOrder, contentType: 'lesson', version }];
 				});
 			});
 		});

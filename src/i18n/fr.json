@@ -522,6 +522,51 @@
 						}
 					}
 				}
+			},
+			"edition": {
+				"title": "Editer ma leçon",
+				"form": {
+					"action": {
+						"submit": "Enregistrer mes modifications"
+					},
+					"fields": {
+						"title": {
+							"label": "Titre",
+							"placeholder": "Définir l'UX Design",
+							"validation_rules": {
+								"required": "Veuillez renseigner un titre.",
+								"min_length": "Veuillez saisir au moins 3 caractères.",
+								"max_length": "Veuillez saisir 50 caractères maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "Un point de vocabulaire sur l'UX Design et ses composantes.",
+							"validation_rules": {
+								"required": "Veuillez décrire votre module.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						},
+						"content": {
+							"label": "Description",
+							"hint": "C'est ici que doit se trouver le corps de votre leçon.",
+							"validation_rules": {
+								"required": "Veuillez fournir du contenu."
+							}
+						},
+						"order": {
+							"label": "Position au sein de la notion",
+							"hint": "Ordre d'apparition de la laçon au sein de la notion.",
+							"validation_rules": {
+								"required": "Veuillez renseigner un ordre."
+							}
+						}
+					}
+				},
+				"toasts": {
+					"success": "Vos modifications ont bien été enregistrées."
+				}
 			}
 		},
 		"exercises": {
