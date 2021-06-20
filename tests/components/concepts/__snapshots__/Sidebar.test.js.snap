@@ -1,150 +1,169 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sidebar should match previous snapshot (with question) 1`] = `
-<aside>
-  <styled.div
-    borderLeft="solid 1px #DBD9D2"
-    display="grid"
-    gridTemplateRows="auto auto auto 1fr"
-    height="90vh"
-    padding="24px 64px"
-    position="sticky"
-    top="24px"
-  >
-    <Paragon
-      lineHeight="initial"
-      margin={0}
-      tag="h1"
-      textTransform="capitalize"
-    >
-      test concept
-    </Paragon>
-    <Pica
-      lineHeight="initial"
-      margin={0}
-      tag="h2"
-      textTransform="capitalize"
-    >
-      test lesson
-    </Pica>
-    <ConceptContentNavigator
-      conceptContent={
-        Array [
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <Sidebar
+    conceptContent={
+      Array [
+        Object {
+          "content": "test lesson content",
+          "description": "test lesson description",
+          "id": 1,
+          "order": 0,
+          "title": "test lesson",
+        },
+        Object {
+          "content": "lesson 1's content",
+          "description": "another lesson description",
+          "id": 1,
+          "order": 1,
+          "title": "lesson 1",
+        },
+        Object {
+          "content": "lesson 2's content",
+          "description": "another lesson description",
+          "id": 2,
+          "order": 2,
+          "title": "lesson 2",
+        },
+      ]
+    }
+    conceptTitle="test concept"
+    currentLesson={
+      Object {
+        "content": "test lesson content",
+        "description": "test lesson description",
+        "exercises": Array [
           Object {
-            "content": "test lesson content",
-            "description": "test lesson description",
-            "id": 1,
-            "order": 0,
-            "title": "test lesson",
+            "id": "dummy_exercise_id_1",
+            "questions": Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": "dummy_answer_id_1",
+                    "text": "efgh",
+                  },
+                  Object {
+                    "id": "dummy_answer_id_2",
+                    "text": "abcd",
+                  },
+                ],
+                "id": "dummy_question_id",
+              },
+            ],
           },
-          Object {
-            "content": "lesson 1's content",
-            "description": "another lesson description",
-            "id": 1,
-            "order": 1,
-            "title": "lesson 1",
-          },
-          Object {
-            "content": "lesson 2's content",
-            "description": "another lesson description",
-            "id": 2,
-            "order": 2,
-            "title": "lesson 2",
-          },
-        ]
+        ],
+        "id": "dummy_lesson_id",
+        "order": 0,
+        "title": "dummy_lesson_title",
       }
-      currentDocOrder={0}
-      redirectTo={[MockFunction]}
-    />
-    <QuestionForm
-      answers={
-        Array [
-          Object {
-            "id": 1,
-            "text": "answer 1",
-            "valid": false,
-          },
-          Object {
-            "id": 2,
-            "text": "answer 2",
-            "valid": false,
-          },
-          Object {
-            "id": 3,
-            "text": "answer 3",
-            "valid": true,
-          },
-          Object {
-            "id": 4,
-            "text": "answer 4",
-            "valid": false,
-          },
-        ]
-      }
-      onSubmit={[MockFunction]}
-      singleChoice={true}
-      t={[Function]}
-    />
-  </styled.div>
-</aside>
+    }
+    onContentStepperClick={[MockFunction]}
+    onQuestionAnswerSubmit={[MockFunction]}
+  />
+</ContextProvider>
 `;
 
 exports[`Sidebar should match previous snapshot (without question) 1`] = `
-<aside>
-  <styled.div
-    borderLeft="solid 1px #DBD9D2"
-    display="grid"
-    gridTemplateRows="auto auto auto 1fr"
-    height="90vh"
-    padding="24px 64px"
-    position="sticky"
-    top="24px"
-  >
-    <Paragon
-      lineHeight="initial"
-      margin={0}
-      tag="h1"
-      textTransform="capitalize"
-    >
-      test concept
-    </Paragon>
-    <Pica
-      lineHeight="initial"
-      margin={0}
-      tag="h2"
-      textTransform="capitalize"
-    >
-      test lesson
-    </Pica>
-    <ConceptContentNavigator
-      conceptContent={
-        Array [
-          Object {
-            "content": "test lesson content",
-            "description": "test lesson description",
-            "id": 1,
-            "order": 0,
-            "title": "test lesson",
-          },
-          Object {
-            "content": "lesson 1's content",
-            "description": "another lesson description",
-            "id": 1,
-            "order": 1,
-            "title": "lesson 1",
-          },
-          Object {
-            "content": "lesson 2's content",
-            "description": "another lesson description",
-            "id": 2,
-            "order": 2,
-            "title": "lesson 2",
-          },
-        ]
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <Sidebar
+    conceptContent={
+      Array [
+        Object {
+          "content": "test lesson content",
+          "description": "test lesson description",
+          "id": 1,
+          "order": 0,
+          "title": "test lesson",
+        },
+        Object {
+          "content": "lesson 1's content",
+          "description": "another lesson description",
+          "id": 1,
+          "order": 1,
+          "title": "lesson 1",
+        },
+        Object {
+          "content": "lesson 2's content",
+          "description": "another lesson description",
+          "id": 2,
+          "order": 2,
+          "title": "lesson 2",
+        },
+      ]
+    }
+    conceptTitle="test concept"
+    currentLesson={
+      Object {
+        "content": "test lesson content",
+        "description": "test lesson description",
+        "id": 0,
+        "order": 0,
+        "title": "test lesson",
       }
-      currentDocOrder={0}
-      redirectTo={[MockFunction]}
-    />
-  </styled.div>
-</aside>
+    }
+    onContentStepperClick={[MockFunction]}
+    onQuestionAnswerSubmit={[MockFunction]}
+  />
+</ContextProvider>
 `;

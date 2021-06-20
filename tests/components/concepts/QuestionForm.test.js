@@ -30,8 +30,8 @@ describe('QuestionForm', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should match previous snapshot (with submittedAnswer prop)', () => {
-			const wrapper = shallow(<QuestionForm answers={answers} onSubmit={jest.fn()} submittedAnswer={[answers[0].id]} />);
+		it('should match previous snapshot (with answerHasBeenSubmitted prop)', () => {
+			const wrapper = shallow(<QuestionForm answers={answers} onSubmit={jest.fn()} answerHasBeenSubmitted />);
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -44,14 +44,14 @@ describe('QuestionForm', () => {
 			userEvent.click(screen.getAllByRole('radio')[0]);
 			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 			expect(onSubmit).toHaveBeenCalledTimes(1);
-			expect(onSubmit).toHaveBeenCalledWith([answers[0].id]);
+			expect(onSubmit).toHaveBeenCalledWith(answers[0].id);
 
 			onSubmit.mockClear();
 
 			userEvent.click(screen.getAllByRole('radio')[2]);
 			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 			expect(onSubmit).toHaveBeenCalledTimes(1);
-			expect(onSubmit).toHaveBeenCalledWith([answers[2].id]);
+			expect(onSubmit).toHaveBeenCalledWith(answers[2].id);
 		});
 
 		it('should unselect the answer if singleChoice is set to false and answer was selected.', () => {
@@ -83,9 +83,9 @@ describe('QuestionForm', () => {
 			expect(onSubmit).not.toHaveBeenCalled();
 		});
 
-		it('should not call the provided \'onSubmit\' method prop if provided with a defined, non-empty \'submittedAnswer\' prop array', () => {
+		it('should not call the provided \'onSubmit\' method prop if provided with a defined, non-empty \'answerHasBeenSubmitted\' prop array', () => {
 			const onSubmit = jest.fn();
-			render(<QuestionForm answers={answers} onSubmit={onSubmit} submittedAnswer={[answers[0].id]} />);
+			render(<QuestionForm answers={answers} onSubmit={onSubmit} answerHasBeenSubmitted />);
 
 			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 
@@ -113,7 +113,7 @@ describe('QuestionForm', () => {
 			userEvent.click(screen.getByTestId('question-form-submit-btn'));
 
 			expect(onSubmit).toHaveBeenCalledTimes(1);
-			expect(onSubmit).toHaveBeenCalledWith([answers[2].id]);
+			expect(onSubmit).toHaveBeenCalledWith(answers[2].id);
 		});
 	});
 });

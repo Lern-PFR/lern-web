@@ -1,7 +1,12 @@
 import { shallow } from 'enzyme';
 import { Sidebar } from 'components/concepts/conceptDetailsPage';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 describe('Sidebar', () => {
+	const mockStore = configureMockStore([thunk]);
+
 	const props = {
 		conceptTitle: 'test concept',
 		currentLesson: {
@@ -42,32 +47,45 @@ describe('Sidebar', () => {
 		...props,
 		currentLesson: {
 			...props.currentLesson,
-			exercise: {
-				id: 99,
-				question: {
-					id: 100,
-					name: 'question',
-					singleChoice: true,
-					statement: 'statement',
-					explanation: 'none',
-					answers: [
-						{ id: 1, text: 'answer 1', valid: false },
-						{ id: 2, text: 'answer 2', valid: false },
-						{ id: 3, text: 'answer 3', valid: true },
-						{ id: 4, text: 'answer 4', valid: false },
+			id: 'dummy_lesson_id',
+			title: 'dummy_lesson_title',
+			exercises: [
+				{
+					id: 'dummy_exercise_id_1',
+					questions: [
+						{
+							id: 'dummy_question_id',
+							answers: [
+								{ id: 'dummy_answer_id_1', text: 'efgh' },
+								{ id: 'dummy_answer_id_2', text: 'abcd' },
+							],
+						},
 					],
 				},
-			},
+			],
 		},
 	};
 
 	it('should match previous snapshot (without question)', () => {
-		const wrapper = shallow(<Sidebar {...props} />);
+		const store = mockStore({});
+		const wrapper = shallow(
+			<Provider store={store}>
+				<Sidebar {...props} />
+			</Provider>
+		);
 		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should match previous snapshot (with question)', () => {
-		const wrapper = shallow(<Sidebar {...propsWithQuestion} />);
+		const store = mockStore({
+			userAnswers: { items: [{ questionId: 'dummy_question_id', answerId: 'dummy_answer_id_1' }] },
+		});
+
+		const wrapper = shallow(
+			<Provider store={store}>
+				<Sidebar {...propsWithQuestion} />
+			</Provider>
+		);
 		expect(wrapper).toMatchSnapshot();
 	});
 });

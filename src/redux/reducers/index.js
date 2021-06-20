@@ -5,6 +5,7 @@ import concepts from './concepts';
 import subjects from './subjects';
 import users from './users';
 import progression from './progression';
+import userAnswers from './userAnswers';
 
 export default combineReducers({
 	concepts,
@@ -13,4 +14,5 @@ export default combineReducers({
 	subjects,
 	users,
 	progression,
+	userAnswers,
 });

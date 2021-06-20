@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { generatePath, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +18,7 @@ import { backToModuleSvg, pageLayout } from 'theme/pages/concepts/conceptDetails
 import { backToParentButtonContentLayout } from 'theme/buttonStyles';
 import { Link } from 'components/shared/navigation';
 import { findIndex } from 'lodash';
+import { extractFirstQuestionFromLesson } from 'redux/selectors/lessons';
 
 /**
  * @name ConceptDetailsPage
@@ -85,13 +86,7 @@ const ConceptDetailsPage = () => {
 	 * @type {object}
 	 */
 	const currentLesson = useMemo(() => (conceptLessons[currentContentIndex]), [conceptLessons, currentContentIndex]);
-
-	/**
-	 * @function
-	 * @name onQuestionAnswerSubmit
-	 * @description Callback method to pass to the sidebar element to call the API on question form submit.
-	 */
-	const onQuestionAnswerSubmit = useCallback(() => {}, []);
+	const question = useSelector((state) => extractFirstQuestionFromLesson(state, currentLesson));
 
 	return (
 		<StyledDiv {...pageLayout}>
@@ -106,13 +101,12 @@ const ConceptDetailsPage = () => {
 								</StyledDiv>
 							</Link>
 						</SubtleLinkButton>
-						<LessonContent {...currentLesson} />
+						<LessonContent {...currentLesson} question={question?.statement} />
 					</StyledDiv>
 					<Sidebar
 						currentLesson={currentLesson}
 						conceptContent={conceptLessons}
 						conceptTitle={concept?.title}
-						onQuestionAnswerSubmit={onQuestionAnswerSubmit}
 						onContentStepperClick={setCurrentContentIndex}
 					/>
 				</>
