@@ -361,7 +361,7 @@ export const updateSubject = (subjectData, subjectId) => (dispatch) => {
 	dispatch(updateSubjectRequest());
 
 	return SubjectsApi.updateSubject(subjectData, subjectId)
-		.then(({ subject }) => {
+		.then((subject) => {
 			dispatch(updateSubjectSuccess({ subject }));
 			toast.success(i18next.t('subjects.edition.toasts.success'));
 		})

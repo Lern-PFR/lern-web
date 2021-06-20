@@ -35,12 +35,12 @@ export default (state = initialState, { type, payload }) => {
 				isLoading: false,
 			};
 		case ActionTypes.CREATE_SUBJECT_SUCCESS:
-		case ActionTypes.UPDATE_SUBJECT_SUCCESS:
 		case ActionTypes.DELETE_SUBJECT_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 			};
+		case ActionTypes.UPDATE_SUBJECT_SUCCESS:
 		case ActionTypes.FETCH_SUBJECT_SUCCESS:
 			return {
 				...state,

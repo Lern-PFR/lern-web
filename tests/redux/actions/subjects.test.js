@@ -236,7 +236,7 @@ describe('Subject-related actions', () => {
 
 			const httpResponse = {
 				status: 200,
-				body: { subject: subjectData },
+				body: { ...subjectData },
 				headers: { 'content-type': 'application/json' },
 			};
 

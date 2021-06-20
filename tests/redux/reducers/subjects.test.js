@@ -269,13 +269,22 @@ describe('Subjects reducer', () => {
 
 		it('should update the state\'s isLoading field to false when receiving of UPDATE_SUBJECT_SUCCESS', () => {
 			// Arrange
+			const updatedSubject = { id: 'abcd', title: 'Dummy_subject_updated_title' };
 			const action = {
 				type: ActionTypes.UPDATE_SUBJECT_SUCCESS,
-				payload: { subject: { id: 'abcd', name: 'Dummy subject' } },
+				payload: { subject: updatedSubject },
 			};
 
 			const temporaryState = { ...initialState, isLoading: true };
-			const expectedState = { ...initialState, isLoading: false };
+			const expectedState = {
+				...initialState,
+				isLoading: false,
+				items: {
+					...temporaryState.items,
+					all: [updatedSubject],
+				},
+				totalCount: 1,
+			};
 
 			// Act
 			const result = subjectsReducer(temporaryState, action);
