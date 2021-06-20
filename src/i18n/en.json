@@ -578,6 +578,9 @@
 			}
 		},
 		"exercises": {
+			"type": {
+				"SingleChoice": "Multiple choice question"
+			},
 			"creation": {
 				"title": "New exercise",
 				"responses": "Responses (optional)",

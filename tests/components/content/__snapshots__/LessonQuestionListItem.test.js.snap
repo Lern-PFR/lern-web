@@ -15,7 +15,7 @@ exports[`LessonQuestionListItem should match previous snapshot 1`] = `
   <Brevier
     margin="0"
   >
-    SingleChoice
+    exercises.type.SingleChoice
   </Brevier>
 </Styled(styled.li)>
 `;

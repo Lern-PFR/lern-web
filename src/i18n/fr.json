@@ -580,6 +580,9 @@
 			}
 		},
 		"exercises": {
+			"type": {
+				"SingleChoice": "Question à choix multiple"
+			},
 			"creation": {
 				"title": "Nouvel exercice",
 				"responses": "Réponses (facultatif)",

@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types';
 // import { generatePath } from 'react-router';
 import styled from 'styled-components';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 // import routes from 'routes';
 // import { history } from 'routes/components/RouterProvider';
@@ -37,7 +37,7 @@ const ListCard = styled(StyledListItem)(
  */
 const LessonQuestionListItem = ({ exercise }) => {
 	// const dispatch = useDispatch();
-	// const { t } = useTranslation();
+	const { t } = useTranslation();
 	const { id, questions } = exercise;
 
 	// const editPageRedirectionLink = useMemo(() => generatePath(routes.lessons.lessonEdition, { lessonId: id }), [id]);
@@ -57,7 +57,7 @@ const LessonQuestionListItem = ({ exercise }) => {
 	return (
 		<ListCard key={id} {...moduleCard}>
 			<BodyCopy margin="0">{questions[0]?.statement}</BodyCopy>
-			<Brevier margin="0">{questions[0]?.type}</Brevier>
+			<Brevier margin="0">{questions[0]?.type && t(`exercises.type.${questions[0]?.type}`)}</Brevier>
 			{/* <StyledDiv {...innerContentListItemActionsRow}>
 				<OutlinedLinkButton>
 					<Link to={editPageRedirectionLink}>{t('lessons.edition.questions_list.links.edit')}</Link>

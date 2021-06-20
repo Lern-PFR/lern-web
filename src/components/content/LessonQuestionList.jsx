@@ -39,13 +39,15 @@ const LessonQuestionList = ({ exerciseList, lessonId }) => {
 		<StyledDiv marginTop="64px">
 			<DoublePica as="h3">{t('lessons.edition.questions_list.title')}</DoublePica>
 			<StyledList {...innerContentList}>
-				{exerciseList.map((exercise) => (
+				{exerciseList.length === 0 && (
+					<ListCard {...addInnerContentCard} onClick={onAddQuestionCardClick}>
+						<PlusCircle />
+						{t('lessons.edition.questions_list.links.add')}
+					</ListCard>
+				)}
+				{exerciseList.length > 0 && exerciseList.map((exercise) => (
 					<LessonQuestionListItem key={exercise.id} exercise={exercise} />
 				))}
-				<ListCard {...addInnerContentCard} onClick={onAddQuestionCardClick}>
-					<PlusCircle />
-					{t('lessons.edition.questions_list.links.add')}
-				</ListCard>
 			</StyledList>
 		</StyledDiv>
 	);
