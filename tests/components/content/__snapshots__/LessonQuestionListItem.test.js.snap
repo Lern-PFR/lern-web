@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LessonQuestionListItem should match previous snapshot 1`] = `
+<Styled(styled.li)
+  display="grid"
+  gridGap="1em"
+  gridTemplateRows="auto 1fr auto"
+  key="dummy_question_id_1"
+>
+  <BodyCopy
+    margin="0"
+  >
+    oui
+  </BodyCopy>
+  <Brevier
+    margin="0"
+  >
+    SingleChoice
+  </Brevier>
+</Styled(styled.li)>
+`;

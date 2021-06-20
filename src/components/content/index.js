@@ -11,6 +11,7 @@ import SubjectCreationForm from './SubjectCreationForm';
 import SubjectEditionForm from './SubjectEditionForm';
 import SubjectModuleList from './SubjectModuleList';
 import ExerciseCreationForm from './ExerciseCreationForm';
+import LessonQuestionList from './LessonQuestionList';
 
 export {
 	ConceptCreationForm,
@@ -26,4 +27,5 @@ export {
 	SubjectEditionForm,
 	SubjectModuleList,
 	ExerciseCreationForm,
+	LessonQuestionList,
 };

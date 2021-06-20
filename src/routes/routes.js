@@ -213,8 +213,4 @@ export default [
 			},
 		],
 	},
-	// Exercises
-	{
-
-	},
 ];

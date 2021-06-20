@@ -195,7 +195,8 @@
 					"new_subject": "Nouveau sujet",
 					"new_module": "Nouveau module",
 					"new_concept": "Nouvelle notion",
-					"new_lesson": "Nouvelle leçon"
+					"new_lesson": "Nouvelle leçon",
+					"new_exercise": "Nouvel exercice"
 				}
 			},
 			"edition": {
@@ -525,6 +526,14 @@
 			},
 			"edition": {
 				"title": "Editer ma leçon",
+				"questions_list": {
+					"title": "Questions de cette leçon",
+					"links": {
+						"edit": "Editer",
+						"delete": "Supprimer",
+						"add": "Ajouter une question"
+					}
+				},
 				"form": {
 					"action": {
 						"submit": "Enregistrer mes modifications"
@@ -570,6 +579,88 @@
 			}
 		},
 		"exercises": {
+			"creation": {
+				"title": "Nouvel exercice",
+				"responses": "Réponses (facultatif)",
+				"form": {
+					"action": {
+						"submit": "Créer mon exercice"
+					},
+					"fields": {
+						"instructions": {
+							"label": "Instructions",
+							"placeholder": "Répondez à la question suivante : Que veut dire 'UX' ?",
+							"validation_rules": {
+								"required": "Veuillez renseigner des intructions.",
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						},
+						"explanation": {
+							"label": "Expliquez la réponse (facultatif)",
+							"placeholder": "UX signifie User Experience",
+							"validation_rules": {
+								"min_length": "Veuillez saisir au moins 10 caractères.",
+								"max_length": "Veuillez saisir 300 caractères maximum."
+							}
+						},
+						"answer1": {
+							"placeholder": "User Experience"
+						},
+						"answer2": {
+							"placeholder": "User Xylophone"
+						},
+						"answer3": {
+							"placeholder": "Aucune des options"
+						}
+					}
+				}
+			},
+			"edition": {
+				"title": "Edit my lesson",
+				"form": {
+					"action": {
+						"submit": "Save my changes"
+					},
+					"fields": {
+						"title": {
+							"label": "Title",
+							"placeholder": "Defining UX Design",
+							"validation_rules": {
+								"required": "Please provide a title.",
+								"min_length": "Please enter at least 3 characters.",
+								"max_length": "Please enter 50 characters maximum."
+							}
+						},
+						"description": {
+							"label": "Description",
+							"placeholder": "A vocabulary summary about UX Design and its components.",
+							"validation_rules": {
+								"required": "Please describe your notion.",
+								"min_length": "Please enter at least 10 characters.",
+								"max_length": "Please enter 300 characters maximum."
+							}
+						},
+						"content": {
+							"label": "Content",
+							"hint": "This is where your lesson's content should be.",
+							"validation_rules": {
+								"required": "Please provide some content."
+							}
+						},
+						"order": {
+							"label": "Position inside the notion.",
+							"hint": "The order at which the lesson will appear inside its parent notion.",
+							"validation_rules": {
+								"required": "Please provide an order."
+							}
+						}
+					}
+				},
+				"toasts": {
+					"success": "Vos modifications ont bien été enregistrées."
+				}
+			},
 			"validate-answer": "Valider ma réponse",
 			"get-explanation": "Voir l'explication"
 		},

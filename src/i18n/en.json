@@ -524,6 +524,14 @@
 			},
 			"edition": {
 				"title": "Edit my lesson",
+				"questions_list": {
+					"title": "This lesson's questions",
+					"links": {
+						"edit": "Edit",
+						"delete": "Delete",
+						"add": "Add a new question"
+					}
+				},
 				"form": {
 					"action": {
 						"submit": "Save my changes"
