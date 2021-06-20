@@ -84,7 +84,7 @@ const NavigationSidebar = ({ currentlyUpdatingSubjectId, currentlyUpdatingElemen
 			{sidebarItemsList && sidebarItemsList.map(({ label, id, contentType }) => (
 				<Fragment key={id}>
 					<SidebarElement isCurrent={!contentCreationOptions && isEqual(currentlyUpdatingElementId, id)}>
-						{contentType === 'exercise' && (<SidebarElement>{t('subjects.creation.sidebar.exercise')}</SidebarElement>)}
+						{contentType === 'exercise' && t('subjects.creation.sidebar.exercise')}
 						{contentType !== 'exercise' && (<Link to={getRouteFromContentTypeAndAction('edition', contentType, id)}>{label}</Link>)}
 					</SidebarElement>
 					{contentCreationOptions && isEqual(contentCreationOptions.parentId, id) && (

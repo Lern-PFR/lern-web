@@ -515,7 +515,7 @@
 						},
 						"content": {
 							"label": "Content",
-							"hint": "This is where your lesson's content should be.",
+							"placeholder": "This is where your lesson's content should be.",
 							"validation_rules": {
 								"required": "Please provide some content."
 							}
@@ -558,7 +558,7 @@
 						},
 						"content": {
 							"label": "Content",
-							"hint": "This is where your lesson's content should be.",
+							"placeholder": "This is where your lesson's content should be.",
 							"validation_rules": {
 								"required": "Please provide some content."
 							}

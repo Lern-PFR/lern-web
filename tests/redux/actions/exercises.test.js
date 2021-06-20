@@ -133,11 +133,11 @@ describe('Exercise-related redux actions', () => {
 
 			const expectedActions = [
 				{ type: exercisesActions.ActionTypes.CREATE_EXERCISE_REQUEST },
-				{ type: questionsActionTypes.CREATE_QUESTION_REQUEST },
 				{
 					type: exercisesActions.ActionTypes.CREATE_EXERCISE_SUCCESS,
 					payload: { exercise: { ...exerciseData, id: 'dummy_exercise_id' } },
 				},
+				{ type: questionsActionTypes.CREATE_QUESTION_REQUEST },
 			];
 
 			// Act & assert

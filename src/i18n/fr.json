@@ -517,7 +517,7 @@
 						},
 						"content": {
 							"label": "Contenu",
-							"hint": "C'est ici que doit se trouver le corps de votre leçon.",
+							"placeholder": "C'est ici que doit se trouver le corps de votre leçon.",
 							"validation_rules": {
 								"required": "Veuillez fournir du contenu."
 							}
@@ -559,8 +559,8 @@
 							}
 						},
 						"content": {
-							"label": "Description",
-							"hint": "C'est ici que doit se trouver le corps de votre leçon.",
+							"label": "Contenu",
+							"placeholder": "C'est ici que doit se trouver le corps de votre leçon.",
 							"validation_rules": {
 								"required": "Veuillez fournir du contenu."
 							}

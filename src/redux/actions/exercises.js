@@ -274,9 +274,10 @@ export const createExercise = (exerciseData) => (dispatch) => {
 
 	return ExercisesApi.createExercise(exerciseData)
 		.then((exercise) => {
-			dispatch(createQuestion({ ...exerciseData.question, exerciseId: exercise.id }));
 			dispatch(createExerciseSuccess({ exercise }));
-			redirectOnSuccess(generatePath(routes.lessons.lessonEdition, { lessonId: exercise.lessonId }));
+			dispatch(createQuestion({ ...exerciseData.question, exerciseId: exercise.id })).then(() => {
+				redirectOnSuccess(generatePath(routes.lessons.lessonEdition, { lessonId: exercise.lessonId }));
+			});
 		})
 		.catch((error) => dispatch(createExerciseFailure(error)));
 };
