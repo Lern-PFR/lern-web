@@ -1,7 +1,7 @@
 import { StyledDiv } from 'components/shared/styledElements';
 import { BodyCopy, LongPrimer, Trafalgar } from 'components/shared/typography';
 import PropTypes from 'prop-types';
-import { Fragment } from 'react';
+import Editor from 'rich-markdown-editor';
 import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle, lessonTitleContainer } from 'theme/pages/concepts/conceptDetailsPage';
 
 /**
@@ -9,6 +9,7 @@ import { lessonContent, lessonContentContainer, lessonDescription, lessonTitle, 
  * @description A component used to display a lesson's content.
  *
  * @author Timothée Simon-Franza
+ * @author Yann Hodiesne
  *
  * @param {string} title		The current lesson's title.
  * @param {string} content		The current lesson's content.
@@ -22,13 +23,8 @@ const LessonContent = ({ title, content, description, question }) => (
 			<LongPrimer {...lessonDescription}>{description}</LongPrimer>
 		</StyledDiv>
 		<StyledDiv>
-			<BodyCopy {...lessonContent}>
-				{content.split('\n').map((str) => (
-					<Fragment key={str}>
-						{str}
-						<br />
-					</Fragment>
-				))}
+			<BodyCopy tag="div" {...lessonContent}>
+				<Editor defaultValue={content} value={content} readOnly />
 			</BodyCopy>
 			{question && (
 				<BodyCopy>
