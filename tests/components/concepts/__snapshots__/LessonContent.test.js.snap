@@ -28,9 +28,21 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
   <styled.div>
     <BodyCopy
       margin={0}
+      tag="div"
     >
-      test lesson content
-      <br />
+      <RichMarkdownEditor
+        defaultValue="test lesson content"
+        dir="auto"
+        embeds={Array []}
+        extensions={Array []}
+        onClickLink={[Function]}
+        onImageUploadStart={[Function]}
+        onImageUploadStop={[Function]}
+        placeholder="Write something nice…"
+        readOnly={true}
+        tooltip={[Function]}
+        value="test lesson content"
+      />
     </BodyCopy>
   </styled.div>
 </styled.div>
@@ -64,9 +76,21 @@ exports[`LessonContent should match previous snapshot (with question provided) 1
   <styled.div>
     <BodyCopy
       margin={0}
+      tag="div"
     >
-      test lesson content
-      <br />
+      <RichMarkdownEditor
+        defaultValue="test lesson content"
+        dir="auto"
+        embeds={Array []}
+        extensions={Array []}
+        onClickLink={[Function]}
+        onImageUploadStart={[Function]}
+        onImageUploadStop={[Function]}
+        placeholder="Write something nice…"
+        readOnly={true}
+        tooltip={[Function]}
+        value="test lesson content"
+      />
     </BodyCopy>
     <BodyCopy>
       <strong>

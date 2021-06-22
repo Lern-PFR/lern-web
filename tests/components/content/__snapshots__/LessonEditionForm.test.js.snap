@@ -41,23 +41,6 @@ exports[` 1`] = `
   >
     lessons.edition.form.fields.description.label
   </LabeledTextArea>
-  <LabeledTextArea
-    defaultValue="dummy_lesson_content"
-    disabled={false}
-    errorText=""
-    hasError={false}
-    hintText=""
-    id="content"
-    key="content"
-    name="content"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="lessons.edition.form.fields.content.placeholder"
-    rows={6}
-    type="textarea"
-  >
-    lessons.edition.form.fields.content.label
-  </LabeledTextArea>
   <LabeledSelect
     defaultValue={
       Object {
@@ -97,6 +80,31 @@ exports[` 1`] = `
   >
     lessons.edition.form.fields.order.label
   </LabeledSelect>
+  <styled.div>
+    <styled.span
+      isError={false}
+    >
+      lessons.edition.form.fields.content.label
+    </styled.span>
+    <Styled(styled.div)
+      isError={false}
+    >
+      <RichMarkdownEditor
+        defaultValue="dummy_lesson_content"
+        dir="auto"
+        embeds={Array []}
+        extensions={Array []}
+        id="lesson-editor"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClickLink={[Function]}
+        onImageUploadStart={[Function]}
+        onImageUploadStop={[Function]}
+        placeholder="lessons.edition.form.fields.content.placeholder"
+        tooltip={[Function]}
+      />
+    </Styled(styled.div)>
+  </styled.div>
   <PrimaryButton
     justifySelf="start"
     type="submit"

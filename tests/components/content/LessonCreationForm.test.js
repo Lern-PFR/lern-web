@@ -24,11 +24,6 @@ describe('Concept creation form', () => {
 			const { container } = render(<LessonCreationForm onSubmit={jest.fn()} />);
 			expect(container.querySelector('textarea[name="description"]')).not.toEqual(null);
 		});
-
-		it('should contain a "content" textarea.', () => {
-			const { container } = render(<LessonCreationForm onSubmit={jest.fn()} />);
-			expect(container.querySelector('textarea[name="content"]')).not.toEqual(null);
-		});
 	});
 
 	describe('Form inputs validation', () => {
@@ -159,6 +154,7 @@ describe('Concept creation form', () => {
 		});
 	});
 
+	/*
 	describe('content textarea validation', () => {
 		let contentTextarea;
 		let submitButton;
@@ -200,6 +196,7 @@ describe('Concept creation form', () => {
 			});
 		});
 	});
+	*/
 
 	describe('onSubmit', () => {
 		it('should call the onSubmit prop method with the form\'s inputs\' values.', async () => {
@@ -209,13 +206,14 @@ describe('Concept creation form', () => {
 			const expectedFormData = {
 				title: 'dummy lesson title',
 				description: 'dummy lesson description',
-				content: 'dummy lesson content',
+				content: '\\\n',
+				// content: 'dummy lesson content',
 			};
 
 			await act(async () => {
 				await fireEvent.input(container.querySelector('input[name="title"]'), { target: { value: expectedFormData.title } });
 				await fireEvent.input(container.querySelector('textarea[name="description"]'), { target: { value: expectedFormData.description } });
-				await fireEvent.input(container.querySelector('textarea[name="content"]'), { target: { value: expectedFormData.content } });
+				// await fireEvent.input(container.querySelector('textarea[name="content"]'), { target: { value: expectedFormData.content } });
 
 				await fireEvent.click(container.querySelector('button[type="submit"]'));
 			});

@@ -1,13 +1,38 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import Editor from 'rich-markdown-editor';
 
 import { hasMaxLength, hasMinLength, isRequired } from 'lib/shared/inputValidation';
 import { isFormValid, validateField, validateForm } from 'lib/shared/formUtils';
-import { StyledForm } from 'components/shared/styledElements';
+import { StyledDiv, StyledForm } from 'components/shared/styledElements';
 import { form, formSubmit } from 'theme/contentEditionCommon/genericLayout';
 import { LabeledInput, LabeledSelect, LabeledTextArea } from 'components/shared/form';
+import SubTextComponent from 'components/shared/form/SubTextComponent';
 import { PrimaryButton } from 'components/shared/buttons';
+import styled from 'styled-components';
+import { labelStyle } from 'theme/formStyles';
+import { layout, flexbox, color, typography } from 'styled-system';
+import { brevier } from 'theme/textStyles';
+
+const StyledEditor = styled(StyledDiv)({
+	padding: '0 2em',
+	border: 'solid 1px',
+	borderRadius: '6px',
+	borderColor: (({ isError }) => (isError ? 'red' : 'black')),
+});
+
+const StyledEditorLabel = styled('span')(
+	{
+		...labelStyle,
+		...brevier,
+		color: (({ isError }) => (isError ? 'red' : 'inherit')),
+	},
+	flexbox,
+	color,
+	typography,
+	layout,
+);
 
 /**
  * @constant
@@ -27,9 +52,6 @@ const validationRules = {
 		hasMinLength: hasMinLength(10, 'min_length'),
 		hasMaxLength: hasMaxLength(300, 'max_length'),
 	},
-	content: {
-		required: isRequired('required'),
-	},
 	order: {
 		required: isRequired('required'),
 	},
@@ -45,7 +67,6 @@ const validationRules = {
 const inputsDefinition = {
 	title: { id: 'title', name: 'title', hasPlaceholder: true },
 	description: { id: 'description', name: 'description', inputType: 'textarea', hasPlaceholder: true },
-	content: { id: 'content', name: 'content', inputType: 'textarea', hasPlaceholder: true },
 	order: { id: 'order', name: 'order', inputType: 'select', hasPlaceholder: false },
 };
 
@@ -73,6 +94,9 @@ const LessonEditionForm = ({ lesson, lessonOrderOptions, onSubmit }) => {
 	const fieldsRef = useRef({});
 	const hasFormBeenSubmitted = useRef(false);
 
+	const getEditorValue = useRef(null);
+	const [editorError, setEditorError] = useState(false);
+
 	/**
 	 * @function
 	 * @name handleSubmit
@@ -96,7 +120,14 @@ const LessonEditionForm = ({ lesson, lessonOrderOptions, onSubmit }) => {
 		const result = {
 			...formState,
 			order: formState.order.value ?? formState.order,
+			content: getEditorValue.current !== null ? getEditorValue.current() : formState.content,
 		};
+
+		if (result.content.trim().length === 0) {
+			setEditorError(true);
+
+			return;
+		}
 
 		onSubmit(result);
 	}, [formState, onSubmit, setErrors]);
@@ -157,6 +188,20 @@ const LessonEditionForm = ({ lesson, lessonOrderOptions, onSubmit }) => {
 		// Performs validation check on the field and updates the errors state.
 		setErrors({ ...rest, [name]: validateField(value, validationRules[name]) });
 	}, [errors, setErrors]);
+
+	const handleEditorChange = useCallback((getter) => {
+		getEditorValue.current = getter;
+	}, [getEditorValue]);
+
+	const handleEditorBlur = useCallback(() => {
+		if (getEditorValue.current !== null) {
+			if (getEditorValue.current().trim().length === 0 && editorError !== true) {
+				setEditorError(true);
+			} else if (editorError !== false) {
+				setEditorError(false);
+			}
+		}
+	}, [editorError]);
 
 	/**
 	 * @function
@@ -243,6 +288,25 @@ const LessonEditionForm = ({ lesson, lessonOrderOptions, onSubmit }) => {
 					}
 				}
 			})}
+			<StyledDiv>
+				<StyledEditorLabel isError={editorError}>
+					{t('lessons.edition.form.fields.content.label')}
+				</StyledEditorLabel>
+				<StyledEditor isError={editorError}>
+					<Editor
+						id="lesson-editor"
+						defaultValue={lesson.content}
+						placeholder={t('lessons.edition.form.fields.content.placeholder')}
+						onChange={handleEditorChange}
+						onBlur={handleEditorBlur}
+					/>
+				</StyledEditor>
+				{editorError && (
+					<SubTextComponent isErrorMessage>
+						{t('lessons.edition.form.fields.content.validation_rules.required')}
+					</SubTextComponent>
+				)}
+			</StyledDiv>
 			<PrimaryButton type="submit" {...formSubmit}>
 				{t('lessons.edition.form.action.submit')}
 			</PrimaryButton>
