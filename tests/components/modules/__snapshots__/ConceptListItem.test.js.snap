@@ -11,7 +11,6 @@ exports[`ConceptListItem should match previous snapshot 1`] = `
     lineHeight="initial"
     margin={0}
     tag="h2"
-    textTransform="capitalize"
   >
     abcd
   </Paragon>
@@ -53,7 +52,6 @@ exports[`ConceptListItem should match previous snapshot with lessons 1`] = `
     lineHeight="initial"
     margin={0}
     tag="h2"
-    textTransform="capitalize"
   >
     abcd
   </Paragon>
