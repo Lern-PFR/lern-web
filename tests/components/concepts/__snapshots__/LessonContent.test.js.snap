@@ -15,7 +15,6 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
       lineHeight="initial"
       margin={0}
       tag="h2"
-      textTransform="capitalize"
     >
       test lesson
     </Trafalgar>
@@ -63,7 +62,6 @@ exports[`LessonContent should match previous snapshot (with question provided) 1
       lineHeight="initial"
       margin={0}
       tag="h2"
-      textTransform="capitalize"
     >
       test lesson
     </Trafalgar>

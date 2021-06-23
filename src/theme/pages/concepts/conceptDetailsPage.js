@@ -22,7 +22,6 @@ const sidebar = {
 const conceptTitle = {
 	margin: 0,
 	lineHeight: 'initial',
-	textTransform: 'capitalize',
 };
 
 const lessonContentContainer = {
@@ -40,7 +39,6 @@ const lessonTitleContainer = {
 const lessonTitle = {
 	margin: 0,
 	lineHeight: 'initial',
-	textTransform: 'capitalize',
 };
 
 const lessonDescription = {

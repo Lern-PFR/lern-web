@@ -40,7 +40,6 @@ const startConceptButton = {
 
 const conceptName = {
 	lineHeight: 'initial',
-	textTransform: 'capitalize',
 	margin: 0,
 };
 
@@ -71,7 +70,6 @@ const lessonListItem = {
 
 const lessonTitle = {
 	margin: 0,
-	textTransform: 'capitalize',
 };
 
 const lessonDescription = {
