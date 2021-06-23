@@ -8,7 +8,6 @@ exports[`LessonContent should match previous snapshot (no question provided) 1`]
 >
   <styled.div
     bg="#FFFFFF"
-    position="sticky"
     top={0}
   >
     <Trafalgar
@@ -55,7 +54,6 @@ exports[`LessonContent should match previous snapshot (with question provided) 1
 >
   <styled.div
     bg="#FFFFFF"
-    position="sticky"
     top={0}
   >
     <Trafalgar

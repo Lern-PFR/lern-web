@@ -31,7 +31,6 @@ const lessonContentContainer = {
 };
 
 const lessonTitleContainer = {
-	position: 'sticky',
 	top: 0,
 	bg: coconut.default,
 };
